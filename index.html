@@ -508,6 +508,9 @@ footer{background:#252525}
 .admin-panel{background:#f3f5f7}.admin-head{height:56px;padding:8px 18px;box-shadow:0 1px 5px #0002}.admin-head b{font-size:16px}.admin-wrap{max-width:1280px;padding:10px 12px}.admin-grid{grid-template-columns:170px minmax(0,1fr);gap:10px}.admin-side{padding:7px;border-radius:8px;box-shadow:0 1px 5px #0001;position:sticky;top:66px}.admin-side button{padding:9px 10px;margin-bottom:2px;font-size:12px;border-radius:6px}.admin-main{min-width:0}.admin-view>h1{font-size:20px;margin:2px 0 9px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.stat{padding:10px 12px;border-radius:7px;box-shadow:0 1px 5px #0001}.stat small{font-size:10px}.stat b{font-size:20px;margin-top:3px}.admin-card{padding:10px;border-radius:7px;margin-top:9px;box-shadow:0 1px 5px #0001}.admin-card-head{margin-bottom:8px}.admin-card h2{font-size:15px}.admin-muted{font-size:10px;margin-bottom:8px}.admin-toolbar{gap:6px}.admin-toolbar input{max-width:240px;padding:7px 9px;font-size:11px}.admin-btn{padding:7px 10px;font-size:10px;border-radius:5px}.admin-table{font-size:11px}.admin-table th,.admin-table td{padding:7px 8px}.admin-table button{padding:5px 7px;font-size:10px}.admin-badge{padding:3px 6px;font-size:9px}.product-admin-actions{gap:3px}.product-admin-actions button{padding:5px 7px;font-size:10px}.product-thumb{width:34px;height:34px}#admin-products .admin-card-head>div:first-child h2{font-size:16px!important}#admin-products .admin-card-head>div:first-child .admin-muted{display:none}#admin-products .admin-card-head{margin-bottom:7px}#admin-products .admin-card-head>div:last-child{display:flex;gap:5px}#admin-products .admin-card-head .admin-btn{white-space:nowrap}#admin-products .admin-toolbar{margin-bottom:5px}
 @media(max-width:900px){.admin-grid{grid-template-columns:1fr;gap:7px}.admin-side{position:sticky;top:56px;z-index:4;display:grid;grid-template-columns:repeat(5,1fr);gap:4px}.admin-side button{min-width:0!important}}
 @media(max-width:650px){.admin-head{height:50px;padding:7px 9px}.admin-head b{font-size:14px}.admin-head small{font-size:9px}.admin-wrap{padding:7px}.admin-grid{gap:6px}.admin-side{top:50px;padding:5px;gap:3px}.admin-side button{padding:7px 2px;font-size:9px;line-height:1.15}.admin-view>h1{font-size:17px;margin:1px 0 7px}.stats{gap:5px}.stat{padding:8px}.stat small{font-size:9px}.stat b{font-size:17px}.admin-card{padding:8px;margin-top:6px}.admin-card h2{font-size:13px}.admin-table{font-size:9px}.admin-table th,.admin-table td{padding:6px 5px}.admin-table button{font-size:9px;padding:4px 5px}.admin-toolbar input{max-width:none;flex:1;padding:7px}.admin-btn{padding:6px 8px}}
+
+.order-click-row{cursor:pointer;transition:background .15s}.order-click-row:hover{background:#f8fafc}.order-detail-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:10px 0 14px;border-bottom:1px solid #eee}.order-detail-top h3{margin:3px 0 0;font-size:20px}.detail-kicker{font-size:9px;color:#888;font-weight:800;letter-spacing:.7px}.order-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.order-detail-section{border:1px solid #eee;border-radius:11px;padding:12px;margin-top:10px;background:#fff}.order-detail-grid .order-detail-section{margin-top:0}.order-detail-section h4{margin:0 0 9px;font-size:13px}.detail-line{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px dashed #eee;font-size:11px}.detail-line:last-child{border-bottom:0}.detail-line>span:first-child{color:#777}.detail-line b{max-width:70%;text-align:right;word-break:break-word}.order-detail-items{display:flex;flex-direction:column;gap:6px}.order-detail-item{display:flex;justify-content:space-between;gap:10px;padding:8px;border-radius:8px;background:#f8f9fa;font-size:11px}.order-detail-item small{display:block;color:#777;margin-top:2px}.order-detail-total{display:flex;justify-content:space-between;border-top:1px solid #ddd;margin-top:8px;padding-top:10px;font-size:14px}.order-detail-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.order-detail-actions .checkout{margin-top:0}
+@media(max-width:650px){.order-detail-grid{grid-template-columns:1fr}.order-detail-top h3{font-size:17px}.order-detail-section{padding:10px}.detail-line{font-size:10px}.order-detail-item{font-size:10px}}
 </style>
 <style>
 .mobile-categories-modal{position:fixed;inset:0;background:#0008;display:none;align-items:flex-end;z-index:18000}
@@ -627,17 +630,21 @@ footer{background:#252525}
   #adminOrders .admin-table td:nth-child(2)::before{content:'Customer'}
   #adminOrders .admin-table td:nth-child(3)::before{content:'Phone'}
   #adminOrders .admin-table td:nth-child(4)::before{content:'Total'}
-  #adminOrders .admin-table td:nth-child(5)::before{content:'Status'}
-  #adminOrders .admin-table td:nth-child(6){grid-column:1/-1;padding-top:6px!important}
-  #adminOrders .admin-table td:nth-child(6)::before{content:'Actions'}
+  #adminOrders .admin-table td:nth-child(5)::before{content:'Payment'}
+  #adminOrders .admin-table td:nth-child(6)::before{content:'Pay Status'}
+  #adminOrders .admin-table td:nth-child(7)::before{content:'Status'}
+  #adminOrders .admin-table td:nth-child(8){grid-column:1/-1;padding-top:6px!important}
+  #adminOrders .admin-table td:nth-child(8)::before{content:'Actions'}
   /* Dashboard copies the order table into #dashboardOrders */
   #dashboardOrders .admin-table td:nth-child(1)::before{content:'Order ID'}
   #dashboardOrders .admin-table td:nth-child(2)::before{content:'Customer'}
   #dashboardOrders .admin-table td:nth-child(3)::before{content:'Phone'}
   #dashboardOrders .admin-table td:nth-child(4)::before{content:'Total'}
-  #dashboardOrders .admin-table td:nth-child(5)::before{content:'Status'}
-  #dashboardOrders .admin-table td:nth-child(6){grid-column:1/-1;padding-top:6px!important}
-  #dashboardOrders .admin-table td:nth-child(6)::before{content:'Actions'}
+  #dashboardOrders .admin-table td:nth-child(5)::before{content:'Payment'}
+  #dashboardOrders .admin-table td:nth-child(6)::before{content:'Pay Status'}
+  #dashboardOrders .admin-table td:nth-child(7)::before{content:'Status'}
+  #dashboardOrders .admin-table td:nth-child(8){grid-column:1/-1;padding-top:6px!important}
+  #dashboardOrders .admin-table td:nth-child(8)::before{content:'Actions'}
   /* Users */
   #adminUsers .admin-table td:nth-child(1)::before{content:'Name'}
   #adminUsers .admin-table td:nth-child(2)::before{content:'Email'}
@@ -739,6 +746,20 @@ footer{background:#252525}
 }
 </style>
 
+<style id="clean-clickable-orders-fix">
+.admin-orders-hint{margin:0 0 8px;padding:9px 11px;border:1px solid #e6eee8;border-radius:10px;background:#f5fbf7;color:#3b6b4d;font-size:11px;font-weight:700;text-align:center}
+.order-click-row{cursor:pointer !important}
+.order-click-row td{user-select:none}
+.order-click-row:hover{background:#f7fbf8 !important}
+@media(max-width:650px){
+  .admin-orders-hint{font-size:10px;padding:8px 9px;line-height:1.35}
+  .compact-orders-table tbody{gap:8px !important}
+  .compact-orders-table tr{padding:9px 10px !important;border:1px solid #e4e8eb !important;box-shadow:0 1px 3px rgba(0,0,0,.03)}
+  .compact-orders-table td{font-size:10px !important}
+  .compact-orders-table td:nth-child(1),.compact-orders-table td:nth-child(2){font-weight:700 !important}
+}
+</style>
+
 <style id="final-mobile-orders-products-fix">
 /* FINAL: Orders + Products must never create horizontal scrolling on mobile */
 .admin-table-wrap.compact-orders-table-wrap,
@@ -826,19 +847,13 @@ footer{background:#252525}
     letter-spacing:.25px !important;
   }
 
-  /* Orders: Order ID / Customer / Phone / Total / Status / Actions */
+  /* Orders: clean 6-field clickable card */
   .compact-orders-table td:nth-child(1)::before{content:"Order ID" !important}
   .compact-orders-table td:nth-child(2)::before{content:"Customer" !important}
-  .compact-orders-table td:nth-child(3)::before{content:"Phone" !important}
-  .compact-orders-table td:nth-child(4)::before{content:"Total" !important}
-  .compact-orders-table td:nth-child(5)::before{content:"Status" !important}
-  .compact-orders-table td:nth-child(6){
-    grid-column:1 / -1 !important;
-    overflow:visible !important;
-    white-space:normal !important;
-    padding-top:5px !important;
-  }
-  .compact-orders-table td:nth-child(6)::before{content:"Actions" !important}
+  .compact-orders-table td:nth-child(3)::before{content:"Total" !important}
+  .compact-orders-table td:nth-child(4)::before{content:"Payment" !important}
+  .compact-orders-table td:nth-child(5)::before{content:"Pay Status" !important}
+  .compact-orders-table td:nth-child(6)::before{content:"Order Status" !important}
 
   /* Products: Image / Product / Brand / Category / Price / Actions */
   .compact-products-table td:nth-child(1)::before{content:"Image" !important}
@@ -1099,6 +1114,12 @@ footer{background:#252525}
   .price{font-size:13px!important}
   .old{font-size:8.5px!important}
 }
+
+/* ===== bKash Payment Details ===== */
+.bkash-payment-box{margin-top:10px;border:1px solid #f1b5cc;background:#fff7fa;border-radius:14px;padding:12px}.bkash-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.bkash-head b{display:block;font-size:15px}.bkash-head small{display:block;color:#777;margin-top:3px}.bkash-badge{background:#e2136e;color:#fff;padding:5px 9px;border-radius:999px;font-size:11px;font-weight:800}.bkash-number-row{display:flex;align-items:center;gap:8px;margin:10px 0}.bkash-number-row span{flex:1;background:#fff;border:1px dashed #e2136e;border-radius:10px;padding:10px;font-weight:900;font-size:18px;letter-spacing:.5px}.bkash-number-row button{border:0;background:#e2136e;color:#fff;border-radius:9px;padding:10px 12px;font-weight:800}.bkash-help{background:#fff;border-radius:10px;padding:9px;font-size:11px;line-height:1.55;color:#555}.bkash-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}.bkash-fields label{font-size:11px}.bkash-fields label span{color:#999;font-weight:400}.bkash-fields input{margin-top:4px}.payment-details-card{margin-top:9px;padding:10px;border:1px solid #eee;border-radius:11px;background:#fff}.payment-details-card .pd-row{display:flex;justify-content:space-between;gap:10px;font-size:11px;padding:3px 0}.payment-details-card .pd-label{color:#888}.payment-details-card .pd-value{font-weight:800;text-align:right;word-break:break-word}.payment-status-badge{display:inline-block;padding:3px 7px;border-radius:999px;background:#fff3cd;color:#856404;font-size:10px;font-weight:800}.payment-status-badge.verified{background:#d1fae5;color:#065f46}.payment-status-badge.rejected{background:#fee2e2;color:#991b1b}.add-payment-btn{width:100%;margin-top:7px;border:1px solid #e2136e;background:#fff;color:#e2136e;border-radius:9px;padding:8px;font-weight:800;font-size:11px}.payment-upload-note{font-size:10px;color:#777;margin-top:4px}@media(max-width:650px){.bkash-fields{grid-template-columns:1fr}.bkash-number-row span{font-size:16px}}
+
+/* Customer Order Details + JPG Receipt */
+.order-details-btn{border:1px solid #ddd;background:#fff;border-radius:9px;padding:8px 10px;font-size:11px;font-weight:800;color:#333;cursor:pointer;margin-top:7px;width:100%}.order-details-btn.primary{background:#111;color:#fff;border-color:#111}.order-receipt{width:100%;max-width:560px;margin:0 auto;background:#fff;color:#222;padding:22px;border-radius:14px;font-family:Arial,sans-serif;box-sizing:border-box}.receipt-brand{text-align:center;border-bottom:1px solid #eee;padding-bottom:14px;margin-bottom:14px}.receipt-brand h2{margin:0;font-size:24px}.receipt-brand p{margin:4px 0 0;color:#777;font-size:12px}.receipt-id{text-align:center;font-weight:800;font-size:13px;margin-bottom:14px}.receipt-section{border:1px solid #eee;border-radius:10px;padding:11px;margin-top:10px}.receipt-section h4{margin:0 0 8px;font-size:13px}.receipt-row{display:flex;justify-content:space-between;gap:12px;padding:5px 0;font-size:12px;border-bottom:1px dashed #eee}.receipt-row:last-child{border-bottom:0}.receipt-row span:first-child{color:#777}.receipt-row b{text-align:right;word-break:break-word}.receipt-items{width:100%;border-collapse:collapse;font-size:11px}.receipt-items th,.receipt-items td{text-align:left;padding:7px 4px;border-bottom:1px solid #eee}.receipt-items th:last-child,.receipt-items td:last-child{text-align:right}.receipt-total{font-size:16px;font-weight:900;text-align:right;margin-top:10px}.receipt-footer{text-align:center;color:#888;font-size:10px;margin-top:14px;padding-top:10px;border-top:1px solid #eee}.jpg-action-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.jpg-action-row button{border-radius:10px;padding:11px;font-weight:800;border:1px solid #ddd}.jpg-download-btn{background:#111;color:#fff;border-color:#111!important}.jpg-share-btn{background:#f5f5f5;color:#222}.receipt-loading{text-align:center;padding:18px;color:#777}@media(max-width:650px){.order-receipt{padding:16px}.receipt-brand h2{font-size:21px}.receipt-row{font-size:11px}.jpg-action-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -1292,12 +1313,23 @@ footer{background:#252525}
   <div class="sheet-head"><h2>Checkout</h2><button class="close" onclick="closeCheckout()">&#215;</button></div>
   <form id="checkoutForm" onsubmit="placeOrder(event)">
     <label>Customer Name</label><input class="form-input" id="customerName" type="text" placeholder="Enter your name" required>
-    <label>Phone Number</label><input class="form-input" id="customerPhone" type="tel" placeholder="01XXXXXXXXX" required>
+    <label>Phone Number</label><input class="form-input" id="customerPhone" type="tel" placeholder="+8801789417135" required>
     <label>Delivery Address <span class="saved-label" id="savedAddressLabel">(saved automatically)</span></label><textarea class="form-input" id="customerAddress" rows="3" placeholder="City, area, street and address" required></textarea>
     <div class="checkout-address-note">&#10003; If you have saved a shipping address, it is filled in automatically. You can edit it before confirming.</div>
     <label>Payment Method</label><div class="payment-options">
-      <label class="payment"><input type="radio" name="payment" value="cod" checked><span>&#128181;</span><div><b>Cash on Delivery</b><small>Pay when your order is delivered</small></div></label>
-      <label class="payment"><input type="radio" name="payment" value="online"><span>&#128179;</span><div><b>Online Payment</b><small>Payment gateway can be connected later</small></div></label>
+      <label class="payment"><input type="radio" name="payment" value="cod" checked onchange="toggleBkashPayment()"><span>&#128181;</span><div><b>Cash on Delivery</b><small>Pay when your order is delivered</small></div></label>
+      <label class="payment"><input type="radio" name="payment" value="bkash" onchange="toggleBkashPayment()"><span style="font-weight:900">৳</span><div><b>bKash Payment</b><small>Pay first, then submit payment details</small></div></label>
+    </div>
+    <div id="bkashPaymentBox" class="bkash-payment-box" style="display:none">
+      <div class="bkash-head"><div><b>📱 bKash Payment</b><small>Send the exact order amount to the number below.</small></div><span class="bkash-badge">bKash</span></div>
+      <div class="bkash-number-row"><span id="checkoutBkashNumber">+8801789417135</span><button type="button" onclick="copyBkashNumber()">Copy</button></div>
+      <div class="bkash-help">1. Open bKash → Send Money<br>2. Send <b id="bkashCheckoutAmount">৳0</b> to the number above<br>3. After payment, you can enter the Transaction ID now or add it later from <b>My Orders</b>.</div>
+      <div class="bkash-fields">
+        <div><label>bKash Sender Number <span>(optional)</span></label><input class="form-input" id="bkashSenderNumber" type="tel" placeholder="+8801789417135" inputmode="numeric"></div>
+        <div><label>Transaction ID <span>(optional)</span></label><input class="form-input" id="bkashTransactionId" type="text" placeholder="e.g. 8A7B6C5D" autocomplete="off"></div>
+        <div><label>Paid Amount <span>(optional)</span></label><input class="form-input" id="bkashPaidAmount" type="number" min="0" step="0.01" placeholder="Enter paid amount"></div>
+        <div><label>Payment Screenshot <span>(optional)</span></label><input class="form-input" id="bkashScreenshot" type="file" accept="image/*"></div>
+      </div>
     </div>
     <div id="checkoutSummary" class="checkout-summary"></div>
     <button type="button" class="checkout" style="width:100%;margin-top:10px;background:#25D366;border-color:#25D366" onclick="contactWhatsAppForOrder()">&#128172; WhatsApp এ যোগাযোগ করুন</button>
@@ -1305,10 +1337,25 @@ footer{background:#252525}
   </form>
 </div></div>
 
+<div class="modal" id="paymentDetailsModal" onclick="if(event.target===this)closePaymentDetails()"><div class="sheet" style="max-width:520px">
+  <div class="sheet-head"><div><h2>💳 bKash Payment Details</h2><p class="admin-muted" style="margin:4px 0 0">Add or update payment information for your order.</p></div><button class="close" type="button" onclick="closePaymentDetails()">&#215;</button></div>
+  <form class="admin-form" onsubmit="savePaymentDetails(event)">
+    <input type="hidden" id="paymentDetailsDocId">
+    <div id="paymentDetailsOrderInfo" class="payment-details-card" style="margin-top:0"></div>
+    <label>bKash Sender Number</label><input id="paymentDetailsSender" type="tel" placeholder="+8801789417135" inputmode="numeric" required>
+    <label>Transaction ID</label><input id="paymentDetailsTxn" type="text" placeholder="Enter bKash Transaction ID" autocomplete="off" required>
+    <label>Paid Amount</label><input id="paymentDetailsAmount" type="number" min="0" step="0.01" placeholder="Enter paid amount" required>
+    <label>Payment Screenshot <span style="color:#999">(optional)</span></label><input id="paymentDetailsScreenshot" type="file" accept="image/*">
+    <div id="paymentDetailsExisting" class="payment-upload-note"></div>
+    <button class="checkout" type="submit" id="paymentDetailsSaveBtn">💾 Save Payment Details</button>
+  </form>
+</div></div>
+
 <div class="modal" id="confirmationModal"><div class="sheet confirmation">
   <div class="success-icon">&#10003;</div><h2>Order Confirmed!</h2><p class="success-text">Thank you. Your order has been received successfully.</p>
   <div class="order-box"><div><span>Order ID</span><b id="orderId"></b></div><div><span>Customer</span><b id="confirmName"></b></div><div><span>Phone</span><b id="confirmPhone"></b></div><div><span>Total</span><b id="confirmTotal"></b></div><div><span>Payment</span><b id="confirmPayment"></b></div></div>
   <div class="order-status"><div class="status active"><span>&#10003;</span><div><b>Order Confirmed</b><small>Your order has been confirmed.</small></div></div><div class="status"><span>2</span><div><b>Processing</b><small>Your order is being prepared.</small></div></div><div class="status"><span>3</span><div><b>On the Way</b><small>Your order is on the way.</small></div></div><div class="status"><span>4</span><div><b>Delivered</b><small>Your order has been delivered.</small></div></div></div>
+  <button type="button" class="checkout" id="confirmationPaymentBtn" style="background:#e2136e;border-color:#e2136e;display:none" onclick="openPaymentDetailsForLastOrder()">💳 Add bKash Payment Details</button>
   <button class="checkout" onclick="closeConfirmation()">Continue Shopping</button>
 </div></div>
 
@@ -1328,7 +1375,7 @@ footer{background:#252525}
   <div class="sheet-head"><div><h2>Create Account</h2><p class="admin-muted" style="margin:4px 0 0">Create your BazarBD customer account.</p></div><button class="close" type="button" onclick="closeUserSignup()">&#215;</button></div>
   <form id="userSignupForm" onsubmit="userSignup(event)">
     <label>Full Name</label><input class="form-input" id="userSignupName" type="text" autocomplete="name" required placeholder="Enter your full name">
-    <label>Phone Number</label><input class="form-input" id="userSignupPhone" type="tel" autocomplete="tel" placeholder="01XXXXXXXXX">
+    <label>Phone Number</label><input class="form-input" id="userSignupPhone" type="tel" autocomplete="tel" placeholder="+8801789417135">
     <label>Shipping Address</label><textarea class="form-input" id="userSignupAddress" rows="3" autocomplete="street-address" placeholder="City, area, street and address"></textarea>
     <label>Email</label><input class="form-input" id="userSignupEmail" type="email" autocomplete="email" required placeholder="Enter your email">
     <label>Password</label><input class="form-input" id="userSignupPassword" type="password" autocomplete="new-password" minlength="6" required placeholder="At least 6 characters">
@@ -1359,7 +1406,7 @@ footer{background:#252525}
    <form class="profile-card" id="profileEditForm" onsubmit="saveProfile(event)">
     <b>Edit Profile & Shipping Information</b>
     <label>Full Name</label><input class="form-input" id="profileEditName" type="text" required placeholder="Your full name">
-    <label>Phone Number</label><input class="form-input" id="profileEditPhone" type="tel" placeholder="01XXXXXXXXX">
+    <label>Phone Number</label><input class="form-input" id="profileEditPhone" type="tel" placeholder="+8801789417135">
     <label>Shipping Address</label><textarea class="form-input" id="profileEditAddress" rows="4" placeholder="City, area, street and address"></textarea>
     <div class="admin-error" id="profileSaveError"></div>
     <button class="checkout" type="submit">&#10003; Save Profile</button>
@@ -1490,6 +1537,20 @@ footer{background:#252525}
   <div id="productDetailsView"></div>
 </div></div>
 
+<div class="modal" id="adminOrderDetailsModal" onclick="if(event.target===this)closeAdminOrderDetails()"><div class="sheet" style="max-width:700px">
+  <div class="sheet-head"><div><h2>📦 Order Details</h2><p class="admin-muted" style="margin:4px 0 0">Complete customer, product and payment information</p></div><button class="close" type="button" onclick="closeAdminOrderDetails()">&#215;</button></div>
+  <div id="adminOrderDetailsView"></div>
+</div></div>
+
+<div class="modal" id="userOrderDetailsModal" onclick="if(event.target===this)closeUserOrderDetails()"><div class="sheet" style="max-width:620px">
+  <div class="sheet-head"><div><h2>📦 Order Details</h2><p class="admin-muted" style="margin:4px 0 0">আপনার অর্ডারের সম্পূর্ণ বিস্তারিত</p></div><button class="close" type="button" onclick="closeUserOrderDetails()">&#215;</button></div>
+  <div id="userOrderDetailsView"></div>
+  <div class="jpg-action-row">
+    <button type="button" class="jpg-download-btn" onclick="downloadCurrentOrderJpg()">🖼️ Download JPG</button>
+    <button type="button" class="jpg-share-btn" onclick="shareCurrentOrder()">📤 Share</button>
+  </div>
+</div></div>
+
 <div class="modal" id="editOrderModal" onclick="if(event.target===this)closeEditOrder()"><div class="sheet" style="max-width:620px">
   <div class="sheet-head"><h2>Edit Order</h2><button class="close" onclick="closeEditOrder()">&#215;</button></div>
   <form class="admin-form" onsubmit="saveEditedOrder(event)">
@@ -1501,7 +1562,12 @@ footer{background:#252525}
     <label>Status</label><select id="editOrderStatus"><option>Confirmed</option><option>Processing</option><option>On the Way</option><option>Delivered</option><option>Cancelled</option></select>
     <label>Tracking Number</label><input id="editOrderTracking" placeholder="Courier tracking number">
     <label>Tracking Link</label><input id="editOrderTrackingLink" type="url" placeholder="https://courier.example/track/...">
-    <label>Payment Method</label><select id="editOrderPayment"><option>Cash on Delivery</option><option>Online Payment</option></select>
+    <label>Payment Method</label><select id="editOrderPayment"><option>Cash on Delivery</option><option>bKash</option><option>Online Payment</option></select>
+    <label>Payment Status</label><select id="editOrderPaymentStatus"><option>Not Paid</option><option>Pending Verification</option><option>Verified</option><option>Rejected</option></select>
+    <label>bKash Sender Number</label><input id="editBkashSenderNumber" type="tel" placeholder="+8801789417135">
+    <label>bKash Transaction ID</label><input id="editBkashTransactionId" placeholder="Transaction ID">
+    <label>Paid Amount</label><input id="editBkashPaidAmount" type="number" min="0" step="0.01" placeholder="Paid amount">
+    <label>Payment Screenshot URL</label><input id="editBkashScreenshotUrl" type="url" placeholder="Screenshot URL">
     <label>Total Amount</label><input id="editOrderTotal" type="number" min="0" step="0.01" required>
     <button class="checkout" type="submit">Save Order Changes</button>
   </form>
@@ -1619,6 +1685,7 @@ window.closeEditUser = function() {
 };
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-analytics.js";
@@ -1925,30 +1992,83 @@ window.placeOrder = async function(e) {
   const phone = document.getElementById("customerPhone").value.trim();
   const address = document.getElementById("customerAddress").value.trim();
   const paymentRadio = document.querySelector('input[name="payment"]:checked');
-  const paymentMethod = paymentRadio?.value === "online" ? "Online Payment" : "Cash on Delivery";
+  const paymentMethod = paymentRadio?.value === "bkash" ? "bKash" : "Cash on Delivery";
   const total = cart.reduce((acc, item) => acc + (item.price * (item.qty || 1)), 0);
   const orderId = "ORD" + Date.now().toString().slice(-8);
-  const orderData = { orderId, customerName:name, customerPhone:phone, customerAddress:address, items:cart, total, paymentMethod, status:"Confirmed", createdAt:new Date().toISOString(), userId:currentUser.uid };
+  const sender = document.getElementById("bkashSenderNumber")?.value.trim() || "";
+  const txn = document.getElementById("bkashTransactionId")?.value.trim() || "";
+  const paidRaw = document.getElementById("bkashPaidAmount")?.value;
+  const paidAmount = paidRaw ? Number(paidRaw) : 0;
+  const file = document.getElementById("bkashScreenshot")?.files?.[0] || null;
+  const orderData = { orderId, customerName:name, customerPhone:phone, customerAddress:address, items:cart, total, paymentMethod, paymentStatus:paymentMethod==="bKash" ? (txn ? "Pending Verification" : "Not Paid") : "Not Paid", bkashSenderNumber:paymentMethod==="bKash"?sender:"", bkashTransactionId:paymentMethod==="bKash"?txn:"", bkashPaidAmount:paymentMethod==="bKash"?paidAmount:0, bkashScreenshotUrl:"", status:"Confirmed", createdAt:new Date().toISOString(), userId:currentUser.uid };
   try {
-    await addDoc(collection(db,"orders"),orderData);
+    const orderRef = await addDoc(collection(db,"orders"),orderData);
+    if(paymentMethod==="bKash" && file){
+      if(file.size > 5*1024*1024) throw new Error("Payment screenshot must be 5MB or smaller");
+      if(!file.type.startsWith("image/")) throw new Error("Please select an image screenshot");
+      const imgRef = storageRef(storage, `payment-screenshots/${currentUser.uid}/${orderId}-${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g,"_")}`);
+      const uploadResult = await uploadBytes(imgRef,file);
+      const url = await getDownloadURL(uploadResult.ref);
+      await updateDoc(orderRef,{bkashScreenshotUrl:url,updatedAt:new Date().toISOString()});
+    }
     await setDoc(doc(db,"users",currentUser.uid),{name,email:currentUser.email,phone,shippingAddress:address,updatedAt:new Date().toISOString()},{merge:true});
-    // Open WhatsApp with the confirmed order details after the order is saved.
     const waItems = cart.map(item => `• ${item.name || "Product"} x${item.qty || 1} — ${money((Number(item.price)||0) * (item.qty||1))}`).join("\n");
-    const waText = `🛒 *NEW ORDER - BazarBD*\n\nOrder ID: ${orderId}\nCustomer: ${name}\nPhone: ${phone}\nAddress: ${address}\n\nItems:\n${waItems}\n\nTotal: ${money(total)}\nPayment: ${paymentMethod}\nStatus: Confirmed`;
+    const paymentText = paymentMethod==="bKash" ? `\nPayment Status: ${orderData.paymentStatus}\nbKash Sender: ${sender||"Not provided"}\nTransaction ID: ${txn||"Not provided"}\nPaid Amount: ${paidAmount?money(paidAmount):"Not provided"}` : "";
+    const waText = `🛒 *NEW ORDER - BazarBD*\n\nOrder ID: ${orderId}\nCustomer: ${name}\nPhone: ${phone}\nAddress: ${address}\n\nItems:\n${waItems}\n\nTotal: ${money(total)}\nPayment: ${paymentMethod}${paymentText}\nStatus: Confirmed`;
     window.open("https://wa.me/60165251783?text=" + encodeURIComponent(waText), "_blank", "noopener,noreferrer");
-
-  } catch(err) { console.error("Firestore order save error:",err); toast("Could not save order to Firebase"); return; }
+  } catch(err) { console.error("Order/payment save error:",err); toast(err.message || "Could not save order"); return; }
+  window.lastCreatedOrderId=orderId;
   document.getElementById("orderId").textContent=orderId;
   document.getElementById("confirmName").textContent=name;
   document.getElementById("confirmPhone").textContent=phone;
   document.getElementById("confirmTotal").textContent=money(total);
   document.getElementById("confirmPayment").textContent=paymentMethod;
+  const payBtn=document.getElementById("confirmationPaymentBtn"); if(payBtn) payBtn.style.display=paymentMethod==="bKash" ? "block" : "none";
   cart=[]; localStorage.setItem("boighor_cart",JSON.stringify(cart)); updateCartBadge();
   closeCheckout(); document.getElementById("confirmationModal")?.classList.add("open");
 };
 
 window.closeConfirmation = function() {
   document.getElementById("confirmationModal").classList.remove("open");
+};
+
+/* ===== bKash Payment Details Logic ===== */
+const BKASH_NUMBER = "+8801789417135";
+window.toggleBkashPayment=function(){
+  const selected=document.querySelector('input[name="payment"]:checked')?.value;
+  const box=document.getElementById("bkashPaymentBox"); if(box) box.style.display=selected==="bkash"?"block":"none";
+  const amount=document.getElementById("bkashCheckoutAmount"); const total=cart.reduce((acc,item)=>acc+(Number(item.price)||0)*(item.qty||1),0); if(amount)amount.textContent=money(total);
+  const num=document.getElementById("checkoutBkashNumber"); if(num)num.textContent=BKASH_NUMBER;
+};
+window.copyBkashNumber=async function(){try{await navigator.clipboard.writeText(BKASH_NUMBER);toast("bKash number copied");}catch(e){toast("bKash number: "+BKASH_NUMBER);}};
+window.openPaymentDetailsForLastOrder=async function(){
+  if(!window.lastCreatedOrderId||!currentUser){toast("Open My Orders to add payment details");return;}
+  try{const q=query(collection(db,"orders"),where("userId","==",currentUser.uid));const snap=await getDocs(q);let found=null;snap.forEach(d=>{if(d.data().orderId===window.lastCreatedOrderId)found={id:d.id,...d.data()};});if(found)openPaymentDetails(found.id);else toast("Order not found");}catch(e){toast("Could not open payment details");}
+};
+window.openPaymentDetails=async function(docId){
+  if(!currentUser)return;
+  try{const snap=await getDoc(doc(db,"orders",docId));if(!snap.exists()){toast("Order not found");return;}const o=snap.data();if(o.userId!==currentUser.uid){toast("You can only update your own order");return;}
+    document.getElementById("paymentDetailsDocId").value=docId;document.getElementById("paymentDetailsSender").value=o.bkashSenderNumber||"";document.getElementById("paymentDetailsTxn").value=o.bkashTransactionId||"";document.getElementById("paymentDetailsAmount").value=Number(o.bkashPaidAmount||o.total||0)||"";document.getElementById("paymentDetailsScreenshot").value="";
+    document.getElementById("paymentDetailsExisting").innerHTML=o.bkashScreenshotUrl?`Existing screenshot: <a href="${escapeHtml(o.bkashScreenshotUrl)}" target="_blank" rel="noopener noreferrer">View</a>`:"No screenshot uploaded";
+    document.getElementById("paymentDetailsOrderInfo").innerHTML=`<div class="pd-row"><span class="pd-label">Order ID</span><span class="pd-value">${escapeHtml(o.orderId||docId)}</span></div><div class="pd-row"><span class="pd-label">Order Total</span><span class="pd-value">${money(o.total||0)}</span></div><div class="pd-row"><span class="pd-label">bKash Number</span><span class="pd-value">${escapeHtml(BKASH_NUMBER)}</span></div>`;
+    document.getElementById("paymentDetailsModal").classList.add("open");
+  }catch(e){toast("Could not load payment details");}
+};
+window.closePaymentDetails=function(){document.getElementById("paymentDetailsModal")?.classList.remove("open");};
+window.savePaymentDetails=async function(e){
+  e.preventDefault();if(!currentUser)return;
+  const docId=document.getElementById("paymentDetailsDocId").value,sender=document.getElementById("paymentDetailsSender").value.trim(),txn=document.getElementById("paymentDetailsTxn").value.trim(),amount=Number(document.getElementById("paymentDetailsAmount").value||0),file=document.getElementById("paymentDetailsScreenshot").files?.[0]||null;
+  if(!sender||!txn||!amount){toast("Please enter sender number, transaction ID and paid amount");return;}
+  const btn=document.getElementById("paymentDetailsSaveBtn");if(btn){btn.disabled=true;btn.textContent="Saving...";}
+  try{
+    const snap=await getDoc(doc(db,"orders",docId));if(!snap.exists())throw new Error("Order not found");const o=snap.data();if(o.userId!==currentUser.uid)throw new Error("You can only update your own order");
+    const data={paymentMethod:"bKash",paymentStatus:"Pending Verification",bkashSenderNumber:sender,bkashTransactionId:txn,bkashPaidAmount:amount,updatedAt:new Date().toISOString()};
+    if(file){if(file.size>5*1024*1024)throw new Error("Payment screenshot must be 5MB or smaller");if(!file.type.startsWith("image/"))throw new Error("Please select an image screenshot");const imgRef=storageRef(storage,`payment-screenshots/${currentUser.uid}/${o.orderId||docId}-${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g,"_")}`);const up=await uploadBytes(imgRef,file);data.bkashScreenshotUrl=await getDownloadURL(up.ref);}
+    await updateDoc(doc(db,"orders",docId),data);
+    const waText=`💳 *bKash PAYMENT DETAILS UPDATED - BazarBD*\n\nOrder ID: ${o.orderId||docId}\nCustomer: ${o.customerName||""}\nTotal: ${money(o.total||0)}\nPayment: bKash\nSender Number: ${sender}\nTransaction ID: ${txn}\nPaid Amount: ${money(amount)}\nPayment Status: Pending Verification`;
+    window.open("https://wa.me/60165251783?text="+encodeURIComponent(waText),"_blank","noopener,noreferrer");
+    closePaymentDetails();toast("Payment details submitted successfully");loadUserOrders();
+  }catch(err){console.error(err);toast(err.message||"Could not save payment details");}finally{if(btn){btn.disabled=false;btn.textContent="💾 Save Payment Details";}}
 };
 
 /* ===== Site Customization: Slider + Dynamic Categories ===== */
@@ -2281,25 +2401,98 @@ async function loadUserOrders() {
   try{
     const q=query(collection(db,"orders"),where("userId","==",currentUser.uid));
     const snap=await getDocs(q);
-    if(snap.empty){container.innerHTML='<div class="profile-empty">\u{1F4E6} No orders found yet.</div>';return;}
-    const orders=[]; snap.forEach(d=>orders.push({id:d.id,...d.data()}));
+    if(snap.empty){container.innerHTML='<div class="profile-empty">📦 No orders found yet.</div>';return;}
+    const orders=[]; snap.forEach(d=>{const x={id:d.id,...d.data()}; if(!x.deleted) orders.push(x);});
     orders.sort((a,b)=>String(b.createdAt||'').localeCompare(String(a.createdAt||'')));
     container.innerHTML='<div class="compact-order-list">'+orders.map(o=>{
       const status=o.status||'Confirmed';
       const itemCount=(o.items||[]).reduce((n,i)=>n+Number(i.qty||1),0);
-      const firstItems=(o.items||[]).slice(0,2).map(i=>`${escapeHtml(i.name||'Product')} \u{D7} ${i.qty||1}`).join(' \u{2022} ');
+      const firstItems=(o.items||[]).slice(0,2).map(i=>`${escapeHtml(i.name||'Product')} × ${i.qty||1}`).join(' • ');
       const more=(o.items||[]).length>2 ? ` +${(o.items||[]).length-2} more` : '';
-      return `<div class="compact-order-row">
-        <div class="compact-order-main">
-          <div class="compact-order-title"><span class="profile-order-id">${escapeHtml(o.orderId||o.id)}</span><span class="profile-status">${escapeHtml(status)}</span></div>
-          <div class="compact-order-meta">${o.createdAt?new Date(o.createdAt).toLocaleDateString():''} \u{2022} ${itemCount} item${itemCount===1?'':'s'} \u{2022} ${money(o.total||0)}</div>
-          <div class="compact-order-items">${firstItems||'No item details'}${more}</div>
+      const isBkash=o.paymentMethod==='bKash';
+      const hasPayment=!!(o.bkashTransactionId);
+      const ps=o.paymentStatus||'Not Paid';
+      const psClass=ps==='Verified'?'verified':(ps==='Rejected'?'rejected':'');
+      return `<div class="compact-order-row" style="display:block">
+        <div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start">
+          <div class="compact-order-main">
+            <div class="compact-order-title"><span class="profile-order-id">${escapeHtml(o.orderId||o.id)}</span><span class="profile-status">${escapeHtml(status)}</span></div>
+            <div class="compact-order-meta">${o.createdAt?new Date(o.createdAt).toLocaleDateString():''} • ${itemCount} item${itemCount===1?'':'s'} • ${money(o.total||0)}</div>
+            <div class="compact-order-items">${firstItems||'No item details'}${more}</div>
+          </div>
+          <div class="compact-order-action">${o.trackingLink?`<a class="compact-track-btn" href="${escapeHtml(o.trackingLink)}" target="_blank" rel="noopener noreferrer">🔗 Track</a>`:`<button class="compact-track-btn disabled" type="button" onclick="showProfileTab('tracking',document.querySelector('.profile-tabs button:nth-child(2)'))">🚚 Status</button>`}</div>
         </div>
-        <div class="compact-order-action">${o.trackingLink?`<a class="compact-track-btn" href="${escapeHtml(o.trackingLink)}" target="_blank" rel="noopener noreferrer">\u{1F517} Track</a>`:`<button class="compact-track-btn disabled" type="button" onclick="showProfileTab('tracking',document.querySelector('.profile-tabs button:nth-child(2)'))">\u{1F69A} Status</button>`}</div>
+        <button class="order-details-btn primary" type="button" onclick="openUserOrderDetails('${escapeJsArg(o.id)}')">📋 View Full Order Details</button>
+        ${isBkash?`<div class="payment-details-card"><div class="pd-row"><span class="pd-label">Payment</span><span class="pd-value">bKash • <span class="payment-status-badge ${psClass}">${escapeHtml(ps)}</span></span></div>${hasPayment?`<div class="pd-row"><span class="pd-label">Transaction ID</span><span class="pd-value">${escapeHtml(o.bkashTransactionId)}</span></div><div class="pd-row"><span class="pd-label">Paid Amount</span><span class="pd-value">${money(o.bkashPaidAmount||0)}</span></div>`:`<div class="pd-row"><span class="pd-label">Payment details</span><span class="pd-value">Not added yet</span></div>`}<button class="add-payment-btn" type="button" onclick="openPaymentDetails('${escapeJsArg(o.id)}')">${hasPayment?'✏️ Update Payment Details':'💳 Add Payment Details'}</button></div>`:''}
       </div>`;
     }).join('')+'</div>';
   }catch(e){container.innerHTML='<div class="profile-empty">Could not load orders: '+escapeHtml(e.message)+'</div>';}
 }
+
+let currentUserOrderForJpg=null;
+window.openUserOrderDetails=async function(docId){
+  if(!currentUser){toast("Please login first");return;}
+  try{
+    const snap=await getDoc(doc(db,"orders",docId));
+    if(!snap.exists()){toast("Order not found");return;}
+    const o={id:snap.id,...snap.data()};
+    if(o.userId!==currentUser.uid){toast("You cannot view this order");return;}
+    currentUserOrderForJpg=o;
+    const items=o.items||[];
+    const rows=items.map((i,idx)=>`<tr><td>${idx+1}. ${escapeHtml(i.name||'Product')}</td><td>${Number(i.qty||1)}</td><td>${money((Number(i.price)||0)*(Number(i.qty)||1))}</td></tr>`).join('');
+    const payment=o.paymentMethod||'Cash on Delivery';
+    const payStatus=o.paymentStatus||'Not Paid';
+    const payClass=payStatus==='Verified'?'verified':(payStatus==='Rejected'?'rejected':'');
+    document.getElementById('userOrderDetailsView').innerHTML=`<div id="userOrderReceipt" class="order-receipt">
+      <div class="receipt-brand"><h2>BazarBD</h2><p>Online Shopping • Order Receipt</p></div>
+      <div class="receipt-id">Order ID: ${escapeHtml(o.orderId||o.id)}</div>
+      <div class="receipt-section"><h4>👤 Customer Information</h4>
+        <div class="receipt-row"><span>Name</span><b>${escapeHtml(o.customerName||'—')}</b></div>
+        <div class="receipt-row"><span>Phone</span><b>${escapeHtml(o.customerPhone||'—')}</b></div>
+        <div class="receipt-row"><span>Address</span><b>${escapeHtml(o.customerAddress||'—')}</b></div>
+        <div class="receipt-row"><span>Order Date</span><b>${o.createdAt?new Date(o.createdAt).toLocaleString(): '—'}</b></div>
+      </div>
+      <div class="receipt-section"><h4>🛒 Products</h4><table class="receipt-items"><thead><tr><th>Product</th><th>Qty</th><th>Price</th></tr></thead><tbody>${rows||'<tr><td colspan="3">No item details</td></tr>'}</tbody></table><div class="receipt-total">Total: ${money(o.total||0)}</div></div>
+      <div class="receipt-section"><h4>💳 Payment Information</h4>
+        <div class="receipt-row"><span>Method</span><b>${escapeHtml(payment)}</b></div>
+        <div class="receipt-row"><span>Status</span><b><span class="payment-status-badge ${payClass}">${escapeHtml(payStatus)}</span></b></div>
+        ${payment==='bKash'?`<div class="receipt-row"><span>bKash Number</span><b>${escapeHtml(BKASH_NUMBER)}</b></div><div class="receipt-row"><span>Sender Number</span><b>${escapeHtml(o.bkashSenderNumber||'—')}</b></div><div class="receipt-row"><span>Transaction ID</span><b>${escapeHtml(o.bkashTransactionId||'—')}</b></div><div class="receipt-row"><span>Paid Amount</span><b>${o.bkashPaidAmount!=null&&o.bkashPaidAmount!==''?money(o.bkashPaidAmount):'—'}</b></div>`:''}
+      </div>
+      <div class="receipt-section"><h4>🚚 Delivery</h4><div class="receipt-row"><span>Order Status</span><b>${escapeHtml(o.status||'Confirmed')}</b></div><div class="receipt-row"><span>Tracking Number</span><b>${escapeHtml(o.trackingNumber||'—')}</b></div></div>
+      <div class="receipt-footer">Thank you for shopping with BazarBD</div>
+    </div>`;
+    document.getElementById('userOrderDetailsModal').classList.add('open');
+  }catch(e){console.error(e);toast('Could not load order details');}
+};
+window.closeUserOrderDetails=function(){document.getElementById('userOrderDetailsModal')?.classList.remove('open');};
+window.downloadCurrentOrderJpg=async function(){
+  const receipt=document.getElementById('userOrderReceipt');
+  const o=currentUserOrderForJpg;
+  if(!receipt||!o){toast('Order details not ready');return;}
+  if(typeof html2canvas==='undefined'){toast('JPG generator is loading. Please try again');return;}
+  try{
+    const canvas=await html2canvas(receipt,{scale:2,backgroundColor:'#ffffff',useCORS:true,logging:false});
+    const link=document.createElement('a');
+    const id=(o.orderId||'order').replace(/[^a-zA-Z0-9_-]/g,'_');
+    link.download=`BazarBD-${id}.jpg`;
+    link.href=canvas.toDataURL('image/jpeg',0.94);
+    link.click();
+    toast('Order JPG downloaded');
+  }catch(e){console.error(e);toast('Could not create JPG. Please try again');}
+};
+window.shareCurrentOrder=async function(){
+  const receipt=document.getElementById('userOrderReceipt');
+  const o=currentUserOrderForJpg;
+  if(!receipt||!o||typeof html2canvas==='undefined'){toast('Order details not ready');return;}
+  try{
+    const canvas=await html2canvas(receipt,{scale:2,backgroundColor:'#fff',useCORS:true,logging:false});
+    const blob=await new Promise(r=>canvas.toBlob(r,'image/jpeg',0.94));
+    const file=new File([blob],`BazarBD-${o.orderId||'order'}.jpg`,{type:'image/jpeg'});
+    if(navigator.share && navigator.canShare && navigator.canShare({files:[file]})) await navigator.share({title:'BazarBD Order Details',files:[file]});
+    else if(navigator.share) await navigator.share({title:'BazarBD Order Details',text:`Order ${o.orderId||''} • Total ${money(o.total||0)}`});
+    else toast('Sharing is not supported on this device');
+  }catch(e){if(e?.name!=='AbortError'){console.error(e);toast('Could not share order');}}
+};
 
 async function loadUserTracking(){
   const container=document.getElementById("profileTracking");
@@ -2309,7 +2502,7 @@ async function loadUserTracking(){
   try{
     const q=query(collection(db,"orders"),where("userId","==",currentUser.uid));
     const snap=await getDocs(q);
-    const orders=[]; snap.forEach(d=>orders.push({id:d.id,...d.data()}));
+    const orders=[]; snap.forEach(d=>{const x={id:d.id,...d.data()}; if(!x.deleted) orders.push(x);});
     orders.sort((a,b)=>String(b.createdAt||'').localeCompare(String(a.createdAt||'')));
     if(!orders.length){container.innerHTML='<div class="profile-empty">\u{1F69A} No active orders to track.</div>';return;}
     container.innerHTML=orders.map(o=>{
@@ -2371,8 +2564,7 @@ async function loadAdminData() {
     let rev = 0;
     orderSnap.forEach(docSnap => {
       const d = { id: docSnap.id, ...docSnap.data() };
-      adminOrdersList.push(d);
-      rev += Number(d.total || 0);
+      if(!d.deleted){ adminOrdersList.push(d); rev += Number(d.total || 0); }
     });
     document.getElementById("statOrders").textContent = adminOrdersList.length;
     document.getElementById("statRevenue").textContent = money(rev);
@@ -2405,18 +2597,19 @@ function renderAdminOrders() {
   );
 
   const tableHtml = `
+    <div class="admin-orders-hint">👆 যেকোনো অর্ডারে ক্লিক করুন — সম্পূর্ণ বিস্তারিত, Edit ও Delete অপশন ভিতরে পাবেন</div>
     <div class="admin-table-wrap compact-orders-table-wrap">
     <table class="admin-table compact-orders-table">
-      <thead><tr><th>Order ID</th><th>Customer</th><th>Phone</th><th>Total</th><th>Status</th><th>Actions</th></tr></thead>
+      <thead><tr><th>Order ID</th><th>Customer</th><th>Total</th><th>Payment</th><th>Pay Status</th><th>Status</th></tr></thead>
       <tbody>
         ${list.map(o => `
-          <tr>
+          <tr class="order-click-row" onclick="openAdminOrderDetails('${escapeJsArg(o.id)}')" title="Click to view full order details">
             <td><b>${escapeHtml(o.orderId)}</b></td>
             <td>${escapeHtml(o.customerName)}</td>
-            <td>${escapeHtml(o.customerPhone)}</td>
             <td>${money(o.total)}</td>
+            <td>${escapeHtml(o.paymentMethod||'Cash on Delivery')}</td>
+            <td><span class="payment-status-badge ${(o.paymentStatus||'Not Paid')==='Verified'?'verified':((o.paymentStatus||'')==='Rejected'?'rejected':'')}">${escapeHtml(o.paymentStatus||'Not Paid')}</span></td>
             <td><span class="admin-badge">${escapeHtml(o.status||'Confirmed')}</span></td>
-            <td><div class="product-admin-actions"><button class="primary" onclick="openEditOrder('${escapeJsArg(o.id)}')">Edit</button><button class="danger" onclick="deleteAdminOrder('${escapeJsArg(o.id)}')">Delete</button></div></td>
           </tr>
         `).join("")}
       </tbody>
@@ -2427,13 +2620,52 @@ function renderAdminOrders() {
 }
 window.renderAdminOrders = renderAdminOrders;
 
+window.openAdminOrderDetails=function(docId){
+  const o=adminOrdersList.find(x=>x.id===docId); if(!o) return;
+  const items=o.items||[];
+  const payment=o.paymentMethod||'Cash on Delivery';
+  const payStatus=o.paymentStatus||'Not Paid';
+  const payClass=payStatus==='Verified'?'verified':(payStatus==='Rejected'?'rejected':'');
+  const screenshot=o.bkashScreenshotUrl||'';
+  const itemRows=items.length?items.map((i,idx)=>`<div class="order-detail-item"><div><b>${idx+1}. ${escapeHtml(i.name||'Product')}</b><small>Qty: ${Number(i.qty||1)}</small></div><strong>${money((Number(i.price)||0)*(Number(i.qty)||1))}</strong></div>`).join(''):'<div class="admin-muted">No item details available.</div>';
+  document.getElementById('adminOrderDetailsView').innerHTML=`
+    <div class="order-detail-top"><div><span class="detail-kicker">ORDER ID</span><h3>${escapeHtml(o.orderId||o.id)}</h3></div><span class="admin-badge">${escapeHtml(o.status||'Confirmed')}</span></div>
+    <div class="order-detail-grid">
+      <div class="order-detail-section"><h4>👤 Customer Information</h4><div class="detail-line"><span>Name</span><b>${escapeHtml(o.customerName||'—')}</b></div><div class="detail-line"><span>Phone</span><b>${escapeHtml(o.customerPhone||'—')}</b></div><div class="detail-line"><span>Address</span><b>${escapeHtml(o.customerAddress||'—')}</b></div><div class="detail-line"><span>Order Date</span><b>${o.createdAt?escapeHtml(new Date(o.createdAt).toLocaleString()):'—'}</b></div></div>
+      <div class="order-detail-section"><h4>💳 Payment Information</h4><div class="detail-line"><span>Method</span><b>${escapeHtml(payment)}</b></div><div class="detail-line"><span>Payment Status</span><span class="payment-status-badge ${payClass}">${escapeHtml(payStatus)}</span></div>${payment==='bKash'?`<div class="detail-line"><span>bKash Number</span><b>${escapeHtml(BKASH_NUMBER)}</b></div><div class="detail-line"><span>Sender Number</span><b>${escapeHtml(o.bkashSenderNumber||'—')}</b></div><div class="detail-line"><span>Transaction ID</span><b>${escapeHtml(o.bkashTransactionId||'—')}</b></div><div class="detail-line"><span>Paid Amount</span><b>${o.bkashPaidAmount!=null&&o.bkashPaidAmount!==''?money(o.bkashPaidAmount):'—'}</b></div>${screenshot?`<div style="margin-top:10px"><a class="checkout" style="display:block;text-align:center;text-decoration:none" href="${escapeHtml(screenshot)}" target="_blank" rel="noopener noreferrer">🖼️ View Payment Screenshot</a></div>`:''}`:''}</div>
+    </div>
+    <div class="order-detail-section"><h4>🛒 Ordered Products</h4><div class="order-detail-items">${itemRows}</div><div class="order-detail-total"><span>Order Total</span><strong>${money(o.total||0)}</strong></div></div>
+    <div class="order-detail-section"><h4>🚚 Delivery & Tracking</h4><div class="detail-line"><span>Order Status</span><b>${escapeHtml(o.status||'Confirmed')}</b></div><div class="detail-line"><span>Tracking Number</span><b>${escapeHtml(o.trackingNumber||'Not assigned')}</b></div>${o.trackingLink?`<div style="margin-top:9px"><a class="checkout" style="display:block;text-align:center;text-decoration:none" href="${escapeHtml(o.trackingLink)}" target="_blank" rel="noopener noreferrer">🔗 Open Tracking Link</a></div>`:''}</div>
+    <div class="order-detail-actions" style="grid-template-columns:1fr 1fr 1fr"><button class="checkout" type="button" onclick="closeAdminOrderDetails();openEditOrder('${escapeJsArg(o.id)}')">✏️ Edit Order</button><button class="checkout" type="button" style="background:#fff0f0;color:#b42318;border-color:#f2c7c7" onclick="closeAdminOrderDetails();deleteAdminOrder('${escapeJsArg(o.id)}')">🗑️ Delete</button><button class="checkout" type="button" style="background:#eee;color:#222;border-color:#ddd" onclick="closeAdminOrderDetails()">Close</button></div>`;
+  document.getElementById('adminOrderDetailsModal').classList.add('open');
+};
+window.closeAdminOrderDetails=function(){document.getElementById('adminOrderDetailsModal')?.classList.remove('open');};
+
 window.deleteAdminOrder = async function(docId) {
-  if(!confirm("Are you sure to delete this order?")) return;
+  const o=adminOrdersList.find(x=>x.id===docId);
+  if(!o) return;
+  if(!confirm(`Delete order ${o.orderId||docId}?\n\nThis order will be removed from the order list.`)) return;
   try {
+    // Try permanent Firestore deletion first.
     await deleteDoc(doc(db, "orders", docId));
-    toast("Order deleted");
-    loadAdminData();
-  } catch(e) { toast("Error deleting order"); }
+    toast("Order deleted successfully");
+    await loadAdminData();
+  } catch(e) {
+    console.error("Permanent order delete failed:", e);
+    // If Firestore rules do not allow delete, use a safe soft-delete fallback.
+    // The order is hidden from Admin and Customer lists while its record remains in Firestore.
+    if(e && (e.code === "permission-denied" || String(e.message||"").toLowerCase().includes("permission"))) {
+      try {
+        await updateDoc(doc(db, "orders", docId), { deleted:true, deletedAt:new Date().toISOString(), deletedBy:currentAdminUser?.uid||"admin" });
+        toast("Order removed from the list");
+        await loadAdminData();
+        return;
+      } catch(fallbackErr) {
+        console.error("Order soft-delete failed:", fallbackErr);
+      }
+    }
+    toast("Order delete failed. Check Firestore Rules.");
+  }
 };
 
 window.openEditOrder=function(docId){
@@ -2447,6 +2679,11 @@ window.openEditOrder=function(docId){
   document.getElementById("editOrderTracking").value=o.trackingNumber||"";
   document.getElementById("editOrderTrackingLink").value=o.trackingLink||"";
   document.getElementById("editOrderPayment").value=o.paymentMethod||"Cash on Delivery";
+  document.getElementById("editOrderPaymentStatus").value=o.paymentStatus||"Not Paid";
+  document.getElementById("editBkashSenderNumber").value=o.bkashSenderNumber||"";
+  document.getElementById("editBkashTransactionId").value=o.bkashTransactionId||"";
+  document.getElementById("editBkashPaidAmount").value=Number(o.bkashPaidAmount||0)||"";
+  document.getElementById("editBkashScreenshotUrl").value=o.bkashScreenshotUrl||"";
   document.getElementById("editOrderTotal").value=Number(o.total||0);
   document.getElementById("editOrderModal").classList.add("open");
 };
@@ -2454,7 +2691,7 @@ window.closeEditOrder=function(){document.getElementById("editOrderModal")?.clas
 window.saveEditedOrder=async function(e){
   e.preventDefault(); if(!currentAdminUser) return;
   const id=document.getElementById("editOrderDocId").value;
-  const data={orderId:document.getElementById("editOrderId").value.trim(),customerName:document.getElementById("editOrderName").value.trim(),customerPhone:document.getElementById("editOrderPhone").value.trim(),customerAddress:document.getElementById("editOrderAddress").value.trim(),status:document.getElementById("editOrderStatus").value,trackingNumber:document.getElementById("editOrderTracking").value.trim(),trackingLink:document.getElementById("editOrderTrackingLink").value.trim(),paymentMethod:document.getElementById("editOrderPayment").value,total:Number(document.getElementById("editOrderTotal").value),updatedAt:new Date().toISOString()};
+  const data={orderId:document.getElementById("editOrderId").value.trim(),customerName:document.getElementById("editOrderName").value.trim(),customerPhone:document.getElementById("editOrderPhone").value.trim(),customerAddress:document.getElementById("editOrderAddress").value.trim(),status:document.getElementById("editOrderStatus").value,trackingNumber:document.getElementById("editOrderTracking").value.trim(),trackingLink:document.getElementById("editOrderTrackingLink").value.trim(),paymentMethod:document.getElementById("editOrderPayment").value,paymentStatus:document.getElementById("editOrderPaymentStatus").value,bkashSenderNumber:document.getElementById("editBkashSenderNumber").value.trim(),bkashTransactionId:document.getElementById("editBkashTransactionId").value.trim(),bkashPaidAmount:Number(document.getElementById("editBkashPaidAmount").value||0),bkashScreenshotUrl:document.getElementById("editBkashScreenshotUrl").value.trim(),total:Number(document.getElementById("editOrderTotal").value),updatedAt:new Date().toISOString()};
   try{await updateDoc(doc(db,"orders",id),data);closeEditOrder();toast("Order updated");await loadAdminData();}catch(ex){toast("Error updating order");console.error(ex);}
 };
 
@@ -2679,3 +2916,43 @@ window.saveProduct = async function(e) {
 </script>
 </body>
 </html>
+
+<style id="order-delete-button-final-fix">
+/* Final fix: keep Edit/Delete visible on Admin Orders, including mobile */
+#adminOrders .compact-orders-table td:nth-child(8){
+  overflow:visible !important;
+  white-space:normal !important;
+}
+#adminOrders .compact-orders-table td:nth-child(8) .product-admin-actions{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  flex-wrap:nowrap !important;
+  gap:6px !important;
+  min-width:max-content !important;
+}
+#adminOrders .compact-orders-table td:nth-child(8) button{
+  display:inline-flex !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  min-width:58px !important;
+  height:30px !important;
+  padding:6px 9px !important;
+  font-size:10px !important;
+  line-height:1 !important;
+  white-space:nowrap !important;
+}
+@media(max-width:650px){
+  #adminOrders .compact-orders-table td:nth-child(5)::before{content:"Payment" !important}
+  #adminOrders .compact-orders-table td:nth-child(6)::before{content:"Pay Status" !important}
+  #adminOrders .compact-orders-table td:nth-child(7)::before{content:"Order Status" !important}
+  #adminOrders .compact-orders-table td:nth-child(8){
+    grid-column:1 / -1 !important;
+    padding-top:7px !important;
+    overflow:visible !important;
+    white-space:normal !important;
+  }
+  #adminOrders .compact-orders-table td:nth-child(8)::before{content:"Actions" !important}
+  #adminOrders .compact-orders-table td:nth-child(8) .product-admin-actions{width:100% !important}
+}
+</style>
