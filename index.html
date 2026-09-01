@@ -1069,13 +1069,54 @@ footer{background:#252525}
 
 
 
+
+<style id="bazarbd-logo-price-polish">
+.logo{display:flex;align-items:center;gap:7px;line-height:1;white-space:nowrap;text-decoration:none}
+.logo-mark{width:38px;height:38px;display:grid;place-items:center;flex:none}
+.logo-mark svg{width:100%;height:100%;display:block;overflow:visible}
+.logo-mark .bag-handle{fill:none;stroke:#16a34a;stroke-width:6;stroke-linecap:round}
+.logo-mark .bag-body{fill:#16a34a}
+.logo-mark .bag-b{fill:none;stroke:#fff;stroke-width:5.5;stroke-linecap:round;stroke-linejoin:round}
+.logo-mark .bag-dot{fill:#fff}
+.logo-word{font-size:25px;font-weight:900;letter-spacing:-.7px;color:#15803d}
+.logo-word span{color:#e51b23}
+.site-logo{display:none!important}
+@media(max-width:650px){
+  .header{grid-template-columns:116px minmax(0,1fr) 36px;gap:6px;padding:7px 8px}
+  .logo{width:116px;gap:5px;overflow:visible}
+  .logo-mark{width:32px;height:32px}
+  .logo-word{font-size:20px;letter-spacing:-.55px}
+  .search input{font-size:12px;padding-left:11px;padding-right:43px}
+  .price{font-size:13.5px!important;line-height:1.15!important;letter-spacing:-.15px;margin-top:3px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .old{font-size:8px!important;margin-left:2px!important}
+  .card-body{padding:6px!important}
+}
+@media(max-width:390px){
+  .header{grid-template-columns:112px minmax(0,1fr) 34px}
+  .logo{width:112px;gap:4px}
+  .logo-mark{width:30px;height:30px}
+  .logo-word{font-size:18.5px;letter-spacing:-.55px}
+  .price{font-size:13px!important}
+  .old{font-size:8.5px!important}
+}
+</style>
 </head>
 <body>
 <div class="top">&#128230; Fast Delivery &nbsp; | &nbsp; Cash on Delivery &nbsp; | &nbsp; Secure Shopping</div>
 
 <header>
   <div class="header">
-    <a href="#home" class="logo">Bazar<span>BD</span></a>
+    <a href="#home" class="logo" aria-label="BazarBD">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 64 64" role="img" focusable="false">
+          <path class="bag-handle" d="M20 23v-5c0-7 5-12 12-12s12 5 12 12v5"/>
+          <path class="bag-body" d="M12 21h40l-4 34H16z"/>
+          <path class="bag-b" d="M22 29h13c5 0 8 2 8 6s-3 6-8 6H27c5 0 8 2 8 6s-3 6-8 6H22"/>
+          <circle class="bag-dot" cx="22" cy="21" r="2.6"/>
+          <circle class="bag-dot" cx="42" cy="21" r="2.6"/>
+        </svg>
+      </span><span class="logo-word">Bazar<span>BD</span></span>
+    </a>
     <div class="search">
       <input id="search" type="search" placeholder="Search books, products, brands..." oninput="searchProduct()">
       <button onclick="searchProduct()">&#128269;</button>
@@ -1646,7 +1687,7 @@ let currentAdminUser = null;
 let adminUsersList = [];
 let adminOrdersList = [];
 
-function money(n){return ""+Number(n).toLocaleString("en-US")}
+function money(n){return "৳"+Number(n).toLocaleString("en-US")}
 function toast(message){
   const t=document.getElementById("toast");
   if(!t) return;
