@@ -3209,6 +3209,61 @@ window.saveProduct = async function(e) {
 #cartModal .sheet{position:relative;z-index:30001;}
 #bottomNav{z-index:20000 !important;}
 </style>
+
+<style id="product-view-add-buy-fix">
+/* Keep Product Details Add to Cart / Buy Now always visible */
+.home-product-sheet{
+  display:flex !important;
+  flex-direction:column !important;
+  overflow:hidden !important;
+}
+.home-product-sheet > .sheet-head{
+  flex:0 0 auto !important;
+}
+.home-product-sheet > #homeProductDetailsBody{
+  flex:1 1 auto !important;
+  min-height:0 !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+}
+.home-product-sheet > .home-product-actions{
+  flex:0 0 auto !important;
+  position:relative !important;
+  bottom:auto !important;
+  z-index:20 !important;
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:8px !important;
+  background:#fff !important;
+  border-top:1px solid #eee !important;
+  padding:10px 0 !important;
+  margin:0 !important;
+}
+.home-product-sheet > .home-product-actions button{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  min-height:44px !important;
+}
+@media(max-width:650px){
+  /* Keep the action buttons completely above the fixed bottom navigation */
+  .home-product-modal{
+    align-items:flex-end !important;
+  }
+  .home-product-sheet{
+    margin-bottom:66px !important;
+    max-height:calc(95vh - 66px) !important;
+  }
+  .home-product-sheet > .home-product-actions{
+    padding:9px 0 9px !important;
+  }
+  .home-product-sheet > .home-product-actions button{
+    min-height:46px !important;
+    font-size:13px !important;
+  }
+}
+</style>
+
 </body>
 </html>
 
