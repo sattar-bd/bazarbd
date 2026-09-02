@@ -676,11 +676,22 @@ footer{background:#252525}
 }
 
 </style>
-<style>
-/* Bottom navigation: Admin is visible only for signed-in admin accounts. */
-.bottom:not(.admin-visible){grid-template-columns:repeat(4,1fr)}
-.bottom.admin-visible{grid-template-columns:repeat(5,1fr)}
-#adminBottomBtn{display:none}
+<style id="admin-user-navigation-final">
+/* USER: original 4-item navigation only. ADMIN: separate 5-item management navigation. */
+#bottomNav:not(.admin-management-mode):not(.admin-visible){grid-template-columns:repeat(4,1fr)!important}
+#bottomNav:not(.admin-management-mode) #adminBottomBtn{display:none!important}
+#bottomNav.admin-management-mode{grid-template-columns:repeat(5,1fr)!important}
+#bottomNav.admin-management-mode #adminBottomBtn{display:block!important}
+
+/* Admin can leave the dashboard and return to the storefront without closing/signing out. */
+#adminPanel .admin-welcome-actions{display:flex;align-items:center;gap:8px;flex-direction:column}
+#adminPanel .admin-home-btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;border:1px solid #cfe8d7;background:#fff;color:#198754;border-radius:999px;padding:8px 12px;font-size:10px;font-weight:800;cursor:pointer;box-shadow:0 4px 12px rgba(25,135,84,.08);white-space:nowrap}
+#adminPanel .admin-home-btn span{font-size:15px;line-height:1}
+#adminPanel .admin-home-btn:hover{transform:translateY(-1px);box-shadow:0 7px 16px rgba(25,135,84,.12)}
+@media(max-width:650px){
+  #adminPanel .admin-welcome-actions{align-items:flex-end;gap:6px}
+  #adminPanel .admin-home-btn{font-size:9px;padding:7px 9px}
+}
 </style>
 
 <style id="compact-users-table-fix">
@@ -1440,8 +1451,8 @@ footer{background:#252525}
     <main class="admin-main admin-main-premium">
       <section class="admin-view active" id="admin-dashboard">
         <div class="admin-welcome">
-          <div><span class="admin-kicker">BAZARBD • CONTROL CENTER</span><h1>Admin Dashboard</h1><p>আপনার দোকানের অর্ডার, কাস্টমার ও পণ্য এক জায়গা থেকে পরিচালনা করুন।</p></div>
-          <div class="admin-live"><i></i> System Online</div>
+          <div class="admin-welcome-content"><span class="admin-kicker">BAZARBD • CONTROL CENTER</span><h1>Admin Dashboard</h1><p>আপনার দোকানের অর্ডার, কাস্টমার ও পণ্য এক জায়গা থেকে পরিচালনা করুন।</p></div>
+          <div class="admin-welcome-actions"><div class="admin-live"><i></i> System Online</div><button type="button" class="admin-home-btn" onclick="goHomeFromAnyPage();return false"><span>&#8962;</span> Store Home</button></div>
         </div>
         <div class="stats">
           <button type="button" class="stat stat-link stat-orders" onclick="showAdminView('orders')"><span class="stat-icon">&#128230;</span><span><small>Total Orders</small><b id="statOrders">0</b><em>অর্ডার ম্যানেজ করুন →</em></span></button>
@@ -1494,7 +1505,7 @@ footer{background:#252525}
       </div>
       <div class="admin-toolbar">
         <input id="productSearch" placeholder="Search products..." oninput="renderAdminProducts()">
-        <button class="admin-btn primary" style="font-size:14px;padding:11px 18px;white-space:nowrap" onclick="openAddProductFallback()">&#65291; Add Product</button>
+        <button class="admin-btn" style="font-size:12px;padding:10px 12px;white-space:nowrap" onclick="showAdminView('customize');loadSiteCustomization()">🎨 Customize</button><button class="admin-btn primary" style="font-size:14px;padding:11px 18px;white-space:nowrap" onclick="openAddProductFallback()">&#65291; Add Product</button>
       </div>
     </div>
     <div style="background:#fff4f4;border:1px solid #ffd5d7;padding:11px 13px;border-radius:4px;margin:10px 0;font-size:12px;color:#9f1239">
@@ -1655,6 +1666,8 @@ window.closeAdminPanel = function() {
 // Bottom navigation must always be able to leave the Admin Panel.
 window.goHomeFromAnyPage = function(){
   window.__adminWasOpenBeforeCart = false;
+  const nav=document.getElementById("bottomNav");
+  if(nav){ nav.classList.remove("admin-management-mode","admin-visible"); }
   closeAdminPanel();
   const p=document.getElementById("cartModal"); if(p) p.classList.remove("open");
   const c=document.getElementById("mobileCategoriesModal"); if(c) c.classList.remove("open");
@@ -3028,10 +3041,33 @@ window.submitReview=async function(e){
 async function loadUserReviews(){userReviewsByOrder={};userReviewsByOrderProduct={};if(!currentUser)return;try{const q=query(collection(db,"reviews"),where("userId","==",currentUser.uid)),snap=await getDocs(q);snap.forEach(d=>{const x={id:d.id,...d.data()};if(x.orderId)userReviewsByOrder[x.orderId]=x;if(x.orderId&&x.productId)userReviewsByOrderProduct[String(x.orderId)+"::"+String(x.productId)]=x;});}catch(e){console.warn("User reviews load:",e);}}
 async function loadAdminReviews(){if(!currentAdminUser)return;try{const snap=await getDocs(collection(db,"reviews"));adminReviewsList=[];snap.forEach(d=>adminReviewsList.push({id:d.id,...d.data()}));adminReviewsList.sort((a,b)=>String(b.createdAt||"").localeCompare(String(a.createdAt||"")));renderAdminReviews();}catch(e){console.error(e);toast("Could not load reviews");}}
 window.loadAdminReviews=loadAdminReviews;
-function renderAdminReviews(){const container=document.getElementById("adminReviews");if(!container)return;const q=(document.getElementById("reviewSearch")?.value||"").toLowerCase(),list=adminReviewsList.filter(r=>String(r.customerName||"").toLowerCase().includes(q)||String(r.orderId||"").toLowerCase().includes(q)||String(r.productName||"").toLowerCase().includes(q)||String(r.text||"").toLowerCase().includes(q));container.innerHTML=list.length?`<table class="admin-table"><thead><tr><th>Customer</th><th>Product</th><th>Order</th><th>Rating</th><th>Review</th><th>Status</th><th>Action</th></tr></thead><tbody>${list.map(r=>{const n=Math.max(0,Math.min(5,Number(r.rating)||0));return `<tr><td>${escapeHtml(r.customerName||"Customer")}</td><td>${escapeHtml(r.productName||"—")}</td><td>${escapeHtml(r.orderId||"—")}</td><td><span class="review-stars">${"★".repeat(n)}${"☆".repeat(5-n)}</span></td><td><div class="admin-review-text">${escapeHtml(r.text||"")}</div></td><td><span class="admin-badge">${r.approved===false?"Hidden":"Published"}</span></td><td><div class="product-admin-actions"><button class="primary" onclick="toggleAdminReview('${escapeJsArg(r.id)}')">${r.approved===false?"Publish":"Hide"}</button><button class="danger" onclick="deleteAdminReview('${escapeJsArg(r.id)}')">Delete</button></div></td></tr>`}).join("")}</tbody></table>`:`<div class="admin-empty">No reviews found</div>`;}
+function renderAdminReviews(){const container=document.getElementById("adminReviews");if(!container)return;const q=(document.getElementById("reviewSearch")?.value||"").toLowerCase(),list=adminReviewsList.filter(r=>String(r.customerName||"").toLowerCase().includes(q)||String(r.orderId||"").toLowerCase().includes(q)||String(r.productName||"").toLowerCase().includes(q)||String(r.text||"").toLowerCase().includes(q));container.innerHTML=list.length?`<table class="admin-table"><thead><tr><th>Customer</th><th>Product</th><th>Order</th><th>Rating</th><th>Review</th><th>Status</th><th>Action</th></tr></thead><tbody>${list.map(r=>{const n=Math.max(0,Math.min(5,Number(r.rating)||0));return `<tr><td>${escapeHtml(r.customerName||"Customer")}</td><td>${escapeHtml(r.productName||"—")}</td><td>${escapeHtml(r.orderId||"—")}</td><td><span class="review-stars">${"★".repeat(n)}${"☆".repeat(5-n)}</span></td><td><div class="admin-review-text">${escapeHtml(r.text||"")}</div></td><td><span class="admin-badge">${r.approved===false?"Hidden":"Published"}</span></td><td><div class="product-admin-actions"><button class="primary" onclick="toggleAdminReview('${escapeJsArg(r.id)}')">${r.approved===false?"Publish":"Hide"}</button><button class="review-action-btn" onclick="editAdminReview('${escapeJsArg(r.id)}')">Edit</button><button class="danger" onclick="deleteAdminReview('${escapeJsArg(r.id)}')">Delete</button></div></td></tr>`}).join("")}</tbody></table>`:`<div class="admin-empty">No reviews found</div>`;}
 window.renderAdminReviews=renderAdminReviews;
 window.toggleAdminReview=async function(id){const r=adminReviewsList.find(x=>x.id===id);if(!r)return;try{await updateDoc(doc(db,"reviews",id),{approved:r.approved===false,updatedAt:new Date().toISOString()});toast(r.approved===false?"Review published":"Review hidden");await loadAdminReviews();await loadPublicReviews();}catch(e){toast("Could not update review");}};
 window.deleteAdminReview=async function(id){if(!confirm("Delete this review permanently?"))return;try{await deleteDoc(doc(db,"reviews",id));toast("Review deleted");await loadAdminReviews();await loadPublicReviews();}catch(e){toast("Could not delete review");}};
+window.editAdminReview=async function(id){
+  const r=adminReviewsList.find(x=>x.id===id);
+  if(!r)return;
+  const text=prompt("Edit review text:",String(r.text||""));
+  if(text===null)return;
+  const ratingInput=prompt("Rating (1-5):",String(r.rating||5));
+  if(ratingInput===null)return;
+  const rating=Math.max(1,Math.min(5,Number(ratingInput)||5));
+  try{
+    await updateDoc(doc(db,"reviews",id),{
+      text:text.trim(),
+      rating:rating,
+      updatedAt:new Date().toISOString()
+    });
+    toast("Review updated");
+    await loadAdminReviews();
+    await loadPublicReviews();
+  }catch(e){
+    console.error(e);
+    toast("Could not update review");
+  }
+};
+
 
 function renderAdminProducts() {
   const container = document.getElementById("adminProducts");
@@ -3209,61 +3245,6 @@ window.saveProduct = async function(e) {
 #cartModal .sheet{position:relative;z-index:30001;}
 #bottomNav{z-index:20000 !important;}
 </style>
-
-<style id="product-view-add-buy-fix">
-/* Keep Product Details Add to Cart / Buy Now always visible */
-.home-product-sheet{
-  display:flex !important;
-  flex-direction:column !important;
-  overflow:hidden !important;
-}
-.home-product-sheet > .sheet-head{
-  flex:0 0 auto !important;
-}
-.home-product-sheet > #homeProductDetailsBody{
-  flex:1 1 auto !important;
-  min-height:0 !important;
-  overflow-y:auto !important;
-  overflow-x:hidden !important;
-}
-.home-product-sheet > .home-product-actions{
-  flex:0 0 auto !important;
-  position:relative !important;
-  bottom:auto !important;
-  z-index:20 !important;
-  display:grid !important;
-  grid-template-columns:1fr 1fr !important;
-  gap:8px !important;
-  background:#fff !important;
-  border-top:1px solid #eee !important;
-  padding:10px 0 !important;
-  margin:0 !important;
-}
-.home-product-sheet > .home-product-actions button{
-  display:block !important;
-  visibility:visible !important;
-  opacity:1 !important;
-  min-height:44px !important;
-}
-@media(max-width:650px){
-  /* Keep the action buttons completely above the fixed bottom navigation */
-  .home-product-modal{
-    align-items:flex-end !important;
-  }
-  .home-product-sheet{
-    margin-bottom:66px !important;
-    max-height:calc(95vh - 66px) !important;
-  }
-  .home-product-sheet > .home-product-actions{
-    padding:9px 0 9px !important;
-  }
-  .home-product-sheet > .home-product-actions button{
-    min-height:46px !important;
-    font-size:13px !important;
-  }
-}
-</style>
-
 </body>
 </html>
 
@@ -3319,5 +3300,267 @@ window.saveProduct = async function(e) {
  #adminReviews .admin-table td:nth-child(4),#adminReviews .admin-table td:nth-child(6){grid-column:1/-1}
  #adminReviews .admin-table td:nth-child(4)::before{content:"Review"} #adminReviews .admin-table td:nth-child(6)::before{content:"Actions"}
  .admin-review-text{max-width:none}
+}
+</style>
+
+
+<style id="admin-bottom-management-premium">
+/* ===== ADMIN BOTTOM MANAGEMENT NAV ===== */
+#bottomNav.admin-management-mode{
+  grid-template-columns:repeat(5,1fr)!important;
+  background:rgba(255,255,255,.97)!important;
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-top:1px solid #dfe7e2!important;
+  box-shadow:0 -8px 28px rgba(20,80,45,.10)!important;
+}
+#bottomNav.admin-management-mode button{
+  position:relative;
+  min-height:58px;
+  padding:7px 3px 6px!important;
+  color:#68736d!important;
+  background:transparent!important;
+  font-size:10px!important;
+  font-weight:700;
+  transition:.18s ease;
+}
+#bottomNav.admin-management-mode button span{
+  font-size:20px!important;
+  line-height:22px;
+  margin-bottom:2px;
+}
+#bottomNav.admin-management-mode button.active{
+  color:#198754!important;
+}
+#bottomNav.admin-management-mode button.active::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:28%;
+  right:28%;
+  height:3px;
+  border-radius:0 0 8px 8px;
+  background:#198754;
+}
+#bottomNav.admin-management-mode button.active span{
+  transform:translateY(-1px);
+}
+#bottomNav.admin-management-mode button:nth-child(5){
+  color:#198754!important;
+}
+#bottomNav.admin-management-mode button:nth-child(5).active{
+  background:#eef9f2!important;
+  border-radius:12px;
+  margin:4px 3px;
+  padding-top:3px!important;
+}
+#bottomNav.admin-management-mode button:nth-child(5).active::before{display:none}
+
+/* Remove dashboard's upper shortcut buttons; keep the stats and recent-order overview. */
+#admin-dashboard .admin-quick-grid{display:none!important}
+
+/* Premium admin layout */
+#adminPanel{
+  background:
+    radial-gradient(circle at 10% 0%,rgba(40,167,69,.07),transparent 28%),
+    linear-gradient(180deg,#f5f8f6 0%,#f1f4f3 100%)!important;
+}
+#adminPanel .admin-head{
+  background:linear-gradient(135deg,#18221d 0%,#26342b 100%)!important;
+  min-height:62px;
+  box-shadow:0 4px 18px rgba(0,0,0,.13);
+}
+#adminPanel .admin-head b{font-size:18px;letter-spacing:.1px}
+#adminPanel .admin-head small{font-size:10px;color:#b9c9bf}
+#adminPanel .admin-head .admin-btn{
+  background:#fff!important;
+  color:#198754!important;
+  border-radius:10px!important;
+  padding:9px 14px!important;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+#adminPanel .admin-wrap{padding:12px}
+#adminPanel .admin-welcome{
+  background:linear-gradient(135deg,#ffffff 0%,#f3fbf6 100%);
+  border:1px solid #dcebe1;
+  border-radius:16px;
+  padding:17px;
+  margin-bottom:11px;
+  box-shadow:0 4px 18px rgba(25,135,84,.07);
+}
+#adminPanel .admin-welcome h1{font-size:25px}
+#adminPanel .admin-live{
+  border:1px solid #cce8d5;
+  background:#f0fbf3;
+  color:#198754;
+  border-radius:999px;
+  padding:7px 10px;
+  font-size:10px;
+  font-weight:800;
+}
+#adminPanel .stat{
+  border:1px solid #e1e9e4;
+  border-radius:14px;
+  min-height:92px;
+  transition:.18s ease;
+}
+#adminPanel .stat:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.08)}
+#adminPanel .admin-recent-card,
+#adminPanel .admin-card{
+  border:1px solid #e2e9e5;
+  border-radius:14px;
+  box-shadow:0 4px 16px rgba(0,0,0,.05);
+}
+#adminPanel .admin-card-head h2{font-weight:800}
+#adminPanel .admin-btn{border-radius:9px}
+#adminPanel .admin-toolbar input{border-radius:9px!important}
+#adminPanel .admin-table tr{transition:.12s ease}
+#adminPanel .admin-table tbody tr:hover{background:#f8fcf9}
+#adminPanel .admin-badge{border:1px solid #e5ebe7}
+
+/* Review management cards are easier to manage on mobile. */
+#adminReviews .admin-review-text{white-space:pre-wrap;line-height:1.45}
+#adminReviews .review-action-btn,
+#adminReviews .product-admin-actions button{
+  border-radius:8px!important;
+}
+@media(max-width:650px){
+  #adminPanel .admin-head{min-height:58px}
+  #adminPanel .admin-welcome{padding:13px;border-radius:13px}
+  #adminPanel .admin-welcome h1{font-size:20px}
+  #adminPanel .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #adminPanel .stat{min-height:82px;padding:9px;border-radius:12px}
+  #adminPanel .stat b{font-size:18px}
+  #adminPanel .admin-card{border-radius:12px}
+  #bottomNav.admin-management-mode button{min-height:56px;font-size:9px!important}
+  #bottomNav.admin-management-mode button span{font-size:19px!important}
+}
+</style>
+
+
+<script id="admin-bottom-management-script">
+(function(){
+  const nav = document.getElementById("bottomNav");
+  if(!nav) return;
+
+  const normalLabels = [
+    '<span>&#8962;</span>Home',
+    '<span>&#9776;</span>Categories',
+    '<span>&#128722;</span>Cart',
+    '<span>&#128100;</span>Profile',
+    '<span>&#9881;</span>Admin'
+  ];
+  const adminItems = [
+    {view:"dashboard", icon:"&#8962;", label:"Dashboard"},
+    {view:"orders",    icon:"&#128230;", label:"Orders"},
+    {view:"users",     icon:"&#128100;", label:"Users"},
+    {view:"reviews",   icon:"&#11088;", label:"Reviews"},
+    {view:"products",  icon:"&#128722;", label:"Products"}
+  ];
+
+  function panelOpen(){
+    const p=document.getElementById("adminPanel");
+    return !!(p && (p.classList.contains("show") || p.style.display==="block"));
+  }
+
+  function setAdminBottomMode(on){
+    nav.classList.toggle("admin-management-mode",!!on);
+    const buttons=Array.from(nav.querySelectorAll("button"));
+    if(on){
+      buttons.forEach((b,i)=>{
+        const item=adminItems[i];
+        if(!item) return;
+        b.innerHTML='<span>'+item.icon+'</span>'+item.label;
+        b.dataset.adminView=item.view;
+        b.classList.remove("active");
+      });
+      const active=document.querySelector(".admin-view.active");
+      const view=active ? active.id.replace("admin-","") : "dashboard";
+      setActive(view);
+    }else{
+      buttons.forEach((b,i)=>{
+        if(normalLabels[i]) b.innerHTML=normalLabels[i];
+        delete b.dataset.adminView;
+        b.classList.remove("active");
+      });
+      buttons[0]?.classList.add("active");
+    }
+  }
+
+  function setActive(view){
+    nav.querySelectorAll("button").forEach(b=>{
+      b.classList.toggle("active",b.dataset.adminView===view);
+    });
+  }
+
+  // Capture phase makes admin navigation win over the normal Home/Categories/Cart/Profile handlers.
+  nav.addEventListener("click",function(e){
+    if(!panelOpen()) return;
+    const b=e.target.closest("button");
+    if(!b || !b.dataset.adminView) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    const view=b.dataset.adminView;
+    if(typeof window.showAdminView==="function") window.showAdminView(view,b);
+    setActive(view);
+  },true);
+
+  // Keep the bottom nav synced whenever admin views change.
+  const originalShow = window.showAdminView;
+  if(typeof originalShow==="function"){
+    window.showAdminView=function(view,btn){
+      const result=originalShow.apply(this,arguments);
+      if(panelOpen()) setActive(view);
+      return result;
+    };
+  }
+
+  // Watch admin panel open/close state and switch bottom navigation automatically.
+  const panel=document.getElementById("adminPanel");
+  if(panel){
+    new MutationObserver(()=>setAdminBottomMode(panelOpen())).observe(panel,{attributes:true,attributeFilter:["class","style"]});
+  }
+
+  // Also initialize correctly if the admin panel is already open.
+  setTimeout(()=>setAdminBottomMode(panelOpen()),0);
+
+  // Expose for existing code/debugging.
+  window.setAdminBottomManagementMode=setAdminBottomMode;
+})();
+
+</script>
+
+<style id="final-product-action-navigation-fix">
+/* Keep Product Details Add to Cart / Buy Now above the global bottom navigation. */
+#homeProductDetailsModal{
+  z-index:25000 !important;
+}
+#homeProductDetailsModal .home-product-sheet{
+  position:relative !important;
+  z-index:25001 !important;
+  padding-bottom:0 !important;
+}
+#homeProductDetailsModal .home-product-actions{
+  position:sticky !important;
+  bottom:0 !important;
+  z-index:25005 !important;
+  min-height:58px !important;
+  padding:10px 0 calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+  background:rgba(255,255,255,.98) !important;
+  box-shadow:0 -6px 18px rgba(0,0,0,.08) !important;
+}
+#homeProductDetailsModal .home-product-actions button{
+  position:relative !important;
+  z-index:25006 !important;
+  min-height:46px !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+@media(max-width:650px){
+  #homeProductDetailsModal .home-product-sheet{max-height:94vh !important;}
+  #homeProductDetailsModal .home-detail{padding-bottom:0 !important;}
+  #homeProductDetailsModal .home-product-actions{
+    padding:9px 0 calc(9px + env(safe-area-inset-bottom, 0px)) !important;
+  }
 }
 </style>
