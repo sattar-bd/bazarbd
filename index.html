@@ -1292,11 +1292,11 @@ footer{background:#252525}
 </div>
 
 <div class="bottom" id="bottomNav">
-  <button class="active" onclick="closeAdminPanel();location.href='#home'"><span>&#8962;</span>Home</button>
-  <button onclick="openMobileCategories()"><span>&#9776;</span>Categories</button>
-  <button onclick="openCart()"><span>&#128722;</span>Cart</button>
-  <button onclick="openUserAccount()"><span>&#128100;</span>Profile</button>
-  <button id="adminBottomBtn" style="display:none" onclick="handleAdminTab()"><span>&#9881;</span>Admin</button>
+  <button class="active" type="button" onclick="goHomeFromAnyPage();return false"><span>&#8962;</span>Home</button>
+  <button type="button" onclick="goCategoriesFromAnyPage();return false"><span>&#9776;</span>Categories</button>
+  <button type="button" id="globalCartNavBtn" onclick="window.openCart();return false"><span>&#128722;</span>Cart</button>
+  <button type="button" onclick="goProfileFromAnyPage();return false"><span>&#128100;</span>Profile</button>
+  <button id="adminBottomBtn" style="display:none" type="button" onclick="handleAdminTab();return false"><span>&#9881;</span>Admin</button>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -1437,17 +1437,25 @@ footer{background:#252525}
 <div class="admin-panel" id="adminPanel">
   <div class="admin-head"><div><b>Admin Panel</b><br><small id="adminCurrentEmail"></small></div><button class="admin-btn" onclick="adminLogout()">Logout</button></div>
   <div class="admin-wrap"><div class="admin-grid">
-    <aside class="admin-side">
-      <button class="active" data-view="dashboard" onclick="showAdminView('dashboard',this)">&#9638; Dashboard</button>
-      <button data-view="orders" onclick="showAdminView('orders',this)">&#9636; Orders</button>
-      <button data-view="users" onclick="showAdminView('users',this)">&#9817; Users</button>
-      <button data-view="reviews" onclick="showAdminView(\'reviews\',this);loadAdminReviews()">&#11088; Reviews</button>
-       <button data-view="products" onclick="showAdminView('products',this)">&#9638; Products</button><button data-view="customize" onclick="showAdminView('customize',this);loadSiteCustomization()">&#127912; Customize</button><button onclick="openAddProductFallback()" style="color:#be123c;font-weight:700">&#65291; Add Product</button>
-    </aside>
-    <main class="admin-main">
-      <section class="admin-view active" id="admin-dashboard"><h1>Dashboard</h1><div class="stats">
-        <div class="stat"><small>Total Orders</small><b id="statOrders">0</b></div><div class="stat"><small>Total Users</small><b id="statUsers">0</b></div><div class="stat"><small>Products</small><b id="statProducts">0</b></div><div class="stat"><small>Revenue</small><b id="statRevenue">0</b></div>
-      </div><div class="admin-card"><div class="admin-card-head"><h2>Recent Orders</h2><button class="admin-btn primary" onclick="showAdminView('orders')">View All</button></div><div id="dashboardOrders"></div></div></section>
+    <main class="admin-main admin-main-premium">
+      <section class="admin-view active" id="admin-dashboard">
+        <div class="admin-welcome">
+          <div><span class="admin-kicker">BAZARBD • CONTROL CENTER</span><h1>Admin Dashboard</h1><p>আপনার দোকানের অর্ডার, কাস্টমার ও পণ্য এক জায়গা থেকে পরিচালনা করুন।</p></div>
+          <div class="admin-live"><i></i> System Online</div>
+        </div>
+        <div class="stats">
+          <button type="button" class="stat stat-link stat-orders" onclick="showAdminView('orders')"><span class="stat-icon">&#128230;</span><span><small>Total Orders</small><b id="statOrders">0</b><em>অর্ডার ম্যানেজ করুন →</em></span></button>
+          <button type="button" class="stat stat-link stat-users" onclick="showAdminView('users')"><span class="stat-icon">&#128100;</span><span><small>Total Users</small><b id="statUsers">0</b><em>ইউজার দেখুন →</em></span></button>
+          <button type="button" class="stat stat-link stat-products" onclick="showAdminView('products')"><span class="stat-icon">&#128722;</span><span><small>Products</small><b id="statProducts">0</b><em>পণ্য ম্যানেজ করুন →</em></span></button>
+          <div class="stat stat-revenue"><span class="stat-icon">&#2547;</span><span><small>Revenue</small><b id="statRevenue">৳0</b><em>মোট বিক্রয়</em></span></div>
+        </div>
+        <div class="admin-quick-grid">
+          <button class="admin-quick" onclick="showAdminView('reviews');loadAdminReviews()"><span>⭐</span><div><b>Reviews</b><small>Customer reviews manage করুন</small></div><strong>→</strong></button>
+          <button class="admin-quick" onclick="showAdminView('customize');loadSiteCustomization()"><span>🎨</span><div><b>Customize</b><small>Home page ও category সেটিংস</small></div><strong>→</strong></button>
+          <button class="admin-quick add" onclick="openAddProductFallback()"><span>＋</span><div><b>Add Product</b><small>নতুন পণ্য যোগ করুন</small></div><strong>→</strong></button>
+        </div>
+        <div class="admin-card admin-recent-card"><div class="admin-card-head"><div><h2>Recent Orders</h2><div class="admin-muted">সাম্প্রতিক অর্ডারগুলোর দ্রুত overview</div></div><button class="admin-btn primary" onclick="showAdminView('orders')">View All →</button></div><div id="dashboardOrders"></div></div>
+      </section>
       <section class="admin-view" id="admin-orders"><div class="admin-card" style="margin-top:0"><div class="admin-card-head"><h2>Orders Management</h2><button class="admin-btn" onclick="loadAdminData()">Refresh</button></div><div class="admin-toolbar"><input id="orderSearch" placeholder="Search order/customer..." oninput="renderAdminOrders()"></div><div id="adminOrders"></div></div></section>
       <section class="admin-view" id="admin-users"><div class="admin-card" style="margin-top:0"><div class="admin-card-head"><h2>Users Management</h2><button class="admin-btn" onclick="loadAdminData()">Refresh</button></div><div class="admin-toolbar"><input id="userSearch" placeholder="Search users..." oninput="renderAdminUsers()"></div><div id="adminUsers"></div></div></section>
       <section class="admin-view" id="admin-reviews"><div class="admin-card" style="margin-top:0"><div class="admin-card-head"><div><h2>⭐ Reviews Management</h2><div class="admin-muted">Manage customer reviews submitted after delivered orders.</div></div><button class="admin-btn" onclick="loadAdminReviews()">Refresh</button></div><div class="admin-toolbar"><input id="reviewSearch" placeholder="Search customer, order or review..." oninput="renderAdminReviews()"></div><div id="adminReviews"></div></div></section>
@@ -1633,7 +1641,36 @@ window.closeAdminLogin = function() {
 };
 
 window.closeAdminPanel = function() {
-  document.getElementById("adminPanel")?.classList.remove("show");
+  const panel = document.getElementById("adminPanel");
+  if(panel){
+    panel.classList.remove("show");
+    panel.style.display = "none";
+    panel.style.visibility = "hidden";
+    panel.style.pointerEvents = "none";
+    panel.setAttribute("aria-hidden","true");
+  }
+  window.__adminPanelManuallyClosed = true;
+};
+
+// Bottom navigation must always be able to leave the Admin Panel.
+window.goHomeFromAnyPage = function(){
+  window.__adminWasOpenBeforeCart = false;
+  closeAdminPanel();
+  const p=document.getElementById("cartModal"); if(p) p.classList.remove("open");
+  const c=document.getElementById("mobileCategoriesModal"); if(c) c.classList.remove("open");
+  const u=document.getElementById("userProfileModal"); if(u) u.classList.remove("open");
+  window.scrollTo(0,0);
+  location.hash="#home";
+};
+window.goCategoriesFromAnyPage = function(){
+  window.__adminWasOpenBeforeCart = false;
+  closeAdminPanel();
+  setTimeout(()=>openMobileCategories(),0);
+};
+window.goProfileFromAnyPage = function(){
+  window.__adminWasOpenBeforeCart = false;
+  closeAdminPanel();
+  setTimeout(()=>openUserAccount(),0);
 };
 
 window.setAdminNavVisibility = function(isAdmin) {
@@ -1645,16 +1682,73 @@ window.setAdminNavVisibility = function(isAdmin) {
 };
 
 window.handleAdminTab = function() {
+  const panel=document.getElementById("adminPanel");
+
+  // If Admin is already open, keep the Admin tab as a real close/exit button.
+  if(panel && (panel.classList.contains("show") || panel.style.display === "block")) {
+    window.closeAdminPanel();
+    window.__adminPanelManuallyClosed = true;
+    return;
+  }
+
   // Admin uses the same Firebase login as a normal user.
-  // If the currently signed-in account has role:"admin", open Admin automatically.
   if (window.currentAdminUser) {
-    document.getElementById("adminPanel")?.classList.add("show");
+    if(panel){
+      panel.style.display="block";
+      panel.style.visibility="visible";
+      panel.style.pointerEvents="auto";
+      panel.setAttribute("aria-hidden","false");
+      panel.classList.add("show");
+    }
+
+    // IMPORTANT: every fresh entry through the bottom Admin button
+    // must always start from the Dashboard, not the previously opened
+    // Reviews/Orders/Users/Products/Customize page.
+    if (typeof window.showAdminView === "function") {
+      window.showAdminView("dashboard");
+    } else {
+      document.querySelectorAll(".admin-view").forEach(v => v.classList.remove("active"));
+      document.getElementById("admin-dashboard")?.classList.add("active");
+    }
+
+    if(panel) panel.scrollTop = 0;
+    window.__adminPanelManuallyClosed=false;
   } else if (window.currentUser) {
     toast("This account is not an admin account");
   } else {
     document.getElementById("userLoginModal")?.classList.add("open");
   }
 };
+
+// Hard navigation fallback: the bottom navigation must always be able to
+// leave a full-screen Admin panel, even if another overlay/style is present.
+(function installAdminExitNavigation(){
+  const install=()=>{
+    const nav=document.getElementById("bottomNav");
+    if(!nav || nav.dataset.adminExitInstalled) return;
+    nav.dataset.adminExitInstalled="1";
+    nav.addEventListener("click", function(e){
+      const btn=e.target.closest("button");
+      if(!btn) return;
+      const id=btn.id || "";
+      const label=(btn.textContent||"").trim().toLowerCase();
+      if(id === "adminBottomBtn" || label.includes("admin")) return;
+      const panel=document.getElementById("adminPanel");
+      if(panel){
+        panel.classList.remove("show");
+        panel.style.display="none";
+        panel.style.visibility="hidden";
+        panel.style.pointerEvents="none";
+        panel.setAttribute("aria-hidden","true");
+      }
+      window.__adminPanelManuallyClosed=true;
+      window.__adminWasOpenBeforeCart=false;
+    }, true);
+  };
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded",install,{once:true});
+  else install();
+  setTimeout(install,500);
+})();
 
 window.openUserAccount = function() {
   if (window.currentUser) {
@@ -1978,14 +2072,57 @@ function updateCartBadge() {
 updateCartBadge();
 
 window.openCart = function() {
+  // GLOBAL CART: works from Home, Categories, Profile and every Admin view.
+  const adminPanel = document.getElementById("adminPanel");
+  const cartModal = document.getElementById("cartModal");
+
+  window.__adminWasOpenBeforeCart = !!(adminPanel && adminPanel.classList.contains("show"));
+
+  // Hide any full-screen Admin layer first so it can never block the cart.
+  if(adminPanel) {
+    adminPanel.classList.remove("show");
+    adminPanel.style.pointerEvents = "none";
+  }
+
   renderCart();
-  const modal = document.getElementById("cartModal");
-  if(modal) modal.classList.add("open");
+
+  if(cartModal) {
+    cartModal.style.display = "flex";
+    cartModal.style.visibility = "visible";
+    cartModal.style.opacity = "1";
+    cartModal.style.pointerEvents = "auto";
+    cartModal.style.zIndex = "99999";
+    cartModal.classList.add("open");
+  }
+
+  // Force the cart to the top after the current click event completes.
+  setTimeout(() => {
+    if(cartModal) {
+      cartModal.style.zIndex = "99999";
+      cartModal.classList.add("open");
+    }
+  }, 0);
 };
 
 window.closeCart = function() {
   const modal = document.getElementById("cartModal");
-  if(modal) modal.classList.remove("open");
+  if(modal) {
+    modal.classList.remove("open");
+    modal.style.display = "none";
+    modal.style.visibility = "";
+    modal.style.opacity = "";
+    modal.style.pointerEvents = "";
+    modal.style.zIndex = "";
+  }
+
+  const adminPanel = document.getElementById("adminPanel");
+  if(adminPanel) adminPanel.style.pointerEvents = "";
+
+  // Return to the exact Admin view if the cart was opened from Admin.
+  if(window.__adminWasOpenBeforeCart && adminPanel) {
+    adminPanel.classList.add("show");
+  }
+  window.__adminWasOpenBeforeCart = false;
 };
 
 function renderCart() {
@@ -2307,7 +2444,9 @@ onAuthStateChanged(auth, async (user) => {
       closeUserProfile();
       const adminEmail=document.getElementById("adminCurrentEmail");
       if(adminEmail) adminEmail.textContent=user.email||"";
-      document.getElementById("adminPanel")?.classList.add("show");
+      const panel=document.getElementById("adminPanel");
+      if(panel){ panel.style.display="block"; panel.style.pointerEvents="auto"; panel.setAttribute("aria-hidden","false"); panel.classList.add("show"); }
+      window.__adminPanelManuallyClosed=false;
       loadAdminData();
       return;
     }
@@ -2622,7 +2761,9 @@ window.adminLogin = async function(e) {
     window.currentAdminUser = res.user;
     closeAdminLogin();
     document.getElementById("adminCurrentEmail").textContent = email;
-    document.getElementById("adminPanel").classList.add("show");
+    const panel=document.getElementById("adminPanel");
+    if(panel){ panel.style.display="block"; panel.style.pointerEvents="auto"; panel.setAttribute("aria-hidden","false"); panel.classList.add("show"); }
+    window.__adminPanelManuallyClosed=false;
     loadAdminData();
   } catch(e) {
     err.textContent = e.message === "NOT_ADMIN" ? "This account does not have admin access." : "Invalid Admin Credentials";
@@ -2638,13 +2779,15 @@ window.adminLogout = async function() {
 };
 
 window.showAdminView = function(view, btn) {
-  if(btn) {
-    document.querySelectorAll(".admin-side button").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-  }
   document.querySelectorAll(".admin-view").forEach(v => v.classList.remove("active"));
   const target = document.getElementById("admin-" + view);
-  if(target) target.classList.add("active");
+  if(target) {
+    target.classList.add("active");
+    const panel = document.getElementById("adminPanel");
+    if(panel) panel.scrollTop = 0;
+  }
+  if(view === "reviews" && typeof loadAdminReviews === "function") loadAdminReviews();
+  if(view === "customize" && typeof loadSiteCustomization === "function") loadSiteCustomization();
 };
 
 async function loadAdminData() {
@@ -3050,6 +3193,22 @@ window.saveProduct = async function(e) {
   }
 };
 </script>
+\n<style id="premium-admin-refresh">\n.admin-panel{background:linear-gradient(180deg,#f4f7f5 0%,#eef2f0 100%)!important;color:#18221c!important}.admin-head{height:70px!important;padding:10px 20px!important;background:linear-gradient(135deg,#17231c,#24362a)!important;border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 5px 20px rgba(18,40,26,.16)!important}.admin-head b{font-size:19px!important;letter-spacing:.2px}.admin-head small{color:#b9c8bd!important;font-size:10px}.admin-head .admin-btn{background:rgba(255,255,255,.1)!important;color:#fff!important;border:1px solid rgba(255,255,255,.16);padding:9px 14px!important;border-radius:10px!important}.admin-wrap{max-width:1240px!important;padding:18px!important}.admin-grid{display:block!important}.admin-main-premium{width:100%!important}.admin-welcome{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:15px;padding:22px 24px;border-radius:18px;background:linear-gradient(135deg,#ffffff,#f4fbf6);border:1px solid #dfeae3;box-shadow:0 8px 28px rgba(31,64,45,.08)}.admin-kicker{display:block;color:#198754;font-size:9px;font-weight:900;letter-spacing:1.5px;margin-bottom:5px}.admin-welcome h1{font-size:28px!important;line-height:1.15;margin:0 0 5px!important;color:#16231b}.admin-welcome p{font-size:12px;color:#718078;margin:0;line-height:1.5}.admin-live{display:flex;align-items:center;gap:7px;padding:9px 12px;border:1px solid #cfe8d7;background:#effaf3;color:#198754;border-radius:999px;font-size:10px;font-weight:800;white-space:nowrap}.admin-live i{width:7px;height:7px;background:#22c55e;border-radius:50%;box-shadow:0 0 0 4px #dcfce7}.stats{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:12px!important}.stat{min-height:118px!important;padding:17px!important;border:1px solid #e1e8e3!important;border-radius:16px!important;box-shadow:0 7px 22px rgba(24,48,34,.07)!important;display:flex;align-items:flex-start;gap:12px;text-align:left;position:relative;overflow:hidden;transition:transform .18s,box-shadow .18s,border-color .18s;background:#fff!important}.stat-link{width:100%;font:inherit;color:inherit;cursor:pointer}.stat-link:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(24,48,34,.12)!important;border-color:#b9d9c4!important}.stat-icon{width:42px;height:42px;flex:none;display:grid;place-items:center;border-radius:13px;background:#eff8f2;color:#198754;font-size:20px}.stat-users .stat-icon{background:#eef6ff;color:#2877c7}.stat-products .stat-icon{background:#fff6e9;color:#e27a10}.stat-revenue .stat-icon{background:#f5efff;color:#7a4bc0}.stat span:nth-child(2){display:block;min-width:0}.stat small{display:block;color:#7a8780!important;font-size:10px!important;font-weight:700}.stat b{display:block;font-size:24px!important;line-height:1.15;margin-top:4px!important;color:#17231b}.stat em{display:block;margin-top:7px;color:#198754;font-style:normal;font-size:9px;font-weight:800}.stat-revenue em{color:#7a8780}.admin-quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}.admin-quick{display:flex;align-items:center;gap:11px;text-align:left;background:#fff;border:1px solid #e2e9e4;border-radius:13px;padding:13px 14px;box-shadow:0 3px 13px rgba(20,50,32,.05);cursor:pointer;transition:.18s}.admin-quick:hover{transform:translateY(-2px);border-color:#b7d8c1;box-shadow:0 8px 20px rgba(20,50,32,.09)}.admin-quick>span{width:36px;height:36px;border-radius:11px;background:#eff8f2;display:grid;place-items:center;font-size:18px}.admin-quick.add>span{background:#fff5e9;color:#e27a10}.admin-quick div{flex:1;min-width:0}.admin-quick b{display:block;font-size:12px;color:#26352d}.admin-quick small{display:block;color:#7c8982;font-size:9px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.admin-quick strong{font-size:14px;color:#9aa79f}.admin-card{border:1px solid #e2e9e4!important;border-radius:16px!important;box-shadow:0 7px 24px rgba(24,48,34,.06)!important;background:#fff!important;padding:14px!important}.admin-recent-card{margin-top:0!important}.admin-card-head{padding-bottom:3px}.admin-card h2{font-size:17px!important;color:#1d2a23}.admin-muted{color:#7d8983!important}.admin-btn{border-radius:9px!important}.admin-btn.primary{background:#198754!important;box-shadow:0 5px 12px rgba(25,135,84,.18)}.admin-view:not(#admin-dashboard)>.admin-card{border-radius:16px!important}.admin-toolbar input{border-radius:9px!important}.admin-table th{background:#f6f9f7!important;color:#66736c}.admin-table td{border-bottom-color:#edf1ee!important}.admin-badge{border:1px solid #e5ebe7}@media(max-width:900px){.admin-wrap{padding:12px!important}.admin-welcome{padding:18px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}.admin-quick-grid{grid-template-columns:1fr 1fr}.admin-quick:last-child{grid-column:1/-1}}@media(max-width:650px){.admin-panel{bottom:55px!important}.admin-head{height:58px!important;padding:8px 12px!important}.admin-head b{font-size:16px!important}.admin-wrap{padding:9px!important}.admin-welcome{padding:15px;border-radius:14px;align-items:flex-start}.admin-welcome h1{font-size:21px!important}.admin-welcome p{font-size:10px}.admin-live{font-size:8px;padding:7px 9px}.stats{gap:7px!important}.stat{min-height:105px!important;padding:11px!important;border-radius:13px!important;gap:8px}.stat-icon{width:34px;height:34px;border-radius:10px;font-size:16px}.stat b{font-size:19px!important}.stat em{font-size:8px;margin-top:5px}.admin-quick-grid{grid-template-columns:1fr;gap:7px;margin:9px 0}.admin-quick:last-child{grid-column:auto}.admin-quick{padding:11px;border-radius:11px}.admin-recent-card{border-radius:13px!important}.admin-card{padding:10px!important;border-radius:12px!important}}\n</style>\n
+<style id="global-cart-navigation-hard-fix">
+#bottomNav{position:fixed!important;bottom:0!important;left:0!important;right:0!important;z-index:100000!important;pointer-events:auto!important}
+#bottomNav button{position:relative;z-index:100001!important;pointer-events:auto!important;touch-action:manipulation!important}
+#globalCartNavBtn{display:block!important;visibility:visible!important;opacity:1!important}
+#cartModal{position:fixed!important;inset:0!important;z-index:99999!important;pointer-events:auto!important}
+#cartModal.open{display:flex!important;visibility:visible!important;opacity:1!important}
+#cartModal .sheet{position:relative!important;z-index:100000!important;pointer-events:auto!important}
+</style>
+<style id="global-cart-navigation-fix">
+/* Cart is a global destination and must always sit above Admin/other overlays. */
+#cartModal{z-index:30000 !important;}
+#cartModal.open{display:flex !important;}
+#cartModal .sheet{position:relative;z-index:30001;}
+#bottomNav{z-index:20000 !important;}
+</style>
 </body>
 </html>
 
