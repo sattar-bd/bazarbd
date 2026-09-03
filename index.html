@@ -508,6 +508,91 @@ footer{background:#252525}
 .admin-panel{background:#f3f5f7}.admin-head{height:56px;padding:8px 18px;box-shadow:0 1px 5px #0002}.admin-head b{font-size:16px}.admin-wrap{max-width:1280px;padding:10px 12px}.admin-grid{grid-template-columns:170px minmax(0,1fr);gap:10px}.admin-side{padding:7px;border-radius:8px;box-shadow:0 1px 5px #0001;position:sticky;top:66px}.admin-side button{padding:9px 10px;margin-bottom:2px;font-size:12px;border-radius:6px}.admin-main{min-width:0}.admin-view>h1{font-size:20px;margin:2px 0 9px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.stat{padding:10px 12px;border-radius:7px;box-shadow:0 1px 5px #0001}.stat small{font-size:10px}.stat b{font-size:20px;margin-top:3px}.admin-card{padding:10px;border-radius:7px;margin-top:9px;box-shadow:0 1px 5px #0001}.admin-card-head{margin-bottom:8px}.admin-card h2{font-size:15px}.admin-muted{font-size:10px;margin-bottom:8px}.admin-toolbar{gap:6px}.admin-toolbar input{max-width:240px;padding:7px 9px;font-size:11px}.admin-btn{padding:7px 10px;font-size:10px;border-radius:5px}.admin-table{font-size:11px}.admin-table th,.admin-table td{padding:7px 8px}.admin-table button{padding:5px 7px;font-size:10px}.admin-badge{padding:3px 6px;font-size:9px}.product-admin-actions{gap:3px}.product-admin-actions button{padding:5px 7px;font-size:10px}.product-thumb{width:34px;height:34px}#admin-products .admin-card-head>div:first-child h2{font-size:16px!important}#admin-products .admin-card-head>div:first-child .admin-muted{display:none}#admin-products .admin-card-head{margin-bottom:7px}#admin-products .admin-card-head>div:last-child{display:flex;gap:5px}#admin-products .admin-card-head .admin-btn{white-space:nowrap}#admin-products .admin-toolbar{margin-bottom:5px}
 @media(max-width:900px){.admin-grid{grid-template-columns:1fr;gap:7px}.admin-side{position:sticky;top:56px;z-index:4;display:grid;grid-template-columns:repeat(5,1fr);gap:4px}.admin-side button{min-width:0!important}}
 @media(max-width:650px){.admin-head{height:50px;padding:7px 9px}.admin-head b{font-size:14px}.admin-head small{font-size:9px}.admin-wrap{padding:7px}.admin-grid{gap:6px}.admin-side{top:50px;padding:5px;gap:3px}.admin-side button{padding:7px 2px;font-size:9px;line-height:1.15}.admin-view>h1{font-size:17px;margin:1px 0 7px}.stats{gap:5px}.stat{padding:8px}.stat small{font-size:9px}.stat b{font-size:17px}.admin-card{padding:8px;margin-top:6px}.admin-card h2{font-size:13px}.admin-table{font-size:9px}.admin-table th,.admin-table td{padding:6px 5px}.admin-table button{font-size:9px;padding:4px 5px}.admin-toolbar input{max-width:none;flex:1;padding:7px}.admin-btn{padding:6px 8px}}
+
+/* ===== Product Similar Products + My Orders JPG ===== */
+.similar-products-section{margin-top:18px;padding-top:14px;border-top:1px solid #eee}
+.similar-products-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px}
+.similar-products-head h3{font-size:15px;color:#333}.similar-products-head small{font-size:10px;color:#888}
+.similar-products-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.similar-product-card{border:1px solid #e7e7e7;background:#fff;border-radius:6px;overflow:hidden;cursor:pointer;min-width:0}
+.similar-product-card:hover{box-shadow:0 3px 12px rgba(0,0,0,.09)}
+.similar-product-img{height:105px;background:#fafafa;display:grid;place-items:center;overflow:hidden}
+.similar-product-img img{width:100%;height:100%;object-fit:contain}.similar-product-icon{font-size:42px}
+.similar-product-body{padding:7px}.similar-product-brand{font-size:9px;color:#888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.similar-product-name{font-size:10px;font-weight:700;line-height:1.35;height:28px;overflow:hidden;margin-top:2px}
+.similar-product-price{font-size:12px;font-weight:800;margin-top:5px}
+.my-order-receipt-btn{display:inline-flex;align-items:center;justify-content:center;background:#f4fbf6;color:#198754!important;border:1px solid #b8dfc1;padding:7px 9px;border-radius:5px;font-size:10px;font-weight:800;cursor:pointer;text-decoration:none}
+.my-order-receipt-btn:hover{background:#eaf8ef}
+.compact-order-actions{display:flex;align-items:center;justify-content:flex-end;gap:5px;flex-wrap:wrap}
+@media(max-width:650px){.similar-products-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.similar-product-img{height:115px}.compact-order-actions{width:100%;justify-content:stretch}.compact-order-actions>*{flex:1}}
+
+
+/* ===== Final My Orders compact premium layout ===== */
+.profile-orders-list{display:none!important}
+#profileOrders{padding:4px 0 8px}
+.compact-order-list{display:grid;gap:6px;padding:0}
+.compact-order-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:8px;background:#fff;border:1px solid #e9e9e9;border-radius:8px;padding:8px 9px;box-shadow:0 1px 3px rgba(0,0,0,.035)}
+.compact-order-main{min-width:0}
+.compact-order-title{display:flex;align-items:center;gap:6px;min-width:0;flex-wrap:nowrap}
+.compact-order-title .profile-order-id{font-size:11px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.compact-order-title .profile-status{font-size:8px;padding:2px 5px;border-radius:10px;white-space:nowrap}
+.compact-order-meta{font-size:9px;color:#888;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.compact-order-items{font-size:9px;color:#666;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.compact-order-actions{display:flex;gap:4px;align-items:center;flex:none}
+.compact-order-actions .compact-track-btn,.compact-order-actions .my-order-receipt-btn{height:29px;min-width:0;padding:0 7px;font-size:9px;border-radius:5px;white-space:nowrap}
+.compact-order-actions .compact-track-btn{background:#198754}
+.compact-order-actions .compact-track-btn.disabled{background:#f2f2f2;color:#777!important;border:1px solid #e5e5e5}
+.compact-order-actions .my-order-receipt-btn{background:#f6fbf7;border-color:#c9e6d0}
+@media(max-width:650px){
+ .compact-order-row{grid-template-columns:1fr;gap:6px;padding:8px}
+ .compact-order-actions{display:grid;grid-template-columns:1fr 1.35fr;width:100%;gap:5px}
+ .compact-order-actions .compact-track-btn,.compact-order-actions .my-order-receipt-btn{width:100%;height:30px}
+}
+
+/* ===== My Orders: compact expandable details ===== */
+.myorder-detail-sheet{max-width:620px!important;padding:0!important;overflow:hidden}
+.myorder-detail-scroll{max-height:78vh;overflow:auto;padding:12px}
+.myorder-detail-top{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 12px;border-bottom:1px solid #eee}
+.myorder-detail-top h3{margin:0;font-size:15px}.myorder-detail-top small{color:#777;font-size:10px}
+.myorder-status-pill{font-size:9px;font-weight:800;padding:4px 7px;border-radius:12px;background:#eef8f1;color:#198754;white-space:nowrap}
+.myorder-info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-bottom:9px}
+.myorder-info-box{background:#fafafa;border:1px solid #eee;border-radius:6px;padding:7px}
+.myorder-info-box label{display:block;color:#888;font-size:8px;margin-bottom:2px}.myorder-info-box b{font-size:10px}
+.myorder-detail-items{border:1px solid #eee;border-radius:7px;overflow:hidden}
+.myorder-detail-item{display:flex;align-items:center;gap:8px;padding:8px;border-bottom:1px solid #eee}
+.myorder-detail-item:last-child{border-bottom:0}
+.myorder-detail-item-img{width:50px;height:50px;border:1px solid #eee;border-radius:6px;display:grid;place-items:center;overflow:hidden;flex:none;background:#fff}
+.myorder-detail-item-img img{width:100%;height:100%;object-fit:contain}
+.myorder-detail-item-main{min-width:0;flex:1}.myorder-detail-item-name{font-size:11px;font-weight:800}.myorder-detail-item-meta{font-size:9px;color:#777;margin-top:2px}
+.myorder-detail-item-price{font-size:11px;font-weight:800;white-space:nowrap}
+.myorder-total-box{display:flex;justify-content:space-between;gap:8px;margin-top:9px;padding:9px 10px;background:#f7faf8;border:1px solid #dcefe1;border-radius:6px}
+.myorder-total-box span{font-size:10px;color:#666}.myorder-total-box b{font-size:14px;color:#198754}
+.myorder-detail-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px}
+.myorder-detail-actions button,.myorder-detail-actions a{border:0;border-radius:6px;padding:9px;text-align:center;font-size:10px;font-weight:800;text-decoration:none;cursor:pointer}
+.myorder-download{background:#198754;color:#fff}.myorder-close{background:#f1f1f1;color:#444}
+@media(max-width:600px){.myorder-info-grid{grid-template-columns:1fr 1fr}.myorder-detail-scroll{max-height:82vh;padding:9px}}
+
+
+/* PROFESSIONAL COMPACT MY ORDERS */
+#profileOrdersView{background:#f7f8fa;padding:10px}.pro-orders-wrap{max-width:760px;margin:auto}.pro-orders-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.pro-orders-heading h3{margin:0;font-size:16px}.pro-orders-heading p{margin:3px 0;color:#888;font-size:9px}.pro-orders-count{background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:6px 9px;font-size:9px;font-weight:800}.pro-order-card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;margin-bottom:7px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04)}.pro-order-main{display:flex;align-items:center;gap:9px;padding:9px;cursor:pointer}.pro-order-icon{width:36px;height:36px;border-radius:9px;background:#f0f7f2;display:grid;place-items:center;font-size:18px}.pro-order-content{min-width:0;flex:1}.pro-order-top{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.pro-order-id{font-size:11px;font-weight:800}.pro-order-status{font-size:8px;font-weight:800;padding:3px 6px;border-radius:10px;background:#eaf7ee;color:#168347}.pro-order-meta{display:flex;gap:8px;margin-top:4px;color:#858b94;font-size:8px}.pro-order-preview{margin-top:4px;font-size:9px;color:#555;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.pro-order-total{text-align:right}.pro-order-total small{display:block;color:#999;font-size:7px}.pro-order-total b{font-size:12px}.pro-order-chevron{font-size:18px;color:#aaa}.pro-order-details{display:none;border-top:1px solid #eef0f2;background:#fafbfc;padding:9px}.pro-order-card.open .pro-order-details{display:block}.pro-detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:8px}.pro-detail-box{background:#fff;border:1px solid #e8eaed;border-radius:7px;padding:7px}.pro-detail-box label{display:block;color:#9298a1;font-size:7px;margin-bottom:3px}.pro-detail-box b{font-size:9px;word-break:break-word}.pro-items{background:#fff;border:1px solid #e8eaed;border-radius:7px;overflow:hidden}.pro-item{display:flex;align-items:center;gap:8px;padding:7px;border-bottom:1px solid #f0f1f3}.pro-item:last-child{border-bottom:0}.pro-item-img{width:42px;height:42px;border:1px solid #e7e9ec;border-radius:6px;display:grid;place-items:center;overflow:hidden;flex:none;background:#fff}.pro-item-img img{width:100%;height:100%;object-fit:contain}.pro-item-main{min-width:0;flex:1}.pro-item-name{font-size:9px;font-weight:800}.pro-item-sub{font-size:8px;color:#888;margin-top:2px}.pro-item-price{font-size:9px;font-weight:800;white-space:nowrap}.pro-detail-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}.pro-total span{display:block;font-size:7px;color:#999}.pro-total strong{font-size:14px}.pro-actions{display:flex;gap:5px}.pro-actions button,.pro-actions a{border:0;border-radius:6px;padding:7px 9px;font-size:8px;font-weight:800;text-decoration:none;cursor:pointer}.pro-view-jpg{background:#198754;color:#fff}.pro-track{background:#eef5ff;color:#2874d0}.pro-empty{background:#fff;border:1px dashed #d8dce1;border-radius:10px;text-align:center;padding:28px 10px;color:#888;font-size:10px}@media(max-width:600px){#profileOrdersView{padding:7px}.pro-order-main{padding:8px}.pro-order-total{display:none}.pro-detail-grid{grid-template-columns:1fr 1fr}.pro-detail-grid .full{grid-column:1/-1}.pro-detail-bottom{align-items:flex-end}}
+
+/* Similar Products */
+.similar-products-section{margin-top:16px;padding-top:14px;border-top:1px solid #eee}
+.similar-products-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+.similar-products-head h3{margin:0;font-size:15px;font-weight:800}
+.similar-products-head span{font-size:9px;color:#888}
+.similar-products-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.similar-product-card{background:#fff;border:1px solid #e8e8e8;border-radius:8px;overflow:hidden;cursor:pointer;min-width:0}
+.similar-product-card .sp-img{height:105px;display:grid;place-items:center;background:#fafafa}
+.similar-product-card .sp-img img{width:100%;height:100%;object-fit:contain}
+.similar-product-card .sp-body{padding:7px}
+.similar-product-card .sp-brand{font-size:7px;color:#888}
+.similar-product-card .sp-name{font-size:9px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:2px 0}
+.similar-product-card .sp-price{font-size:10px;font-weight:800}
+.similar-product-card .sp-add{margin-top:5px;width:100%;border:0;border-radius:5px;padding:6px 3px;background:#198754;color:#fff;font-size:8px;font-weight:800}
+@media(max-width:600px){.similar-products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.similar-product-card .sp-img{height:120px}}
+.similar-add-btn{margin-top:5px;width:100%;border:0;border-radius:5px;padding:6px 3px;background:#198754;color:#fff;font-size:8px;font-weight:800;cursor:pointer}
+
 </style>
 <style>
 .mobile-categories-modal{position:fixed;inset:0;background:#0008;display:none;align-items:flex-end;z-index:18000}
@@ -1216,38 +1301,6 @@ footer{background:#252525}
 .review-feature-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.review-feature-head h3{font-size:15px}.review-feature-head small{color:#777;font-size:10px}
 .review-summary{display:flex;align-items:center;gap:9px;background:#f7faf8;border-radius:9px;padding:9px;margin-bottom:10px}.review-summary strong{font-size:22px}.review-stars{color:#f59e0b;letter-spacing:1px}.review-list{display:flex;flex-direction:column;gap:8px}.review-item{border:1px solid #edf0ee;border-radius:9px;padding:10px;background:#fff}.review-item-top{display:flex;justify-content:space-between;gap:8px;align-items:center}.review-user{font-size:11px;font-weight:800}.review-date{font-size:9px;color:#999}.review-item p{font-size:11px;color:#555;line-height:1.5;margin-top:5px;white-space:pre-wrap}.write-review-btn{width:100%;margin-top:10px;padding:10px;border-radius:8px;background:#198754;color:#fff;font-weight:800}.write-review-btn:disabled{background:#d8dfda;color:#777}.review-empty{padding:12px;text-align:center;color:#888;font-size:11px;background:#fafafa;border-radius:8px}.review-form-stars{display:flex;gap:5px;margin:7px 0 10px}.review-star-btn{width:38px;height:38px;border-radius:9px;background:#f3f4f6;color:#aaa;font-size:20px}.review-star-btn.active{background:#fff4d6;color:#f59e0b}.review-note{font-size:10px;color:#777;margin-bottom:8px}.public-review-product{font-size:9px;color:#198754;margin-top:3px}
 </style>
-
-<style id="order-review-premium-v3">
-/* Customer order details */
-.compact-order-row{cursor:pointer;transition:.18s ease}
-.compact-order-row:hover{border-color:#cfe7d7;box-shadow:0 5px 16px rgba(25,135,84,.10);transform:translateY(-1px)}
-.order-detail-sheet{max-width:680px!important;padding:0!important;overflow:hidden}
-.order-detail-hero{padding:18px 18px 16px;background:linear-gradient(135deg,#172126,#198754);color:#fff}
-.order-detail-hero-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-.order-detail-hero h2{font-size:20px;margin-top:4px}.order-detail-hero small{opacity:.75;font-size:10px}
-.order-detail-status{display:inline-flex;margin-top:10px;padding:5px 9px;border-radius:20px;background:rgba(255,255,255,.14);font-size:10px;font-weight:800}
-.order-detail-body{padding:14px}
-.order-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
-.order-detail-info{background:#f7faf8;border:1px solid #e3ece6;border-radius:10px;padding:10px}
-.order-detail-info small{display:block;color:#7b8780;font-size:8px;text-transform:uppercase;font-weight:800;margin-bottom:4px}
-.order-detail-info b{display:block;font-size:12px;color:#26332c;overflow-wrap:anywhere}
-.order-detail-items{border:1px solid #e6ebe8;border-radius:11px;overflow:hidden}
-.order-detail-item{display:flex;align-items:center;gap:9px;padding:9px 10px;border-bottom:1px solid #edf0ee}
-.order-detail-item:last-child{border-bottom:0}.order-detail-item-img{width:48px;height:48px;border:1px solid #eee;border-radius:8px;display:grid;place-items:center;overflow:hidden;background:#fff;flex:none;font-size:25px}
-.order-detail-item-img img{width:100%;height:100%;object-fit:contain}.order-detail-item-main{min-width:0;flex:1}.order-detail-item-name{font-size:11px;font-weight:800}.order-detail-item-meta{font-size:9px;color:#777;margin-top:3px}.order-detail-item-total{font-size:11px;font-weight:900;white-space:nowrap}
-.order-detail-total{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding:11px 12px;border-radius:10px;background:#eff9f2;color:#176b45}.order-detail-total span{font-size:11px}.order-detail-total b{font-size:18px}
-.order-detail-actions{display:flex;gap:7px;margin-top:10px}.order-detail-actions a,.order-detail-actions button{flex:1;text-align:center;padding:10px;border-radius:9px;font-size:11px;font-weight:800}.order-detail-track{background:#198754;color:#fff!important}.order-detail-close{background:#f1f3f2;color:#4b5563}
-
-/* Admin reviews */
-.admin-review-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px}
-.admin-review-stat{padding:10px;border:1px solid #e4ebe7;border-radius:10px;background:#f8faf9}.admin-review-stat small{display:block;color:#7b8780;font-size:8px;font-weight:800;text-transform:uppercase}.admin-review-stat b{display:block;font-size:18px;margin-top:3px}
-.admin-review-list{display:grid;gap:7px}.admin-review-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;border:1px solid #e5ebe7;border-radius:11px;background:#fff;padding:11px 12px;transition:.15s ease}.admin-review-row:hover{border-color:#cfe7d7;box-shadow:0 5px 16px rgba(25,135,84,.08)}
-.admin-review-main{min-width:0}.admin-review-top{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.admin-review-user{font-size:12px;font-weight:900;color:#26332c}.admin-review-product{font-size:10px;color:#198754;font-weight:800}.admin-review-stars{color:#f59e0b;font-size:12px;letter-spacing:1px;margin-top:3px}.admin-review-comment{font-size:11px;color:#59645e;line-height:1.5;margin-top:4px;white-space:pre-wrap;overflow-wrap:anywhere}.admin-review-date{font-size:9px;color:#999;margin-top:4px}.admin-review-actions{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}.admin-review-actions button{padding:7px 9px;border-radius:8px;font-size:9px;font-weight:800;border:1px solid transparent}.admin-review-actions .approve{background:#ecfdf3;color:#15803d;border-color:#d7f1e1}.admin-review-actions .hide{background:#fff7ed;color:#c2410c;border-color:#fed7aa}.admin-review-actions .edit{background:#eef7ff;color:#1769aa;border-color:#d7eaf9}.admin-review-actions .delete{background:#fff1f2;color:#b91c1c;border-color:#ffe0e3}
-.admin-review-badge{display:inline-block;padding:4px 7px;border-radius:20px;font-size:8px;font-weight:900}.admin-review-badge.approved{background:#eaf8ef;color:#15803d}.admin-review-badge.hidden{background:#f3f4f6;color:#6b7280}.admin-review-badge.pending{background:#fff7ed;color:#c2410c}
-.admin-review-edit-sheet{max-width:560px!important}
-@media(max-width:650px){.order-detail-grid{grid-template-columns:1fr}.order-detail-body{padding:10px}.order-detail-hero{padding:15px}.order-detail-hero h2{font-size:18px}.order-detail-actions{flex-direction:column}.admin-review-summary{grid-template-columns:repeat(2,1fr)}.admin-review-row{grid-template-columns:1fr}.admin-review-actions{justify-content:flex-start}.admin-review-actions button{padding:7px 8px}.admin-review-comment{font-size:10px}}
-</style>
-
 </head>
 <body>
 <div class="top">&#128230; Fast Delivery &nbsp; | &nbsp; Cash on Delivery &nbsp; | &nbsp; Secure Shopping</div>
@@ -1547,7 +1600,6 @@ footer{background:#252525}
       <button data-view="orders" onclick="showAdminView('orders',this)"><span>&#9636;</span> Orders</button>
       <button data-view="users" onclick="showAdminView('users',this)"><span>&#9817;</span> Users</button>
       <button data-view="products" onclick="showAdminView('products',this)"><span>&#9638;</span> Products</button>
-      <button data-view="reviews" onclick="showAdminView('reviews',this)"><span>&#11088;</span> Reviews</button>
       <button data-view="customize" onclick="showAdminView('customize',this);loadSiteCustomization()"><span>&#127912;</span> Customize</button>
     </nav>
     <div class="admin-grid">
@@ -1557,13 +1609,6 @@ footer{background:#252525}
       </div><div class="admin-card"><div class="admin-card-head"><h2>Recent Orders</h2><button class="admin-btn primary" onclick="showAdminView('orders')">View All</button></div><div id="dashboardOrders"></div></div></section>
       <section class="admin-view" id="admin-orders"><div class="admin-card" style="margin-top:0"><div class="admin-card-head"><div><h2>Orders Management</h2><div class="admin-muted">Clean order list with quick management actions.</div></div><div class="admin-toolbar"><input id="orderSearch" placeholder="&#128269; Search order or customer..." oninput="renderAdminOrders()"><button class="admin-btn" onclick="loadAdminData()">&#8635; Refresh</button></div></div><div id="adminOrders"></div></div></section>
       <section class="admin-view" id="admin-users"><div class="admin-card" style="margin-top:0"><div class="admin-card-head"><h2>Users Management</h2><button class="admin-btn" onclick="loadAdminData()">Refresh</button></div><div class="admin-toolbar"><input id="userSearch" placeholder="Search users..." oninput="renderAdminUsers()"></div><div id="adminUsers"></div></div></section>
-      <section class="admin-view" id="admin-reviews">
-        <div class="admin-card" style="margin-top:0">
-          <div class="admin-card-head"><div><h2>&#11088; Reviews Management</h2><div class="admin-muted">Approve, hide, edit or delete customer reviews. Hidden reviews are not shown to customers.</div></div><button class="admin-btn" onclick="loadAdminReviews()">&#8635; Refresh</button></div>
-          <div class="admin-toolbar"><input id="reviewAdminSearch" placeholder="Search customer, product or review..." oninput="renderAdminReviews()"><select id="reviewAdminFilter" class="admin-btn" onchange="renderAdminReviews()"><option value="all">All reviews</option><option value="approved">Published</option><option value="hidden">Hidden</option></select></div>
-          <div id="adminReviews"></div>
-        </div>
-      </section>
       <section class="admin-view" id="admin-customize">
   <div class="admin-card" style="margin-top:0">
     <div class="admin-card-head"><div><h2>&#127912; Home Page Customization</h2><div class="admin-muted">Customize slider size, timing, text, colors, icons and add your own product categories.</div></div><button class="admin-btn" onclick="loadSiteCustomization()">Refresh</button></div>
@@ -1612,14 +1657,17 @@ footer{background:#252525}
   </div></div>
 </div>
 
+
+<div class="modal" id="myOrderDetailModal" onclick="if(event.target===this)window.closeMyOrderDetail()">
+  <div class="sheet myorder-detail-sheet">
+    <div id="myOrderDetailBody"></div>
+  </div>
+</div>
+
 <div class="modal home-product-modal" id="homeProductDetailsModal" onclick="if(event.target===this)closeHomeProductDetails()"><div class="sheet home-product-sheet">
   <div class="sheet-head"><h2>Product Details</h2><button class="close" onclick="closeHomeProductDetails()">&#215;</button></div>
   <div id="homeProductDetailsBody"></div>
   <div class="home-product-actions"><button class="home-add-cart" id="homeDetailCartBtn">Add to Cart</button><button class="home-buy-now" id="homeDetailBuyBtn">Buy Now</button></div>
-</div></div>
-
-<div class="modal" id="userOrderDetailsModal" onclick="if(event.target===this)closeUserOrderDetails()"><div class="sheet order-detail-sheet">
-  <div id="userOrderDetailsBody"></div>
 </div></div>
 
 <div class="modal" id="reviewModal" onclick="if(event.target===this)closeReviewModal()"><div class="sheet" style="max-width:560px">
@@ -1969,7 +2017,7 @@ async function loadAllReviewsData(){
   try{
     const snap=await getDocs(collection(db,"reviews"));
     reviewStats={}; const all=[];
-    snap.forEach(ds=>{const r={id:ds.id,...ds.data()}; if(r.status==='hidden'||r.status==='rejected') return; all.push(r); const k=String(r.productId); if(!reviewStats[k]) reviewStats[k]={sum:0,count:0}; reviewStats[k].sum+=Number(r.rating||0); reviewStats[k].count++;});
+    snap.forEach(ds=>{const r={id:ds.id,...ds.data()}; all.push(r); const k=String(r.productId); if(!reviewStats[k]) reviewStats[k]={sum:0,count:0}; reviewStats[k].sum+=Number(r.rating||0); reviewStats[k].count++;});
     Object.keys(reviewStats).forEach(k=>reviewStats[k].average=reviewStats[k].count?reviewStats[k].sum/reviewStats[k].count:0);
     renderPublicReviews(all);
   }catch(e){ console.warn("Reviews load error",e); renderPublicReviews([]); }
@@ -2034,6 +2082,10 @@ window.openHomeProductDetails = function(id){
         </div>
         ${p.details ? `<div class="home-detail-description">${escapeHtml(p.details)}</div>` : ''}
         <div class="review-feature"><div class="review-feature-head"><div><h3>Customer Reviews</h3><small id="productReviewMeta">Loading reviews...</small></div></div><div id="productReviewSummary" class="review-summary"></div><div id="productReviewList" class="review-list"><div class="review-empty">Loading...</div></div><button type="button" class="write-review-btn" onclick="openReviewModal('${id}')">&#11088; Write a Review</button></div>
+        <div class="similar-products-section">
+          <div class="similar-products-head"><h3>Similar Products</h3><span>More you may like</span></div>
+          <div id="similarProductsGrid" class="similar-products-grid"></div>
+        </div>
       </div>
     `;
  }
@@ -2044,6 +2096,7 @@ window.openHomeProductDetails = function(id){
  
  const modal = document.getElementById("homeProductDetailsModal");
  if(modal) modal.classList.add("open");
+ renderSimilarProducts(p);
  loadProductReviewsForDetails(p);
 };
 
@@ -2053,9 +2106,35 @@ window.closeHomeProductDetails = function(){
 };
 
 
+function renderSimilarProducts(current){
+  const el=document.getElementById("similarProductsGrid");
+  if(!el)return;
+  const all=Array.isArray(window.products)?window.products:[];
+  const currentId=String(current.id);
+  const type=String(current.type||"").toLowerCase();
+  const brand=String(current.brand||"").toLowerCase();
+  const sameBrand=all.filter(x=>String(x.id)!==currentId && brand && String(x.brand||"").toLowerCase()===brand);
+  const sameType=all.filter(x=>String(x.id)!==currentId && type && String(x.type||"").toLowerCase()===type && !sameBrand.some(y=>String(y.id)===String(x.id)));
+  const others=all.filter(x=>String(x.id)!==currentId && !sameBrand.some(y=>String(y.id)===String(x.id)) && !sameType.some(y=>String(y.id)===String(x.id)));
+  const list=[...sameBrand,...sameType,...others].slice(0,4);
+  el.innerHTML=list.length?list.map(x=>{
+    const id=escapeJsArg(x.id);
+    const image=x.image?`<img src="${escapeHtml(x.image)}" alt="${escapeHtml(x.name||"Product")}" onerror="this.style.display='none'">`:`<span class="similar-product-icon">${escapeHtml(x.icon||"📦")}</span>`;
+    return `<article class="similar-product-card" onclick="openHomeProductDetails('${id}')">
+      <div class="similar-product-img">${image}</div>
+      <div class="similar-product-body">
+        <div class="similar-product-brand">${escapeHtml(x.brand||"")}</div>
+        <div class="similar-product-name">${escapeHtml(x.name||"Product")}</div>
+        <div class="similar-product-price">${money(Number(x.price||0))}</div>
+        <button class="similar-add-btn" type="button" onclick="event.stopPropagation();addCart('${id}')">🛒 Add to Cart</button>
+      </div>
+    </article>`;
+  }).join(""):'<div style="grid-column:1/-1;text-align:center;color:#888;font-size:10px;padding:12px">No similar products available.</div>';
+}
+
 async function loadProductReviewsForDetails(p){
   const meta=document.getElementById("productReviewMeta"),sum=document.getElementById("productReviewSummary"),list=document.getElementById("productReviewList"); if(!meta||!sum||!list)return;
-  try{const snap=await getDocs(query(collection(db,"reviews"),where("productId","==",String(p.id))));const reviews=[];let total=0;snap.forEach(ds=>{const r={id:ds.id,...ds.data()};if(r.status==='hidden'||r.status==='rejected')return;reviews.push(r);total+=Number(r.rating||0);});const avg=reviews.length?total/reviews.length:Number(p.rating||0);meta.textContent=`${reviews.length} review${reviews.length===1?'':'s'}${reviews.length?' • verified customer feedback':''}`;sum.innerHTML=`<strong>${avg.toFixed(1)}</strong><span class="review-stars">${starsHtml(avg)}</span><small style="color:#777">${reviews.length} review${reviews.length===1?'':'s'}</small>`;reviews.sort((a,b)=>String(b.createdAt||'').localeCompare(String(a.createdAt||'')));list.innerHTML=reviews.length?reviews.slice(0,8).map(r=>`<div class="review-item"><div class="review-item-top"><span class="review-user">${escapeHtml(r.userName||'Customer')}</span><span class="review-date">${escapeHtml(r.createdAt?new Date(r.createdAt).toLocaleDateString():"")}</span></div><div class="review-stars">${starsHtml(r.rating)}</div><p>${escapeHtml(r.comment||"")}</p></div>`).join(""):"<div class='review-empty'>No reviews yet. Be the first verified buyer.</div>";}catch(e){meta.textContent="Reviews unavailable";sum.innerHTML="";list.innerHTML="<div class='review-empty'>Could not load reviews.</div>";}
+  try{const snap=await getDocs(query(collection(db,"reviews"),where("productId","==",String(p.id))));const reviews=[];let total=0;snap.forEach(ds=>{const r={id:ds.id,...ds.data()};reviews.push(r);total+=Number(r.rating||0);});const avg=reviews.length?total/reviews.length:Number(p.rating||0);meta.textContent=`${reviews.length} review${reviews.length===1?'':'s'}${reviews.length?' • verified customer feedback':''}`;sum.innerHTML=`<strong>${avg.toFixed(1)}</strong><span class="review-stars">${starsHtml(avg)}</span><small style="color:#777">${reviews.length} review${reviews.length===1?'':'s'}</small>`;reviews.sort((a,b)=>String(b.createdAt||'').localeCompare(String(a.createdAt||'')));list.innerHTML=reviews.length?reviews.slice(0,8).map(r=>`<div class="review-item"><div class="review-item-top"><span class="review-user">${escapeHtml(r.userName||'Customer')}</span><span class="review-date">${escapeHtml(r.createdAt?new Date(r.createdAt).toLocaleDateString():"")}</span></div><div class="review-stars">${starsHtml(r.rating)}</div><p>${escapeHtml(r.comment||"")}</p></div>`).join(""):"<div class='review-empty'>No reviews yet. Be the first verified buyer.</div>";}catch(e){meta.textContent="Reviews unavailable";sum.innerHTML="";list.innerHTML="<div class='review-empty'>Could not load reviews.</div>";}
 }
 
 window.addCart = function(id) {
@@ -2201,8 +2280,8 @@ window.closeConfirmation = function() {
   document.getElementById("confirmationModal").classList.remove("open");
 };
 
-function getOrderReceiptData(){
-  return lastConfirmedOrder || {
+function getOrderReceiptData(orderOverride){
+  return orderOverride || lastConfirmedOrder || {
     orderId: document.getElementById("orderId")?.textContent || "",
     customerName: document.getElementById("confirmName")?.textContent || "",
     customerPhone: document.getElementById("confirmPhone")?.textContent || "",
@@ -2210,9 +2289,9 @@ function getOrderReceiptData(){
     paymentMethod: document.getElementById("confirmPayment")?.textContent || ""
   };
 }
-function makeOrderJPGBlob(){
+function makeOrderJPGBlob(orderOverride){
   return new Promise((resolve,reject)=>{
-    const o=getOrderReceiptData();
+    const o=getOrderReceiptData(orderOverride);
     if(!o.orderId){reject(new Error("No confirmed order found"));return;}
     const canvas=document.createElement("canvas"), ctx=canvas.getContext("2d");
     const W=1200, pad=70, lineH=42;
@@ -2246,6 +2325,22 @@ function makeOrderJPGBlob(){
 window.downloadOrderJPG=async function(){
   try{const blob=await makeOrderJPGBlob();const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=(getOrderReceiptData().orderId||"BazarBD-order")+".jpg";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast("Order JPG downloaded");}catch(e){toast("Could not create order JPG");console.error(e);}
 };
+
+window.downloadOrderJPGForOrder=async function(orderId){
+  try{
+    const list=Array.isArray(window.userOrdersCache)?window.userOrdersCache:[];
+    const o=list.find(x=>String(x.id)===String(orderId)||String(x.orderId)===String(orderId));
+    if(!o){toast("Order not found");return;}
+    const blob=await makeOrderJPGBlob(o);
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");a.href=url;
+    a.download=(o.orderId||"BazarBD-order")+".jpg";
+    document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+    toast("Order JPG downloaded");
+  }catch(e){console.error("Order JPG error:",e);toast("Could not create order JPG");}
+};
+
 window.shareOrderJPG=async function(){
   try{const blob=await makeOrderJPGBlob();const name=(getOrderReceiptData().orderId||"BazarBD-order")+".jpg";const file=new File([blob],name,{type:"image/jpeg"});
     if(navigator.share && (!navigator.canShare || navigator.canShare({files:[file]}))){await navigator.share({title:"BazarBD Order Receipt",text:"BazarBD order receipt",files:[file]});}
@@ -2623,57 +2718,37 @@ async function loadShippingProfileIntoProfile(){
 }
 
 async function loadUserOrders() {
-  const container=document.getElementById("profileOrders");
-  if(!container) return;
-  if(!currentUser){container.innerHTML='<div class="profile-empty">Please login to view your orders.</div>';return;}
+  const container=document.getElementById("profileOrders"); if(!container)return;
+  if(!currentUser){container.innerHTML='<div class="pro-empty">Please login to view your orders.</div>';return;}
   container.innerHTML='Loading orders...';
   try{
-    const q=query(collection(db,"orders"),where("userId","==",currentUser.uid));
-    const snap=await getDocs(q);
-    if(snap.empty){container.innerHTML='<div class="profile-empty">\u{1F4E6} No orders found yet.</div>';return;}
-    const orders=[]; snap.forEach(d=>orders.push({id:d.id,...d.data()}));
-    orders.sort((a,b)=>String(b.createdAt||'').localeCompare(String(a.createdAt||'')));
-    container.innerHTML='<div class="compact-order-list">'+orders.map(o=>{
-      const status=o.status||'Confirmed';
-      const itemCount=(o.items||[]).reduce((n,i)=>n+Number(i.qty||1),0);
-      const firstItems=(o.items||[]).slice(0,2).map(i=>`${escapeHtml(i.name||'Product')} \u{D7} ${i.qty||1}`).join(' \u{2022} ');
-      const more=(o.items||[]).length>2 ? ` +${(o.items||[]).length-2} more` : '';
-      return `<div class="compact-order-row" onclick="openUserOrderDetails('${escapeJsArg(o.id)}')">
-        <div class="compact-order-main">
-          <div class="compact-order-title"><span class="profile-order-id">${escapeHtml(o.orderId||o.id)}</span><span class="profile-status">${escapeHtml(status)}</span></div>
-          <div class="compact-order-meta">${o.createdAt?new Date(o.createdAt).toLocaleDateString():''} \u{2022} ${itemCount} item${itemCount===1?'':'s'} \u{2022} ${money(o.total||0)}</div>
-          <div class="compact-order-items">${firstItems||'No item details'}${more}</div>
-        </div>
-        <div class="compact-order-action">${o.trackingLink?`<a class="compact-track-btn" href="${escapeHtml(o.trackingLink)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">\u{1F517} Track</a>`:`<button class="compact-track-btn disabled" type="button" onclick="event.stopPropagation();showProfileTab('tracking',document.querySelector('.profile-tabs button:nth-child(2)'))">\u{1F69A} Status</button>`}</div>
-      </div>`;
-    }).join('')+'</div>';
-  }catch(e){container.innerHTML='<div class="profile-empty">Could not load orders: '+escapeHtml(e.message)+'</div>';}
+    const q=query(collection(db,"orders"),where("userId","==",currentUser.uid)); const snap=await getDocs(q);
+    if(snap.empty){window.userOrdersCache=[];container.innerHTML='<div class="pro-orders-wrap"><div class="pro-orders-header"><div class="pro-orders-heading"><h3>My Orders</h3><p>Your recent purchases</p></div><span class="pro-orders-count">0 Orders</span></div><div class="pro-empty">📦<br>No orders found yet.</div></div>';return;}
+    const orders=[];snap.forEach(d=>orders.push({id:d.id,...d.data()})); orders.sort((a,b)=>String(b.createdAt||"").localeCompare(String(a.createdAt||""))); window.userOrdersCache=orders;
+    container.innerHTML=`<div class="pro-orders-wrap"><div class="pro-orders-header"><div class="pro-orders-heading"><h3>My Orders</h3><p>Tap an order to view full details</p></div><span class="pro-orders-count">${orders.length} Order${orders.length===1?"":"s"}</span></div><div>${orders.map(o=>{
+      const items=Array.isArray(o.items)?o.items:[],count=items.reduce((n,i)=>n+Number(i.qty||1),0),status=o.status||"Confirmed",date=o.createdAt?new Date(o.createdAt).toLocaleDateString(undefined,{day:"2-digit",month:"short",year:"numeric"}):"—",safe=escapeJsArg(o.id),preview=items.slice(0,2).map(i=>`${escapeHtml(i.name||"Product")} × ${i.qty||1}`).join(" • ")+(items.length>2?` • +${items.length-2} more`:"");
+      const shipping=o.shippingAddress||o.address||o.customerAddress||{},address=typeof shipping==="string"?shipping:[shipping.name,shipping.phone,shipping.address,shipping.city,shipping.postcode].filter(Boolean).join(", ");
+      return `<article class="pro-order-card" id="proOrderCard_${safe}"><div class="pro-order-main" onclick="window.openMyOrderDetail('${safe}')"><div class="pro-order-icon">📦</div><div class="pro-order-content"><div class="pro-order-top"><span class="pro-order-id">${escapeHtml(o.orderId||o.id)}</span><span class="pro-order-status">${escapeHtml(status)}</span></div><div class="pro-order-meta"><span>📅 ${escapeHtml(date)}</span><span>📦 ${count} item${count===1?"":"s"}</span></div><div class="pro-order-preview">${preview||"Product details"}</div></div><div class="pro-order-total"><small>Total</small><b>${money(o.total||0)}</b></div><div class="pro-order-chevron">›</div></div><div class="pro-order-details"><div class="pro-detail-grid"><div class="pro-detail-box"><label>ORDER DATE</label><b>${escapeHtml(date)}</b></div><div class="pro-detail-box"><label>PAYMENT</label><b>${escapeHtml(o.paymentMethod||o.payment||"—")}</b></div><div class="pro-detail-box"><label>CUSTOMER</label><b>${escapeHtml(o.customerName||o.name||currentUser?.displayName||"Customer")}</b></div><div class="pro-detail-box"><label>PHONE</label><b>${escapeHtml(o.phone||o.customerPhone||shipping.phone||"—")}</b></div><div class="pro-detail-box full" style="grid-column:1/-1"><label>DELIVERY ADDRESS</label><b>${escapeHtml(address||"—")}</b></div></div><div class="pro-items">${items.length?items.map(i=>{const qty=Number(i.qty||1),unit=Number(i.price||i.unitPrice||0),image=i.image?`<img src="${escapeHtml(i.image)}" alt="">`:`<span style="font-size:22px">${escapeHtml(i.icon||"📦")}</span>`;return `<div class="pro-item"><div class="pro-item-img">${image}</div><div class="pro-item-main"><div class="pro-item-name">${escapeHtml(i.name||"Product")}</div><div class="pro-item-sub">${i.brand?escapeHtml(i.brand)+" • ":""}Qty ${qty} • Unit ${money(unit)}</div></div><div class="pro-item-price">${money(unit*qty)}</div></div>`}).join(""):'<div style="padding:10px;font-size:9px;color:#888">No product details available.</div>'}</div><div class="pro-detail-bottom"><div class="pro-total"><span>ORDER TOTAL</span><strong>${money(o.total||0)}</strong></div><div class="pro-actions">${o.trackingLink?`<a class="pro-track" href="${escapeHtml(o.trackingLink)}" target="_blank" rel="noopener noreferrer">🔗 Track</a>`:""}<button class="pro-view-jpg" type="button" onclick="event.stopPropagation();window.downloadOrderJPGForOrder('${safe}')">📷 Download JPG</button></div></div></div></article>`;
+    }).join("")}</div></div>`;
+  }catch(e){console.error(e);container.innerHTML='<div class="pro-empty">Could not load orders: '+escapeHtml(e.message)+'</div>';}
 }
-
-
-window.closeUserOrderDetails=function(){document.getElementById("userOrderDetailsModal")?.classList.remove("open");};
-window.openUserOrderDetails=async function(docId){
-  const body=document.getElementById("userOrderDetailsBody");
-  if(!body) return;
-  if(!currentUser){toast("Please login to view order details");return;}
-  let o=null;
-  try{
-    const snap=await getDoc(doc(db,"orders",String(docId)));
-    if(snap.exists()) o={id:snap.id,...snap.data()};
-  }catch(e){console.error("Order details load error:",e);toast("Could not load order details");return;}
-  if(!o || o.userId!==currentUser.uid){toast("Order not found");return;}
-  const status=o.status||"Confirmed";
+window.openMyOrderDetail = function(orderId){
+  const list=Array.isArray(window.userOrdersCache)?window.userOrdersCache:[];
+  const o=list.find(x=>String(x.id)===String(orderId)||String(x.orderId)===String(orderId));
+  if(!o){toast("Order not found");return;}
+  const modal=document.getElementById("myOrderDetailModal"), body=document.getElementById("myOrderDetailBody");
+  if(!modal||!body){toast("Order details unavailable");return;}
   const items=Array.isArray(o.items)?o.items:[];
-  const itemRows=items.length?items.map(i=>{
-    const qty=Number(i.qty||1), price=Number(i.price||0), total=price*qty;
-    const img=i.image?`<img src="${escapeHtml(i.image)}" alt="${escapeHtml(i.name||'Product')}" onerror="this.style.display='none'">`:escapeHtml(i.icon||"\u{1F4E6}");
-    return `<div class="order-detail-item"><div class="order-detail-item-img">${img}</div><div class="order-detail-item-main"><div class="order-detail-item-name">${escapeHtml(i.name||"Product")}</div><div class="order-detail-item-meta">Qty ${qty}${price?` \u{2022} ${money(price)} each`:''}</div></div><div class="order-detail-item-total">${money(total)}</div></div>`;
-  }).join(""):"<div class='profile-empty'>No item details available.</div>";
-  const date=o.createdAt?new Date(o.createdAt).toLocaleString():"—";
-  const track=o.trackingLink?`<a class="order-detail-track" href="${escapeHtml(o.trackingLink)}" target="_blank" rel="noopener noreferrer">\u{1F517} Track Package</a>`:"";
-  body.innerHTML=`<div class="order-detail-hero"><div class="order-detail-hero-top"><div><small>ORDER DETAILS</small><h2>${escapeHtml(o.orderId||o.id)}</h2><div style="font-size:9px;opacity:.72;margin-top:3px">${escapeHtml(date)}</div></div><button class="close" onclick="closeUserOrderDetails()">&#215;</button></div><span class="order-detail-status">${escapeHtml(status)}</span></div><div class="order-detail-body"><div class="order-detail-grid"><div class="order-detail-info"><small>Customer</small><b>${escapeHtml(o.customerName||"—")}</b></div><div class="order-detail-info"><small>Phone</small><b>${escapeHtml(o.customerPhone||"—")}</b></div><div class="order-detail-info"><small>Payment</small><b>${escapeHtml(o.paymentMethod||"Cash on Delivery")}</b></div><div class="order-detail-info"><small>Tracking</small><b>${escapeHtml(o.trackingNumber||"Not assigned")}</b></div><div class="order-detail-info" style="grid-column:1/-1"><small>Shipping Address</small><b>${escapeHtml(o.customerAddress||"Not provided")}</b></div></div><div class="order-detail-items">${itemRows}</div><div class="order-detail-total"><span>Order Total</span><b>${money(o.total||0)}</b></div><div class="order-detail-actions">${track}<button class="order-detail-close" onclick="closeUserOrderDetails()">Close</button></div></div>`;
-  document.getElementById("userOrderDetailsModal")?.classList.add("open");
-};
+  const shipping=o.shippingAddress||o.address||o.customerAddress||{};
+  const address=typeof shipping==='string'?shipping:[shipping.name,shipping.phone,shipping.address,shipping.city,shipping.postcode].filter(Boolean).join(', ');
+  const date=o.createdAt?new Date(o.createdAt).toLocaleString(undefined,{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}):'—';
+  const safe=escapeJsArg(o.id);
+  body.innerHTML=`<div class="myorder-detail-top"><div><h3>Order Details</h3><small>${escapeHtml(o.orderId||o.id)}</small></div><div class="myorder-status-pill">${escapeHtml(o.status||'Confirmed')}</div></div><div class="myorder-detail-scroll"><div class="myorder-info-grid"><div class="myorder-info-box"><label>ORDER DATE</label><b>${escapeHtml(date)}</b></div><div class="myorder-info-box"><label>PAYMENT</label><b>${escapeHtml(o.paymentMethod||o.payment||'—')}</b></div><div class="myorder-info-box"><label>CUSTOMER</label><b>${escapeHtml(o.customerName||o.name||currentUser?.displayName||'Customer')}</b></div><div class="myorder-info-box"><label>PHONE</label><b>${escapeHtml(o.phone||o.customerPhone||shipping.phone||'—')}</b></div><div class="myorder-info-box" style="grid-column:1/-1"><label>DELIVERY ADDRESS</label><b>${escapeHtml(address||'—')}</b></div></div><div class="myorder-detail-items">${items.length?items.map(i=>{const qty=Number(i.qty||1),unit=Number(i.price||i.unitPrice||0);const img=i.image?`<img src="${escapeHtml(i.image)}" alt="">`:`<span style="font-size:25px">${escapeHtml(i.icon||'📦')}</span>`;return `<div class="myorder-detail-item"><div class="myorder-detail-item-img">${img}</div><div class="myorder-detail-item-main"><div class="myorder-detail-item-name">${escapeHtml(i.name||'Product')}</div><div class="myorder-detail-item-meta">${i.brand?escapeHtml(i.brand)+' • ':''}Qty: ${qty} • Unit: ${money(unit)}</div></div><div class="myorder-detail-item-price">${money(unit*qty)}</div></div>`}).join(''):'<div style="padding:12px;font-size:10px;color:#777">No product details available.</div>'}</div><div class="myorder-total-box"><span>ORDER TOTAL</span><b>${money(o.total||0)}</b></div><div class="myorder-detail-actions">${o.trackingLink?`<a class="myorder-close" href="${escapeHtml(o.trackingLink)}" target="_blank" rel="noopener noreferrer">🔗 Track Order</a>`:''}<button class="myorder-download" type="button" onclick="window.downloadOrderJPGForOrder('${safe}')">📷 Download JPG</button><button class="myorder-close" type="button" onclick="closeMyOrderDetail()">Close</button></div></div>`;
+  modal.classList.add('open');
+}
+window.closeMyOrderDetail = function(){const modal=document.getElementById('myOrderDetailModal');if(modal)modal.classList.remove('open');}
+
+function toggleMyOrderCard(orderId){const card=document.getElementById("proOrderCard_"+orderId);if(card)card.classList.toggle("open");}
 
 async function loadUserTracking(){
   const container=document.getElementById("profileTracking");
@@ -2761,9 +2836,6 @@ async function loadAdminData() {
     // Products
     document.getElementById("statProducts").textContent = window.products.length;
     renderAdminProducts();
-
-    // Reviews
-    await loadAdminReviews();
   } catch(e) {
     console.error("Admin data load error:", e);
   }
@@ -2915,60 +2987,6 @@ window.deleteUser=async function(id){
   if(!u) return;
   if(!confirm("Delete this user's Firestore profile? This does not delete the Firebase Authentication account.")) return;
   try{await deleteDoc(doc(db,"users",id));toast("User profile deleted");await loadAdminData();}catch(ex){toast("Error deleting user profile");console.error(ex);}
-};
-
-
-let adminReviewsList=[];
-window.loadAdminReviews=async function(){
-  const container=document.getElementById("adminReviews");
-  if(container) container.innerHTML='<div class="admin-empty">Loading reviews...</div>';
-  try{
-    const snap=await getDocs(collection(db,"reviews"));
-    adminReviewsList=[]; snap.forEach(ds=>adminReviewsList.push({id:ds.id,...ds.data()}));
-    adminReviewsList.sort((a,b)=>String(b.createdAt||"").localeCompare(String(a.createdAt||"")));
-    renderAdminReviews();
-  }catch(e){console.error("Admin reviews load error:",e);if(container)container.innerHTML='<div class="admin-empty">Could not load reviews.</div>';}
-};
-window.renderAdminReviews=function(){
-  const container=document.getElementById("adminReviews"); if(!container)return;
-  const q=(document.getElementById("reviewAdminSearch")?.value||"").trim().toLowerCase();
-  const filter=document.getElementById("reviewAdminFilter")?.value||"all";
-  const list=adminReviewsList.filter(r=>{
-    const status=r.status==='hidden'||r.status==='rejected'?'hidden':'approved';
-    if(filter!=='all'&&status!==filter)return false;
-    return !q || [r.userName,r.productName,r.comment,r.status].some(v=>String(v||"").toLowerCase().includes(q));
-  });
-  const total=adminReviewsList.length, published=adminReviewsList.filter(r=>r.status!=='hidden'&&r.status!=='rejected').length, hidden=total-published;
-  const avg=total?adminReviewsList.reduce((n,r)=>n+Number(r.rating||0),0)/total:0;
-  container.innerHTML=`<div class="admin-review-summary"><div class="admin-review-stat"><small>Total</small><b>${total}</b></div><div class="admin-review-stat"><small>Published</small><b>${published}</b></div><div class="admin-review-stat"><small>Hidden</small><b>${hidden}</b></div><div class="admin-review-stat"><small>Average</small><b>${avg.toFixed(1)} ★</b></div></div>${list.length?`<div class="admin-review-list">${list.map(r=>{const hidden=r.status==='hidden'||r.status==='rejected';const date=r.createdAt?new Date(r.createdAt).toLocaleDateString():"";return `<div class="admin-review-row"><div class="admin-review-main"><div class="admin-review-top"><span class="admin-review-user">${escapeHtml(r.userName||"Customer")}</span><span class="admin-review-product">${escapeHtml(r.productName||"Product")}</span><span class="admin-review-badge ${hidden?'hidden':'approved'}">${hidden?'HIDDEN':'PUBLISHED'}</span></div><div class="admin-review-stars">${starsHtml(r.rating)}</div><div class="admin-review-comment">${escapeHtml(r.comment||"")}</div><div class="admin-review-date">${escapeHtml(date)}${r.userId?` • ${escapeHtml(r.userId)}`:''}</div></div><div class="admin-review-actions">${hidden?`<button class="approve" onclick="adminSetReviewStatus('${escapeJsArg(r.id)}','approved')">Publish</button>`:`<button class="hide" onclick="adminSetReviewStatus('${escapeJsArg(r.id)}','hidden')">Hide</button>`}<button class="edit" onclick="openAdminReviewEdit('${escapeJsArg(r.id)}')">Edit</button><button class="delete" onclick="deleteAdminReview('${escapeJsArg(r.id)}')">Delete</button></div></div>`;}).join("")}</div>`:'<div class="admin-empty">No reviews match your search.</div>'}`;
-};
-window.adminSetReviewStatus=async function(id,status){
-  if(!currentAdminUser)return;
-  try{await updateDoc(doc(db,"reviews",String(id)),{status,updatedAt:new Date().toISOString()});toast(status==='approved'?"Review published":"Review hidden");await loadAdminReviews();await loadAllReviewsData();renderUI();}catch(e){console.error(e);toast("Could not update review");}
-};
-window.deleteAdminReview=async function(id){
-  if(!currentAdminUser)return;
-  if(!confirm("Delete this customer review permanently?"))return;
-  try{await deleteDoc(doc(db,"reviews",String(id)));toast("Review deleted");await loadAdminReviews();await loadAllReviewsData();renderUI();}catch(e){console.error(e);toast("Could not delete review");}
-};
-window.openAdminReviewEdit=function(id){
-  const r=adminReviewsList.find(x=>x.id===id); if(!r)return;
-  document.getElementById("adminReviewEditId").value=r.id;
-  document.getElementById("adminReviewEditProduct").textContent=`${r.userName||'Customer'} • ${r.productName||'Product'}`;
-  document.getElementById("adminReviewEditRating").value=String(Number(r.rating||5));
-  document.getElementById("adminReviewEditStatus").value=(r.status==='hidden'||r.status==='rejected')?'hidden':'approved';
-  document.getElementById("adminReviewEditComment").value=r.comment||"";
-  document.getElementById("adminReviewEditModal")?.classList.add("open");
-};
-window.closeAdminReviewEdit=function(){document.getElementById("adminReviewEditModal")?.classList.remove("open");};
-window.saveAdminReviewEdit=async function(e){
-  e.preventDefault(); if(!currentAdminUser)return;
-  const id=document.getElementById("adminReviewEditId").value;
-  const rating=Number(document.getElementById("adminReviewEditRating").value);
-  const status=document.getElementById("adminReviewEditStatus").value;
-  const comment=document.getElementById("adminReviewEditComment").value.trim();
-  if(!comment)return;
-  try{await updateDoc(doc(db,"reviews",String(id)),{rating,comment,status,updatedAt:new Date().toISOString()});closeAdminReviewEdit();toast("Review updated");await loadAdminReviews();await loadAllReviewsData();renderUI();}catch(e){console.error(e);toast("Could not save review");}
 };
 
 function renderAdminProducts() {
@@ -3141,7 +3159,6 @@ window.openAdminRecord=function(type,id){
   if(type==="product") d=(window.products||[]).find(x=>String(x.id)===String(id));
   if(type==="order") d=(typeof adminOrdersList!=="undefined"?adminOrdersList:[]).find(x=>String(x.id)===String(id));
   if(type==="user") d=(typeof adminUsersList!=="undefined"?adminUsersList:[]).find(x=>String(x.id)===String(id));
-  if(type==="review") d=(typeof adminReviewsList!=="undefined"?adminReviewsList:[]).find(x=>String(x.id)===String(id));
   if(!d){toast("Record not found");return;}
   const e=v=>escapeHtml(String(v??"—"));let rows=[],html="",n="";
   if(type==="product"){
@@ -3155,12 +3172,6 @@ window.openAdminRecord=function(type,id){
     rows=[["Order ID",d.orderId],["Customer",d.customerName],["Phone",d.customerPhone],["Total",money(d.total)],["Status",d.status||"Confirmed"],["Payment",d.paymentMethod||"Cash on Delivery"],["Tracking",d.trackingNumber||"Not added"],["Address",d.customerAddress||"Not provided"]];
     html=`<button class="view" onclick="closeAdminRecord();showAdminViewByName('orders')">Open Orders</button><button class="edit" onclick="closeAdminRecord();openEditOrder('${escapeJsArg(d.id)}')">Edit Order</button><button class="delete" onclick="closeAdminRecord();deleteAdminOrder('${escapeJsArg(d.id)}')">Delete Order</button>`;
     n="Edit Order lets you manage status, customer information, tracking, payment method and total.";
-  }else if(type==="review") {
-    const hidden=d.status==='hidden'||d.status==='rejected';
-    title.textContent=d.productName||"Customer Review";typeEl.textContent="REVIEW MANAGEMENT";
-    rows=[["Customer",d.userName],["Product",d.productName],["Rating",Number(d.rating||0)+"/5"],["Status",hidden?"Hidden":"Published"],["Review",d.comment],["Date",d.createdAt?new Date(d.createdAt).toLocaleString():"—"]];
-    html=`<button class="edit" onclick="closeAdminRecord();openAdminReviewEdit('${escapeJsArg(d.id)}')">Edit Review</button>${hidden?`<button class="edit" onclick="closeAdminRecord();adminSetReviewStatus('${escapeJsArg(d.id)}','approved')">Publish Review</button>`:`<button class="edit" onclick="closeAdminRecord();adminSetReviewStatus('${escapeJsArg(d.id)}','hidden')">Hide Review</button>`}<button class="delete" onclick="closeAdminRecord();deleteAdminReview('${escapeJsArg(d.id)}')">Delete Review</button>`;
-    n="Manage the review visibility, rating and customer comment from this panel.";
   }else{
     title.textContent=d.name||d.email||"User Management";typeEl.textContent="USER MANAGEMENT";
     rows=[["Name",d.name],["Email",d.email],["Role",d.role||"user"],["User ID",d.id],["Phone",d.phone||"Not provided"]];
@@ -3172,16 +3183,5 @@ window.openAdminRecord=function(type,id){
 };
 
 </script>
-<div class="modal" id="adminReviewEditModal" onclick="if(event.target===this)closeAdminReviewEdit()"><div class="sheet admin-review-edit-sheet">
-  <div class="sheet-head"><div><h2>Edit Customer Review</h2><small id="adminReviewEditProduct" style="color:#777"></small></div><button class="close" onclick="closeAdminReviewEdit()">&#215;</button></div>
-  <form class="admin-form" onsubmit="saveAdminReviewEdit(event)">
-    <input type="hidden" id="adminReviewEditId">
-    <label>Rating</label><select id="adminReviewEditRating"><option value="5">★★★★★ 5</option><option value="4">★★★★☆ 4</option><option value="3">★★★☆☆ 3</option><option value="2">★★☆☆☆ 2</option><option value="1">★☆☆☆☆ 1</option></select>
-    <label>Status</label><select id="adminReviewEditStatus"><option value="approved">Published</option><option value="hidden">Hidden</option></select>
-    <label>Review</label><textarea id="adminReviewEditComment" rows="6" maxlength="1000" required></textarea>
-    <button class="checkout" type="submit">&#10003; Save Review</button>
-  </form>
-</div></div>
-
 <div class="modal admin-management-modal" id="adminManagementModal" onclick="if(event.target===this)closeAdminRecord()"><div class="sheet"><div class="admin-management-hero"><div style="display:flex;justify-content:space-between;gap:10px"><div><small id="adminManagementType">MANAGEMENT</small><h2 id="adminManagementTitle">Record Management</h2></div><button class="close" onclick="closeAdminRecord()" style="background:rgba(255,255,255,.15);color:#fff">&#215;</button></div></div><div class="admin-management-body"><div id="adminManagementDetails" class="admin-record-grid"></div><div id="adminManagementActions" class="admin-management-actions"></div><div id="adminManagementNote" class="admin-management-note"></div></div></div></div></body>
 </html>
