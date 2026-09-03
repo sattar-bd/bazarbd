@@ -1100,6 +1100,117 @@ footer{background:#252525}
   .old{font-size:8.5px!important}
 }
 </style>
+<style id="premium-admin-top-navigation-and-orders">
+/* Premium top navigation */
+.admin-top-nav{display:flex;align-items:center;gap:8px;margin-bottom:12px;padding:8px;background:rgba(255,255,255,.92);border:1px solid #e5e9e7;border-radius:16px;box-shadow:0 8px 24px rgba(20,40,30,.07);position:sticky;top:74px;z-index:20;backdrop-filter:blur(10px)}
+.admin-top-nav button{border:0;background:transparent;color:#4b5563;font-weight:800;font-size:12px;padding:10px 14px;border-radius:11px;cursor:pointer;display:flex;align-items:center;gap:7px;white-space:nowrap;transition:.18s ease}
+.admin-top-nav button span{font-size:14px}
+.admin-top-nav button:hover{background:#f0f8f3;color:#15803d;transform:translateY(-1px)}
+.admin-top-nav button.active{background:#198754;color:#fff;box-shadow:0 5px 14px rgba(25,135,84,.22)}
+.admin-top-nav .add-product-top{margin-left:auto;background:#fff0f3;color:#be123c;border:1px solid #ffd7df}
+.admin-top-nav .add-product-top:hover{background:#ffe4eb;color:#9f1239}
+.admin-grid{grid-template-columns:1fr !important}
+.admin-side{display:none !important}
+
+/* Professional order list */
+#adminOrders .admin-table-wrap,#dashboardOrders .admin-table-wrap{border:0!important;background:transparent!important;overflow:visible!important}
+#adminOrders .compact-orders-table,#dashboardOrders .compact-orders-table{border-collapse:separate!important;border-spacing:0 7px!important}
+#adminOrders .compact-orders-table thead th,#dashboardOrders .compact-orders-table thead th{background:transparent!important;border:0!important;color:#8a938e!important;padding:4px 10px!important;font-size:9px!important;letter-spacing:.5px!important}
+#adminOrders .compact-orders-table tbody tr,#dashboardOrders .compact-orders-table tbody tr{background:#fff!important;box-shadow:0 4px 14px rgba(25,50,35,.055);border:1px solid #edf1ee!important}
+#adminOrders .compact-orders-table tbody tr:hover,#dashboardOrders .compact-orders-table tbody tr:hover{background:#fbfefc!important;box-shadow:0 7px 20px rgba(25,50,35,.10),inset 3px 0 #198754!important;transform:translateY(-1px)}
+#adminOrders .compact-orders-table tbody td,#dashboardOrders .compact-orders-table tbody td{border-top:1px solid #edf1ee!important;border-bottom:1px solid #edf1ee!important;padding:11px 9px!important;height:48px!important;color:#374151!important}
+#adminOrders .compact-orders-table tbody td:first-child,#dashboardOrders .compact-orders-table tbody td:first-child{border-left:1px solid #edf1ee!important;border-radius:11px 0 0 11px;font-weight:900;color:#176b45!important}
+#adminOrders .compact-orders-table tbody td:last-child,#dashboardOrders .compact-orders-table tbody td:last-child{border-right:1px solid #edf1ee!important;border-radius:0 11px 11px 0}
+#adminOrders .compact-orders-table td:nth-child(2),#dashboardOrders .compact-orders-table td:nth-child(2){font-weight:700}
+#adminOrders .compact-orders-table td:nth-child(4),#dashboardOrders .compact-orders-table td:nth-child(4){font-weight:900;color:#111827}
+#adminOrders .compact-orders-table .admin-badge,#dashboardOrders .compact-orders-table .admin-badge{background:#eef8f2;color:#15803d;border:1px solid #d7eee0;font-weight:800;padding:5px 8px}
+#adminOrders .compact-orders-table .product-admin-actions,#dashboardOrders .compact-orders-table .product-admin-actions{justify-content:flex-end!important;gap:6px!important}
+#adminOrders .compact-orders-table .product-admin-actions button,#dashboardOrders .compact-orders-table .product-admin-actions button{padding:7px 9px!important;border-radius:8px!important;font-size:9px!important;font-weight:800!important;border:1px solid transparent}
+#adminOrders .compact-orders-table .manage-btn,#dashboardOrders .compact-orders-table .manage-btn{background:#eef7ff!important;color:#1769aa!important;border-color:#d7eaf9!important}
+#adminOrders .compact-orders-table .primary,#dashboardOrders .compact-orders-table .primary{background:#ecfdf3!important;color:#15803d!important;border-color:#d7f1e1!important}
+#adminOrders .compact-orders-table .danger,#dashboardOrders .compact-orders-table .danger{background:#fff1f2!important;color:#b91c1c!important;border-color:#ffe0e3!important}
+@media(max-width:650px){
+ .admin-top-nav{top:58px;margin:0 -1px 9px;padding:5px;gap:3px;overflow-x:auto;border-radius:12px}
+ .admin-top-nav button{flex:0 0 auto;padding:8px 9px;font-size:9px;border-radius:9px;gap:4px}
+ .admin-top-nav button span{font-size:12px}
+ .admin-top-nav .add-product-top{margin-left:0}
+ #adminOrders .compact-orders-table thead th,#dashboardOrders .compact-orders-table thead th{padding:3px 4px!important;font-size:7px!important}
+ #adminOrders .compact-orders-table tbody td,#dashboardOrders .compact-orders-table tbody td{padding:9px 4px!important;height:44px!important;font-size:8.5px!important}
+ #adminOrders .compact-orders-table .product-admin-actions,#dashboardOrders .compact-orders-table .product-admin-actions{gap:2px!important}
+ #adminOrders .compact-orders-table .product-admin-actions button,#dashboardOrders .compact-orders-table .product-admin-actions button{padding:6px 5px!important;font-size:7.5px!important}
+}
+</style>
+<style id="premium-admin-refresh">
+.admin-panel{background:radial-gradient(circle at 10% 0%,rgba(40,167,69,.07),transparent 28%),radial-gradient(circle at 100% 10%,rgba(245,158,11,.06),transparent 25%),#f4f7f6}
+.admin-head{background:linear-gradient(135deg,#171a1d,#252a2f 60%,#198754);min-height:64px;padding:10px 20px;box-shadow:0 4px 18px rgba(0,0,0,.16)}
+.admin-side{padding:8px;border:1px solid #e5e9e7;border-radius:14px;background:rgba(255,255,255,.96);box-shadow:0 8px 24px rgba(20,40,30,.07)}
+.admin-side button{border-radius:12px;transition:.18s ease}.admin-side button:hover{transform:translateX(2px)}
+.stat{border:1px solid #e5e9e7;border-radius:14px;box-shadow:0 8px 24px rgba(20,40,30,.07);transition:.18s ease}.stat.clickable{cursor:pointer}.stat.clickable:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(20,40,30,.11)}
+.admin-card{border:1px solid #e5e9e7;border-radius:14px;box-shadow:0 8px 24px rgba(20,40,30,.07)}
+.admin-table tbody tr{cursor:pointer;transition:.15s ease}.admin-table tbody tr:hover{background:#f5fbf7;box-shadow:inset 3px 0 #28a745}
+.manage-btn{background:#eef7ff!important;color:#1769aa!important;border:1px solid #d8ebfa!important}
+.admin-management-modal{z-index:19000}.admin-management-modal .sheet{max-width:680px;padding:0;border-radius:18px;overflow:hidden;box-shadow:0 25px 70px rgba(0,0,0,.25)}
+.admin-management-hero{padding:20px;color:#fff;background:linear-gradient(135deg,#172126,#198754)}.admin-management-hero h2{font-size:22px;margin-top:4px}.admin-management-hero small{opacity:.72}
+.admin-management-body{padding:16px}.admin-record-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.admin-record{padding:11px;border:1px solid #e7ece9;border-radius:10px;background:#f8faf9}.admin-record small{display:block;color:#78847d;font-size:9px;text-transform:uppercase;font-weight:800;margin-bottom:4px}.admin-record b{font-size:12px;overflow-wrap:anywhere}
+.admin-management-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.admin-management-actions button{padding:11px;border:0;border-radius:10px;font-weight:800}.admin-management-actions .view{background:#eef7ff;color:#1769aa}.admin-management-actions .edit{background:#ecfdf3;color:#15803d}.admin-management-actions .delete{background:#fff0f0;color:#b91c1c}
+.admin-management-note{margin-top:12px;padding:10px;border-radius:9px;background:#f6f8fa;color:#66717d;font-size:11px;line-height:1.45}
+@media(max-width:650px){.admin-head{min-height:58px;padding:8px 12px}.admin-wrap{padding:8px}.admin-side{padding:6px}.admin-management-modal .sheet{border-radius:18px 18px 0 0}.admin-management-actions{grid-template-columns:1fr 1fr}.admin-management-actions .view{grid-column:1/-1}}
+</style>
+<style id="premium-user-list-v2">
+/* Premium Users Management — keeps existing Firebase actions intact */
+#adminUsers{width:100%;min-width:0}
+.user-list-head{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 14px;margin-bottom:8px;border:1px solid #e7ece9;
+  border-radius:12px;background:linear-gradient(180deg,#fbfffc,#f7faf8)
+}
+.user-list-head>div{display:flex;align-items:center;gap:7px}
+.user-list-head>div span{font-size:10px;font-weight:800;letter-spacing:.7px;color:#7a8580}
+.user-list-head>div b{font-size:12px;min-width:24px;height:24px;padding:0 7px;border-radius:999px;display:grid;place-items:center;background:#e9f8ef;color:#15803d}
+.user-list-head small{font-size:10px;color:#8a938f}
+.premium-user-list{display:flex;flex-direction:column;gap:8px}
+.premium-user-row{
+  display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:12px;
+  padding:11px 12px;border:1px solid #e8ecea;border-radius:13px;background:#fff;
+  box-shadow:0 2px 8px rgba(20,40,30,.035);cursor:pointer;transition:.18s ease
+}
+.premium-user-row:hover{border-color:#cfe6d8;box-shadow:0 5px 16px rgba(20,70,40,.07);transform:translateY(-1px)}
+.premium-user-main{display:flex;align-items:center;gap:10px;min-width:0}
+.premium-user-avatar{width:38px;height:38px;flex:0 0 38px;border-radius:11px;display:grid;place-items:center;background:#eaf8ef;color:#168348;font-size:12px;font-weight:900;text-transform:uppercase}
+.premium-user-info{display:flex;flex-direction:column;gap:3px;min-width:0}
+.premium-user-info strong{font-size:12px;color:#1f2933;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.premium-user-info span{font-size:10px;color:#7b8580;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.premium-user-role{min-width:58px;text-align:center}
+.premium-role{display:inline-flex;align-items:center;justify-content:center;padding:5px 9px;border-radius:999px;font-size:9px;font-weight:800;text-transform:capitalize}
+.premium-role.user{background:#eef5ff;color:#2563eb}
+.premium-role.admin{background:#fff3df;color:#b45309}
+.premium-user-actions{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.premium-user-actions button{border:0;cursor:pointer;font-weight:800;font-size:10px;padding:7px 10px;border-radius:8px;background:#f3f7f5}
+.premium-user-actions .user-edit-btn{color:#167a47;background:#eaf8ef}
+.premium-user-actions .user-delete-btn{color:#c43d4d;background:#fff0f1}
+.premium-user-actions button:hover{filter:brightness(.97);transform:translateY(-1px)}
+.premium-user-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:34px 15px;border:1px dashed #dce5df;border-radius:13px;background:#fbfdfc;color:#6f7b75}
+.premium-user-empty>div{font-size:28px;margin-bottom:7px}
+.premium-user-empty b{font-size:13px;color:#34413a}
+.premium-user-empty span{font-size:10px;margin-top:3px}
+@media(max-width:650px){
+  .user-list-head{padding:10px 11px;align-items:flex-start}
+  .user-list-head small{font-size:9px;text-align:right;max-width:150px;line-height:1.3}
+  .premium-user-row{grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:10px}
+  .premium-user-main{min-width:0}
+  .premium-user-avatar{width:36px;height:36px;flex-basis:36px;border-radius:10px}
+  .premium-user-info strong{font-size:11px}
+  .premium-user-info span{font-size:9px}
+  .premium-user-role{grid-column:2;grid-row:1;align-self:start;min-width:0}
+  .premium-user-actions{grid-column:1/-1;justify-content:flex-end;border-top:1px solid #f0f2f1;padding-top:7px}
+  .premium-user-actions button{font-size:9px;padding:6px 12px}
+}
+</style>
+
+<style id="order-share-password-ui">
+.order-share-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}.order-share-btn{padding:11px;border:1px solid #d8e8de;border-radius:7px;background:#f5fbf7;color:#198754;font-weight:800;font-size:12px}.order-share-btn.share{background:#198754;color:#fff;border-color:#198754}.order-share-btn:disabled{opacity:.6}.premium-user-actions{display:flex;gap:5px}.premium-user-actions button{white-space:nowrap}.account-switch{margin-top:8px}
+@media(max-width:600px){.order-share-actions{grid-template-columns:1fr 1fr}.order-share-btn{font-size:11px;padding:10px 6px}}
+</style>
 </head>
 <body>
 <div class="top">&#128230; Fast Delivery &nbsp; | &nbsp; Cash on Delivery &nbsp; | &nbsp; Secure Shopping</div>
@@ -1309,6 +1420,10 @@ footer{background:#252525}
   <div class="success-icon">&#10003;</div><h2>Order Confirmed!</h2><p class="success-text">Thank you. Your order has been received successfully.</p>
   <div class="order-box"><div><span>Order ID</span><b id="orderId"></b></div><div><span>Customer</span><b id="confirmName"></b></div><div><span>Phone</span><b id="confirmPhone"></b></div><div><span>Total</span><b id="confirmTotal"></b></div><div><span>Payment</span><b id="confirmPayment"></b></div></div>
   <div class="order-status"><div class="status active"><span>&#10003;</span><div><b>Order Confirmed</b><small>Your order has been confirmed.</small></div></div><div class="status"><span>2</span><div><b>Processing</b><small>Your order is being prepared.</small></div></div><div class="status"><span>3</span><div><b>On the Way</b><small>Your order is on the way.</small></div></div><div class="status"><span>4</span><div><b>Delivered</b><small>Your order has been delivered.</small></div></div></div>
+  <div class="order-share-actions">
+    <button type="button" class="order-share-btn" onclick="downloadOrderJPG()">&#128247; Download JPG</button>
+    <button type="button" class="order-share-btn share" onclick="shareOrderJPG()">&#128228; Share JPG</button>
+  </div>
   <button class="checkout" onclick="closeConfirmation()">Continue Shopping</button>
 </div></div>
 
@@ -1365,6 +1480,17 @@ footer{background:#252525}
     <button class="checkout" type="submit">&#10003; Save Profile</button>
    </form>
    <div class="profile-card">
+    <b>Change Password</b>
+    <div style="font-size:11px;color:#777;margin-top:5px">Enter your current password, then choose a new password.</div>
+    <form id="changePasswordForm" onsubmit="changeOwnPassword(event)" style="margin-top:8px">
+      <label>Current Password</label><input class="form-input" id="currentPassword" type="password" autocomplete="current-password" minlength="6" required>
+      <label>New Password</label><input class="form-input" id="newPassword" type="password" autocomplete="new-password" minlength="6" required>
+      <label>Confirm New Password</label><input class="form-input" id="confirmNewPassword" type="password" autocomplete="new-password" minlength="6" required>
+      <div class="admin-error" id="passwordChangeError"></div>
+      <button class="checkout" type="submit" id="changePasswordBtn">&#128274; Change Password</button>
+    </form>
+   </div>
+   <div class="profile-card">
     <b>Account Information</b>
     <div style="font-size:12px;color:#666;margin-top:9px">Email: <span id="profileAccountEmail"></span></div>
     <div style="font-size:11px;color:#999;margin-top:6px">Your email is managed by Firebase Authentication.</div>
@@ -1385,18 +1511,21 @@ footer{background:#252525}
 
 <div class="admin-panel" id="adminPanel">
   <div class="admin-head"><div><b>Admin Panel</b><br><small id="adminCurrentEmail"></small></div><button class="admin-btn" onclick="adminLogout()">Logout</button></div>
-  <div class="admin-wrap"><div class="admin-grid">
-    <aside class="admin-side">
-      <button class="active" data-view="dashboard" onclick="showAdminView('dashboard',this)">&#9638; Dashboard</button>
-      <button data-view="orders" onclick="showAdminView('orders',this)">&#9636; Orders</button>
-      <button data-view="users" onclick="showAdminView('users',this)">&#9817; Users</button>
-      <button data-view="products" onclick="showAdminView('products',this)">&#9638; Products</button><button data-view="customize" onclick="showAdminView('customize',this);loadSiteCustomization()">&#127912; Customize</button><button onclick="openAddProductFallback()" style="color:#be123c;font-weight:700">&#65291; Add Product</button>
-    </aside>
+  <div class="admin-wrap">
+    <nav class="admin-top-nav" aria-label="Admin navigation">
+      <button class="active" data-view="dashboard" onclick="showAdminView('dashboard',this)"><span>&#9638;</span> Dashboard</button>
+      <button data-view="orders" onclick="showAdminView('orders',this)"><span>&#9636;</span> Orders</button>
+      <button data-view="users" onclick="showAdminView('users',this)"><span>&#9817;</span> Users</button>
+      <button data-view="products" onclick="showAdminView('products',this)"><span>&#9638;</span> Products</button>
+      <button data-view="customize" onclick="showAdminView('customize',this);loadSiteCustomization()"><span>&#127912;</span> Customize</button>
+      <button class="add-product-top" onclick="openAddProductFallback()"><span>&#65291;</span> Add Product</button>
+    </nav>
+    <div class="admin-grid">
     <main class="admin-main">
       <section class="admin-view active" id="admin-dashboard"><h1>Dashboard</h1><div class="stats">
-        <div class="stat"><small>Total Orders</small><b id="statOrders">0</b></div><div class="stat"><small>Total Users</small><b id="statUsers">0</b></div><div class="stat"><small>Products</small><b id="statProducts">0</b></div><div class="stat"><small>Revenue</small><b id="statRevenue">0</b></div>
+        <div class="stat clickable" onclick="showAdminViewByName('orders')"><small>Total Orders</small><b id="statOrders">0</b></div><div class="stat clickable" onclick="showAdminViewByName('users')"><small>Total Users</small><b id="statUsers">0</b></div><div class="stat clickable" onclick="showAdminViewByName('products')"><small>Products</small><b id="statProducts">0</b></div><div class="stat"><small>Revenue</small><b id="statRevenue">৳0</b></div>
       </div><div class="admin-card"><div class="admin-card-head"><h2>Recent Orders</h2><button class="admin-btn primary" onclick="showAdminView('orders')">View All</button></div><div id="dashboardOrders"></div></div></section>
-      <section class="admin-view" id="admin-orders"><div class="admin-card" style="margin-top:0"><div class="admin-card-head"><h2>Orders Management</h2><button class="admin-btn" onclick="loadAdminData()">Refresh</button></div><div class="admin-toolbar"><input id="orderSearch" placeholder="Search order/customer..." oninput="renderAdminOrders()"></div><div id="adminOrders"></div></div></section>
+      <section class="admin-view" id="admin-orders"><div class="admin-card" style="margin-top:0"><div class="admin-card-head"><div><h2>Orders Management</h2><div class="admin-muted">Clean order list with quick management actions.</div></div><div class="admin-toolbar"><input id="orderSearch" placeholder="&#128269; Search order or customer..." oninput="renderAdminOrders()"><button class="admin-btn" onclick="loadAdminData()">&#8635; Refresh</button></div></div><div id="adminOrders"></div></div></section>
       <section class="admin-view" id="admin-users"><div class="admin-card" style="margin-top:0"><div class="admin-card-head"><h2>Users Management</h2><button class="admin-btn" onclick="loadAdminData()">Refresh</button></div><div class="admin-toolbar"><input id="userSearch" placeholder="Search users..." oninput="renderAdminUsers()"></div><div id="adminUsers"></div></div></section>
       <section class="admin-view" id="admin-customize">
   <div class="admin-card" style="margin-top:0">
@@ -1511,8 +1640,9 @@ footer{background:#252525}
   <div class="sheet-head"><h2>Edit User</h2><button class="close" onclick="closeEditUser()">&#215;</button></div>
   <form class="admin-form" onsubmit="saveEditedUser(event)">
     <input type="hidden" id="editUserUid"><label>Name</label><input id="editUserName" required><label>Email</label><input id="editUserEmail" type="email" required><label>Role</label><select id="editUserRole"><option value="user">User</option><option value="admin">Admin</option></select>
-    <p class="admin-muted" style="margin-top:10px">This edits the user's Firestore profile. Firebase Authentication email/password changes and permanent Auth-user deletion require the Firebase Admin SDK or Cloud Functions.</p>
+    <p class="admin-muted" style="margin-top:10px">Profile information is stored in Firestore. For security, an admin cannot directly set another user's Firebase Authentication password from this browser.</p>
     <button class="checkout" type="submit">Save Changes</button>
+    <button type="button" class="account-switch" onclick="adminSendUserPasswordReset()">&#128274; Send Password Reset Email</button>
   </form>
 </div></div>
 
@@ -1622,7 +1752,7 @@ window.closeEditUser = function() {
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-analytics.js";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, onAuthStateChanged, signOut, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, onAuthStateChanged, signOut, sendPasswordResetEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 import { getFirestore, collection, getDocs, doc, getDoc, setDoc, updateDoc, deleteDoc, query, where, addDoc } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-storage.js";
 
@@ -1684,6 +1814,7 @@ window.products = [...defaultProducts];
 let cart=JSON.parse(localStorage.getItem("boighor_cart")||"[]");
 let currentUser = null;
 let currentAdminUser = null;
+let lastConfirmedOrder = null;
 let adminUsersList = [];
 let adminOrdersList = [];
 
@@ -1943,6 +2074,7 @@ window.placeOrder = async function(e) {
   document.getElementById("confirmPhone").textContent=phone;
   document.getElementById("confirmTotal").textContent=money(total);
   document.getElementById("confirmPayment").textContent=paymentMethod;
+  lastConfirmedOrder = { orderId, customerName:name, customerPhone:phone, customerAddress:address, items:JSON.parse(JSON.stringify(cart)), total, paymentMethod, status:"Confirmed", createdAt:new Date().toISOString() };
   cart=[]; localStorage.setItem("boighor_cart",JSON.stringify(cart)); updateCartBadge();
   closeCheckout(); document.getElementById("confirmationModal")?.classList.add("open");
 };
@@ -1950,6 +2082,59 @@ window.placeOrder = async function(e) {
 window.closeConfirmation = function() {
   document.getElementById("confirmationModal").classList.remove("open");
 };
+
+function getOrderReceiptData(){
+  return lastConfirmedOrder || {
+    orderId: document.getElementById("orderId")?.textContent || "",
+    customerName: document.getElementById("confirmName")?.textContent || "",
+    customerPhone: document.getElementById("confirmPhone")?.textContent || "",
+    total: Number(String(document.getElementById("confirmTotal")?.textContent||"0").replace(/[^0-9.]/g,"")) || 0,
+    paymentMethod: document.getElementById("confirmPayment")?.textContent || ""
+  };
+}
+function makeOrderJPGBlob(){
+  return new Promise((resolve,reject)=>{
+    const o=getOrderReceiptData();
+    if(!o.orderId){reject(new Error("No confirmed order found"));return;}
+    const canvas=document.createElement("canvas"), ctx=canvas.getContext("2d");
+    const W=1200, pad=70, lineH=42;
+    const items=Array.isArray(o.items)?o.items:[];
+    const itemLines=Math.max(1,items.length);
+    canvas.width=W; canvas.height=520 + itemLines*62 + (o.customerAddress?70:0);
+    ctx.fillStyle="#f6faf7";ctx.fillRect(0,0,W,canvas.height);
+    ctx.fillStyle="#198754";ctx.fillRect(0,0,W,135);
+    ctx.fillStyle="#fff";ctx.font="800 42px Arial";ctx.fillText("BazarBD",pad,58);
+    ctx.font="600 22px Arial";ctx.fillText("ORDER RECEIPT",pad,100);
+    ctx.font="700 24px Arial";ctx.fillText(String(o.orderId),W-pad-250,72);
+    ctx.font="18px Arial";ctx.fillText(new Date(o.createdAt||Date.now()).toLocaleString(),W-pad-340,105);
+    let y=190;
+    const field=(label,val)=>{ctx.fillStyle="#6b7280";ctx.font="600 18px Arial";ctx.fillText(label,pad,y);ctx.fillStyle="#111827";ctx.font="700 22px Arial";ctx.fillText(String(val||"—"),pad+190,y);y+=42;};
+    field("Customer",o.customerName);field("Phone",o.customerPhone);field("Payment",o.paymentMethod);field("Status",o.status||"Confirmed");
+    if(o.customerAddress) field("Address",o.customerAddress);
+    y+=12;ctx.fillStyle="#dfe8e2";ctx.fillRect(pad,y,W-pad*2,2);y+=45;
+    ctx.fillStyle="#198754";ctx.font="800 22px Arial";ctx.fillText("ITEMS",pad,y);y+=35;
+    items.forEach(item=>{
+      const name=String(item.name||"Product"); const qty=Number(item.qty||1); const price=Number(item.price||0)*qty;
+      ctx.fillStyle="#111827";ctx.font="700 20px Arial";ctx.fillText(name.slice(0,55),pad,y);
+      ctx.fillStyle="#6b7280";ctx.font="18px Arial";ctx.fillText("x"+qty,W-360,y);
+      ctx.fillStyle="#111827";ctx.font="700 20px Arial";ctx.fillText(money(price),W-pad-190,y);y+=62;
+    });
+    ctx.fillStyle="#eaf7ef";ctx.fillRect(pad,y,W-pad*2,70);
+    ctx.fillStyle="#198754";ctx.font="800 26px Arial";ctx.fillText("TOTAL",pad+20,y+44);
+    ctx.fillStyle="#111827";ctx.font="800 30px Arial";ctx.fillText(money(o.total||0),W-pad-230,y+44);
+    canvas.toBlob(blob=>blob?resolve(blob):reject(new Error("Could not create JPG")),"image/jpeg",0.94);
+  });
+}
+window.downloadOrderJPG=async function(){
+  try{const blob=await makeOrderJPGBlob();const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download=(getOrderReceiptData().orderId||"BazarBD-order")+".jpg";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast("Order JPG downloaded");}catch(e){toast("Could not create order JPG");console.error(e);}
+};
+window.shareOrderJPG=async function(){
+  try{const blob=await makeOrderJPGBlob();const name=(getOrderReceiptData().orderId||"BazarBD-order")+".jpg";const file=new File([blob],name,{type:"image/jpeg"});
+    if(navigator.share && (!navigator.canShare || navigator.canShare({files:[file]}))){await navigator.share({title:"BazarBD Order Receipt",text:"BazarBD order receipt",files:[file]});}
+    else {await navigator.clipboard?.writeText("BazarBD Order: "+getOrderReceiptData().orderId);toast("Image sharing is not supported here. Order ID copied.");}
+  }catch(e){if(e?.name!=="AbortError") {toast("Could not share order JPG");console.error(e);}}
+};
+
 
 /* ===== Site Customization: Slider + Dynamic Categories ===== */
 const CORE_CATEGORIES = [
@@ -2168,6 +2353,37 @@ window.saveProfile=async function(e){
 };
 
 
+
+window.changeOwnPassword = async function(e){
+  e.preventDefault();
+  const err=document.getElementById("passwordChangeError"), btn=document.getElementById("changePasswordBtn");
+  if(err) err.classList.remove("show");
+  if(!auth.currentUser){if(err){err.textContent="Please login first.";err.classList.add("show");}return;}
+  const current=document.getElementById("currentPassword")?.value||"", next=document.getElementById("newPassword")?.value||"", confirm=document.getElementById("confirmNewPassword")?.value||"";
+  if(next.length<6){if(err){err.textContent="New password must be at least 6 characters.";err.classList.add("show");}return;}
+  if(next!==confirm){if(err){err.textContent="New passwords do not match.";err.classList.add("show");}return;}
+  try{
+    if(btn) btn.disabled=true;
+    const credential=EmailAuthProvider.credential(auth.currentUser.email,current);
+    await reauthenticateWithCredential(auth.currentUser,credential);
+    await updatePassword(auth.currentUser,next);
+    document.getElementById("changePasswordForm")?.reset();
+    toast("Password changed successfully");
+  }catch(ex){
+    let msg=ex?.message||"Could not change password";
+    if(ex?.code==="auth/invalid-credential"||ex?.code==="auth/wrong-password") msg="Current password is incorrect.";
+    if(ex?.code==="auth/requires-recent-login") msg="Please login again and try once more.";
+    if(err){err.textContent=msg;err.classList.add("show");}
+  }finally{if(btn)btn.disabled=false;}
+};
+window.adminSendUserPasswordReset = async function(){
+  const id=document.getElementById("editUserUid")?.value; const u=(typeof adminUsersList!=="undefined"?adminUsersList:[]).find(x=>x.id===id);
+  if(!u?.email){toast("This user has no email address");return;}
+  if(!currentAdminUser){toast("Admin login required");return;}
+  if(!confirm("Send a password reset email to "+u.email+"?")) return;
+  try{await sendPasswordResetEmail(auth,u.email);toast("Password reset email sent to "+u.email);}catch(ex){toast("Could not send password reset email");console.error(ex);}
+};
+
 window.resetUserPassword = async function() {
   const emailEl = document.getElementById("userLoginEmail");
   const err = document.getElementById("userLoginError");
@@ -2354,10 +2570,9 @@ window.adminLogout = async function() {
 };
 
 window.showAdminView = function(view, btn) {
-  if(btn) {
-    document.querySelectorAll(".admin-side button").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-  }
+  document.querySelectorAll(".admin-side button, .admin-top-nav button").forEach(b => {
+    b.classList.toggle("active", b.dataset.view === view);
+  });
   document.querySelectorAll(".admin-view").forEach(v => v.classList.remove("active"));
   const target = document.getElementById("admin-" + view);
   if(target) target.classList.add("active");
@@ -2410,13 +2625,13 @@ function renderAdminOrders() {
       <thead><tr><th>Order ID</th><th>Customer</th><th>Phone</th><th>Total</th><th>Status</th><th>Actions</th></tr></thead>
       <tbody>
         ${list.map(o => `
-          <tr>
+          <tr class="admin-record-row" onclick="openAdminRecord('order','${escapeJsArg(o.id)}')">
             <td><b>${escapeHtml(o.orderId)}</b></td>
             <td>${escapeHtml(o.customerName)}</td>
             <td>${escapeHtml(o.customerPhone)}</td>
             <td>${money(o.total)}</td>
             <td><span class="admin-badge">${escapeHtml(o.status||'Confirmed')}</span></td>
-            <td><div class="product-admin-actions"><button class="primary" onclick="openEditOrder('${escapeJsArg(o.id)}')">Edit</button><button class="danger" onclick="deleteAdminOrder('${escapeJsArg(o.id)}')">Delete</button></div></td>
+            <td><div class="product-admin-actions"><button class="primary" onclick="event.stopPropagation();openEditOrder('${escapeJsArg(o.id)}')">Edit</button><button class="danger" onclick="event.stopPropagation();deleteAdminOrder('${escapeJsArg(o.id)}')">Delete</button></div></td>
           </tr>
         `).join("")}
       </tbody>
@@ -2461,27 +2676,51 @@ window.saveEditedOrder=async function(e){
 function renderAdminUsers() {
   const container = document.getElementById("adminUsers");
   if(!container) return;
-  const q = (document.getElementById("userSearch")?.value || "").toLowerCase();
-  const list = adminUsersList.filter(u => 
-    (u.name && u.name.toLowerCase().includes(q)) || 
-    (u.email && u.email.toLowerCase().includes(q))
+  const q = (document.getElementById("userSearch")?.value || "").trim().toLowerCase();
+  const list = adminUsersList.filter(u =>
+    (u.name && String(u.name).toLowerCase().includes(q)) ||
+    (u.email && String(u.email).toLowerCase().includes(q)) ||
+    (u.role && String(u.role).toLowerCase().includes(q))
   );
 
+  const initials = (name,email) => {
+    const text = String(name || email || "U").trim();
+    const parts = text.split(/\s+/).filter(Boolean);
+    return escapeHtml((parts.length > 1 ? parts[0][0] + parts[1][0] : text.slice(0,2)).toUpperCase());
+  };
+
   container.innerHTML = list.length ? `
-    <table class="admin-table">
-      <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Action</th></tr></thead>
-      <tbody>
-        ${list.map(u => `
-          <tr>
-            <td>${escapeHtml(u.name)}</td>
-            <td>${escapeHtml(u.email)}</td>
-            <td><span class="admin-badge ${u.role}">${escapeHtml(u.role)}</span></td>
-            <td><div class="product-admin-actions"><button class="primary" onclick="openEditUser('${escapeJsArg(u.id)}')">Edit</button><button class="danger" onclick="deleteUser('${escapeJsArg(u.id)}')">Delete</button></div></td>
-          </tr>
-        `).join("")}
-      </tbody>
-    </table>
-  ` : `<div class="admin-empty">No users found</div>`;
+    <div class="user-list-head">
+      <div><span>USERS</span><b>${list.length}</b></div>
+      <small>Manage customer profiles and access roles</small>
+    </div>
+    <div class="premium-user-list">
+      ${list.map(u => `
+        <div class="premium-user-row" onclick="openAdminRecord('user','${escapeJsArg(u.id)}')">
+          <div class="premium-user-main">
+            <div class="premium-user-avatar">${initials(u.name,u.email)}</div>
+            <div class="premium-user-info">
+              <strong>${escapeHtml(u.name || "Unnamed User")}</strong>
+              <span>${escapeHtml(u.email || "No email")}</span>
+            </div>
+          </div>
+          <div class="premium-user-role">
+            <span class="premium-role ${u.role === 'admin' ? 'admin' : 'user'}">${escapeHtml(u.role || "user")}</span>
+          </div>
+          <div class="premium-user-actions">
+            <button class="user-edit-btn" onclick="event.stopPropagation();openEditUser('${escapeJsArg(u.id)}')">Edit</button>
+            <button class="user-delete-btn" onclick="event.stopPropagation();deleteUser('${escapeJsArg(u.id)}')">Delete</button>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  ` : `
+    <div class="premium-user-empty">
+      <div>👤</div>
+      <b>No users found</b>
+      <span>Try another name, email or role.</span>
+    </div>
+  `;
 }
 window.renderAdminUsers = renderAdminUsers;
 
@@ -2532,18 +2771,17 @@ function renderAdminProducts() {
       <thead><tr><th>Image</th><th>Product</th><th>Brand</th><th>Category</th><th>Price</th><th>Actions</th></tr></thead>
       <tbody>
         ${list.map(p => `
-          <tr>
+          <tr class="admin-record-row" onclick="openAdminRecord('product','${escapeJsArg(p.id)}')">
             <td>${p.image ? `<img src="${escapeHtml(p.image)}" class="product-thumb">` : (p.icon||'\u{1F4E6}')}</td>
             <td>${escapeHtml(p.name)}</td>
             <td>${escapeHtml(p.brand)}</td>
             <td><span class="admin-category-badge">${escapeHtml((siteCategories.find(c=>c.id===p.type)?.name)||p.type||'General')}</span></td>
             <td>${money(p.price)}</td>
-            <td>
-              <div class="product-admin-actions">
-                <button class="primary" onclick="openEditProduct('${p.id}')">Edit</button>
-                <button class="danger" onclick="deleteProduct('${p.id}')">Delete</button>
-              </div>
-            </td>
+            <td><div class="product-admin-actions">
+                <button class="manage-btn" onclick="event.stopPropagation();openAdminRecord('product','${escapeJsArg(p.id)}')">Manage</button>
+                <button class="primary" onclick="event.stopPropagation();openEditProduct('${p.id}')">Edit</button>
+                <button class="danger" onclick="event.stopPropagation();deleteProduct('${p.id}')">Delete</button>
+              </div></td>
           </tr>
         `).join("")}
       </tbody>
@@ -2676,6 +2914,41 @@ window.saveProduct = async function(e) {
     toast("Error saving product to Firebase");
   }
 };
+
+window.showAdminViewByName=function(view){
+  const btn=[...document.querySelectorAll(".admin-top-nav button, .admin-side button")].find(b=>b.dataset.view===view);
+  if(window.showAdminView) window.showAdminView(view,btn);
+};
+window.closeAdminRecord=function(){document.getElementById("adminManagementModal")?.classList.remove("open");};
+window.openAdminRecord=function(type,id){
+  const modal=document.getElementById("adminManagementModal"),details=document.getElementById("adminManagementDetails"),actions=document.getElementById("adminManagementActions"),title=document.getElementById("adminManagementTitle"),typeEl=document.getElementById("adminManagementType"),note=document.getElementById("adminManagementNote");
+  let d=null;
+  if(type==="product") d=(window.products||[]).find(x=>String(x.id)===String(id));
+  if(type==="order") d=(typeof adminOrdersList!=="undefined"?adminOrdersList:[]).find(x=>String(x.id)===String(id));
+  if(type==="user") d=(typeof adminUsersList!=="undefined"?adminUsersList:[]).find(x=>String(x.id)===String(id));
+  if(!d){toast("Record not found");return;}
+  const e=v=>escapeHtml(String(v??"—"));let rows=[],html="",n="";
+  if(type==="product"){
+    const cat=(typeof siteCategories!=="undefined"?(siteCategories.find(c=>c.id===d.type)?.name):null)||d.type||"General";
+    title.textContent=d.name||"Product Management";typeEl.textContent="PRODUCT MANAGEMENT";
+    rows=[["Product",d.name],["Brand",d.brand],["Category",cat],["Price",money(d.price)],["Old Price",money(d.old)],["Rating",Number(d.rating||0).toFixed(1)+"/5"],["Product ID",d.id],["Image",d.image?"Available":"Icon / Emoji"]];
+    html=`<button class="view" onclick="closeAdminRecord();openHomeProductDetails('${escapeJsArg(d.id)}')">View Details</button><button class="edit" onclick="closeAdminRecord();openEditProduct('${escapeJsArg(d.id)}')">Edit Product</button><button class="delete" onclick="closeAdminRecord();deleteProduct('${escapeJsArg(d.id)}')">Delete Product</button>`;
+    n="Use this panel to view details, edit information, change pricing, or delete the product.";
+  }else if(type==="order"){
+    title.textContent=d.orderId||"Order Management";typeEl.textContent="ORDER MANAGEMENT";
+    rows=[["Order ID",d.orderId],["Customer",d.customerName],["Phone",d.customerPhone],["Total",money(d.total)],["Status",d.status||"Confirmed"],["Payment",d.paymentMethod||"Cash on Delivery"],["Tracking",d.trackingNumber||"Not added"],["Address",d.customerAddress||"Not provided"]];
+    html=`<button class="view" onclick="closeAdminRecord();showAdminViewByName('orders')">Open Orders</button><button class="edit" onclick="closeAdminRecord();openEditOrder('${escapeJsArg(d.id)}')">Edit Order</button><button class="delete" onclick="closeAdminRecord();deleteAdminOrder('${escapeJsArg(d.id)}')">Delete Order</button>`;
+    n="Edit Order lets you manage status, customer information, tracking, payment method and total.";
+  }else{
+    title.textContent=d.name||d.email||"User Management";typeEl.textContent="USER MANAGEMENT";
+    rows=[["Name",d.name],["Email",d.email],["Role",d.role||"user"],["User ID",d.id],["Phone",d.phone||"Not provided"]];
+    html=`<button class="view" onclick="closeAdminRecord();showAdminViewByName('users')">Open Users</button><button class="edit" onclick="closeAdminRecord();openEditUser('${escapeJsArg(d.id)}')">Edit User</button><button class="edit" onclick="openEditUser('${escapeJsArg(d.id)}');setTimeout(adminSendUserPasswordReset,50)">&#128274; Reset Password</button><button class="delete" onclick="closeAdminRecord();deleteUser('${escapeJsArg(d.id)}')">Delete User</button>`;
+    n="Admin can send this user a secure Firebase password-reset email. Directly setting another user's Auth password requires a trusted server using Firebase Admin SDK / Cloud Functions.";
+  }
+  details.innerHTML=rows.map(r=>`<div class="admin-record"><small>${e(r[0])}</small><b>${e(r[1])}</b></div>`).join("");
+  actions.innerHTML=html;note.textContent=n;modal.classList.add("open");
+};
+
 </script>
-</body>
+<div class="modal admin-management-modal" id="adminManagementModal" onclick="if(event.target===this)closeAdminRecord()"><div class="sheet"><div class="admin-management-hero"><div style="display:flex;justify-content:space-between;gap:10px"><div><small id="adminManagementType">MANAGEMENT</small><h2 id="adminManagementTitle">Record Management</h2></div><button class="close" onclick="closeAdminRecord()" style="background:rgba(255,255,255,.15);color:#fff">&#215;</button></div></div><div class="admin-management-body"><div id="adminManagementDetails" class="admin-record-grid"></div><div id="adminManagementActions" class="admin-management-actions"></div><div id="adminManagementNote" class="admin-management-note"></div></div></div></div></body>
 </html>
