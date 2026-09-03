@@ -1216,6 +1216,38 @@ footer{background:#252525}
 .review-feature-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.review-feature-head h3{font-size:15px}.review-feature-head small{color:#777;font-size:10px}
 .review-summary{display:flex;align-items:center;gap:9px;background:#f7faf8;border-radius:9px;padding:9px;margin-bottom:10px}.review-summary strong{font-size:22px}.review-stars{color:#f59e0b;letter-spacing:1px}.review-list{display:flex;flex-direction:column;gap:8px}.review-item{border:1px solid #edf0ee;border-radius:9px;padding:10px;background:#fff}.review-item-top{display:flex;justify-content:space-between;gap:8px;align-items:center}.review-user{font-size:11px;font-weight:800}.review-date{font-size:9px;color:#999}.review-item p{font-size:11px;color:#555;line-height:1.5;margin-top:5px;white-space:pre-wrap}.write-review-btn{width:100%;margin-top:10px;padding:10px;border-radius:8px;background:#198754;color:#fff;font-weight:800}.write-review-btn:disabled{background:#d8dfda;color:#777}.review-empty{padding:12px;text-align:center;color:#888;font-size:11px;background:#fafafa;border-radius:8px}.review-form-stars{display:flex;gap:5px;margin:7px 0 10px}.review-star-btn{width:38px;height:38px;border-radius:9px;background:#f3f4f6;color:#aaa;font-size:20px}.review-star-btn.active{background:#fff4d6;color:#f59e0b}.review-note{font-size:10px;color:#777;margin-bottom:8px}.public-review-product{font-size:9px;color:#198754;margin-top:3px}
 </style>
+
+<style id="order-review-premium-v3">
+/* Customer order details */
+.compact-order-row{cursor:pointer;transition:.18s ease}
+.compact-order-row:hover{border-color:#cfe7d7;box-shadow:0 5px 16px rgba(25,135,84,.10);transform:translateY(-1px)}
+.order-detail-sheet{max-width:680px!important;padding:0!important;overflow:hidden}
+.order-detail-hero{padding:18px 18px 16px;background:linear-gradient(135deg,#172126,#198754);color:#fff}
+.order-detail-hero-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.order-detail-hero h2{font-size:20px;margin-top:4px}.order-detail-hero small{opacity:.75;font-size:10px}
+.order-detail-status{display:inline-flex;margin-top:10px;padding:5px 9px;border-radius:20px;background:rgba(255,255,255,.14);font-size:10px;font-weight:800}
+.order-detail-body{padding:14px}
+.order-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.order-detail-info{background:#f7faf8;border:1px solid #e3ece6;border-radius:10px;padding:10px}
+.order-detail-info small{display:block;color:#7b8780;font-size:8px;text-transform:uppercase;font-weight:800;margin-bottom:4px}
+.order-detail-info b{display:block;font-size:12px;color:#26332c;overflow-wrap:anywhere}
+.order-detail-items{border:1px solid #e6ebe8;border-radius:11px;overflow:hidden}
+.order-detail-item{display:flex;align-items:center;gap:9px;padding:9px 10px;border-bottom:1px solid #edf0ee}
+.order-detail-item:last-child{border-bottom:0}.order-detail-item-img{width:48px;height:48px;border:1px solid #eee;border-radius:8px;display:grid;place-items:center;overflow:hidden;background:#fff;flex:none;font-size:25px}
+.order-detail-item-img img{width:100%;height:100%;object-fit:contain}.order-detail-item-main{min-width:0;flex:1}.order-detail-item-name{font-size:11px;font-weight:800}.order-detail-item-meta{font-size:9px;color:#777;margin-top:3px}.order-detail-item-total{font-size:11px;font-weight:900;white-space:nowrap}
+.order-detail-total{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding:11px 12px;border-radius:10px;background:#eff9f2;color:#176b45}.order-detail-total span{font-size:11px}.order-detail-total b{font-size:18px}
+.order-detail-actions{display:flex;gap:7px;margin-top:10px}.order-detail-actions a,.order-detail-actions button{flex:1;text-align:center;padding:10px;border-radius:9px;font-size:11px;font-weight:800}.order-detail-track{background:#198754;color:#fff!important}.order-detail-close{background:#f1f3f2;color:#4b5563}
+
+/* Admin reviews */
+.admin-review-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:10px}
+.admin-review-stat{padding:10px;border:1px solid #e4ebe7;border-radius:10px;background:#f8faf9}.admin-review-stat small{display:block;color:#7b8780;font-size:8px;font-weight:800;text-transform:uppercase}.admin-review-stat b{display:block;font-size:18px;margin-top:3px}
+.admin-review-list{display:grid;gap:7px}.admin-review-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;border:1px solid #e5ebe7;border-radius:11px;background:#fff;padding:11px 12px;transition:.15s ease}.admin-review-row:hover{border-color:#cfe7d7;box-shadow:0 5px 16px rgba(25,135,84,.08)}
+.admin-review-main{min-width:0}.admin-review-top{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.admin-review-user{font-size:12px;font-weight:900;color:#26332c}.admin-review-product{font-size:10px;color:#198754;font-weight:800}.admin-review-stars{color:#f59e0b;font-size:12px;letter-spacing:1px;margin-top:3px}.admin-review-comment{font-size:11px;color:#59645e;line-height:1.5;margin-top:4px;white-space:pre-wrap;overflow-wrap:anywhere}.admin-review-date{font-size:9px;color:#999;margin-top:4px}.admin-review-actions{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}.admin-review-actions button{padding:7px 9px;border-radius:8px;font-size:9px;font-weight:800;border:1px solid transparent}.admin-review-actions .approve{background:#ecfdf3;color:#15803d;border-color:#d7f1e1}.admin-review-actions .hide{background:#fff7ed;color:#c2410c;border-color:#fed7aa}.admin-review-actions .edit{background:#eef7ff;color:#1769aa;border-color:#d7eaf9}.admin-review-actions .delete{background:#fff1f2;color:#b91c1c;border-color:#ffe0e3}
+.admin-review-badge{display:inline-block;padding:4px 7px;border-radius:20px;font-size:8px;font-weight:900}.admin-review-badge.approved{background:#eaf8ef;color:#15803d}.admin-review-badge.hidden{background:#f3f4f6;color:#6b7280}.admin-review-badge.pending{background:#fff7ed;color:#c2410c}
+.admin-review-edit-sheet{max-width:560px!important}
+@media(max-width:650px){.order-detail-grid{grid-template-columns:1fr}.order-detail-body{padding:10px}.order-detail-hero{padding:15px}.order-detail-hero h2{font-size:18px}.order-detail-actions{flex-direction:column}.admin-review-summary{grid-template-columns:repeat(2,1fr)}.admin-review-row{grid-template-columns:1fr}.admin-review-actions{justify-content:flex-start}.admin-review-actions button{padding:7px 8px}.admin-review-comment{font-size:10px}}
+</style>
+
 </head>
 <body>
 <div class="top">&#128230; Fast Delivery &nbsp; | &nbsp; Cash on Delivery &nbsp; | &nbsp; Secure Shopping</div>
@@ -1515,6 +1547,7 @@ footer{background:#252525}
       <button data-view="orders" onclick="showAdminView('orders',this)"><span>&#9636;</span> Orders</button>
       <button data-view="users" onclick="showAdminView('users',this)"><span>&#9817;</span> Users</button>
       <button data-view="products" onclick="showAdminView('products',this)"><span>&#9638;</span> Products</button>
+      <button data-view="reviews" onclick="showAdminView('reviews',this)"><span>&#11088;</span> Reviews</button>
       <button data-view="customize" onclick="showAdminView('customize',this);loadSiteCustomization()"><span>&#127912;</span> Customize</button>
     </nav>
     <div class="admin-grid">
@@ -1524,6 +1557,13 @@ footer{background:#252525}
       </div><div class="admin-card"><div class="admin-card-head"><h2>Recent Orders</h2><button class="admin-btn primary" onclick="showAdminView('orders')">View All</button></div><div id="dashboardOrders"></div></div></section>
       <section class="admin-view" id="admin-orders"><div class="admin-card" style="margin-top:0"><div class="admin-card-head"><div><h2>Orders Management</h2><div class="admin-muted">Clean order list with quick management actions.</div></div><div class="admin-toolbar"><input id="orderSearch" placeholder="&#128269; Search order or customer..." oninput="renderAdminOrders()"><button class="admin-btn" onclick="loadAdminData()">&#8635; Refresh</button></div></div><div id="adminOrders"></div></div></section>
       <section class="admin-view" id="admin-users"><div class="admin-card" style="margin-top:0"><div class="admin-card-head"><h2>Users Management</h2><button class="admin-btn" onclick="loadAdminData()">Refresh</button></div><div class="admin-toolbar"><input id="userSearch" placeholder="Search users..." oninput="renderAdminUsers()"></div><div id="adminUsers"></div></div></section>
+      <section class="admin-view" id="admin-reviews">
+        <div class="admin-card" style="margin-top:0">
+          <div class="admin-card-head"><div><h2>&#11088; Reviews Management</h2><div class="admin-muted">Approve, hide, edit or delete customer reviews. Hidden reviews are not shown to customers.</div></div><button class="admin-btn" onclick="loadAdminReviews()">&#8635; Refresh</button></div>
+          <div class="admin-toolbar"><input id="reviewAdminSearch" placeholder="Search customer, product or review..." oninput="renderAdminReviews()"><select id="reviewAdminFilter" class="admin-btn" onchange="renderAdminReviews()"><option value="all">All reviews</option><option value="approved">Published</option><option value="hidden">Hidden</option></select></div>
+          <div id="adminReviews"></div>
+        </div>
+      </section>
       <section class="admin-view" id="admin-customize">
   <div class="admin-card" style="margin-top:0">
     <div class="admin-card-head"><div><h2>&#127912; Home Page Customization</h2><div class="admin-muted">Customize slider size, timing, text, colors, icons and add your own product categories.</div></div><button class="admin-btn" onclick="loadSiteCustomization()">Refresh</button></div>
@@ -1576,6 +1616,10 @@ footer{background:#252525}
   <div class="sheet-head"><h2>Product Details</h2><button class="close" onclick="closeHomeProductDetails()">&#215;</button></div>
   <div id="homeProductDetailsBody"></div>
   <div class="home-product-actions"><button class="home-add-cart" id="homeDetailCartBtn">Add to Cart</button><button class="home-buy-now" id="homeDetailBuyBtn">Buy Now</button></div>
+</div></div>
+
+<div class="modal" id="userOrderDetailsModal" onclick="if(event.target===this)closeUserOrderDetails()"><div class="sheet order-detail-sheet">
+  <div id="userOrderDetailsBody"></div>
 </div></div>
 
 <div class="modal" id="reviewModal" onclick="if(event.target===this)closeReviewModal()"><div class="sheet" style="max-width:560px">
@@ -1925,7 +1969,7 @@ async function loadAllReviewsData(){
   try{
     const snap=await getDocs(collection(db,"reviews"));
     reviewStats={}; const all=[];
-    snap.forEach(ds=>{const r={id:ds.id,...ds.data()}; all.push(r); const k=String(r.productId); if(!reviewStats[k]) reviewStats[k]={sum:0,count:0}; reviewStats[k].sum+=Number(r.rating||0); reviewStats[k].count++;});
+    snap.forEach(ds=>{const r={id:ds.id,...ds.data()}; if(r.status==='hidden'||r.status==='rejected') return; all.push(r); const k=String(r.productId); if(!reviewStats[k]) reviewStats[k]={sum:0,count:0}; reviewStats[k].sum+=Number(r.rating||0); reviewStats[k].count++;});
     Object.keys(reviewStats).forEach(k=>reviewStats[k].average=reviewStats[k].count?reviewStats[k].sum/reviewStats[k].count:0);
     renderPublicReviews(all);
   }catch(e){ console.warn("Reviews load error",e); renderPublicReviews([]); }
@@ -2011,7 +2055,7 @@ window.closeHomeProductDetails = function(){
 
 async function loadProductReviewsForDetails(p){
   const meta=document.getElementById("productReviewMeta"),sum=document.getElementById("productReviewSummary"),list=document.getElementById("productReviewList"); if(!meta||!sum||!list)return;
-  try{const snap=await getDocs(query(collection(db,"reviews"),where("productId","==",String(p.id))));const reviews=[];let total=0;snap.forEach(ds=>{const r={id:ds.id,...ds.data()};reviews.push(r);total+=Number(r.rating||0);});const avg=reviews.length?total/reviews.length:Number(p.rating||0);meta.textContent=`${reviews.length} review${reviews.length===1?'':'s'}${reviews.length?' • verified customer feedback':''}`;sum.innerHTML=`<strong>${avg.toFixed(1)}</strong><span class="review-stars">${starsHtml(avg)}</span><small style="color:#777">${reviews.length} review${reviews.length===1?'':'s'}</small>`;reviews.sort((a,b)=>String(b.createdAt||'').localeCompare(String(a.createdAt||'')));list.innerHTML=reviews.length?reviews.slice(0,8).map(r=>`<div class="review-item"><div class="review-item-top"><span class="review-user">${escapeHtml(r.userName||'Customer')}</span><span class="review-date">${escapeHtml(r.createdAt?new Date(r.createdAt).toLocaleDateString():"")}</span></div><div class="review-stars">${starsHtml(r.rating)}</div><p>${escapeHtml(r.comment||"")}</p></div>`).join(""):"<div class='review-empty'>No reviews yet. Be the first verified buyer.</div>";}catch(e){meta.textContent="Reviews unavailable";sum.innerHTML="";list.innerHTML="<div class='review-empty'>Could not load reviews.</div>";}
+  try{const snap=await getDocs(query(collection(db,"reviews"),where("productId","==",String(p.id))));const reviews=[];let total=0;snap.forEach(ds=>{const r={id:ds.id,...ds.data()};if(r.status==='hidden'||r.status==='rejected')return;reviews.push(r);total+=Number(r.rating||0);});const avg=reviews.length?total/reviews.length:Number(p.rating||0);meta.textContent=`${reviews.length} review${reviews.length===1?'':'s'}${reviews.length?' • verified customer feedback':''}`;sum.innerHTML=`<strong>${avg.toFixed(1)}</strong><span class="review-stars">${starsHtml(avg)}</span><small style="color:#777">${reviews.length} review${reviews.length===1?'':'s'}</small>`;reviews.sort((a,b)=>String(b.createdAt||'').localeCompare(String(a.createdAt||'')));list.innerHTML=reviews.length?reviews.slice(0,8).map(r=>`<div class="review-item"><div class="review-item-top"><span class="review-user">${escapeHtml(r.userName||'Customer')}</span><span class="review-date">${escapeHtml(r.createdAt?new Date(r.createdAt).toLocaleDateString():"")}</span></div><div class="review-stars">${starsHtml(r.rating)}</div><p>${escapeHtml(r.comment||"")}</p></div>`).join(""):"<div class='review-empty'>No reviews yet. Be the first verified buyer.</div>";}catch(e){meta.textContent="Reviews unavailable";sum.innerHTML="";list.innerHTML="<div class='review-empty'>Could not load reviews.</div>";}
 }
 
 window.addCart = function(id) {
@@ -2594,17 +2638,42 @@ async function loadUserOrders() {
       const itemCount=(o.items||[]).reduce((n,i)=>n+Number(i.qty||1),0);
       const firstItems=(o.items||[]).slice(0,2).map(i=>`${escapeHtml(i.name||'Product')} \u{D7} ${i.qty||1}`).join(' \u{2022} ');
       const more=(o.items||[]).length>2 ? ` +${(o.items||[]).length-2} more` : '';
-      return `<div class="compact-order-row">
+      return `<div class="compact-order-row" onclick="openUserOrderDetails('${escapeJsArg(o.id)}')">
         <div class="compact-order-main">
           <div class="compact-order-title"><span class="profile-order-id">${escapeHtml(o.orderId||o.id)}</span><span class="profile-status">${escapeHtml(status)}</span></div>
           <div class="compact-order-meta">${o.createdAt?new Date(o.createdAt).toLocaleDateString():''} \u{2022} ${itemCount} item${itemCount===1?'':'s'} \u{2022} ${money(o.total||0)}</div>
           <div class="compact-order-items">${firstItems||'No item details'}${more}</div>
         </div>
-        <div class="compact-order-action">${o.trackingLink?`<a class="compact-track-btn" href="${escapeHtml(o.trackingLink)}" target="_blank" rel="noopener noreferrer">\u{1F517} Track</a>`:`<button class="compact-track-btn disabled" type="button" onclick="showProfileTab('tracking',document.querySelector('.profile-tabs button:nth-child(2)'))">\u{1F69A} Status</button>`}</div>
+        <div class="compact-order-action">${o.trackingLink?`<a class="compact-track-btn" href="${escapeHtml(o.trackingLink)}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">\u{1F517} Track</a>`:`<button class="compact-track-btn disabled" type="button" onclick="event.stopPropagation();showProfileTab('tracking',document.querySelector('.profile-tabs button:nth-child(2)'))">\u{1F69A} Status</button>`}</div>
       </div>`;
     }).join('')+'</div>';
   }catch(e){container.innerHTML='<div class="profile-empty">Could not load orders: '+escapeHtml(e.message)+'</div>';}
 }
+
+
+window.closeUserOrderDetails=function(){document.getElementById("userOrderDetailsModal")?.classList.remove("open");};
+window.openUserOrderDetails=async function(docId){
+  const body=document.getElementById("userOrderDetailsBody");
+  if(!body) return;
+  if(!currentUser){toast("Please login to view order details");return;}
+  let o=null;
+  try{
+    const snap=await getDoc(doc(db,"orders",String(docId)));
+    if(snap.exists()) o={id:snap.id,...snap.data()};
+  }catch(e){console.error("Order details load error:",e);toast("Could not load order details");return;}
+  if(!o || o.userId!==currentUser.uid){toast("Order not found");return;}
+  const status=o.status||"Confirmed";
+  const items=Array.isArray(o.items)?o.items:[];
+  const itemRows=items.length?items.map(i=>{
+    const qty=Number(i.qty||1), price=Number(i.price||0), total=price*qty;
+    const img=i.image?`<img src="${escapeHtml(i.image)}" alt="${escapeHtml(i.name||'Product')}" onerror="this.style.display='none'">`:escapeHtml(i.icon||"\u{1F4E6}");
+    return `<div class="order-detail-item"><div class="order-detail-item-img">${img}</div><div class="order-detail-item-main"><div class="order-detail-item-name">${escapeHtml(i.name||"Product")}</div><div class="order-detail-item-meta">Qty ${qty}${price?` \u{2022} ${money(price)} each`:''}</div></div><div class="order-detail-item-total">${money(total)}</div></div>`;
+  }).join(""):"<div class='profile-empty'>No item details available.</div>";
+  const date=o.createdAt?new Date(o.createdAt).toLocaleString():"—";
+  const track=o.trackingLink?`<a class="order-detail-track" href="${escapeHtml(o.trackingLink)}" target="_blank" rel="noopener noreferrer">\u{1F517} Track Package</a>`:"";
+  body.innerHTML=`<div class="order-detail-hero"><div class="order-detail-hero-top"><div><small>ORDER DETAILS</small><h2>${escapeHtml(o.orderId||o.id)}</h2><div style="font-size:9px;opacity:.72;margin-top:3px">${escapeHtml(date)}</div></div><button class="close" onclick="closeUserOrderDetails()">&#215;</button></div><span class="order-detail-status">${escapeHtml(status)}</span></div><div class="order-detail-body"><div class="order-detail-grid"><div class="order-detail-info"><small>Customer</small><b>${escapeHtml(o.customerName||"—")}</b></div><div class="order-detail-info"><small>Phone</small><b>${escapeHtml(o.customerPhone||"—")}</b></div><div class="order-detail-info"><small>Payment</small><b>${escapeHtml(o.paymentMethod||"Cash on Delivery")}</b></div><div class="order-detail-info"><small>Tracking</small><b>${escapeHtml(o.trackingNumber||"Not assigned")}</b></div><div class="order-detail-info" style="grid-column:1/-1"><small>Shipping Address</small><b>${escapeHtml(o.customerAddress||"Not provided")}</b></div></div><div class="order-detail-items">${itemRows}</div><div class="order-detail-total"><span>Order Total</span><b>${money(o.total||0)}</b></div><div class="order-detail-actions">${track}<button class="order-detail-close" onclick="closeUserOrderDetails()">Close</button></div></div>`;
+  document.getElementById("userOrderDetailsModal")?.classList.add("open");
+};
 
 async function loadUserTracking(){
   const container=document.getElementById("profileTracking");
@@ -2692,6 +2761,9 @@ async function loadAdminData() {
     // Products
     document.getElementById("statProducts").textContent = window.products.length;
     renderAdminProducts();
+
+    // Reviews
+    await loadAdminReviews();
   } catch(e) {
     console.error("Admin data load error:", e);
   }
@@ -2843,6 +2915,60 @@ window.deleteUser=async function(id){
   if(!u) return;
   if(!confirm("Delete this user's Firestore profile? This does not delete the Firebase Authentication account.")) return;
   try{await deleteDoc(doc(db,"users",id));toast("User profile deleted");await loadAdminData();}catch(ex){toast("Error deleting user profile");console.error(ex);}
+};
+
+
+let adminReviewsList=[];
+window.loadAdminReviews=async function(){
+  const container=document.getElementById("adminReviews");
+  if(container) container.innerHTML='<div class="admin-empty">Loading reviews...</div>';
+  try{
+    const snap=await getDocs(collection(db,"reviews"));
+    adminReviewsList=[]; snap.forEach(ds=>adminReviewsList.push({id:ds.id,...ds.data()}));
+    adminReviewsList.sort((a,b)=>String(b.createdAt||"").localeCompare(String(a.createdAt||"")));
+    renderAdminReviews();
+  }catch(e){console.error("Admin reviews load error:",e);if(container)container.innerHTML='<div class="admin-empty">Could not load reviews.</div>';}
+};
+window.renderAdminReviews=function(){
+  const container=document.getElementById("adminReviews"); if(!container)return;
+  const q=(document.getElementById("reviewAdminSearch")?.value||"").trim().toLowerCase();
+  const filter=document.getElementById("reviewAdminFilter")?.value||"all";
+  const list=adminReviewsList.filter(r=>{
+    const status=r.status==='hidden'||r.status==='rejected'?'hidden':'approved';
+    if(filter!=='all'&&status!==filter)return false;
+    return !q || [r.userName,r.productName,r.comment,r.status].some(v=>String(v||"").toLowerCase().includes(q));
+  });
+  const total=adminReviewsList.length, published=adminReviewsList.filter(r=>r.status!=='hidden'&&r.status!=='rejected').length, hidden=total-published;
+  const avg=total?adminReviewsList.reduce((n,r)=>n+Number(r.rating||0),0)/total:0;
+  container.innerHTML=`<div class="admin-review-summary"><div class="admin-review-stat"><small>Total</small><b>${total}</b></div><div class="admin-review-stat"><small>Published</small><b>${published}</b></div><div class="admin-review-stat"><small>Hidden</small><b>${hidden}</b></div><div class="admin-review-stat"><small>Average</small><b>${avg.toFixed(1)} ★</b></div></div>${list.length?`<div class="admin-review-list">${list.map(r=>{const hidden=r.status==='hidden'||r.status==='rejected';const date=r.createdAt?new Date(r.createdAt).toLocaleDateString():"";return `<div class="admin-review-row"><div class="admin-review-main"><div class="admin-review-top"><span class="admin-review-user">${escapeHtml(r.userName||"Customer")}</span><span class="admin-review-product">${escapeHtml(r.productName||"Product")}</span><span class="admin-review-badge ${hidden?'hidden':'approved'}">${hidden?'HIDDEN':'PUBLISHED'}</span></div><div class="admin-review-stars">${starsHtml(r.rating)}</div><div class="admin-review-comment">${escapeHtml(r.comment||"")}</div><div class="admin-review-date">${escapeHtml(date)}${r.userId?` • ${escapeHtml(r.userId)}`:''}</div></div><div class="admin-review-actions">${hidden?`<button class="approve" onclick="adminSetReviewStatus('${escapeJsArg(r.id)}','approved')">Publish</button>`:`<button class="hide" onclick="adminSetReviewStatus('${escapeJsArg(r.id)}','hidden')">Hide</button>`}<button class="edit" onclick="openAdminReviewEdit('${escapeJsArg(r.id)}')">Edit</button><button class="delete" onclick="deleteAdminReview('${escapeJsArg(r.id)}')">Delete</button></div></div>`;}).join("")}</div>`:'<div class="admin-empty">No reviews match your search.</div>'}`;
+};
+window.adminSetReviewStatus=async function(id,status){
+  if(!currentAdminUser)return;
+  try{await updateDoc(doc(db,"reviews",String(id)),{status,updatedAt:new Date().toISOString()});toast(status==='approved'?"Review published":"Review hidden");await loadAdminReviews();await loadAllReviewsData();renderUI();}catch(e){console.error(e);toast("Could not update review");}
+};
+window.deleteAdminReview=async function(id){
+  if(!currentAdminUser)return;
+  if(!confirm("Delete this customer review permanently?"))return;
+  try{await deleteDoc(doc(db,"reviews",String(id)));toast("Review deleted");await loadAdminReviews();await loadAllReviewsData();renderUI();}catch(e){console.error(e);toast("Could not delete review");}
+};
+window.openAdminReviewEdit=function(id){
+  const r=adminReviewsList.find(x=>x.id===id); if(!r)return;
+  document.getElementById("adminReviewEditId").value=r.id;
+  document.getElementById("adminReviewEditProduct").textContent=`${r.userName||'Customer'} • ${r.productName||'Product'}`;
+  document.getElementById("adminReviewEditRating").value=String(Number(r.rating||5));
+  document.getElementById("adminReviewEditStatus").value=(r.status==='hidden'||r.status==='rejected')?'hidden':'approved';
+  document.getElementById("adminReviewEditComment").value=r.comment||"";
+  document.getElementById("adminReviewEditModal")?.classList.add("open");
+};
+window.closeAdminReviewEdit=function(){document.getElementById("adminReviewEditModal")?.classList.remove("open");};
+window.saveAdminReviewEdit=async function(e){
+  e.preventDefault(); if(!currentAdminUser)return;
+  const id=document.getElementById("adminReviewEditId").value;
+  const rating=Number(document.getElementById("adminReviewEditRating").value);
+  const status=document.getElementById("adminReviewEditStatus").value;
+  const comment=document.getElementById("adminReviewEditComment").value.trim();
+  if(!comment)return;
+  try{await updateDoc(doc(db,"reviews",String(id)),{rating,comment,status,updatedAt:new Date().toISOString()});closeAdminReviewEdit();toast("Review updated");await loadAdminReviews();await loadAllReviewsData();renderUI();}catch(e){console.error(e);toast("Could not save review");}
 };
 
 function renderAdminProducts() {
@@ -3015,6 +3141,7 @@ window.openAdminRecord=function(type,id){
   if(type==="product") d=(window.products||[]).find(x=>String(x.id)===String(id));
   if(type==="order") d=(typeof adminOrdersList!=="undefined"?adminOrdersList:[]).find(x=>String(x.id)===String(id));
   if(type==="user") d=(typeof adminUsersList!=="undefined"?adminUsersList:[]).find(x=>String(x.id)===String(id));
+  if(type==="review") d=(typeof adminReviewsList!=="undefined"?adminReviewsList:[]).find(x=>String(x.id)===String(id));
   if(!d){toast("Record not found");return;}
   const e=v=>escapeHtml(String(v??"—"));let rows=[],html="",n="";
   if(type==="product"){
@@ -3028,6 +3155,12 @@ window.openAdminRecord=function(type,id){
     rows=[["Order ID",d.orderId],["Customer",d.customerName],["Phone",d.customerPhone],["Total",money(d.total)],["Status",d.status||"Confirmed"],["Payment",d.paymentMethod||"Cash on Delivery"],["Tracking",d.trackingNumber||"Not added"],["Address",d.customerAddress||"Not provided"]];
     html=`<button class="view" onclick="closeAdminRecord();showAdminViewByName('orders')">Open Orders</button><button class="edit" onclick="closeAdminRecord();openEditOrder('${escapeJsArg(d.id)}')">Edit Order</button><button class="delete" onclick="closeAdminRecord();deleteAdminOrder('${escapeJsArg(d.id)}')">Delete Order</button>`;
     n="Edit Order lets you manage status, customer information, tracking, payment method and total.";
+  }else if(type==="review") {
+    const hidden=d.status==='hidden'||d.status==='rejected';
+    title.textContent=d.productName||"Customer Review";typeEl.textContent="REVIEW MANAGEMENT";
+    rows=[["Customer",d.userName],["Product",d.productName],["Rating",Number(d.rating||0)+"/5"],["Status",hidden?"Hidden":"Published"],["Review",d.comment],["Date",d.createdAt?new Date(d.createdAt).toLocaleString():"—"]];
+    html=`<button class="edit" onclick="closeAdminRecord();openAdminReviewEdit('${escapeJsArg(d.id)}')">Edit Review</button>${hidden?`<button class="edit" onclick="closeAdminRecord();adminSetReviewStatus('${escapeJsArg(d.id)}','approved')">Publish Review</button>`:`<button class="edit" onclick="closeAdminRecord();adminSetReviewStatus('${escapeJsArg(d.id)}','hidden')">Hide Review</button>`}<button class="delete" onclick="closeAdminRecord();deleteAdminReview('${escapeJsArg(d.id)}')">Delete Review</button>`;
+    n="Manage the review visibility, rating and customer comment from this panel.";
   }else{
     title.textContent=d.name||d.email||"User Management";typeEl.textContent="USER MANAGEMENT";
     rows=[["Name",d.name],["Email",d.email],["Role",d.role||"user"],["User ID",d.id],["Phone",d.phone||"Not provided"]];
@@ -3039,5 +3172,16 @@ window.openAdminRecord=function(type,id){
 };
 
 </script>
+<div class="modal" id="adminReviewEditModal" onclick="if(event.target===this)closeAdminReviewEdit()"><div class="sheet admin-review-edit-sheet">
+  <div class="sheet-head"><div><h2>Edit Customer Review</h2><small id="adminReviewEditProduct" style="color:#777"></small></div><button class="close" onclick="closeAdminReviewEdit()">&#215;</button></div>
+  <form class="admin-form" onsubmit="saveAdminReviewEdit(event)">
+    <input type="hidden" id="adminReviewEditId">
+    <label>Rating</label><select id="adminReviewEditRating"><option value="5">★★★★★ 5</option><option value="4">★★★★☆ 4</option><option value="3">★★★☆☆ 3</option><option value="2">★★☆☆☆ 2</option><option value="1">★☆☆☆☆ 1</option></select>
+    <label>Status</label><select id="adminReviewEditStatus"><option value="approved">Published</option><option value="hidden">Hidden</option></select>
+    <label>Review</label><textarea id="adminReviewEditComment" rows="6" maxlength="1000" required></textarea>
+    <button class="checkout" type="submit">&#10003; Save Review</button>
+  </form>
+</div></div>
+
 <div class="modal admin-management-modal" id="adminManagementModal" onclick="if(event.target===this)closeAdminRecord()"><div class="sheet"><div class="admin-management-hero"><div style="display:flex;justify-content:space-between;gap:10px"><div><small id="adminManagementType">MANAGEMENT</small><h2 id="adminManagementTitle">Record Management</h2></div><button class="close" onclick="closeAdminRecord()" style="background:rgba(255,255,255,.15);color:#fff">&#215;</button></div></div><div class="admin-management-body"><div id="adminManagementDetails" class="admin-record-grid"></div><div id="adminManagementActions" class="admin-management-actions"></div><div id="adminManagementNote" class="admin-management-note"></div></div></div></div></body>
 </html>
