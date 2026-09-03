@@ -442,7 +442,7 @@ footer{background:#252525}
 @media(max-width:650px){.hero{display:none!important}.market-slider{display:block!important}}
 
 .account-switch{width:100%;margin-top:10px;padding:9px;background:#fff;border:1px solid #ddd;color:#198754;border-radius:4px;font-size:12px;font-weight:700}
-.account-switch:hover{background:#f3fbf5}
+.account-switch:hover{background:#f3fbf5} .password-action{border-color:#b8dfc1;background:#f4fbf6;color:#198754}.password-action:hover{background:#eaf8ef}
 @media(max-width:650px){.account-btn{display:block}}
 
 .account-link{border:1px solid #e1e1e1;background:#fff;color:#333;border-radius:20px;padding:7px 11px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
@@ -1211,6 +1211,11 @@ footer{background:#252525}
 .order-share-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}.order-share-btn{padding:11px;border:1px solid #d8e8de;border-radius:7px;background:#f5fbf7;color:#198754;font-weight:800;font-size:12px}.order-share-btn.share{background:#198754;color:#fff;border-color:#198754}.order-share-btn:disabled{opacity:.6}.premium-user-actions{display:flex;gap:5px}.premium-user-actions button{white-space:nowrap}.account-switch{margin-top:8px}
 @media(max-width:600px){.order-share-actions{grid-template-columns:1fr 1fr}.order-share-btn{font-size:11px;padding:10px 6px}}
 </style>
+<style id="review-feature-v1">
+.review-feature{margin-top:16px;padding:14px;background:#fff;border:1px solid #e8ece9;border-radius:12px;box-shadow:0 4px 14px #0000000a}
+.review-feature-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.review-feature-head h3{font-size:15px}.review-feature-head small{color:#777;font-size:10px}
+.review-summary{display:flex;align-items:center;gap:9px;background:#f7faf8;border-radius:9px;padding:9px;margin-bottom:10px}.review-summary strong{font-size:22px}.review-stars{color:#f59e0b;letter-spacing:1px}.review-list{display:flex;flex-direction:column;gap:8px}.review-item{border:1px solid #edf0ee;border-radius:9px;padding:10px;background:#fff}.review-item-top{display:flex;justify-content:space-between;gap:8px;align-items:center}.review-user{font-size:11px;font-weight:800}.review-date{font-size:9px;color:#999}.review-item p{font-size:11px;color:#555;line-height:1.5;margin-top:5px;white-space:pre-wrap}.write-review-btn{width:100%;margin-top:10px;padding:10px;border-radius:8px;background:#198754;color:#fff;font-weight:800}.write-review-btn:disabled{background:#d8dfda;color:#777}.review-empty{padding:12px;text-align:center;color:#888;font-size:11px;background:#fafafa;border-radius:8px}.review-form-stars{display:flex;gap:5px;margin:7px 0 10px}.review-star-btn{width:38px;height:38px;border-radius:9px;background:#f3f4f6;color:#aaa;font-size:20px}.review-star-btn.active{background:#fff4d6;color:#f59e0b}.review-note{font-size:10px;color:#777;margin-bottom:8px}.public-review-product{font-size:9px;color:#198754;margin-top:3px}
+</style>
 </head>
 <body>
 <div class="top">&#128230; Fast Delivery &nbsp; | &nbsp; Cash on Delivery &nbsp; | &nbsp; Secure Shopping</div>
@@ -1359,13 +1364,6 @@ footer{background:#252525}
         <div class="feature"><div class="feature-icon">&#10003;</div><div><b>Verified Products</b><p>Quality guaranteed</p></div></div>
       </div></section>
 
-      <section class="section" id="reviews"><div class="section-head"><h2>&#11088; Customer Reviews</h2><a href="#reviews">View Reviews &#8250;</a></div>
-        <div class="reviews">
-          <div class="review"><div class="review-top"><b>Rahim</b><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div><p>Product is original, delivery was fast and packaging was excellent.</p></div>
-          <div class="review"><div class="review-top"><b>Sumaiya</b><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div><p>The book arrived in excellent condition and I am very satisfied.</p></div>
-          <div class="review"><div class="review-top"><b>Arif</b><span>&#9733;&#9733;&#9733;&#9733;&#9733;</span></div><p>Good phone, good price and a smooth delivery experience.</p></div>
-        </div>
-      </section>
     </div>
   </div>
 </main>
@@ -1373,8 +1371,8 @@ footer{background:#252525}
 <footer><div class="footer">
   <div><h3>BazarBD</h3><p>Books + Electronics Marketplace</p><p>A fast, mobile-first online shopping website.</p></div>
   <div><h3>Categories</h3><a href="#books">Books</a><a href="#phones">Mobile</a><a href="#laptops">Computers</a><a href="#electronics">Electronics</a></div>
-  <div><h3>Customer Service</h3><a href="#reviews">Reviews</a><a href="#">Returns</a><a href="#">Delivery</a><a href="#">Support</a></div>
-  <div><h3>Account</h3><a href="#" onclick="openAdminLogin();return false">Admin Login</a><a href="#">Wishlist</a><a href="#" onclick="openUserProfile();return false">Profile</a><a href="#reviews">Reviews</a></div>
+  <div><h3>Customer Service</h3><a href="#">Returns</a><a href="#">Delivery</a><a href="#">Support</a></div>
+  <div><h3>Account</h3><a href="#" onclick="openAdminLogin();return false">Admin Login</a><a href="#">Wishlist</a><a href="#" onclick="openUserProfile();return false">Profile</a></div>
 </div></footer>
 
 <div class="mobile-categories-modal" id="mobileCategoriesModal" onclick="if(event.target===this)closeMobileCategories()">
@@ -1518,7 +1516,6 @@ footer{background:#252525}
       <button data-view="users" onclick="showAdminView('users',this)"><span>&#9817;</span> Users</button>
       <button data-view="products" onclick="showAdminView('products',this)"><span>&#9638;</span> Products</button>
       <button data-view="customize" onclick="showAdminView('customize',this);loadSiteCustomization()"><span>&#127912;</span> Customize</button>
-      <button class="add-product-top" onclick="openAddProductFallback()"><span>&#65291;</span> Add Product</button>
     </nav>
     <div class="admin-grid">
     <main class="admin-main">
@@ -1568,7 +1565,6 @@ footer{background:#252525}
     <div style="background:#fff4f4;border:1px solid #ffd5d7;padding:11px 13px;border-radius:4px;margin:10px 0;font-size:12px;color:#9f1239">
       <b>Admin:</b> Add Product  Firebase- <b>products</b> collection-  Product  &#2404; Edit/Delete- Firebase-   &#2404;
     </div>
-    <button type="button" class="admin-btn primary" style="width:100%;font-size:15px;padding:13px;margin-bottom:12px" onclick="openAddProductFallback()">&#65291; ADD NEW PRODUCT</button>
     <div id="adminProducts"></div>
   </div>
 </section>
@@ -1580,6 +1576,17 @@ footer{background:#252525}
   <div class="sheet-head"><h2>Product Details</h2><button class="close" onclick="closeHomeProductDetails()">&#215;</button></div>
   <div id="homeProductDetailsBody"></div>
   <div class="home-product-actions"><button class="home-add-cart" id="homeDetailCartBtn">Add to Cart</button><button class="home-buy-now" id="homeDetailBuyBtn">Buy Now</button></div>
+</div></div>
+
+<div class="modal" id="reviewModal" onclick="if(event.target===this)closeReviewModal()"><div class="sheet" style="max-width:560px">
+  <div class="sheet-head"><div><h2>Write a Review</h2><small id="reviewProductTitle" style="color:#777"></small></div><button class="close" onclick="closeReviewModal()">&#215;</button></div>
+  <form class="admin-form" onsubmit="submitProductReview(event)">
+    <label>Your Rating</label><div class="review-form-stars" id="reviewStarButtons"></div>
+    <div class="review-note">Please review only products you have purchased.</div>
+    <label>Your Review</label><textarea id="reviewComment" rows="5" maxlength="1000" required placeholder="Tell other customers about the product..."></textarea>
+    <div class="admin-error" id="reviewError"></div>
+    <button class="checkout" type="submit" id="reviewSubmitBtn">&#11088; Submit Review</button>
+  </form>
 </div></div>
 
 <div class="modal" id="productModal"><div class="sheet" style="max-width:620px">
@@ -1640,9 +1647,14 @@ footer{background:#252525}
   <div class="sheet-head"><h2>Edit User</h2><button class="close" onclick="closeEditUser()">&#215;</button></div>
   <form class="admin-form" onsubmit="saveEditedUser(event)">
     <input type="hidden" id="editUserUid"><label>Name</label><input id="editUserName" required><label>Email</label><input id="editUserEmail" type="email" required><label>Role</label><select id="editUserRole"><option value="user">User</option><option value="admin">Admin</option></select>
-    <p class="admin-muted" style="margin-top:10px">Profile information is stored in Firestore. For security, an admin cannot directly set another user's Firebase Authentication password from this browser.</p>
     <button class="checkout" type="submit">Save Changes</button>
-    <button type="button" class="account-switch" onclick="adminSendUserPasswordReset()">&#128274; Send Password Reset Email</button>
+    <div style="margin-top:14px;padding:14px;border:1px solid #e5e7eb;border-radius:10px;background:#f8fafc">
+      <b style="display:block;margin-bottom:8px">&#128274; Change User Password</b>
+      <label>New Password</label><input id="adminNewUserPassword" type="password" minlength="6" autocomplete="new-password" placeholder="Minimum 6 characters">
+      <label>Confirm Password</label><input id="adminConfirmUserPassword" type="password" minlength="6" autocomplete="new-password" placeholder="Re-enter new password">
+      <button type="button" class="account-switch password-action" onclick="adminChangeUserPassword()">&#128274; Change Password</button>
+      <small class="admin-muted" style="display:block;margin-top:7px">Admin can directly set the Firebase Authentication password for any user.</small>
+    </div>
   </form>
 </div></div>
 
@@ -1755,6 +1767,7 @@ import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.18.0/firebas
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, onAuthStateChanged, signOut, sendPasswordResetEmail, updatePassword, reauthenticateWithCredential, EmailAuthProvider } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 import { getFirestore, collection, getDocs, doc, getDoc, setDoc, updateDoc, deleteDoc, query, where, addDoc } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-storage.js";
+import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-functions.js";
 
 const firebaseConfig={
   apiKey:"AIzaSyDOGPri8lZi6QPC592LNJM-AhT0G_EbVJs",
@@ -1771,6 +1784,7 @@ const analytics=getAnalytics(app);
 const auth=getAuth(app);
 const db=getFirestore(app);
 const storage=getStorage(app,"gs://bazar-7d236.firebasestorage.app");
+const functions=getFunctions(app);
 
 let defaultProducts=[
 {id:"1",type:"phone",brand:"Apple",name:"iPhone 17 Pro Max",price:189999,old:199999,icon:"\u{1F4F1}",rating:4.9},
@@ -1817,6 +1831,9 @@ let currentAdminUser = null;
 let lastConfirmedOrder = null;
 let adminUsersList = [];
 let adminOrdersList = [];
+let reviewStats = {};
+let currentReviewProduct = null;
+let selectedReviewRating = 5;
 
 function money(n){return "৳"+Number(n).toLocaleString("en-US")}
 function toast(message){
@@ -1842,7 +1859,7 @@ function productCard(p){
  const d=old>price?Math.round((1-price/old)*100):0;
  const id=escapeJsArg(p.id);
  const image=p.image?`<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name||'Product')}" style="width:100%;height:100%;object-fit:contain" onerror="this.style.display='none'">`:escapeHtml(p.icon||"\u{1F4E6}");
- return `<article class="card" role="button" tabindex="0" onclick="openHomeProductDetails('${id}')" onkeydown="if(event.key==='Enter'||event.key===' ')openHomeProductDetails('${id}')"><div class="card-img">${d>0?`<span class="discount">-${d}%</span>`:''}<button class="wish" onclick="event.stopPropagation();toast('Wishlist is ready')">\u{2661}</button>${image}</div><div class="card-body"><div class="brand">${escapeHtml(p.brand||'')}</div><div class="name">${escapeHtml(p.name||'')}</div><div class="rating">\u{2605}\u{2605}\u{2605}\u{2605}\u{2605} <span>${Number(p.rating||0).toFixed(1)}</span></div><div class="price">${money(price)} ${old>price?`<span class="old">${money(old)}</span>`:''}</div><button class="add" onclick="event.stopPropagation();addCart('${id}')">\u{1F6D2} Add to Cart</button></div></article>`;
+ return `<article class="card" role="button" tabindex="0" onclick="openHomeProductDetails('${id}')" onkeydown="if(event.key==='Enter'||event.key===' ')openHomeProductDetails('${id}')"><div class="card-img">${d>0?`<span class="discount">-${d}%</span>`:''}<button class="wish" onclick="event.stopPropagation();toast('Wishlist is ready')">\u{2661}</button>${image}</div><div class="card-body"><div class="brand">${escapeHtml(p.brand||'')}</div><div class="name">${escapeHtml(p.name||'')}</div><div class="rating">\u{2605}\u{2605}\u{2605}\u{2605}\u{2605} <span>${Number(reviewStats[p.id]?.average ?? p.rating ?? 0).toFixed(1)}${reviewStats[p.id]?.count ? ` (${reviewStats[p.id].count})` : ''}</span></div><div class="price">${money(price)} ${old>price?`<span class="old">${money(old)}</span>`:''}</div><button class="add" onclick="event.stopPropagation();addCart('${id}')">\u{1F6D2} Add to Cart</button></div></article>`;
 }
 
 function shuffleProducts(list){
@@ -1884,6 +1901,7 @@ async function fetchProductsFromFirebase(){
     console.log("Using local default products list:", e);
   }
   renderUI();
+  loadAllReviewsData();
 }
 fetchProductsFromFirebase();
 
@@ -1902,6 +1920,54 @@ window.searchProduct = function() {
   render(filtered.filter(p=>p.type==="electronics"), "electronicsProducts");
 };
 
+
+async function loadAllReviewsData(){
+  try{
+    const snap=await getDocs(collection(db,"reviews"));
+    reviewStats={}; const all=[];
+    snap.forEach(ds=>{const r={id:ds.id,...ds.data()}; all.push(r); const k=String(r.productId); if(!reviewStats[k]) reviewStats[k]={sum:0,count:0}; reviewStats[k].sum+=Number(r.rating||0); reviewStats[k].count++;});
+    Object.keys(reviewStats).forEach(k=>reviewStats[k].average=reviewStats[k].count?reviewStats[k].sum/reviewStats[k].count:0);
+    renderPublicReviews(all);
+  }catch(e){ console.warn("Reviews load error",e); renderPublicReviews([]); }
+}
+function starsHtml(n){ const r=Math.max(0,Math.min(5,Number(n)||0)); return [1,2,3,4,5].map(i=>i<=Math.round(r)?"★":"☆").join(""); }
+function renderPublicReviews(all){
+  const el=document.getElementById("publicReviewsList"); if(!el)return;
+  const list=[...(all||[])].sort((a,b)=>String(b.createdAt||"").localeCompare(String(a.createdAt||""))).slice(0,6);
+  el.innerHTML=list.length?list.map(r=>`<div class="review"><div class="review-top"><b>${escapeHtml(r.userName||"Customer")}</b><span class="review-stars">${starsHtml(r.rating)}</span></div><div class="public-review-product">${escapeHtml(r.productName||"Product")}</div><p>${escapeHtml(r.comment||"")}</p></div>`).join(""):"<div class='review-empty'>No customer reviews yet. Be the first verified buyer to review a product.</div>";
+}
+async function customerPurchasedProduct(productId){
+  if(!currentUser)return false;
+  try{
+    const snap=await getDocs(query(collection(db,"orders"),where("userId","==",currentUser.uid)));
+    let found=false; snap.forEach(ds=>{const o=ds.data()||{}; if((o.items||[]).some(item=>String(item.id)===String(productId)))found=true;});
+    return found;
+  }catch(e){console.warn("Purchase check error",e);return false;}
+}
+window.openReviewModal = async function(id){
+  if(!currentUser){document.getElementById("userLoginModal")?.classList.add("open");toast("Please login to write a review");return;}
+  const p=window.products.find(x=>String(x.id)===String(id)); if(!p)return;
+  const purchased=await customerPurchasedProduct(id); if(!purchased){toast("You can review this product after purchasing it");return;}
+  currentReviewProduct=p; selectedReviewRating=5;
+  document.getElementById("reviewProductTitle").textContent=p.name||"Product";
+  document.getElementById("reviewComment").value="";
+  document.getElementById("reviewError")?.classList.remove("show"); renderReviewStars();
+  try{const snap=await getDocs(query(collection(db,"reviews"),where("userId","==",currentUser.uid))); const old=[];snap.forEach(ds=>{const r={id:ds.id,...ds.data()};if(String(r.productId)===String(id))old.push(r);}); if(old[0]){selectedReviewRating=Number(old[0].rating)||5;document.getElementById("reviewComment").value=old[0].comment||"";document.getElementById("reviewModal").dataset.editId=old[0].id;renderReviewStars();}else delete document.getElementById("reviewModal").dataset.editId;}catch(e){}
+  document.getElementById("reviewModal")?.classList.add("open");
+};
+function renderReviewStars(){const el=document.getElementById("reviewStarButtons");if(!el)return;el.innerHTML=[1,2,3,4,5].map(i=>`<button type="button" class="review-star-btn ${i<=selectedReviewRating?'active':''}" onclick="selectReviewRating(${i})">★</button>`).join("");}
+window.selectReviewRating=function(n){selectedReviewRating=n;renderReviewStars();};
+window.closeReviewModal=function(){document.getElementById("reviewModal")?.classList.remove("open");currentReviewProduct=null;};
+window.submitProductReview=async function(e){
+  e.preventDefault(); const err=document.getElementById("reviewError"),btn=document.getElementById("reviewSubmitBtn"); err?.classList.remove("show");
+  if(!currentUser||!currentReviewProduct){return;} const comment=document.getElementById("reviewComment").value.trim(); if(!comment){return;}
+  try{btn.disabled=true; if(!(await customerPurchasedProduct(currentReviewProduct.id)))throw new Error("You can review only products you have purchased.");
+    const profile=await getUserProfile(currentUser.uid); const data={productId:String(currentReviewProduct.id),productName:currentReviewProduct.name||"Product",userId:currentUser.uid,userName:profile?.name||currentUser.displayName||currentUser.email?.split("@")[0]||"Customer",rating:selectedReviewRating,comment,createdAt:new Date().toISOString()};
+    const editId=document.getElementById("reviewModal").dataset.editId; if(editId)await updateDoc(doc(db,"reviews",editId),data); else await addDoc(collection(db,"reviews"),data);
+    closeReviewModal(); toast("Review saved successfully"); await loadAllReviewsData(); renderUI();
+  }catch(ex){if(err){err.textContent=ex.message||"Could not save review";err.classList.add("show");}else toast("Could not save review");}finally{btn.disabled=false;}
+};
+
 window.openHomeProductDetails = function(id){
  const p=window.products.find(x=>String(x.id)===String(id));
  if(!p){toast("Product not found");return;}
@@ -1913,7 +1979,7 @@ window.openHomeProductDetails = function(id){
         ${p.image ? `<img src="${escapeHtml(p.image)}" class="home-detail-image" alt="${escapeHtml(p.name)}">` : `<div class="home-detail-image" style="display:grid;place-items:center;font-size:80px">${escapeHtml(p.icon||'\u{1F4E6}')}</div>`}
         <div class="home-detail-brand">${escapeHtml(p.brand||'')}</div>
         <div class="home-detail-name">${escapeHtml(p.name||'')}</div>
-        <div class="home-detail-rating">\u{2605}\u{2605}\u{2605}\u{2605}\u{2605} ${Number(p.rating||0).toFixed(1)}</div>
+        <div class="home-detail-rating">\u{2605}\u{2605}\u{2605}\u{2605}\u{2605} ${Number(reviewStats[p.id]?.average ?? p.rating ?? 0).toFixed(1)}${reviewStats[p.id]?.count ? ` (${reviewStats[p.id].count} reviews)` : ''}</div>
         <div>
           <span class="home-detail-price">${money(price)}</span>
           ${old > price ? `<span class="home-detail-old">${money(old)}</span><span class="home-detail-discount">-${discount}%</span>` : ''}
@@ -1923,6 +1989,7 @@ window.openHomeProductDetails = function(id){
           <div><b>Availability:</b> In Stock</div>
         </div>
         ${p.details ? `<div class="home-detail-description">${escapeHtml(p.details)}</div>` : ''}
+        <div class="review-feature"><div class="review-feature-head"><div><h3>Customer Reviews</h3><small id="productReviewMeta">Loading reviews...</small></div></div><div id="productReviewSummary" class="review-summary"></div><div id="productReviewList" class="review-list"><div class="review-empty">Loading...</div></div><button type="button" class="write-review-btn" onclick="openReviewModal('${id}')">&#11088; Write a Review</button></div>
       </div>
     `;
  }
@@ -1933,12 +2000,19 @@ window.openHomeProductDetails = function(id){
  
  const modal = document.getElementById("homeProductDetailsModal");
  if(modal) modal.classList.add("open");
+ loadProductReviewsForDetails(p);
 };
 
 window.closeHomeProductDetails = function(){
  const modal = document.getElementById("homeProductDetailsModal");
  if(modal) modal.classList.remove("open");
 };
+
+
+async function loadProductReviewsForDetails(p){
+  const meta=document.getElementById("productReviewMeta"),sum=document.getElementById("productReviewSummary"),list=document.getElementById("productReviewList"); if(!meta||!sum||!list)return;
+  try{const snap=await getDocs(query(collection(db,"reviews"),where("productId","==",String(p.id))));const reviews=[];let total=0;snap.forEach(ds=>{const r={id:ds.id,...ds.data()};reviews.push(r);total+=Number(r.rating||0);});const avg=reviews.length?total/reviews.length:Number(p.rating||0);meta.textContent=`${reviews.length} review${reviews.length===1?'':'s'}${reviews.length?' • verified customer feedback':''}`;sum.innerHTML=`<strong>${avg.toFixed(1)}</strong><span class="review-stars">${starsHtml(avg)}</span><small style="color:#777">${reviews.length} review${reviews.length===1?'':'s'}</small>`;reviews.sort((a,b)=>String(b.createdAt||'').localeCompare(String(a.createdAt||'')));list.innerHTML=reviews.length?reviews.slice(0,8).map(r=>`<div class="review-item"><div class="review-item-top"><span class="review-user">${escapeHtml(r.userName||'Customer')}</span><span class="review-date">${escapeHtml(r.createdAt?new Date(r.createdAt).toLocaleDateString():"")}</span></div><div class="review-stars">${starsHtml(r.rating)}</div><p>${escapeHtml(r.comment||"")}</p></div>`).join(""):"<div class='review-empty'>No reviews yet. Be the first verified buyer.</div>";}catch(e){meta.textContent="Reviews unavailable";sum.innerHTML="";list.innerHTML="<div class='review-empty'>Could not load reviews.</div>";}
+}
 
 window.addCart = function(id) {
   const p = window.products.find(x => String(x.id) === String(id));
@@ -2376,12 +2450,27 @@ window.changeOwnPassword = async function(e){
     if(err){err.textContent=msg;err.classList.add("show");}
   }finally{if(btn)btn.disabled=false;}
 };
-window.adminSendUserPasswordReset = async function(){
-  const id=document.getElementById("editUserUid")?.value; const u=(typeof adminUsersList!=="undefined"?adminUsersList:[]).find(x=>x.id===id);
-  if(!u?.email){toast("This user has no email address");return;}
+window.adminChangeUserPassword = async function(){
+  const id=document.getElementById("editUserUid")?.value;
+  const u=(typeof adminUsersList!=="undefined"?adminUsersList:[]).find(x=>String(x.id)===String(id));
+  const password=(document.getElementById("adminNewUserPassword")?.value||"");
+  const confirmPassword=(document.getElementById("adminConfirmUserPassword")?.value||"");
   if(!currentAdminUser){toast("Admin login required");return;}
-  if(!confirm("Send a password reset email to "+u.email+"?")) return;
-  try{await sendPasswordResetEmail(auth,u.email);toast("Password reset email sent to "+u.email);}catch(ex){toast("Could not send password reset email");console.error(ex);}
+  if(!u?.id){toast("User not found");return;}
+  if(password.length<6){toast("Password must be at least 6 characters");return;}
+  if(password!==confirmPassword){toast("Passwords do not match");return;}
+  if(!confirm("Change the Firebase password for "+(u.email||u.name||"this user")+"?")) return;
+  try{
+    const fn=httpsCallable(functions,"adminChangeUserPassword");
+    await fn({uid:String(u.id),password});
+    document.getElementById("adminNewUserPassword").value="";
+    document.getElementById("adminConfirmUserPassword").value="";
+    toast("User password changed successfully");
+  }catch(ex){
+    console.error("Admin password change error:",ex);
+    const code=ex?.code||"";
+    toast(code.includes("permission-denied")?"You do not have admin permission":(ex?.message||"Could not change user password"));
+  }
 };
 
 window.resetUserPassword = async function() {
@@ -2942,7 +3031,7 @@ window.openAdminRecord=function(type,id){
   }else{
     title.textContent=d.name||d.email||"User Management";typeEl.textContent="USER MANAGEMENT";
     rows=[["Name",d.name],["Email",d.email],["Role",d.role||"user"],["User ID",d.id],["Phone",d.phone||"Not provided"]];
-    html=`<button class="view" onclick="closeAdminRecord();showAdminViewByName('users')">Open Users</button><button class="edit" onclick="closeAdminRecord();openEditUser('${escapeJsArg(d.id)}')">Edit User</button><button class="edit" onclick="openEditUser('${escapeJsArg(d.id)}');setTimeout(adminSendUserPasswordReset,50)">&#128274; Reset Password</button><button class="delete" onclick="closeAdminRecord();deleteUser('${escapeJsArg(d.id)}')">Delete User</button>`;
+    html=`<button class="view" onclick="closeAdminRecord();showAdminViewByName('users')">Open Users</button><button class="edit" onclick="closeAdminRecord();openEditUser('${escapeJsArg(d.id)}')">Edit User</button><button class="edit" onclick="closeAdminRecord();openEditUser('${escapeJsArg(d.id)}')">&#128274; Change Password</button><button class="delete" onclick="closeAdminRecord();deleteUser('${escapeJsArg(d.id)}')">Delete User</button>`;
     n="Admin can send this user a secure Firebase password-reset email. Directly setting another user's Auth password requires a trusted server using Firebase Admin SDK / Cloud Functions.";
   }
   details.innerHTML=rows.map(r=>`<div class="admin-record"><small>${e(r[0])}</small><b>${e(r[1])}</b></div>`).join("");
