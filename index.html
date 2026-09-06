@@ -1694,7 +1694,92 @@ footer{background:#252525}
 </style>
 <style id="bbd-real-upgrade-css">
 .bbd-stock-badge{font-size:9px;margin-top:4px;font-weight:700;color:#15803d}.bbd-stock-badge.low{color:#b45309}.bbd-stock-badge.out{color:#b91c1c}.bbd-wishlist-panel{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.bbd-mini-card{background:#fff;border:1px solid #e5e5e5;border-radius:7px;overflow:hidden;cursor:pointer}.bbd-mini-card img{width:100%;height:100px;object-fit:contain;background:#fafafa}.bbd-mini-card div{padding:7px;font-size:10px}.bbd-admin-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.bbd-admin-metric{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:9px}.bbd-admin-metric small{display:block;color:#777;font-size:9px}.bbd-admin-metric b{font-size:17px;display:block;margin-top:3px}.bbd-chart{height:180px;display:flex;align-items:end;gap:5px;padding:10px;background:#fafafa;border-radius:7px}.bbd-bar{flex:1;background:#198754;min-width:5px;border-radius:3px 3px 0 0;position:relative}.bbd-bar span{position:absolute;bottom:100%;font-size:8px;white-space:nowrap;transform:translateX(-25%);color:#555}.bbd-return-btn{background:#fff0f0;color:#b91c1c;border:1px solid #ffd4d6;border-radius:5px;padding:6px 8px;font-size:10px;font-weight:700}.bbd-coupon{display:flex;gap:6px;margin-top:10px}.bbd-coupon input{flex:1}.bbd-coupon button{padding:9px 12px;border-radius:4px;background:#222;color:#fff;font-weight:700}.bbd-coupon-msg{font-size:10px;margin-top:5px}.bbd-admin-nav-extra{margin-top:5px}@media(max-width:650px){.bbd-wishlist-panel{grid-template-columns:repeat(2,1fr)}.bbd-admin-grid{grid-template-columns:repeat(2,1fr)}.bbd-chart{height:150px}}
-</style></head>
+</style>
+<style>
+#admin-coupons .admin-input{box-sizing:border-box;min-height:38px;padding:8px 10px;border:1px solid #d1d5db;border-radius:8px;background:#fff}
+.bbd-coupon-admin-row{display:grid;grid-template-columns:1.1fr .8fr .7fr .9fr .8fr auto;gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid #eee}
+.bbd-coupon-admin-row:last-child{border-bottom:0}
+.bbd-coupon-code{font-weight:800;letter-spacing:.5px}
+.bbd-coupon-actions{display:flex;gap:5px;flex-wrap:wrap}
+.bbd-mini-btn{border:1px solid #ddd;background:#fff;border-radius:7px;padding:6px 8px;font-size:11px;font-weight:700;cursor:pointer}
+@media(max-width:760px){#bbdCouponForm>div{grid-template-columns:1fr!important}.bbd-coupon-admin-row{grid-template-columns:1fr 1fr}.bbd-coupon-actions{grid-column:1/-1}}
+</style>
+
+<style id="bbd-checkout-mobile-reference-style">
+.bbd-mobile-checkout-steps,.bbd-mobile-final-cta{display:none}
+@media(max-width:700px){
+  #checkoutModal{padding:0!important;align-items:flex-end!important}
+  #checkoutModal .roko-checkout-sheet{width:100vw!important;max-width:100vw!important;height:100dvh!important;max-height:100dvh!important;border-radius:0!important;margin:0!important;background:#f7f8f9!important;display:flex!important;flex-direction:column!important}
+  #checkoutModal .roko-checkout-head{height:58px;min-height:58px;box-sizing:border-box;padding:9px 13px!important;background:#fff!important;border-bottom:1px solid #e7e9eb!important;box-shadow:0 1px 5px rgba(0,0,0,.04)}
+  #checkoutModal .roko-checkout-head h2{font-size:0!important;font-weight:800;color:#111!important;line-height:1}
+  #checkoutModal .roko-checkout-head h2:before{content:'Bazar';font-size:21px;color:#119447}
+  #checkoutModal .roko-checkout-head h2:after{content:'BD';font-size:21px;color:#e31b23}
+  #checkoutModal .roko-checkout-sub{font-size:9px!important;margin-top:2px!important;color:#718096!important}
+  #checkoutModal .roko-checkout-sub:after{content:'  •  Secure checkout'}
+  #checkoutModal .roko-checkout-head .close{width:34px;height:34px;border-radius:50%;background:#f1f3f4!important;font-size:22px!important}
+  #checkoutModal .roko-checkout-body{display:flex!important;flex-direction:column!important;gap:8px!important;padding:8px 8px 72px!important;overflow-y:auto!important;max-height:none!important;flex:1!important;background:#f7f8f9!important}
+  #checkoutModal .bbd-mobile-checkout-steps{display:flex!important;align-items:center!important;justify-content:center!important;gap:6px!important;padding:7px 8px 9px!important;background:#fff!important;border-bottom:1px solid #e9ecef!important;order:0!important;flex:none!important}
+  #checkoutModal .bbd-ms{display:flex!important;align-items:center!important;gap:5px!important;color:#8993a1!important;font-size:10px!important;white-space:nowrap!important}
+  #checkoutModal .bbd-ms span{width:24px!important;height:24px!important;border-radius:50%!important;background:#aeb7c1!important;color:#fff!important;display:grid!important;place-items:center!important;font-size:11px!important;font-weight:800!important}
+  #checkoutModal .bbd-ms.active{color:#168b4d!important}.bbd-ms.active span{background:#168b4d!important}
+  #checkoutModal .bbd-mobile-checkout-steps i{height:1px!important;width:28px!important;background:#dfe4e8!important;display:block!important}
+  #checkoutModal .roko-checkout-card{padding:10px!important;border-radius:11px!important;border:1px solid #e2e6e9!important;box-shadow:0 1px 3px rgba(0,0,0,.035)!important;background:#fff!important}
+  #checkoutModal .roko-checkout-card:first-of-type{order:1}
+  #checkoutModal .roko-checkout-card:nth-of-type(2){order:2}
+  #checkoutModal .roko-step{margin:0 -2px 7px!important;padding:6px 5px!important;border-bottom:1px solid #edf0f2!important;gap:7px!important}
+  #checkoutModal .roko-step-num{width:22px!important;height:22px!important;font-size:10px!important;background:#168b4d!important}
+  #checkoutModal .roko-step b{font-size:13px!important}
+  #checkoutModal .checkout-sheet label{font-size:10px!important;margin:6px 0 3px!important}
+  #checkoutModal .form-input{min-height:34px!important;box-sizing:border-box!important;padding:7px 9px!important;border-radius:7px!important;font-size:11px!important;background:#fbfcfc!important}
+  #checkoutModal textarea.form-input{min-height:48px!important}
+  #checkoutModal .bd-address-grid{grid-template-columns:1fr 1fr!important;gap:5px!important}
+  #checkoutModal .bd-address-field.bd-address-full{grid-column:1/-1!important}
+  #checkoutModal .bd-address-field label{font-size:9px!important;margin:3px 0 2px!important}
+  #checkoutModal .bd-address-preview{font-size:9px!important;padding:6px!important;margin-top:5px!important;line-height:1.35!important}
+  #checkoutModal .roko-checkout-note{font-size:8px!important;padding:6px!important;margin-top:5px!important}
+  #checkoutModal .roko-delivery-title{margin-top:8px!important}
+  #checkoutModal .roko-delivery-options{grid-template-columns:1fr 1fr!important;gap:5px!important;margin-top:5px!important}
+  #checkoutModal .roko-delivery-option{padding:7px!important;border-radius:7px!important;gap:5px!important;min-height:50px!important;align-items:center!important}
+  #checkoutModal .roko-delivery-option .delivery-icon{font-size:17px!important}
+  #checkoutModal .roko-delivery-option b{font-size:9px!important}
+  #checkoutModal .roko-delivery-option small{font-size:7px!important;margin-top:1px!important}
+  #checkoutModal .roko-delivery-price{font-size:9px!important}
+  #checkoutModal .roko-estimate{padding:6px 8px!important;margin-top:5px!important;font-size:8px!important}
+  #checkoutModal .roko-payment-title{margin-top:8px!important}
+  #checkoutModal .payment-options.roko-payment-options{grid-template-columns:1fr 1fr!important;gap:5px!important}
+  #checkoutModal .roko-payment-options .payment{padding:7px!important;border-radius:7px!important;gap:5px!important;min-height:46px!important;align-items:center!important}
+  #checkoutModal .roko-payment-options .payment>span{font-size:16px!important}
+  #checkoutModal .roko-payment-options .payment b{font-size:9px!important}
+  #checkoutModal .roko-payment-options .payment small{font-size:7px!important}
+  #checkoutModal .roko-checkout-actions{display:none!important}
+  #checkoutModal .roko-card-title{font-size:14px!important;margin:0 0 7px!important;padding-bottom:7px!important}
+  #checkoutModal .roko-order-item{gap:7px!important;padding:6px 0!important}
+  #checkoutModal .roko-order-img{width:42px!important;height:42px!important}
+  #checkoutModal .roko-order-info b{font-size:10px!important}
+  #checkoutModal .roko-order-info small{font-size:8px!important;margin-top:2px!important}
+  #checkoutModal .roko-order-price{font-size:10px!important}
+  #checkoutModal .bbd-coupon-box{margin-top:6px!important;padding:7px!important;border-radius:8px!important;background:#f4fbf7!important;border-color:#d7eee0!important}
+  #checkoutModal .bbd-coupon-box>div:first-child{font-size:10px!important;margin-bottom:5px!important;color:#168b4d!important}
+  #checkoutModal .bbd-coupon-box>div:nth-child(2){gap:5px!important}
+  #checkoutModal .bbd-coupon-input{height:32px!important;font-size:10px!important;border-radius:6px!important;padding:0 8px!important}
+  #checkoutModal .bbd-coupon-box button{height:32px!important;font-size:9px!important;padding:0 9px!important;border-radius:6px!important}
+  #checkoutModal #bbdCouponMsg{font-size:8px!important;margin-top:4px!important}
+  #checkoutModal .roko-total-box{margin-top:6px!important;padding-top:7px!important}
+  #checkoutModal .roko-total-row{font-size:9px!important;padding:3px 0!important}
+  #checkoutModal .roko-total-row.grand{font-size:15px!important;padding-top:7px!important}
+  #checkoutModal .roko-order-note{font-size:8px!important;margin-top:4px!important}
+  #checkoutModal .roko-checkout-info-box{margin-top:6px!important;padding-top:7px!important}
+  #checkoutModal .roko-info-title{font-size:9px!important;margin-bottom:4px!important}
+  #checkoutModal .roko-summary-section{padding:5px 0!important}
+  #checkoutModal .roko-summary-label{font-size:7px!important}
+  #checkoutModal .roko-summary-value{font-size:9px!important;margin-top:2px!important}
+  #checkoutModal .roko-trust{grid-template-columns:repeat(3,1fr)!important;gap:4px!important;margin-top:6px!important}
+  #checkoutModal .roko-trust div{font-size:7px!important;padding:6px 2px!important}
+  #checkoutModal .bbd-mobile-final-cta{display:block!important;position:absolute!important;left:0!important;right:0!important;bottom:0!important;padding:7px 9px calc(7px + env(safe-area-inset-bottom))!important;background:rgba(255,255,255,.97)!important;border-top:1px solid #e4e7e9!important;box-shadow:0 -3px 12px rgba(0,0,0,.07)!important;z-index:20!important}
+  #checkoutModal .bbd-mobile-final-cta .checkout{height:43px!important;margin:0!important;border-radius:8px!important;background:#119447!important;font-size:12px!important;font-weight:800!important;box-shadow:none!important}
+}
+</style>
+</head>
 <body>
 <div class="top">&#128230; Fast Delivery &nbsp; | &nbsp; Cash on Delivery &nbsp; | &nbsp; Secure Shopping</div>
 
@@ -1903,6 +1988,8 @@ footer{background:#252525}
 <div class="modal" id="checkoutModal" onclick="if(event.target===this)closeCheckout()"><div class="sheet checkout-sheet roko-checkout-sheet">
   <div class="roko-checkout-head"><div><h2>Checkout</h2><div class="roko-checkout-sub">Secure checkout · Review shipping, payment and total before confirming</div></div><button class="close" type="button" onclick="closeCheckout()">&#215;</button></div>
   <div class="roko-checkout-body">
+    <div class="bbd-mobile-checkout-steps" aria-label="Checkout steps"><div class="bbd-ms active"><span>1</span><b>Address</b></div><i></i><div class="bbd-ms"><span>2</span><b>Payment</b></div><i></i><div class="bbd-ms"><span>3</span><b>Review</b></div></div>
+  
     <div class="roko-checkout-card">
       <div class="roko-step"><span class="roko-step-num">1</span><b>Shipping Address</b></div>
       <form id="checkoutForm" onsubmit="placeOrder(event)">
@@ -1935,8 +2022,9 @@ footer{background:#252525}
         <div class="roko-checkout-actions"><button type="button" class="checkout" style="background:#25D366;border-color:#25D366" onclick="contactWhatsAppForOrder()">💬 WhatsApp এ যোগাযোগ করুন</button><button class="checkout" type="submit" style="margin-top:9px">✓ Confirm Order</button></div>
       </form>
     </div>
-    <div class="roko-checkout-card"><h3 class="roko-card-title">Order Summary</h3><div id="checkoutSummary"></div><div class="roko-checkout-info-box"><div class="roko-info-title">Delivery & Payment</div><div id="checkoutReviewInfo"></div></div><div class="roko-trust"><div>🔒 Secure</div><div>↩ Easy Returns</div><div>🚚 5-Day Delivery</div></div></div>
+    <div class="roko-checkout-card"><h3 class="roko-card-title">Order Summary</h3><div id="checkoutSummary"></div><div class="bbd-coupon-box" style="margin-top:10px;padding:10px;border:1px solid #e5e7eb;border-radius:10px;background:#fafafa"><div style="font-weight:700;font-size:13px;margin-bottom:7px">🎟️ Coupon Code</div><div style="display:flex;gap:7px"><input id="bbdCouponCode" class="bbd-coupon-input" placeholder="Enter coupon code" style="flex:1;min-width:0;height:38px;border:1px solid #d1d5db;border-radius:8px;padding:0 10px"><button type="button" onclick="window.bbdApplyCoupon()" style="height:38px;border:0;border-radius:8px;padding:0 13px;font-weight:700;cursor:pointer">Apply</button><button type="button" onclick="window.bbdClearCoupon()" style="height:38px;border:1px solid #d1d5db;border-radius:8px;padding:0 10px;background:#fff;cursor:pointer">Clear</button></div><div id="bbdCouponMsg" style="font-size:11px;margin-top:6px"></div></div><div class="roko-checkout-info-box"><div class="roko-info-title">Delivery & Payment</div><div id="checkoutReviewInfo"></div></div><div class="roko-trust"><div>🔒 Secure</div><div>↩ Easy Returns</div><div>🚚 5-Day Delivery</div></div></div>
   </div>
+  <div class="bbd-mobile-final-cta"><button type="button" class="checkout" onclick="document.getElementById('checkoutForm')?.requestSubmit()">🔒 Confirm Order <span id="bbdMobileFinalTotal"></span></button></div>
 </div></div>
 
 <div class="modal" id="confirmationModal"><div class="sheet confirmation">
@@ -2050,7 +2138,7 @@ footer{background:#252525}
       <button data-view="users" onclick="showAdminView('users',this)"><span>&#9817;</span> Users</button>
       <button data-view="products" onclick="showAdminView('products',this)"><span>&#9638;</span> Products</button>
       <button data-view="reviews" onclick="showAdminView('reviews',this);loadAdminReviews()"><span>&#11088;</span> Reviews</button>
-      <button data-view="customize" onclick="showAdminView('customize',this);loadSiteCustomization()"><span>&#127912;</span> Customize</button><button data-view="analytics" onclick="showAdminView('analytics',this);window.bbdLoadAnalytics()"><span>📊</span> Analytics</button><button data-view="returns" onclick="showAdminView('returns',this);window.bbdLoadReturns()"><span>↩</span> Returns</button>
+      <button data-view="customize" onclick="showAdminView('customize',this);loadSiteCustomization()"><span>&#127912;</span> Customize</button><button data-view="analytics" onclick="showAdminView('analytics',this);window.bbdLoadAnalytics()"><span>📊</span> Analytics</button><button data-view="returns" onclick="showAdminView('returns',this);window.bbdLoadReturns()"><span>↩</span> Returns</button><button data-view="coupons" onclick="showAdminView('coupons',this);window.bbdLoadCoupons()"><span>🎟</span> Coupons</button>
     </nav>
     <div class="admin-grid">
     <main class="admin-main">
@@ -2092,6 +2180,39 @@ footer{background:#252525}
       </div>
     </form>
     <div id="categoryManagerList" style="margin-top:12px"></div>
+  </div>
+</section>
+
+<section class="admin-view" id="admin-coupons">
+  <div class="admin-card" style="margin-top:0">
+    <div class="admin-card-head" style="align-items:center">
+      <div>
+        <h2 style="font-size:20px">🎟️ Coupon Management</h2>
+        <div class="admin-muted" style="margin:4px 0 0">Create, edit, activate/deactivate and delete customer coupons.</div>
+      </div>
+      <div class="admin-toolbar">
+        <button class="admin-btn" onclick="window.bbdLoadCoupons()">Refresh</button>
+        <button class="admin-btn primary" onclick="window.bbdOpenCouponForm()">＋ New Coupon</button>
+      </div>
+    </div>
+    <div id="bbdCouponForm" style="display:none;margin:12px 0;padding:14px;border:1px solid #e5e7eb;border-radius:12px;background:#fafafa">
+      <input type="hidden" id="bbdCouponId">
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px">
+        <label>Coupon Code<input id="bbdCouponCodeAdmin" class="admin-input" placeholder="e.g. SAVE10" style="width:100%"></label>
+        <label>Discount Type<select id="bbdCouponTypeAdmin" class="admin-input" style="width:100%"><option value="percent">Percentage (%)</option><option value="fixed">Fixed (৳)</option></select></label>
+        <label>Discount Value<input id="bbdCouponValueAdmin" class="admin-input" type="number" min="0" step="0.01" placeholder="10" style="width:100%"></label>
+        <label>Minimum Order<input id="bbdCouponMinAdmin" class="admin-input" type="number" min="0" step="1" placeholder="0" style="width:100%"></label>
+        <label>Expiry Date<input id="bbdCouponExpiryAdmin" class="admin-input" type="datetime-local" style="width:100%"></label>
+        <label>Usage Limit<input id="bbdCouponLimitAdmin" class="admin-input" type="number" min="0" step="1" placeholder="0 = unlimited" style="width:100%"></label>
+      </div>
+      <label style="display:flex;gap:8px;align-items:center;margin:10px 0"><input id="bbdCouponActiveAdmin" type="checkbox" checked> Active</label>
+      <div style="display:flex;gap:7px">
+        <button class="admin-btn primary" onclick="window.bbdSaveCoupon()">Save Coupon</button>
+        <button class="admin-btn" onclick="window.bbdCloseCouponForm()">Cancel</button>
+      </div>
+      <div id="bbdCouponAdminMsg" class="admin-muted" style="margin-top:7px"></div>
+    </div>
+    <div id="bbdCouponsList" style="margin-top:10px">Open Coupons to load.</div>
   </div>
 </section>
 <section class="admin-view" id="admin-analytics"><div class="admin-card" style="margin-top:0"><div class="admin-card-head"><div><h2>📊 Sales Analytics</h2><div class="admin-muted">Daily, weekly and monthly sales summary from your Firebase orders.</div></div><button class="admin-btn" onclick="window.bbdLoadAnalytics()">Refresh</button></div><div id="bbdAnalytics"></div></div></section>
@@ -2351,6 +2472,9 @@ const app=initializeApp(firebaseConfig);
 const analytics=getAnalytics(app);
 const auth=getAuth(app);
 const db=getFirestore(app);
+window.__BBD_DB = db;
+window.__BBD_AUTH = auth;
+window.__BBD_FS = { collection, getDocs, doc, addDoc, updateDoc, deleteDoc, query, where };
 const storage=getStorage(app,"gs://bazar-7d236.firebasestorage.app");
 const functions=getFunctions(app);
 
@@ -2869,10 +2993,13 @@ window.placeOrder = async function(e) {
   const delivery=getCheckoutDelivery();
   const subtotal = cart.reduce((acc, item) => acc + (Number(item.price)||0) * (Number(item.qty)||1), 0);
   const deliveryCharge=delivery.charge;
-  const total = subtotal + deliveryCharge;
+  const couponCode = window.bbdCoupon?.code || "";
+  const couponId = window.bbdCoupon?.couponId || null;
+  const discount = Math.min(subtotal, Math.max(0, Number(window.bbdCoupon?.discount || 0)));
+  const total = Math.max(0, subtotal + deliveryCharge - discount);
   const estimatedDelivery=getEstimatedDeliveryDate();
   const orderId = "ORD" + Date.now().toString().slice(-8);
-  const orderData = { orderId, customerName:name, customerPhone:phone, customerAddress:address, shippingAddress:{...addressData, name, phone, text:address}, shippingAddressText:address, items:cart, subtotal, deliveryMethod:delivery.name, deliveryCharge, estimatedDelivery, total, paymentMethod, status:"Pending", createdAt:new Date().toISOString(), userId:currentUser.uid };
+  const orderData = { orderId, customerName:name, customerPhone:phone, customerAddress:address, shippingAddress:{...addressData, name, phone, text:address}, shippingAddressText:address, items:cart, subtotal, couponCode, couponId, discount, deliveryMethod:delivery.name, deliveryCharge, estimatedDelivery, total, paymentMethod, status:"Pending", createdAt:new Date().toISOString(), userId:currentUser.uid };
   try {
     await addDoc(collection(db,"orders"),orderData);
     await setDoc(doc(db,"users",currentUser.uid),{name,email:currentUser.email,phone,shippingAddress:{...addressData,name,phone,text:address},shippingAddressText:address,updatedAt:new Date().toISOString()},{merge:true});
@@ -2889,8 +3016,8 @@ window.placeOrder = async function(e) {
   const ca=document.getElementById("confirmAddress");if(ca)ca.textContent=address;
   const cd=document.getElementById("confirmDelivery");if(cd)cd.textContent=delivery.name+" · "+money(deliveryCharge);
   const ce=document.getElementById("confirmEstimated");if(ce)ce.textContent=estimatedDelivery+" · within 5 days";
-  lastConfirmedOrder = { orderId, customerName:name, customerPhone:phone, customerAddress:address, shippingAddress:{...addressData,name,phone,text:address}, shippingAddressText:address, items:JSON.parse(JSON.stringify(cart)), subtotal, deliveryMethod:delivery.name, deliveryCharge, estimatedDelivery, total, paymentMethod, status:"Pending", createdAt:new Date().toISOString() };
-  cart=[]; localStorage.setItem("boighor_cart",JSON.stringify(cart)); updateCartBadge();
+  lastConfirmedOrder = { orderId, customerName:name, customerPhone:phone, customerAddress:address, shippingAddress:{...addressData,name,phone,text:address}, shippingAddressText:address, items:JSON.parse(JSON.stringify(cart)), subtotal, couponCode, couponId, discount, deliveryMethod:delivery.name, deliveryCharge, estimatedDelivery, total, paymentMethod, status:"Pending", createdAt:new Date().toISOString() };
+  cart=[]; window.bbdCoupon=null; localStorage.setItem("boighor_cart",JSON.stringify(cart)); updateCartBadge();
   closeCheckout(); document.getElementById("confirmationModal")?.classList.add("open");
 };
 
@@ -3500,7 +3627,7 @@ async function loadUserOrders() {
     container.innerHTML=`<div class="pro-orders-wrap"><div class="pro-orders-header"><div class="pro-orders-heading"><h3>My Orders</h3><p>Tap an order to view full details</p></div><span class="pro-orders-count">${orders.length} Order${orders.length===1?"":"s"}</span></div><div>${orders.map(o=>{
       const items=Array.isArray(o.items)?o.items:[],count=items.reduce((n,i)=>n+Number(i.qty||1),0),status=o.status||"Confirmed",date=o.createdAt?new Date(o.createdAt).toLocaleDateString(undefined,{day:"2-digit",month:"short",year:"numeric"}):"—",safe=escapeJsArg(o.id),preview=items.slice(0,2).map(i=>`${escapeHtml(i.name||"Product")} × ${i.qty||1}`).join(" • ")+(items.length>2?` • +${items.length-2} more`:"");
       const shipping=o.shippingAddress||o.address||o.customerAddress||{},address=formatShippingAddress(shipping,o.customerAddress);
-      return `<article class="pro-order-card" id="proOrderCard_${safe}"><div class="pro-order-main" onclick="window.openMyOrderDetail('${safe}')"><div class="pro-order-icon">📦</div><div class="pro-order-content"><div class="pro-order-top"><span class="pro-order-id">${escapeHtml(o.orderId||o.id)}</span><span class="pro-order-status">${escapeHtml(status)}</span></div><div class="pro-order-meta"><span>📅 ${escapeHtml(date)}</span><span>📦 ${count} item${count===1?"":"s"}</span></div><div class="pro-order-preview">${preview||"Product details"}</div></div><div class="pro-order-total"><small>Total</small><b>${money(o.total||0)}</b></div><div class="pro-order-chevron">›</div></div><div class="pro-order-details"><div class="pro-detail-grid"><div class="pro-detail-box"><label>ORDER DATE</label><b>${escapeHtml(date)}</b></div><div class="pro-detail-box"><label>PAYMENT</label><b>${escapeHtml(o.paymentMethod||o.payment||"—")}</b></div><div class="pro-detail-box"><label>CUSTOMER</label><b>${escapeHtml(o.customerName||o.name||currentUser?.displayName||"Customer")}</b></div><div class="pro-detail-box"><label>PHONE</label><b>${escapeHtml(o.phone||o.customerPhone||shipping.phone||"—")}</b></div><div class="pro-detail-box full" style="grid-column:1/-1"><label>DELIVERY ADDRESS</label><b>${escapeHtml(address||"—")}</b></div></div><div class="pro-items">${items.length?items.map(i=>{const qty=Number(i.qty||1),unit=Number(i.price||i.unitPrice||0),image=i.image?`<img src="${escapeHtml(i.image)}" alt="">`:`<span style="font-size:22px">${escapeHtml(i.icon||"📦")}</span>`;return `<div class="pro-item"><div class="pro-item-img">${image}</div><div class="pro-item-main"><div class="pro-item-name">${escapeHtml(i.name||"Product")}</div><div class="pro-item-sub">${i.brand?escapeHtml(i.brand)+" • ":""}Qty ${qty} • Unit ${money(unit)}</div></div><div class="pro-item-price">${money(unit*qty)}</div></div>`}).join(""):'<div style="padding:10px;font-size:9px;color:#888">No product details available.</div>'}</div><div class="pro-detail-bottom"><div class="pro-total"><span>ORDER TOTAL</span><strong>${money(o.total||0)}</strong></div><div class="pro-actions">${o.trackingLink?`<a class="pro-track" href="${escapeHtml(o.trackingLink)}" target="_blank" rel="noopener noreferrer">🔗 Track</a>`:""}<button class="pro-view-jpg" type="button" onclick="event.stopPropagation();window.downloadOrderJPGForOrder('${safe}')">📷 Download JPG</button></div></div></div></article>`;
+      return `<article class="pro-order-card" id="proOrderCard_${safe}"><div class="pro-order-main" onclick="window.openMyOrderDetail('${safe}')"><div class="pro-order-icon">📦</div><div class="pro-order-content"><div class="pro-order-top"><span class="pro-order-id">${escapeHtml(o.orderId||o.id)}</span><span class="pro-order-status">${escapeHtml(status)}</span></div><div class="pro-order-meta"><span>📅 ${escapeHtml(date)}</span><span>📦 ${count} item${count===1?"":"s"}</span></div><div class="pro-order-preview">${preview||"Product details"}</div></div><div class="pro-order-total"><small>Total</small><b>${money(o.total||0)}</b></div><div class="pro-order-chevron">›</div></div><div class="pro-order-details"><div class="pro-detail-grid"><div class="pro-detail-box"><label>ORDER DATE</label><b>${escapeHtml(date)}</b></div><div class="pro-detail-box"><label>PAYMENT</label><b>${escapeHtml(o.paymentMethod||o.payment||"—")}</b></div><div class="pro-detail-box"><label>CUSTOMER</label><b>${escapeHtml(o.customerName||o.name||currentUser?.displayName||"Customer")}</b></div><div class="pro-detail-box"><label>PHONE</label><b>${escapeHtml(o.phone||o.customerPhone||shipping.phone||"—")}</b></div><div class="pro-detail-box full" style="grid-column:1/-1"><label>DELIVERY ADDRESS</label><b>${escapeHtml(address||"—")}</b></div></div><div class="pro-items">${items.length?items.map(i=>{const qty=Number(i.qty||1),unit=Number(i.price||i.unitPrice||0),image=i.image?`<img src="${escapeHtml(i.image)}" alt="">`:`<span style="font-size:22px">${escapeHtml(i.icon||"📦")}</span>`;return `<div class="pro-item"><div class="pro-item-img">${image}</div><div class="pro-item-main"><div class="pro-item-name">${escapeHtml(i.name||"Product")}</div><div class="pro-item-sub">${i.brand?escapeHtml(i.brand)+" • ":""}Qty ${qty} • Unit ${money(unit)}</div></div><div class="pro-item-price">${money(unit*qty)}</div></div>`}).join(""):'<div style="padding:10px;font-size:9px;color:#888">No product details available.</div>'}</div><div class="pro-detail-bottom"><div class="pro-total"><span>ORDER TOTAL</span><strong>${money(o.total||0)}</strong></div><div class="pro-actions">${o.trackingLink?`<a class="pro-track" href="${escapeHtml(o.trackingLink)}" target="_blank" rel="noopener noreferrer">🔗 Track</a>`:""}${["delivered","confirmed","processing","on the way"].includes(String(status).toLowerCase())?`<button class="pro-track" type="button" onclick="event.stopPropagation();window.bbdRequestReturn('${safe}')">↩ Return</button>`:""}<button class="pro-view-jpg" type="button" onclick="event.stopPropagation();window.downloadOrderJPGForOrder('${safe}')">📷 Download JPG</button></div></div></div></article>`;
     }).join("")}</div></div>`;
   }catch(e){console.error(e);container.innerHTML='<div class="pro-empty">Could not load orders: '+escapeHtml(e.message)+'</div>';}
 }
@@ -4077,17 +4204,6 @@ window.refreshCheckoutSummary=function(){
   const rows=box.querySelectorAll('.roko-total-row'); if(rows.length>=3){const old=rows[rows.length-1]; if(d>0){let db=box.querySelector('.bbd-discount-row');if(!db){db=document.createElement('div');db.className='roko-total-row bbd-discount-row';old.parentNode.insertBefore(db,old);}db.innerHTML=`<span>Coupon Discount</span><b style="color:#15803d">-${money(d)}</b>`;}else box.querySelector('.bbd-discount-row')?.remove(); old.querySelector('b').textContent=money(total);}
 };
 // Securely validate available stock before creating an order. Stock mutation remains admin/server-side by Firebase rules.
-const _bbdOriginalPlaceOrder=window.placeOrder;
-window.placeOrder=async function(e){
-  e.preventDefault(); if(!currentUser){return _bbdOriginalPlaceOrder(e);}
-  const unavailable=cart.map(i=>{const p=(window.products||[]).find(x=>String(x.id)===String(i.id));const st=BBD.stock(p);return {i,p,st};}).filter(x=>x.p&&BBD.hasStock(x.p)&&x.st>0?Number(x.i.qty||1)>x.st:false);
-  const missing=cart.filter(i=>{const p=(window.products||[]).find(x=>String(x.id)===String(i.id));return !p||(BBD.hasStock(p)&&BBD.stock(p)<=0);});
-  if(unavailable.length||missing.length){toast("Some products are out of stock or exceed available stock");return;}
-  // Let the original function create the order, then add coupon fields to the just-created order by matching order id.
-  await _bbdOriginalPlaceOrder(e);
-  const code=window.bbdCoupon?.code, discount=Number(window.bbdCoupon?.discount||0); if(code&&discount){try{const oid=document.getElementById("orderId")?.textContent;const snap=await getDocs(query(collection(db,"orders"),where("orderId","==",oid)));for(const ds of snap.docs){await updateDoc(doc(db,"orders",ds.id),{couponCode:code,discount,couponId:window.bbdCoupon.couponId||null});}}catch(err){console.warn("Coupon order metadata update failed",err);}}
-  window.bbdCoupon=null;
-};
 // Product editor: 4 images + stock + cost price.
 const _bbdOpenEditProduct=window.openEditProduct;
 window.openEditProduct=function(id){if(typeof _bbdOpenEditProduct==='function')_bbdOpenEditProduct(id);const p=(window.products||[]).find(x=>String(x.id)===String(id));if(!p)return;document.getElementById("productStock").value=BBD.stock(p);document.getElementById("productCostPrice").value=Number(p.costPrice||0);const f=document.getElementById("productImageFile");if(f)f.value="";};
@@ -4120,5 +4236,101 @@ const origRenderUI=window.renderUI;window.renderUI=function(){if(typeof origRend
 setTimeout(()=>{window.renderUI?.();window.bbdRenderWishlist?.();window.bbdInventoryAlert?.();},300);
 
 </script>
-<div class="modal admin-management-modal" id="adminManagementModal" onclick="if(event.target===this)closeAdminRecord()"><div class="sheet"><div class="admin-management-hero"><div style="display:flex;justify-content:space-between;gap:10px"><div><small id="adminManagementType">MANAGEMENT</small><h2 id="adminManagementTitle">Record Management</h2></div><button class="close" onclick="closeAdminRecord()" style="background:rgba(255,255,255,.15);color:#fff">&#215;</button></div></div><div class="admin-management-body"><div id="adminManagementDetails" class="admin-record-grid"></div><div id="adminManagementActions" class="admin-management-actions"></div><div id="adminManagementNote" class="admin-management-note"></div></div></div></div></body>
+<div class="modal admin-management-modal" id="adminManagementModal" onclick="if(event.target===this)closeAdminRecord()"><div class="sheet"><div class="admin-management-hero"><div style="display:flex;justify-content:space-between;gap:10px"><div><small id="adminManagementType">MANAGEMENT</small><h2 id="adminManagementTitle">Record Management</h2></div><button class="close" onclick="closeAdminRecord()" style="background:rgba(255,255,255,.15);color:#fff">&#215;</button></div></div><div class="admin-management-body"><div id="adminManagementDetails" class="admin-record-grid"></div><div id="adminManagementActions" class="admin-management-actions"></div><div id="adminManagementNote" class="admin-management-note"></div></div></div></div>
+<script>
+/* BazarBD Admin Coupon CRUD */
+(function(){
+  const esc = s => String(s ?? '').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+  const money = n => '৳'+Number(n||0).toFixed(0);
+  function requireAdmin(){
+    if(!window.currentAdminUser){ alert('Admin login required.'); return false; }
+    return true;
+  }
+  window.bbdOpenCouponForm=function(c){
+    const f=document.getElementById('bbdCouponForm'); if(!f)return;
+    f.style.display='block';
+    document.getElementById('bbdCouponId').value=c?.id||'';
+    document.getElementById('bbdCouponCodeAdmin').value=c?.code||'';
+    document.getElementById('bbdCouponTypeAdmin').value=c?.type||'percent';
+    document.getElementById('bbdCouponValueAdmin').value=c?.value??'';
+    document.getElementById('bbdCouponMinAdmin').value=c?.minOrder??0;
+    document.getElementById('bbdCouponLimitAdmin').value=c?.usageLimit??0;
+    document.getElementById('bbdCouponActiveAdmin').checked=c?.active!==false;
+    const ex=document.getElementById('bbdCouponExpiryAdmin');
+    if(ex) ex.value=c?.expiresAt ? new Date(c.expiresAt).toISOString().slice(0,16) : '';
+    document.getElementById('bbdCouponAdminMsg').textContent='';
+    f.scrollIntoView({behavior:'smooth',block:'nearest'});
+  };
+  window.bbdCloseCouponForm=function(){
+    const f=document.getElementById('bbdCouponForm'); if(f)f.style.display='none';
+  };
+  window.bbdSaveCoupon=async function(){
+    if(!requireAdmin())return;
+    const id=document.getElementById('bbdCouponId').value.trim();
+    const code=document.getElementById('bbdCouponCodeAdmin').value.trim().toUpperCase();
+    const type=document.getElementById('bbdCouponTypeAdmin').value;
+    const value=Number(document.getElementById('bbdCouponValueAdmin').value||0);
+    const minOrder=Number(document.getElementById('bbdCouponMinAdmin').value||0);
+    const usageLimit=Number(document.getElementById('bbdCouponLimitAdmin').value||0);
+    const active=document.getElementById('bbdCouponActiveAdmin').checked;
+    const exp=document.getElementById('bbdCouponExpiryAdmin').value;
+    const msg=document.getElementById('bbdCouponAdminMsg');
+    if(!code){msg.textContent='Coupon code is required.';return}
+    if(!value || value<0 || (type==='percent' && value>100)){msg.textContent='Enter a valid discount value.';return}
+    if(minOrder<0 || usageLimit<0){msg.textContent='Minimum order/usage limit cannot be negative.';return}
+    const data={code,type,value,minOrder,usageLimit,active,expiresAt:exp?new Date(exp).toISOString():null,updatedAt:new Date().toISOString()};
+    try{
+      if(id) await window.__BBD_FS.updateDoc(window.__BBD_FS.doc(window.__BBD_DB,'coupons',id),data);
+      else {
+        const snap=await window.__BBD_FS.getDocs(window.__BBD_FS.collection(window.__BBD_DB,'coupons'));
+        let duplicate=false;snap.forEach(x=>{if(String(x.data().code||x.id).toUpperCase()===code)duplicate=true});
+        if(duplicate) throw new Error('Coupon code already exists.');
+        data.createdAt=new Date().toISOString();
+        await window.__BBD_FS.addDoc(window.__BBD_FS.collection(window.__BBD_DB,'coupons'),data);
+      }
+      msg.textContent='Saved successfully.';
+      window.bbdCloseCouponForm();
+      window.bbdLoadCoupons();
+    }catch(e){console.error(e);msg.textContent=e.message||'Could not save coupon.'}
+  };
+  window.bbdToggleCoupon=async function(id,active){
+    try{await window.__BBD_FS.updateDoc(window.__BBD_FS.doc(window.__BBD_DB,'coupons',id),{active:!active,updatedAt:new Date().toISOString()});window.bbdLoadCoupons();}
+    catch(e){alert('Could not change status: '+e.message)}
+  };
+  window.bbdDeleteCoupon=async function(id){
+    if(!confirm('Delete this coupon permanently?'))return;
+    try{await window.__BBD_FS.deleteDoc(window.__BBD_FS.doc(window.__BBD_DB,'coupons',id));window.bbdLoadCoupons();}
+    catch(e){alert('Could not delete coupon: '+e.message)}
+  };
+  window.bbdLoadCoupons=async function(){
+    const out=document.getElementById('bbdCouponsList'); if(!out)return;
+    if(typeof window.__BBD_DB==='undefined'){out.textContent='Firebase is not available.';return}
+    out.innerHTML='<div class="admin-muted">Loading coupons...</div>';
+    try{
+      const snap=await window.__BBD_FS.getDocs(window.__BBD_FS.collection(window.__BBD_DB,'coupons'));
+      if(snap.empty){out.innerHTML='<div class="admin-muted" style="padding:18px;text-align:center">No coupons yet. Click “New Coupon” to create one.</div>';return}
+      let rows='';
+      snap.forEach(x=>{
+        const c={id:x.id,...x.data()};
+        const expired=c.expiresAt && new Date(c.expiresAt)<new Date();
+        const status=c.active===false?'Inactive':expired?'Expired':'Active';
+        rows+=`<div class="bbd-coupon-admin-row">
+          <div><div class="bbd-coupon-code">${esc(c.code||c.id)}</div><small>${c.type==='fixed'?money(c.value):esc(c.value||0)+'%'} off</small></div>
+          <div>Min: ${money(c.minOrder||0)}</div>
+          <div>Limit: ${Number(c.usageLimit||0)||'∞'}</div>
+          <div><span class="admin-badge">${status}</span></div>
+          <div>${c.expiresAt?esc(new Date(c.expiresAt).toLocaleDateString()):'No expiry'}</div>
+          <div class="bbd-coupon-actions">
+            <button class="bbd-mini-btn" onclick='bbdOpenCouponForm(${JSON.stringify(c).replace(/'/g,"&#39;")})'>Edit</button>
+            <button class="bbd-mini-btn" onclick="bbdToggleCoupon('${esc(c.id)}',${c.active!==false})">${c.active===false?'Activate':'Disable'}</button>
+            <button class="bbd-mini-btn" style="color:#b91c1c" onclick="bbdDeleteCoupon('${esc(c.id)}')">Delete</button>
+          </div>
+        </div>`;
+      });
+      out.innerHTML=rows;
+    }catch(e){console.error(e);out.innerHTML='<div style="color:#b91c1c;padding:12px">Cannot load coupons. Check Firebase Rules/admin permission.</div>'}
+  };
+})();
+</script>
+</body>
 </html>
