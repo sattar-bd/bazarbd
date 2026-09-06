@@ -1692,7 +1692,9 @@ footer{background:#252525}
 .myorder-cancel{border:1px solid #fecaca;background:#fff1f2;color:#b91c1c;padding:9px 12px;border-radius:6px;font-size:11px;font-weight:800;cursor:pointer}
 .myorder-cancel:hover{background:#ffe4e6}
 </style>
-</head>
+<style id="bbd-real-upgrade-css">
+.bbd-stock-badge{font-size:9px;margin-top:4px;font-weight:700;color:#15803d}.bbd-stock-badge.low{color:#b45309}.bbd-stock-badge.out{color:#b91c1c}.bbd-wishlist-panel{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.bbd-mini-card{background:#fff;border:1px solid #e5e5e5;border-radius:7px;overflow:hidden;cursor:pointer}.bbd-mini-card img{width:100%;height:100px;object-fit:contain;background:#fafafa}.bbd-mini-card div{padding:7px;font-size:10px}.bbd-admin-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.bbd-admin-metric{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:9px}.bbd-admin-metric small{display:block;color:#777;font-size:9px}.bbd-admin-metric b{font-size:17px;display:block;margin-top:3px}.bbd-chart{height:180px;display:flex;align-items:end;gap:5px;padding:10px;background:#fafafa;border-radius:7px}.bbd-bar{flex:1;background:#198754;min-width:5px;border-radius:3px 3px 0 0;position:relative}.bbd-bar span{position:absolute;bottom:100%;font-size:8px;white-space:nowrap;transform:translateX(-25%);color:#555}.bbd-return-btn{background:#fff0f0;color:#b91c1c;border:1px solid #ffd4d6;border-radius:5px;padding:6px 8px;font-size:10px;font-weight:700}.bbd-coupon{display:flex;gap:6px;margin-top:10px}.bbd-coupon input{flex:1}.bbd-coupon button{padding:9px 12px;border-radius:4px;background:#222;color:#fff;font-weight:700}.bbd-coupon-msg{font-size:10px;margin-top:5px}.bbd-admin-nav-extra{margin-top:5px}@media(max-width:650px){.bbd-wishlist-panel{grid-template-columns:repeat(2,1fr)}.bbd-admin-grid{grid-template-columns:repeat(2,1fr)}.bbd-chart{height:150px}}
+</style></head>
 <body>
 <div class="top">&#128230; Fast Delivery &nbsp; | &nbsp; Cash on Delivery &nbsp; | &nbsp; Secure Shopping</div>
 
@@ -1987,9 +1989,9 @@ footer{background:#252525}
   <div class="profile-tabs">
    <button id="profileOrdersTab" class="active" onclick="showProfileTab('orders',this)">&#128230; My Orders</button>
    <button id="profileTrackingTab" onclick="showProfileTab('tracking',this)">&#128666; Tracking</button>
-   <button id="profileAccountTab" onclick="showProfileTab('account',this)">&#128100; Profile</button>
+   <button id="profileAccountTab" onclick="showProfileTab('account',this)">&#128100; Profile</button><button id="profileWishlistTab" onclick="window.bbdShowWishlist(this)">❤️ Wishlist</button>
   </div>
-  <div id="profileOrdersView"><div id="profileOrders" class="profile-loading">Loading orders...</div></div>
+  <div id="profileOrdersView"><div id="profileOrders" class="profile-loading">Loading orders...</div></div><div id="bbdWishlistView" style="display:none"><div class="profile-card"><b>❤️ My Wishlist</b><div id="bbdWishlistPanel" style="margin-top:9px"></div></div></div>
   <div id="profileTrackingView" style="display:none"><div id="profileTracking" class="profile-loading">Loading tracking...</div></div>
   <div id="profileAccountView" style="display:none">
    <form class="profile-card" id="profileEditForm" onsubmit="saveProfile(event)">
@@ -2048,7 +2050,7 @@ footer{background:#252525}
       <button data-view="users" onclick="showAdminView('users',this)"><span>&#9817;</span> Users</button>
       <button data-view="products" onclick="showAdminView('products',this)"><span>&#9638;</span> Products</button>
       <button data-view="reviews" onclick="showAdminView('reviews',this);loadAdminReviews()"><span>&#11088;</span> Reviews</button>
-      <button data-view="customize" onclick="showAdminView('customize',this);loadSiteCustomization()"><span>&#127912;</span> Customize</button>
+      <button data-view="customize" onclick="showAdminView('customize',this);loadSiteCustomization()"><span>&#127912;</span> Customize</button><button data-view="analytics" onclick="showAdminView('analytics',this);window.bbdLoadAnalytics()"><span>📊</span> Analytics</button><button data-view="returns" onclick="showAdminView('returns',this);window.bbdLoadReturns()"><span>↩</span> Returns</button>
     </nav>
     <div class="admin-grid">
     <main class="admin-main">
@@ -2092,6 +2094,8 @@ footer{background:#252525}
     <div id="categoryManagerList" style="margin-top:12px"></div>
   </div>
 </section>
+<section class="admin-view" id="admin-analytics"><div class="admin-card" style="margin-top:0"><div class="admin-card-head"><div><h2>📊 Sales Analytics</h2><div class="admin-muted">Daily, weekly and monthly sales summary from your Firebase orders.</div></div><button class="admin-btn" onclick="window.bbdLoadAnalytics()">Refresh</button></div><div id="bbdAnalytics"></div></div></section>
+<section class="admin-view" id="admin-returns"><div class="admin-card" style="margin-top:0"><div class="admin-card-head"><div><h2>↩ Returns & Refunds</h2><div class="admin-muted">Review customer return/refund requests.</div></div><button class="admin-btn" onclick="window.bbdLoadReturns()">Refresh</button></div><div id="bbdReturns"></div></div></section>
 <section class="admin-view" id="admin-products">
   <div class="admin-card" style="margin-top:0">
     <div class="admin-card-head" style="align-items:center">
@@ -2174,11 +2178,12 @@ footer{background:#252525}
     <label>Icon / Emoji</label><input id="productIcon" placeholder="&#128241;">
     <label>Product Image</label>
     <div class="product-upload-box">
-      <input id="productImageFile" type="file" accept="image/*">
+      <input id="productImageFile" type="file" accept="image/*" multiple><small style="display:block;color:#777;margin-top:5px">Upload up to 4 product images</small>
       <div id="productImagePreview" class="product-image-preview"><span>&#128247;</span><small>Choose product image</small></div>
       <div id="productUploadStatus" class="product-upload-status"></div>
     </div>
     <label>Image URL <span style="font-weight:normal;color:#777">(optional &#8212; or use uploaded image)</span></label><input id="productImage" type="url" placeholder="https://...">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><label>Stock Quantity</label><input id="productStock" type="number" min="0" step="1" value="0"></div><div><label>Cost Price</label><input id="productCostPrice" type="number" min="0" step="0.01" value="0"></div></div>
     <label>Short Details</label><textarea id="productDetails" rows="4" placeholder="Product description, specifications, warranty, etc."></textarea>
     <button class="checkout" type="submit" id="productSaveBtn">Save Product</button>
   </form>
@@ -2424,7 +2429,7 @@ function productCard(p){
  const d=old>price?Math.round((1-price/old)*100):0;
  const id=escapeJsArg(p.id);
  const image=p.image?`<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name||'Product')}" style="width:100%;height:100%;object-fit:contain" onerror="this.style.display='none'">`:escapeHtml(p.icon||"\u{1F4E6}");
- return `<article class="card" role="button" tabindex="0" onclick="openHomeProductDetails('${id}')" onkeydown="if(event.key==='Enter'||event.key===' ')openHomeProductDetails('${id}')"><div class="card-img">${d>0?`<span class="discount">-${d}%</span>`:''}<button class="wish" onclick="event.stopPropagation();toast('Wishlist is ready')">\u{2661}</button>${image}</div><div class="card-body"><div class="brand">${escapeHtml(p.brand||'')}</div><div class="name">${escapeHtml(p.name||'')}</div><div class="rating">\u{2605}\u{2605}\u{2605}\u{2605}\u{2605} <span>${Number(reviewStats[p.id]?.average ?? p.rating ?? 0).toFixed(1)}${reviewStats[p.id]?.count ? ` (${reviewStats[p.id].count})` : ''}</span></div><div class="price">${money(price)} ${old>price?`<span class="old">${money(old)}</span>`:''}</div></div></article>`;
+ return `<article class="card" role="button" tabindex="0" onclick="openHomeProductDetails('${id}')" onkeydown="if(event.key==='Enter'||event.key===' ')openHomeProductDetails('${id}')"><div class="card-img">${d>0?`<span class="discount">-${d}%</span>`:''}<button class="wish" onclick="event.stopPropagation();window.bbdToggleWishlist('${id}')" data-bbd-wish="${id}">♡</button>${image}</div><div class="card-body"><div class="brand">${escapeHtml(p.brand||'')}</div><div class="name">${escapeHtml(p.name||'')}</div><div class="rating">\u{2605}\u{2605}\u{2605}\u{2605}\u{2605} <span>${Number(reviewStats[p.id]?.average ?? p.rating ?? 0).toFixed(1)}${reviewStats[p.id]?.count ? ` (${reviewStats[p.id].count})` : ''}</span></div><div class="bbd-stock-badge" data-stock="${(p.stock!==undefined||p.quantity!==undefined)?Number(p.stock ?? p.quantity ?? 0):''}"></div><div class="price">${money(price)} ${old>price?`<span class="old">${money(old)}</span>`:''}</div></div></article>`;
 }
 
 function shuffleProducts(list){
@@ -4016,7 +4021,7 @@ window.openAdminRecord=function(type,id){
   if(type==="product"){
     const cat=(typeof siteCategories!=="undefined"?(siteCategories.find(c=>c.id===d.type)?.name):null)||d.type||"General";
     title.textContent=d.name||"Product Management";typeEl.textContent="PRODUCT MANAGEMENT";
-    rows=[["Product",d.name],["Brand",d.brand],["Category",cat],["Price",money(d.price)],["Old Price",money(d.old)],["Rating",Number(d.rating||0).toFixed(1)+"/5"],["Product ID",d.id],["Image",d.image?"Available":"Icon / Emoji"]];
+    rows=[["Product",d.name],["Brand",d.brand],["Category",cat],["Price",money(d.price)],["Old Price",money(d.old)],["Rating",Number(d.rating||0).toFixed(1)+"/5"],["Stock",BBD.stock(d)],["Cost Price",money(d.costPrice||0)],["Product ID",d.id],["Image",(Array.isArray(d.images)&&d.images.length)||d.image?"Available":"Icon / Emoji"]];
     html=`<button class="view" onclick="closeAdminRecord();openHomeProductDetails('${escapeJsArg(d.id)}')">View Details</button><button class="edit" onclick="closeAdminRecord();openEditProduct('${escapeJsArg(d.id)}')">Edit Product</button><button class="delete" onclick="closeAdminRecord();deleteProduct('${escapeJsArg(d.id)}')">Delete Product</button>`;
     n="Use this panel to view details, edit information, change pricing, or delete the product.";
   }else if(type==="order"){
@@ -4033,6 +4038,86 @@ window.openAdminRecord=function(type,id){
   details.innerHTML=rows.map(r=>`<div class="admin-record"><small>${e(r[0])}</small><b>${e(r[1])}</b></div>`).join("");
   actions.innerHTML=html;note.textContent=n;modal.classList.add("open");
 };
+
+
+/* ================= BazarBD REAL FEATURE INTEGRATION ================= */
+window.bbdShowWishlist=function(btn){document.querySelectorAll(".profile-tabs button").forEach(b=>b.classList.remove("active"));btn?.classList.add("active");["profileOrdersView","profileTrackingView","profileAccountView","bbdWishlistView"].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display=id==="bbdWishlistView"?"block":"none";});window.bbdRenderWishlist?.();};
+
+const BBD={
+  wishlist(){try{return JSON.parse(localStorage.getItem("bbd_wishlist")||"[]")}catch(e){return[]}},
+  saveWishlist(a){localStorage.setItem("bbd_wishlist",JSON.stringify([...new Set(a.map(String))]));},
+  hasStock(p){return p && (Object.prototype.hasOwnProperty.call(p,"stock")||Object.prototype.hasOwnProperty.call(p,"quantity"))},
+  stock(p){return this.hasStock(p)?Math.max(0,Number(p?.stock ?? p?.quantity ?? 0)||0):null},
+  img(p){return (Array.isArray(p?.images)&&p.images[0])||p?.image||""},
+  escape(v){return typeof escapeHtml==='function'?escapeHtml(String(v??"")):String(v??"")}
+};
+window.bbdToggleWishlist=async function(id){
+  const a=BBD.wishlist(), k=String(id), i=a.indexOf(k); if(i>=0)a.splice(i,1);else a.push(k); BBD.saveWishlist(a); window.renderUI?.(); window.bbdRenderWishlist?.(); toast(i>=0?"Removed from wishlist":"Added to wishlist");
+  if(currentUser){try{await setDoc(doc(db,"wishlists",currentUser.uid),{userId:currentUser.uid,productIds:a,updatedAt:new Date().toISOString()},{merge:true});}catch(e){console.warn("Wishlist sync failed",e);}}
+};
+window.bbdRenderWishlist=function(){
+  const el=document.getElementById("bbdWishlistPanel"); if(!el)return; const ids=BBD.wishlist(); const ps=(window.products||[]).filter(p=>ids.includes(String(p.id)));
+  el.innerHTML=ps.length?`<div class="bbd-wishlist-panel">${ps.map(p=>{const im=BBD.img(p);return `<div class="bbd-mini-card" onclick="openHomeProductDetails('${escapeJsArg(p.id)}')">${im?`<img src="${BBD.escape(im)}" alt="">`:`<div style="height:100px;display:grid;place-items:center;font-size:42px">${BBD.escape(p.icon||'📦')}</div>`}<div><b>${BBD.escape(p.name||'Product')}</b><br>${money(p.price||0)}<br><button type="button" style="margin-top:5px;color:#b91c1c;background:none" onclick="event.stopPropagation();bbdToggleWishlist('${escapeJsArg(p.id)}')">Remove</button></div></div>`}).join("")}</div>`:'<div class="pro-empty">❤️ No saved products yet.</div>';
+};
+window.bbdApplyCoupon=async function(){
+  const code=(document.getElementById("bbdCouponCode")?.value||"").trim().toUpperCase(), msg=document.getElementById("bbdCouponMsg");
+  if(!code){window.bbdClearCoupon();return;} if(!currentUser){msg.textContent="Please login first";return;}
+  try{const snap=await getDocs(collection(db,"coupons"));let c=null;snap.forEach(x=>{const d={id:x.id,...x.data()};if(String(d.code||x.id).toUpperCase()===code)c=d;});
+    if(!c||c.active===false){throw new Error("Invalid coupon")}; const exp=c.expiresAt?new Date(c.expiresAt):null;if(exp&&!isNaN(exp)&&exp<new Date())throw new Error("Coupon expired");
+    const sub=cart.reduce((a,i)=>a+(Number(i.price)||0)*(Number(i.qty)||1),0); if(Number(c.minOrder||0)>sub)throw new Error(`Minimum order ৳${Number(c.minOrder).toLocaleString("en-US")}`);
+    let discount=c.type==='percent'?sub*(Number(c.value||0)/100):Number(c.value||0);discount=Math.min(sub,Math.max(0,discount));window.bbdCoupon={code,discount,couponId:c.id};msg.textContent=`✓ ${code} applied — discount ${money(discount)}`;msg.style.color="#15803d";window.refreshCheckoutSummary?.();
+  }catch(e){window.bbdCoupon=null;msg.textContent=e.message||"Coupon unavailable";msg.style.color="#b91c1c";window.refreshCheckoutSummary?.();}
+};
+window.bbdClearCoupon=function(){window.bbdCoupon=null;const m=document.getElementById("bbdCouponMsg");if(m){m.textContent="";m.style.color="";}window.refreshCheckoutSummary?.();};
+// Replace checkout summary with coupon-aware totals.
+const _bbdRefreshCheckoutSummary=window.refreshCheckoutSummary;
+window.refreshCheckoutSummary=function(){
+  if(typeof _bbdRefreshCheckoutSummary==='function')_bbdRefreshCheckoutSummary();
+  const box=document.getElementById("checkoutSummary"); if(!box)return; const sub=cart.reduce((a,i)=>a+(Number(i.price)||0)*(Number(i.qty)||1),0), del=typeof getCheckoutDelivery==='function'?getCheckoutDelivery().charge:0, d=Number(window.bbdCoupon?.discount||0), total=Math.max(0,sub+del-d);
+  const rows=box.querySelectorAll('.roko-total-row'); if(rows.length>=3){const old=rows[rows.length-1]; if(d>0){let db=box.querySelector('.bbd-discount-row');if(!db){db=document.createElement('div');db.className='roko-total-row bbd-discount-row';old.parentNode.insertBefore(db,old);}db.innerHTML=`<span>Coupon Discount</span><b style="color:#15803d">-${money(d)}</b>`;}else box.querySelector('.bbd-discount-row')?.remove(); old.querySelector('b').textContent=money(total);}
+};
+// Securely validate available stock before creating an order. Stock mutation remains admin/server-side by Firebase rules.
+const _bbdOriginalPlaceOrder=window.placeOrder;
+window.placeOrder=async function(e){
+  e.preventDefault(); if(!currentUser){return _bbdOriginalPlaceOrder(e);}
+  const unavailable=cart.map(i=>{const p=(window.products||[]).find(x=>String(x.id)===String(i.id));const st=BBD.stock(p);return {i,p,st};}).filter(x=>x.p&&BBD.hasStock(x.p)&&x.st>0?Number(x.i.qty||1)>x.st:false);
+  const missing=cart.filter(i=>{const p=(window.products||[]).find(x=>String(x.id)===String(i.id));return !p||(BBD.hasStock(p)&&BBD.stock(p)<=0);});
+  if(unavailable.length||missing.length){toast("Some products are out of stock or exceed available stock");return;}
+  // Let the original function create the order, then add coupon fields to the just-created order by matching order id.
+  await _bbdOriginalPlaceOrder(e);
+  const code=window.bbdCoupon?.code, discount=Number(window.bbdCoupon?.discount||0); if(code&&discount){try{const oid=document.getElementById("orderId")?.textContent;const snap=await getDocs(query(collection(db,"orders"),where("orderId","==",oid)));for(const ds of snap.docs){await updateDoc(doc(db,"orders",ds.id),{couponCode:code,discount,couponId:window.bbdCoupon.couponId||null});}}catch(err){console.warn("Coupon order metadata update failed",err);}}
+  window.bbdCoupon=null;
+};
+// Product editor: 4 images + stock + cost price.
+const _bbdOpenEditProduct=window.openEditProduct;
+window.openEditProduct=function(id){if(typeof _bbdOpenEditProduct==='function')_bbdOpenEditProduct(id);const p=(window.products||[]).find(x=>String(x.id)===String(id));if(!p)return;document.getElementById("productStock").value=BBD.stock(p);document.getElementById("productCostPrice").value=Number(p.costPrice||0);const f=document.getElementById("productImageFile");if(f)f.value="";};
+window.bbdSaveProduct=async function(e){
+  e.preventDefault();const id=document.getElementById("productId").value,name=document.getElementById("productName").value.trim(),brand=document.getElementById("productBrand").value.trim(),type=document.getElementById("productType").value,price=Number(document.getElementById("productPrice").value),old=Number(document.getElementById("productOld").value),rating=Number(document.getElementById("productRating").value),icon=document.getElementById("productIcon").value||"📦",details=document.getElementById("productDetails").value,stock=Math.max(0,parseInt(document.getElementById("productStock").value||0)),costPrice=Math.max(0,Number(document.getElementById("productCostPrice").value||0)),url=document.getElementById("productImage").value.trim();
+  const existing=(window.products||[]).find(x=>String(x.id)===String(id))||{};let images=Array.isArray(existing.images)?existing.images.slice(0,4):[];if(!images.length&&existing.image)images=[existing.image];
+  const files=[...(document.getElementById("productImageFile")?.files||[])].slice(0,4);if(files.length){try{images=[];for(let n=0;n<files.length;n++){const f=files[n],r=storageRef(storage,`products/${Date.now()}_${n}_${f.name}`);await uploadBytes(r,f);images.push(await getDownloadURL(r));}}catch(err){console.error(err);toast("Image upload failed");return;}}
+  if(url&&!images.length)images=[url];const pData={name,brand,type,price,old,rating,icon,image:images[0]||url||"",images,details,stock,quantity:stock,costPrice,updatedAt:new Date().toISOString()};
+  try{if(id)await updateDoc(doc(db,"products",String(id)),pData);else await addDoc(collection(db,"products"),{...pData,createdAt:new Date().toISOString()});toast("Product saved successfully");closeProductModal();await fetchProductsFromFirebase();if(currentAdminUser)await loadAdminData();}catch(err){console.error(err);toast("Could not save product to Firebase");}
+};
+// Use the new product saver without removing existing form behavior.
+const pf=document.querySelector('#productModal form[onsubmit*="saveProduct"]');if(pf)pf.setAttribute('onsubmit','window.bbdSaveProduct(event)');
+// Return/refund request for customers.
+window.bbdRequestReturn=async function(orderId){if(!currentUser){toast("Please login first");return;}const o=(window.userOrdersCache||[]).find(x=>String(x.id)===String(orderId));if(!o){toast("Order not found");return;}if(!['delivered','confirmed','processing','on the way'].includes(String(o.status||'').toLowerCase())){toast("Return can be requested after order confirmation/delivery");return;}const reason=prompt("Return / refund reason:","Product issue");if(!reason)return;try{await addDoc(collection(db,"returns"),{orderId:o.id,orderNumber:o.orderId||o.id,userId:currentUser.uid,customerName:o.customerName||currentUser.displayName||"Customer",reason,status:"Pending",createdAt:new Date().toISOString()});toast("Return request submitted");}catch(e){console.error(e);toast("Could not submit return request");}};
+// Add return button to every expanded order card.
+const _bbdLoadUserOrders=window.loadUserOrders; // may be undefined because function declaration is lexical
+const bbdObserve=new MutationObserver(()=>{const box=document.getElementById('profileOrders');if(!box)return;box.querySelectorAll('.pro-order-card').forEach(card=>{if(card.querySelector('.bbd-return-btn'))return;const id=card.id.replace('proOrderCard_','');const actions=card.querySelector('.pro-actions');if(actions)actions.insertAdjacentHTML('afterbegin',`<button type="button" class="bbd-return-btn" onclick="event.stopPropagation();window.bbdRequestReturn('${escapeJsArg(id)}')">↩ Return</button>`);});});
+bbdObserve.observe(document.body,{childList:true,subtree:true});
+// Admin returns list.
+window.bbdLoadReturns=async function(){const el=document.getElementById('bbdReturns');if(!el||!currentAdminUser)return;el.innerHTML='<div class="admin-empty">Loading...</div>';try{const snap=await getDocs(collection(db,'returns'));const a=[];snap.forEach(d=>a.push({id:d.id,...d.data()}));a.sort((x,y)=>String(y.createdAt||'').localeCompare(String(x.createdAt||'')));el.innerHTML=a.length?`<div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Order</th><th>Customer</th><th>Reason</th><th>Status</th><th>Action</th></tr></thead><tbody>${a.map(r=>`<tr><td>${escapeHtml(r.orderNumber||r.orderId||'—')}</td><td>${escapeHtml(r.customerName||'—')}</td><td>${escapeHtml(r.reason||'—')}</td><td><span class="admin-badge">${escapeHtml(r.status||'Pending')}</span></td><td><select onchange="window.bbdUpdateReturn('${escapeJsArg(r.id)}',this.value)"><option ${r.status==='Pending'?'selected':''}>Pending</option><option ${r.status==='Approved'?'selected':''}>Approved</option><option ${r.status==='Rejected'?'selected':''}>Rejected</option><option ${r.status==='Refunded'?'selected':''}>Refunded</option></select></td></tr>`).join('')}</tbody></table></div>`:'<div class="admin-empty">No return requests.</div>';}catch(e){el.innerHTML='<div class="admin-empty">Could not load returns. Check Firebase rules.</div>';}};
+window.bbdUpdateReturn=async function(id,status){try{await updateDoc(doc(db,'returns',id),{status,updatedAt:new Date().toISOString(),updatedBy:currentAdminUser.uid});toast('Return updated');window.bbdLoadReturns();}catch(e){toast('Could not update return');}};
+// Admin analytics from already-loaded order/product data.
+window.bbdLoadAnalytics=function(){const el=document.getElementById('bbdAnalytics');if(!el)return;const orders=Array.isArray(adminOrdersList)?adminOrdersList:[],products=Array.isArray(window.products)?window.products:[];const now=new Date(),cut=d=>new Date(d.createdAt||0);const valid=orders.filter(o=>String(o.status||'').toLowerCase()!=='cancelled');const revenue=valid.reduce((a,o)=>a+Number(o.total||0),0);const cost=valid.reduce((a,o)=>a+(Array.isArray(o.items)?o.items.reduce((x,i)=>{const p=products.find(p=>String(p.id)===String(i.id));return x+Number(p?.costPrice||i.costPrice||0)*Number(i.qty||1)},0):0),0);const profit=revenue-cost;const day=x=>{const d=new Date(x);return d.getFullYear()===now.getFullYear()&&d.getMonth()===now.getMonth()&&d.getDate()===now.getDate()};const week=x=>(now-x)/(864e5)<=7;const month=x=>x.getFullYear()===now.getFullYear()&&x.getMonth()===now.getMonth();const sums=[['Today',valid.filter(o=>day(cut(o))).reduce((a,o)=>a+Number(o.total||0),0)],['7 Days',valid.filter(o=>week(cut(o))).reduce((a,o)=>a+Number(o.total||0),0)],['This Month',valid.filter(o=>month(cut(o))).reduce((a,o)=>a+Number(o.total||0),0)]];const max=Math.max(1,...sums.map(x=>x[1]));el.innerHTML=`<div class="bbd-admin-grid"><div class="bbd-admin-metric"><small>Orders</small><b>${valid.length}</b></div><div class="bbd-admin-metric"><small>Revenue</small><b>${money(revenue)}</b></div><div class="bbd-admin-metric"><small>Estimated Cost</small><b>${money(cost)}</b></div><div class="bbd-admin-metric"><small>Estimated Profit</small><b>${money(profit)}</b></div></div><div class="admin-card"><h2 style="font-size:14px">Sales Periods</h2><div class="bbd-chart">${sums.map(x=>`<div class="bbd-bar" style="height:${Math.max(8,x[1]/max*100)}%"><span>${x[0]} ${money(x[1])}</span></div>`).join('')}</div></div>`;};
+// Inventory alert on dashboard.
+const _bbdLoadAdminData=window.loadAdminData;window.bbdInventoryAlert=function(){const low=(window.products||[]).filter(p=>BBD.hasStock(p)&&BBD.stock(p)<=5);const dash=document.getElementById('admin-dashboard');if(!dash)return;let el=document.getElementById('bbdInventoryAlert');if(!el){el=document.createElement('div');el.id='bbdInventoryAlert';dash.querySelector('.stats')?.insertAdjacentElement('afterend',el);}el.innerHTML=low.length?`<div class="admin-card" style="border-left:3px solid #f59e0b"><b>⚠ Inventory Alert</b><div style="font-size:11px;color:#777;margin-top:4px">${low.map(p=>`${escapeHtml(p.name)}: ${BBD.stock(p)} left`).join(' • ')}</div></div>`:'';};
+// Wrap admin loader so analytics/stock alerts refresh after Firebase data.
+const origLoadAdminData=window.loadAdminData;window.loadAdminData=async function(){if(typeof origLoadAdminData==='function')await origLoadAdminData();window.bbdInventoryAlert();window.bbdLoadAnalytics();};
+// Improve product editor preview and expose wishlist after every UI render.
+const origRenderUI=window.renderUI;window.renderUI=function(){if(typeof origRenderUI==='function')origRenderUI();window.bbdRenderWishlist();document.querySelectorAll('[data-stock]').forEach(el=>{const raw=el.dataset.stock;if(raw===''||raw==='undefined'||raw==='null')return;const n=Number(raw||0);el.textContent=n<=0?'Out of stock':n<=5?`Only ${n} left`:'In stock';el.classList.toggle('low',n>0&&n<=5);el.classList.toggle('out',n<=0);});document.querySelectorAll('[data-bbd-wish]').forEach(el=>{const on=BBD.wishlist().includes(String(el.dataset.bbdWish));el.textContent=on?'♥':'♡';el.style.color=on?'#e51b23':'';});};
+setTimeout(()=>{window.renderUI?.();window.bbdRenderWishlist?.();window.bbdInventoryAlert?.();},300);
 
 </script>
 <div class="modal admin-management-modal" id="adminManagementModal" onclick="if(event.target===this)closeAdminRecord()"><div class="sheet"><div class="admin-management-hero"><div style="display:flex;justify-content:space-between;gap:10px"><div><small id="adminManagementType">MANAGEMENT</small><h2 id="adminManagementTitle">Record Management</h2></div><button class="close" onclick="closeAdminRecord()" style="background:rgba(255,255,255,.15);color:#fff">&#215;</button></div></div><div class="admin-management-body"><div id="adminManagementDetails" class="admin-record-grid"></div><div id="adminManagementActions" class="admin-management-actions"></div><div id="adminManagementNote" class="admin-management-note"></div></div></div></div></body>
