@@ -1318,12 +1318,388 @@ footer{background:#252525}
 .review-feature-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.review-feature-head h3{font-size:15px}.review-feature-head small{color:#777;font-size:10px}
 .review-summary{display:flex;align-items:center;gap:9px;background:#f7faf8;border-radius:9px;padding:9px;margin-bottom:10px}.review-summary strong{font-size:22px}.review-stars{color:#f59e0b;letter-spacing:1px}.review-list{display:flex;flex-direction:column;gap:8px}.review-item{border:1px solid #edf0ee;border-radius:9px;padding:10px;background:#fff}.review-item-top{display:flex;justify-content:space-between;gap:8px;align-items:center}.review-user{font-size:11px;font-weight:800}.review-date{font-size:9px;color:#999}.review-item p{font-size:11px;color:#555;line-height:1.5;margin-top:5px;white-space:pre-wrap}.write-review-btn{width:100%;margin-top:10px;padding:10px;border-radius:8px;background:#198754;color:#fff;font-weight:800}.write-review-btn:disabled{background:#d8dfda;color:#777}.review-empty{padding:12px;text-align:center;color:#888;font-size:11px;background:#fafafa;border-radius:8px}.review-form-stars{display:flex;gap:5px;margin:7px 0 10px}.review-star-btn{width:38px;height:38px;border-radius:9px;background:#f3f4f6;color:#aaa;font-size:20px}.review-star-btn.active{background:#fff4d6;color:#f59e0b}.review-note{font-size:10px;color:#777;margin-bottom:8px}.public-review-product{font-size:9px;color:#198754;margin-top:3px}
 </style>
+
+
+<style id="rokomari-style-header">
+/* Header refresh: Rokomari-inspired layout only; all existing site features remain unchanged. */
+.site-header-rokomari{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:#fff;
+  box-shadow:0 2px 9px rgba(0,0,0,.08);
+}
+.rokomari-header{
+  max-width:1240px;
+  min-height:70px;
+  padding:10px 14px;
+  gap:18px;
+}
+.mobile-menu-btn{
+  display:none;
+  width:38px;
+  height:38px;
+  flex:none;
+  border:0;
+  background:#fff;
+  color:#333;
+  font-size:27px;
+  line-height:1;
+  border-radius:4px;
+}
+.mobile-menu-btn:active{background:#f5f5f5}
+.rokomari-header .logo{
+  flex:none;
+  min-width:190px;
+}
+.rokomari-header .logo-mark{width:38px;height:38px}
+.rokomari-header .logo-word{font-size:25px}
+.rokomari-search{
+  display:flex;
+  flex:1;
+  min-width:180px;
+  position:relative;
+}
+.rokomari-search input{
+  flex:1;
+  width:100%;
+  height:44px;
+  padding:10px 14px;
+  border:1px solid #bfc4c9;
+  border-right:0;
+  border-radius:5px 0 0 5px;
+  font-size:13px;
+  outline:0;
+}
+.rokomari-search input:focus{border-color:#198754}
+.rokomari-search button{
+  position:static;
+  width:86px;
+  height:44px;
+  flex:none;
+  background:#198754;
+  color:#fff;
+  border-radius:0 5px 5px 0;
+  font-size:13px;
+  font-weight:700;
+}
+.rokomari-search button:hover{background:#157347}
+.rokomari-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex:none;
+}
+.rokomari-actions .icon{
+  min-width:58px;
+  width:auto;
+  height:42px;
+  border:1px solid #e1e1e1;
+  border-radius:5px;
+  padding:0 10px;
+  background:#fff;
+  color:#333;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  font-size:12px;
+}
+.rokomari-cart:hover{color:#198754;border-color:#198754}
+.header-icon{font-size:21px;line-height:1}
+.action-label{font-size:11px}
+.rokomari-actions .badge{
+  right:-4px;
+  top:-6px;
+  width:18px;
+  height:18px;
+}
+.rokomari-signin{
+  height:42px;
+  border:1px solid #1f6db2;
+  background:#fff;
+  color:#1768a8;
+  border-radius:5px;
+  padding:0 14px;
+  font-size:13px;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  white-space:nowrap;
+}
+.rokomari-signin:hover{
+  background:#f4f9fd;
+  border-color:#145d98;
+}
+.signin-icon{font-size:18px;line-height:1}
+.rokomari-nav{
+  border-top:1px solid #f0f0f0;
+  border-bottom:1px solid #e5e5e5;
+}
+.rokomari-nav .nav-inner{max-width:1240px}
+.rokomari-nav a{
+  padding:11px 15px;
+  font-size:12px;
+  color:#444;
+}
+.rokomari-nav a:hover,.rokomari-nav a.active{
+  color:#198754;
+  border-color:#198754;
+}
+
+@media(max-width:650px){
+  .site-header-rokomari{box-shadow:0 2px 8px rgba(0,0,0,.09)}
+  .rokomari-header{
+    display:grid;
+    grid-template-columns:38px minmax(0,1fr) auto;
+    grid-template-rows:43px 43px;
+    min-height:95px;
+    gap:7px;
+    padding:8px 10px 7px;
+  }
+  .mobile-menu-btn{
+    display:block;
+    grid-column:1;
+    grid-row:1;
+  }
+  .rokomari-header .logo{
+    grid-column:2;
+    grid-row:1;
+    min-width:0;
+    width:auto;
+    gap:5px;
+    overflow:hidden;
+  }
+  .rokomari-header .logo-mark{width:32px;height:32px}
+  .rokomari-header .logo-word{
+    font-size:21px;
+    letter-spacing:-.55px;
+  }
+  .rokomari-search{
+    grid-column:1/-1;
+    grid-row:2;
+    width:100%;
+    min-width:0;
+    height:43px;
+  }
+  .rokomari-search input{
+    height:43px;
+    min-width:0;
+    padding:10px 11px;
+    font-size:12px;
+    border-radius:5px 0 0 5px;
+  }
+  .rokomari-search button{
+    width:78px;
+    height:43px;
+    font-size:12px;
+  }
+  .rokomari-actions{
+    grid-column:3;
+    grid-row:1;
+    gap:5px;
+    justify-self:end;
+  }
+  .rokomari-actions .icon{
+    min-width:38px;
+    width:38px;
+    height:38px;
+    padding:0;
+    border:0;
+    gap:0;
+  }
+  .header-icon{font-size:24px}
+  .action-label{display:none}
+  .rokomari-actions .badge{right:-3px;top:-5px}
+  .rokomari-signin{
+    height:38px;
+    padding:0 9px;
+    font-size:11px;
+    border-radius:4px;
+    gap:3px;
+  }
+  .signin-icon{font-size:16px}
+  .rokomari-nav{display:none}
+}
+
+@media(max-width:390px){
+  .rokomari-header{
+    grid-template-columns:34px minmax(0,1fr) auto;
+    padding-left:7px;
+    padding-right:7px;
+  }
+  .mobile-menu-btn{width:34px;font-size:24px}
+  .rokomari-header .logo-word{font-size:19px}
+  .rokomari-header .logo-mark{width:29px;height:29px}
+  .rokomari-signin{padding:0 7px}
+  .signin-text{font-size:10px}
+  .rokomari-search button{width:72px}
+}
+</style>
+
+
+<style id="rokomari-product-view-style">
+/* Rokomari-inspired product detail view */
+.home-product-modal{align-items:center;padding:18px;background:rgba(15,23,42,.58)}
+.home-product-sheet{width:min(1040px,100%);max-height:94vh;overflow:hidden;border-radius:12px;padding:0;background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.22)}
+.home-product-sheet>.sheet-head{height:52px;padding:0 18px;border-bottom:1px solid #edf0f2;background:#fff}
+.home-product-sheet>.sheet-head h2{font-size:16px;font-weight:800;color:#222}
+.roko-pd{max-height:calc(94vh - 52px);overflow:auto;background:#fff}
+.roko-pd-top{display:grid;grid-template-columns:46% 54%;gap:0;border-bottom:1px solid #edf0f2}
+.roko-pd-gallery{padding:22px 24px;border-right:1px solid #edf0f2;background:#fff}
+.roko-pd-main-img{height:380px;border:1px solid #edf0f2;border-radius:8px;display:flex;align-items:center;justify-content:center;background:#fff;overflow:hidden}
+.roko-pd-main-img img{width:100%;height:100%;object-fit:contain;display:block}
+.roko-pd-placeholder{font-size:100px;line-height:1}
+.roko-pd-thumbs{display:flex;gap:8px;margin-top:12px;overflow-x:auto;padding-bottom:2px}
+.roko-pd-thumb{width:64px;height:64px;min-width:64px;border:1px solid #ddd;border-radius:6px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:2px;cursor:pointer}
+.roko-pd-thumb.active{border:2px solid var(--red);box-shadow:0 0 0 1px rgba(231,76,60,.08)}
+.roko-pd-thumb img{width:100%;height:100%;object-fit:contain}
+.roko-pd-gallery-note{font-size:10px;color:#8a8a8a;text-align:center;margin-top:9px}
+.roko-pd-info{padding:22px 24px 16px}
+.roko-pd-brand{font-size:11px;color:#777;font-weight:700;text-transform:uppercase;letter-spacing:.3px;margin-bottom:5px}
+.roko-pd-title{font-size:21px;line-height:1.4;color:#222;font-weight:700;margin:0 0 9px}
+.roko-pd-rating-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.roko-pd-stars{color:#f5a623;font-size:15px;letter-spacing:1px}
+.roko-pd-rating-value{font-size:12px;font-weight:700;color:#444}
+.roko-pd-review-count{font-size:11px;color:#777}
+.roko-pd-divider{height:1px;background:#f0f1f2;margin:0 0 15px}
+.roko-pd-price-row{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:8px}
+.roko-pd-price{font-size:27px;font-weight:800;color:var(--red)}
+.roko-pd-old{font-size:13px;color:#999;text-decoration:line-through}
+.roko-pd-off{font-size:11px;background:#fff1f1;color:var(--red);font-weight:800;border-radius:3px;padding:4px 7px}
+.roko-pd-stock{font-size:11px;color:#18864b;font-weight:700;margin-bottom:16px}
+.roko-pd-stock.out{color:#d33}
+.roko-pd-option{border-top:1px solid #f0f1f2;padding-top:14px;margin-top:5px}
+.roko-pd-option-label{font-size:11px;color:#555;font-weight:800;margin-bottom:8px}
+.roko-pd-qty{display:flex;align-items:center;width:max-content;border:1px solid #dfe3e6;border-radius:5px;overflow:hidden;height:36px}
+.roko-pd-qty button{width:34px;height:100%;border:0;background:#f7f8f9;color:#333;font-size:17px;cursor:pointer}
+.roko-pd-qty span{min-width:40px;text-align:center;font-size:12px;font-weight:800}
+.roko-pd-buy-row{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:16px}
+.roko-pd-buy-row button{height:43px;border-radius:4px;font-size:13px;font-weight:800;cursor:pointer}
+.roko-pd-cart{background:#fff;border:1px solid var(--red);color:var(--red)}
+.roko-pd-buy{background:var(--red);border:1px solid var(--red);color:#fff}
+.roko-pd-meta{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:17px}
+.roko-pd-meta-item{background:#f8f9fa;border-radius:5px;padding:9px 10px}
+.roko-pd-meta-item b{display:block;font-size:10px;color:#333;margin-bottom:3px}
+.roko-pd-meta-item span{display:block;font-size:9px;color:#777;line-height:1.4}
+.roko-pd-services{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:12px}
+.roko-pd-service{border:1px solid #edf0f2;border-radius:5px;padding:9px;text-align:center}
+.roko-pd-service b{display:block;font-size:10px;color:#333}
+.roko-pd-service span{font-size:8px;color:#888}
+.roko-pd-section{padding:18px 24px;border-bottom:1px solid #edf0f2}
+.roko-pd-section-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:11px}
+.roko-pd-section-title h3{font-size:15px;margin:0;color:#222}
+.roko-pd-section-title span{font-size:9px;color:#888}
+.roko-pd-description{font-size:12px;line-height:1.8;color:#555;white-space:pre-wrap}
+.roko-pd-specs{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid #edf0f2;border-radius:6px;overflow:hidden}
+.roko-pd-spec{display:grid;grid-template-columns:120px 1fr;gap:8px;padding:9px 11px;border-bottom:1px solid #edf0f2;font-size:10px}
+.roko-pd-spec:nth-child(odd){border-right:1px solid #edf0f2}
+.roko-pd-spec b{color:#666;font-weight:600}
+.roko-pd-spec span{color:#222}
+.roko-pd-review-wrap .review-feature{margin:0!important;border:0!important;padding:0!important}
+.roko-pd-review-wrap .review-feature-head{margin-bottom:10px}
+.roko-pd-similar{padding:18px 24px 24px}
+.roko-pd-similar .similar-products-section{margin:0;padding:0;border:0}
+.roko-pd-similar .similar-products-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.roko-pd-sticky-actions{display:none}
+
+@media(max-width:700px){
+  .home-product-modal{align-items:flex-end;padding:0}
+  .home-product-sheet{width:100%;max-height:96vh;border-radius:14px 14px 0 0}
+  .home-product-sheet>.sheet-head{height:48px;padding:0 13px}
+  .roko-pd{max-height:calc(96vh - 48px)}
+  .roko-pd-top{grid-template-columns:1fr}
+  .roko-pd-gallery{padding:13px 13px 10px;border-right:0;border-bottom:1px solid #edf0f2}
+  .roko-pd-main-img{height:270px}
+  .roko-pd-info{padding:15px 13px 14px}
+  .roko-pd-title{font-size:17px}
+  .roko-pd-price{font-size:23px}
+  .roko-pd-meta{margin-top:14px}
+  .roko-pd-services{grid-template-columns:repeat(3,1fr)}
+  .roko-pd-section,.roko-pd-similar{padding:15px 13px}
+  .roko-pd-specs{grid-template-columns:1fr}
+  .roko-pd-spec:nth-child(odd){border-right:0}
+  .roko-pd-similar .similar-products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:390px){
+  .roko-pd-main-img{height:230px}
+  .roko-pd-buy-row{grid-template-columns:1fr 1fr}
+  .roko-pd-buy-row button{font-size:12px}
+  .roko-pd-services b{font-size:9px}
+  .roko-pd-services span{font-size:7px}
+}
+</style>
+
+
+<style id="login-account-fix-style">
+.rokomari-signin{display:flex!important;align-items:center!important;justify-content:center!important;min-width:42px!important;min-height:38px!important;box-sizing:border-box!important;overflow:visible!important;visibility:visible!important;opacity:1!important;color:#1768a8!important;background:#fff!important}
+.rokomari-signin .signin-icon{display:inline-block!important;visibility:visible!important;opacity:1!important;font-size:18px!important;line-height:1!important}
+.rokomari-signin .signin-text{display:inline-block!important;visibility:visible!important;opacity:1!important}
+@media(max-width:650px){.rokomari-signin{width:auto!important;min-width:40px!important;padding:0 8px!important}.rokomari-signin .signin-text{font-size:10px!important}}
+</style>
+<style id="rokomari-menu-checkout-style">
+/* Rokomari-inspired mobile category drawer */
+.mobile-categories-modal{position:fixed;inset:0;background:rgba(0,0,0,.42);z-index:9999;display:none;align-items:stretch;justify-content:flex-start}
+.mobile-categories-modal.open{display:flex}
+.mobile-categories-sheet{width:min(380px,88vw);height:100%;background:#fff;box-shadow:10px 0 35px rgba(0,0,0,.2);overflow:auto;animation:rokoMenuIn .22s ease}
+@keyframes rokoMenuIn{from{transform:translateX(-100%)}to{transform:translateX(0)}}
+.mobile-categories-head{position:sticky;top:0;z-index:2;background:#fff;border-bottom:1px solid #eee;padding:17px 18px;display:flex;align-items:center;justify-content:space-between;font-size:20px;color:#222}
+.mobile-categories-head b:before{content:'☰';font-size:18px;margin-right:10px;color:#159447}
+.mobile-categories-close{border:0;background:#f4f4f4;border-radius:50%;width:36px;height:36px;font-size:25px;color:#555}
+.mobile-categories-list{padding:8px 12px 28px}
+.roko-menu-section{padding:14px 6px 7px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#888}
+.mobile-category-item{width:100%;display:flex;align-items:center;gap:14px;border:0;border-bottom:1px solid #f0f0f0;background:#fff;padding:14px 8px;text-align:left;font-size:16px;color:#333;cursor:pointer}
+.mobile-category-item:hover{background:#f7faf8}.mc-icon{width:38px;height:38px;border-radius:8px;background:#f2f8f4;display:grid;place-items:center;font-size:22px;flex:none}
+.roko-menu-link{display:flex;align-items:center;justify-content:space-between;padding:14px 8px;border-bottom:1px solid #f0f0f0;color:#333;text-decoration:none;font-size:15px}.roko-menu-link span:last-child{color:#aaa}
+.roko-menu-account{margin:10px 6px 16px;padding:15px;border:1px solid #e5e5e5;border-radius:8px;background:#fafafa}.roko-menu-account button{border:0;background:none;font-weight:700;color:#168b4d;padding:0;font-size:15px}
+/* Rokomari-inspired checkout */
+.checkout-sheet.roko-checkout-sheet{width:min(1080px,96vw);max-height:92vh;padding:0;overflow:hidden;border-radius:12px}
+.roko-checkout-head{padding:17px 22px;border-bottom:1px solid #e8e8e8;background:#fff;display:flex;align-items:center;justify-content:space-between}.roko-checkout-head h2{margin:0;font-size:23px}.roko-checkout-sub{font-size:13px;color:#777;margin-top:4px}
+.roko-checkout-body{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(310px,.85fr);gap:20px;padding:20px;background:#f7f7f7;overflow:auto;max-height:calc(92vh - 72px)}
+.roko-checkout-card{background:#fff;border:1px solid #e6e6e6;border-radius:9px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,.03)}
+.roko-card-title{font-size:17px;font-weight:800;margin:0 0 15px;padding-bottom:12px;border-bottom:1px solid #eee}.roko-step{display:flex;gap:10px;align-items:center;margin-bottom:16px}.roko-step-num{width:28px;height:28px;border-radius:50%;background:#168b4d;color:#fff;display:grid;place-items:center;font-weight:800;font-size:13px}.roko-step b{font-size:16px}
+.roko-order-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #eee}.roko-order-item:last-child{border-bottom:0}.roko-order-img{width:58px;height:58px;border:1px solid #eee;border-radius:6px;object-fit:contain;background:#fff}.roko-order-info{flex:1;min-width:0}.roko-order-info b{display:block;font-size:14px;line-height:1.35}.roko-order-info small{display:block;color:#777;margin-top:4px}.roko-order-price{font-weight:800;white-space:nowrap}.roko-total-box{margin-top:12px;border-top:1px solid #ddd;padding-top:13px}.roko-total-row{display:flex;justify-content:space-between;padding:5px 0;color:#555}.roko-total-row.grand{font-size:18px;color:#111;font-weight:800;padding-top:10px}.roko-payment-title{margin-top:18px}.payment-options.roko-payment-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}.roko-payment-options .payment{border:1px solid #ddd;border-radius:8px;padding:12px;background:#fff;display:flex;gap:10px;align-items:flex-start}.roko-payment-options .payment:has(input:checked){border-color:#168b4d;background:#f4fbf6}.roko-checkout-actions{margin-top:16px}.roko-checkout-actions .checkout{width:100%;height:48px;font-size:16px;font-weight:800}.roko-trust{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.roko-trust div{font-size:11px;color:#666;text-align:center;background:#fafafa;border:1px solid #eee;border-radius:6px;padding:9px 4px}.roko-checkout-note{font-size:12px;color:#777;background:#f7faf8;padding:10px;border-radius:6px;margin-top:10px}
+@media(max-width:700px){.checkout-sheet.roko-checkout-sheet{width:100%;max-height:96vh;border-radius:12px 12px 0 0;align-self:flex-end}.roko-checkout-body{grid-template-columns:1fr;padding:12px;gap:12px;max-height:calc(96vh - 68px)}.roko-checkout-head{padding:14px 15px}.roko-checkout-head h2{font-size:20px}.roko-checkout-card{padding:14px}.payment-options.roko-payment-options{grid-template-columns:1fr}.roko-trust{grid-template-columns:1fr 1fr 1fr}.roko-order-img{width:52px;height:52px}}
+</style>
+
+<style id="roko-checkout-delivery-style">
+.roko-delivery-title{margin-top:18px}.roko-delivery-options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:9px}.roko-delivery-option{position:relative;border:1px solid #ddd;border-radius:9px;padding:12px;background:#fff;display:flex;gap:10px;align-items:flex-start;cursor:pointer;transition:.15s}.roko-delivery-option:has(input:checked){border-color:#168b4d;background:#f4fbf6;box-shadow:0 0 0 1px #168b4d inset}.roko-delivery-option input{margin-top:3px;accent-color:#168b4d}.roko-delivery-option .delivery-icon{font-size:23px}.roko-delivery-option b{display:block;font-size:13px}.roko-delivery-option small{display:block;color:#777;font-size:10px;margin-top:3px}.roko-delivery-price{margin-left:auto;font-weight:800;color:#168b4d;white-space:nowrap}.roko-estimate{margin-top:9px;padding:10px 12px;border:1px solid #dfeee4;background:#f7fbf8;border-radius:8px;color:#245b3d;font-size:11px}.roko-checkout-info-box{margin-top:14px;padding-top:13px;border-top:1px solid #eee}.roko-info-title{font-size:12px;font-weight:800;margin-bottom:7px;color:#333}.roko-summary-section{padding:10px 0;border-bottom:1px solid #eee}.roko-summary-section:last-child{border-bottom:0}.roko-summary-label{font-size:9px;color:#999;text-transform:uppercase;font-weight:800;letter-spacing:.4px}.roko-summary-value{font-size:12px;color:#222;font-weight:700;margin-top:3px;line-height:1.45;word-break:break-word}.roko-summary-value.muted{font-weight:600;color:#666}.roko-total-row.delivery-charge b{color:#168b4d}.roko-total-row.grand{border-top:1px dashed #ddd;margin-top:6px}.roko-estimated-date{font-weight:800;color:#168b4d}.roko-order-note{font-size:10px;color:#777;line-height:1.45;margin-top:8px}
+@media(max-width:700px){.roko-delivery-options{grid-template-columns:1fr}.roko-delivery-option{padding:11px}.roko-checkout-info-box{margin-top:12px}}
+</style>
+
+<style id="bd-checkout-address-style">
+.bd-address-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.bd-address-field{min-width:0}
+.bd-address-field.bd-address-full{grid-column:1/-1}
+.bd-address-field>label{display:block;font-size:11px;font-weight:800;color:#374151;margin:0 0 5px}
+.bd-address-field>label span{color:#d32f2f}
+.bd-address-select{width:100%;height:42px;background:#fff;cursor:pointer}
+.bd-address-select:disabled{background:#f5f6f7;color:#999;cursor:not-allowed}
+.bd-address-preview{margin-top:9px;padding:10px 11px;border:1px solid #dfe7e2;border-radius:7px;background:#f7fbf8;color:#374151;font-size:11px;line-height:1.55}
+.bd-address-preview strong{color:#198754}
+.profile-bd-address-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:8px}
+.profile-bd-address-field{min-width:0}.profile-bd-address-field.full{grid-column:1/-1}
+.profile-bd-address-field label{display:block;font-size:10px;font-weight:800;color:#555;margin-bottom:4px}
+.profile-bd-address-field select,.profile-bd-address-field input,.profile-bd-address-field textarea{width:100%;min-height:40px}
+.profile-bd-address-preview{margin-top:8px;padding:9px 10px;background:#f7fbf8;border:1px solid #dfeee4;border-radius:7px;font-size:11px;line-height:1.5;color:#333}
+.profile-bd-address-preview strong{color:#198754}
+@media(max-width:600px){.profile-bd-address-grid{grid-template-columns:1fr}.profile-bd-address-field.full{grid-column:auto}}
+@media(max-width:600px){.bd-address-grid{grid-template-columns:1fr}.bd-address-field.bd-address-full{grid-column:auto}}
+</style>
+<style id="myorder-cancel-style">
+.myorder-cancel{border:1px solid #fecaca;background:#fff1f2;color:#b91c1c;padding:9px 12px;border-radius:6px;font-size:11px;font-weight:800;cursor:pointer}
+.myorder-cancel:hover{background:#ffe4e6}
+</style>
 </head>
 <body>
 <div class="top">&#128230; Fast Delivery &nbsp; | &nbsp; Cash on Delivery &nbsp; | &nbsp; Secure Shopping</div>
 
-<header>
-  <div class="header">
+<header class="site-header-rokomari">
+  <div class="header rokomari-header">
+    <button class="mobile-menu-btn" type="button" onclick="openMobileCategories()" aria-label="Menu" title="Menu">&#9776;</button>
+
     <a href="#home" class="logo" aria-label="BazarBD">
       <span class="logo-mark" aria-hidden="true">
         <svg viewBox="0 0 64 64" role="img" focusable="false">
@@ -1335,20 +1711,36 @@ footer{background:#252525}
         </svg>
       </span><span class="logo-word">Bazar<span>BD</span></span>
     </a>
-    <div class="search">
-      <input id="search" type="search" placeholder="Search books, products, brands..." oninput="searchProduct()">
-      <button onclick="searchProduct()">&#128269;</button>
+
+    <div class="search rokomari-search">
+      <input id="search" type="search" placeholder="Search by product, brand or category" oninput="searchProduct()" aria-label="Search">
+      <button type="button" onclick="searchProduct()">Search</button>
     </div>
-    <div class="actions">
-      <button class="icon cart-corner" onclick="openCart()" aria-label="Cart" title="Cart">&#128722;<span class="badge" id="cartCount">0</span></button>
+
+    <div class="actions rokomari-actions">
+      <button class="icon cart-corner rokomari-cart" type="button" onclick="openCart()" aria-label="Cart" title="Cart">
+        <span class="header-icon" aria-hidden="true">&#128722;</span>
+        <span class="action-label">Cart</span>
+        <span class="badge" id="cartCount">0</span>
+      </button>
+      <button class="account-link rokomari-signin" type="button" id="userAuthLabel" onclick="openUserAccount()" aria-label="Login / Register">
+        <span class="signin-icon" aria-hidden="true">&#128100;</span>
+        <span class="signin-text">Sign in</span>
+      </button>
     </div>
   </div>
 
-    <nav class="nav"><div class="nav-inner">
-    <a class="active" href="#home">Home</a>
-    <a href="#books">Books</a><a href="#phones">Mobile</a><a href="#laptops">Computers</a>
-    <a href="#electronics">Electronics</a><a href="#offers">Offers</a><a href="#reviews">Reviews</a>
-  </div></nav>
+  <nav class="nav rokomari-nav">
+    <div class="nav-inner">
+      <a class="active" href="#home">Home</a>
+      <a href="#books">Books</a>
+      <a href="#phones">Mobile</a>
+      <a href="#laptops">Computers</a>
+      <a href="#electronics">Electronics</a>
+      <a href="#offers">Offers</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+  </nav>
 </header>
 
 <main class="container" id="home">
@@ -1479,8 +1871,15 @@ footer{background:#252525}
 
 <div class="mobile-categories-modal" id="mobileCategoriesModal" onclick="if(event.target===this)closeMobileCategories()">
   <div class="mobile-categories-sheet">
-    <div class="mobile-categories-head"><b>Categories</b><button type="button" class="mobile-categories-close" onclick="closeMobileCategories()">×</button></div>
+    <div class="mobile-categories-head"><b>Shop by Category</b><button type="button" class="mobile-categories-close" onclick="closeMobileCategories()">×</button></div>
+    <div class="roko-menu-account"><button type="button" onclick="closeMobileCategories();openUserAccount()">👤 My Account <span style="float:right">›</span></button></div>
+    <div class="roko-menu-section">Categories</div>
     <div class="mobile-categories-list" id="mobileCategoriesList"></div>
+    <div class="roko-menu-section">Quick Links</div>
+    <a class="roko-menu-link" href="#home" onclick="closeMobileCategories()"><span>🏠 Home</span><span>›</span></a>
+    <a class="roko-menu-link" href="#offers" onclick="closeMobileCategories()"><span>🏷️ Offers</span><span>›</span></a>
+    <a class="roko-menu-link" href="#reviews" onclick="closeMobileCategories()"><span>⭐ Customer Reviews</span><span>›</span></a>
+    <a class="roko-menu-link" href="#" onclick="closeMobileCategories();openCart();return false"><span>🛒 My Cart</span><span>›</span></a>
   </div>
 </div>
 
@@ -1499,27 +1898,49 @@ footer{background:#252525}
   <div id="cartItems"></div><div id="cartSummary"></div>
 </div></div>
 
-<div class="modal" id="checkoutModal" onclick="if(event.target===this)closeCheckout()"><div class="sheet checkout-sheet">
-  <div class="sheet-head"><h2>Checkout</h2><button class="close" onclick="closeCheckout()">&#215;</button></div>
-  <form id="checkoutForm" onsubmit="placeOrder(event)">
-    <label>Customer Name</label><input class="form-input" id="customerName" type="text" placeholder="Enter your name" required>
-    <label>Phone Number</label><input class="form-input" id="customerPhone" type="tel" placeholder="01XXXXXXXXX" required>
-    <label>Delivery Address <span class="saved-label" id="savedAddressLabel">(saved automatically)</span></label><textarea class="form-input" id="customerAddress" rows="3" placeholder="City, area, street and address" required></textarea>
-    <div class="checkout-address-note">&#10003; If you have saved a shipping address, it is filled in automatically. You can edit it before confirming.</div>
-    <label>Payment Method</label><div class="payment-options">
-      <label class="payment"><input type="radio" name="payment" value="cod" checked><span>&#128181;</span><div><b>Cash on Delivery</b><small>Pay when your order is delivered</small></div></label>
-      <label class="payment"><input type="radio" name="payment" value="online"><span>&#128179;</span><div><b>Online Payment</b><small>Payment gateway can be connected later</small></div></label>
+<div class="modal" id="checkoutModal" onclick="if(event.target===this)closeCheckout()"><div class="sheet checkout-sheet roko-checkout-sheet">
+  <div class="roko-checkout-head"><div><h2>Checkout</h2><div class="roko-checkout-sub">Secure checkout · Review shipping, payment and total before confirming</div></div><button class="close" type="button" onclick="closeCheckout()">&#215;</button></div>
+  <div class="roko-checkout-body">
+    <div class="roko-checkout-card">
+      <div class="roko-step"><span class="roko-step-num">1</span><b>Shipping Address</b></div>
+      <form id="checkoutForm" onsubmit="placeOrder(event)">
+        <label>Customer Name</label><input class="form-input" id="customerName" type="text" placeholder="Enter your name" oninput="refreshCheckoutSummary()" required>
+        <label>Phone Number</label><input class="form-input" id="customerPhone" type="tel" placeholder="01XXXXXXXXX" oninput="refreshCheckoutSummary()" required>
+        <label>Shipping Address <span class="saved-label" id="savedAddressLabel">(select your location)</span></label>
+        <div class="bd-address-grid">
+          <div class="bd-address-field"><label for="bdDivision">বিভাগ <span>*</span></label><select class="form-input bd-address-select" id="bdDivision" onchange="bdDivisionChanged()" required><option value="">বিভাগ নির্বাচন করুন</option></select></div>
+          <div class="bd-address-field"><label for="bdDistrict">জেলা <span>*</span></label><select class="form-input bd-address-select" id="bdDistrict" onchange="bdDistrictChanged()" required disabled><option value="">আগে বিভাগ নির্বাচন করুন</option></select></div>
+          <div class="bd-address-field"><label for="bdUpazila">থানা / উপজেলা <span>*</span></label><select class="form-input bd-address-select" id="bdUpazila" onchange="bdAddressChanged()" required disabled><option value="">আগে জেলা নির্বাচন করুন</option></select></div>
+          <div class="bd-address-field bd-address-full"><label for="bdVillage">গ্রাম / মহল্লা <span>*</span></label><input class="form-input" id="bdVillage" type="text" placeholder="গ্রাম / মহল্লার নাম" oninput="bdAddressChanged()" required></div>
+          <div class="bd-address-field bd-address-full"><label for="bdRoad">রাস্তা / বাড়ির ঠিকানা <span>*</span></label><textarea class="form-input" id="bdRoad" rows="2" placeholder="রাস্তা, বাড়ি/হোল্ডিং নম্বর, ল্যান্ডমার্ক ইত্যাদি" oninput="bdAddressChanged()" required></textarea></div>
+        </div>
+        <input type="hidden" id="customerAddress" value="">
+        <div class="bd-address-preview" id="bdAddressPreview">ঠিকানা নির্বাচন ও লিখুন — এখানে সম্পূর্ণ ঠিকানা দেখা যাবে।</div>
+        <div class="roko-checkout-note">✓ বিভাগ → জেলা → থানা/উপজেলা নির্বাচন করুন, তারপর গ্রাম/মহল্লা ও রাস্তা/বাড়ির ঠিকানা লিখুন।</div>
+
+        <div class="roko-step roko-delivery-title"><span class="roko-step-num">2</span><b>Delivery Method</b></div>
+        <div class="roko-delivery-options">
+          <label class="roko-delivery-option"><input type="radio" name="deliveryMethod" value="home" data-charge="150" checked onchange="refreshCheckoutSummary()"><span class="delivery-icon">🏠</span><div><b>Home Delivery</b><small>Door-to-door delivery</small></div><span class="roko-delivery-price">৳150</span></label>
+          <label class="roko-delivery-option"><input type="radio" name="deliveryMethod" value="point" data-charge="100" onchange="refreshCheckoutSummary()"><span class="delivery-icon">📍</span><div><b>Point Delivery</b><small>Collect from delivery point</small></div><span class="roko-delivery-price">৳100</span></label>
+        </div>
+        <div class="roko-estimate">🚚 <b>Estimated Delivery:</b> <span id="checkoutEstimatedDelivery" class="roko-estimated-date">Within 5 days</span></div>
+
+        <div class="roko-step roko-payment-title"><span class="roko-step-num">3</span><b>Payment Method</b></div>
+        <div class="payment-options roko-payment-options">
+          <label class="payment"><input type="radio" name="payment" value="cod" checked onchange="refreshCheckoutSummary()"><span>💵</span><div><b>Cash on Delivery</b><small>Pay when your order is delivered</small></div></label>
+          <label class="payment"><input type="radio" name="payment" value="online" onchange="refreshCheckoutSummary()"><span>💳</span><div><b>Online Payment</b><small>Payment gateway can be connected later</small></div></label>
+        </div>
+        <div class="roko-checkout-actions"><button type="button" class="checkout" style="background:#25D366;border-color:#25D366" onclick="contactWhatsAppForOrder()">💬 WhatsApp এ যোগাযোগ করুন</button><button class="checkout" type="submit" style="margin-top:9px">✓ Confirm Order</button></div>
+      </form>
     </div>
-    <div id="checkoutSummary" class="checkout-summary"></div>
-    <button type="button" class="checkout" style="width:100%;margin-top:10px;background:#25D366;border-color:#25D366" onclick="contactWhatsAppForOrder()">&#128172; WhatsApp এ যোগাযোগ করুন</button>
-    <button class="checkout" type="submit">&#10003; Confirm Order</button>
-  </form>
+    <div class="roko-checkout-card"><h3 class="roko-card-title">Order Summary</h3><div id="checkoutSummary"></div><div class="roko-checkout-info-box"><div class="roko-info-title">Delivery & Payment</div><div id="checkoutReviewInfo"></div></div><div class="roko-trust"><div>🔒 Secure</div><div>↩ Easy Returns</div><div>🚚 5-Day Delivery</div></div></div>
+  </div>
 </div></div>
 
 <div class="modal" id="confirmationModal"><div class="sheet confirmation">
-  <div class="success-icon">&#10003;</div><h2>Order Confirmed!</h2><p class="success-text">Thank you. Your order has been received successfully.</p>
-  <div class="order-box"><div><span>Order ID</span><b id="orderId"></b></div><div><span>Customer</span><b id="confirmName"></b></div><div><span>Phone</span><b id="confirmPhone"></b></div><div><span>Total</span><b id="confirmTotal"></b></div><div><span>Payment</span><b id="confirmPayment"></b></div></div>
-  <div class="order-status"><div class="status active"><span>&#10003;</span><div><b>Order Confirmed</b><small>Your order has been confirmed.</small></div></div><div class="status"><span>2</span><div><b>Processing</b><small>Your order is being prepared.</small></div></div><div class="status"><span>3</span><div><b>On the Way</b><small>Your order is on the way.</small></div></div><div class="status"><span>4</span><div><b>Delivered</b><small>Your order has been delivered.</small></div></div></div>
+  <div class="success-icon">&#10003;</div><h2>Order Received!</h2><p class="success-text">Your order has been received and is waiting for admin confirmation.</p>
+  <div class="order-box"><div><span>Order ID</span><b id="orderId"></b></div><div><span>Customer</span><b id="confirmName"></b></div><div><span>Phone</span><b id="confirmPhone"></b></div><div><span>Shipping Address</span><b id="confirmAddress"></b></div><div><span>Delivery</span><b id="confirmDelivery"></b></div><div><span>Estimated Delivery</span><b id="confirmEstimated"></b></div><div><span>Total</span><b id="confirmTotal"></b></div><div><span>Payment</span><b id="confirmPayment"></b></div></div>
+  <div class="order-status"><div class="status active"><span>&#10003;</span><div><b>Order Received</b><small>Waiting for admin confirmation.</small></div></div><div class="status"><span>2</span><div><b>Processing</b><small>Your order is being prepared.</small></div></div><div class="status"><span>3</span><div><b>On the Way</b><small>Your order is on the way.</small></div></div><div class="status"><span>4</span><div><b>Delivered</b><small>Your order has been delivered.</small></div></div></div>
   <div class="order-share-actions">
     <button type="button" class="order-share-btn" onclick="downloadOrderJPG()">&#128247; Download JPG</button>
     <button type="button" class="order-share-btn share" onclick="shareOrderJPG()">&#128228; Share JPG</button>
@@ -1575,7 +1996,16 @@ footer{background:#252525}
     <b>Edit Profile & Shipping Information</b>
     <label>Full Name</label><input class="form-input" id="profileEditName" type="text" required placeholder="Your full name">
     <label>Phone Number</label><input class="form-input" id="profileEditPhone" type="tel" placeholder="01XXXXXXXXX">
-    <label>Shipping Address</label><textarea class="form-input" id="profileEditAddress" rows="4" placeholder="City, area, street and address"></textarea>
+    <label>Shipping Address</label>
+    <div class="profile-bd-address-grid">
+      <div class="profile-bd-address-field"><label>বিভাগ <span style="color:#d32f2f">*</span></label><select class="form-input" id="profileBDDivision" onchange="profileBDDivisionChanged()" required><option value="">বিভাগ নির্বাচন করুন</option></select></div>
+      <div class="profile-bd-address-field"><label>জেলা <span style="color:#d32f2f">*</span></label><select class="form-input" id="profileBDDistrict" onchange="profileBDDistrictChanged()" required disabled><option value="">আগে বিভাগ নির্বাচন করুন</option></select></div>
+      <div class="profile-bd-address-field"><label>থানা / উপজেলা <span style="color:#d32f2f">*</span></label><select class="form-input" id="profileBDUpazila" onchange="profileBDAddressChanged()" required disabled><option value="">আগে জেলা নির্বাচন করুন</option></select></div>
+      <div class="profile-bd-address-field"><label>গ্রাম / মহল্লা <span style="color:#d32f2f">*</span></label><input class="form-input" id="profileBDVillage" type="text" oninput="profileBDAddressChanged()" required placeholder="গ্রাম / মহল্লার নাম"></div>
+      <div class="profile-bd-address-field full"><label>রাস্তা / বাড়ি <span style="color:#d32f2f">*</span></label><textarea class="form-input" id="profileBDRoad" rows="2" oninput="profileBDAddressChanged()" required placeholder="যেমন: ৩৫৮ হতেয়া রোড"></textarea></div>
+    </div>
+    <div class="profile-bd-address-preview" id="profileBDAddressPreview">সম্পূর্ণ ঠিকানা এখানে দেখা যাবে।</div>
+    <input type="hidden" id="profileEditAddress">
     <div class="admin-error" id="profileSaveError"></div>
     <button class="checkout" type="submit">&#10003; Save Profile</button>
    </form>
@@ -1767,7 +2197,7 @@ footer{background:#252525}
     <label>Customer Name</label><input id="editOrderName" required>
     <label>Phone Number</label><input id="editOrderPhone" required>
     <label>Shipping Address</label><textarea id="editOrderAddress" rows="4" required></textarea>
-    <label>Status</label><select id="editOrderStatus"><option>Confirmed</option><option>Processing</option><option>On the Way</option><option>Delivered</option><option>Cancelled</option></select>
+    <label>Status</label><select id="editOrderStatus"><option>Pending</option><option>Confirmed</option><option>Processing</option><option>On the Way</option><option>Delivered</option><option>Cancelled</option></select>
     <label>Tracking Number</label><input id="editOrderTracking" placeholder="Courier tracking number">
     <label>Tracking Link</label><input id="editOrderTrackingLink" type="url" placeholder="https://courier.example/track/...">
     <label>Payment Method</label><select id="editOrderPayment"><option>Cash on Delivery</option><option>Online Payment</option></select>
@@ -2107,42 +2537,147 @@ window.openHomeProductDetails = function(id){
  const p=window.products.find(x=>String(x.id)===String(id));
  if(!p){toast("Product not found");return;}
  const price=Number(p.price||0), old=Number(p.old||p.price||0), discount=old>price?Math.round((1-price/old)*100):0;
+ const rating=Number(reviewStats[p.id]?.average ?? p.rating ?? 0);
+ const reviewCount=Number(reviewStats[p.id]?.count||0);
+ const stockValue=p.stock!==undefined?p.stock:(p.quantity!==undefined?p.quantity:null);
+ const inStock=stockValue===null ? true : Number(stockValue)>0;
  const body=document.getElementById("homeProductDetailsBody");
+
+ // Support the existing single image plus future multi-image products.
+ const images=[];
+ if(Array.isArray(p.images)) p.images.forEach(x=>{if(x)images.push(x);});
+ if(p.image && !images.includes(p.image)) images.unshift(p.image);
+ const safeId=escapeJsArg(p.id);
+ const specs=[
+   ["Brand",p.brand||"—"],
+   ["Category",p.type||"General"],
+   ["Availability",inStock?"In Stock":"Out of Stock"],
+   ["Product ID",p.id||"—"]
+ ];
+ if(p.sku) specs.push(["SKU",p.sku]);
+ if(p.model) specs.push(["Model",p.model]);
+
  if(body){
-    body.innerHTML = `
-      <div class="home-detail">
-        ${p.image ? `<img src="${escapeHtml(p.image)}" class="home-detail-image" alt="${escapeHtml(p.name)}">` : `<div class="home-detail-image" style="display:grid;place-items:center;font-size:80px">${escapeHtml(p.icon||'\u{1F4E6}')}</div>`}
-        <div class="home-detail-brand">${escapeHtml(p.brand||'')}</div>
-        <div class="home-detail-name">${escapeHtml(p.name||'')}</div>
-        <div class="home-detail-rating">\u{2605}\u{2605}\u{2605}\u{2605}\u{2605} ${Number(reviewStats[p.id]?.average ?? p.rating ?? 0).toFixed(1)}${reviewStats[p.id]?.count ? ` (${reviewStats[p.id].count} reviews)` : ''}</div>
-        <div>
-          <span class="home-detail-price">${money(price)}</span>
-          ${old > price ? `<span class="home-detail-old">${money(old)}</span><span class="home-detail-discount">-${discount}%</span>` : ''}
+   body.innerHTML=`
+    <div class="roko-pd">
+      <div class="roko-pd-top">
+        <div class="roko-pd-gallery">
+          <div class="roko-pd-main-img" id="rokoPdMainImage">
+            ${images.length
+              ? `<img src="${escapeHtml(images[0])}" alt="${escapeHtml(p.name||"Product")}" onerror="this.parentElement.innerHTML='<span class=&quot;roko-pd-placeholder&quot;>${escapeHtml(p.icon||"📦")}</span>'">`
+              : `<span class="roko-pd-placeholder">${escapeHtml(p.icon||"📦")}</span>`}
+          </div>
+          ${images.length>1?`<div class="roko-pd-thumbs">${images.slice(0,6).map((im,i)=>`<button type="button" class="roko-pd-thumb ${i===0?'active':''}" onclick="window.rokoPdSelectImage('${escapeJsArg(im)}',this)"><img src="${escapeHtml(im)}" alt="Image ${i+1}" onerror="this.style.visibility='hidden'"></button>`).join("")}</div>`:""}
+          <div class="roko-pd-gallery-note">${images.length>1?`${Math.min(images.length,6)} product images`:"Product image"}</div>
         </div>
-        <div class="home-detail-info">
-          <div><b>Category:</b> ${escapeHtml(p.type||'General')}</div>
-          <div><b>Availability:</b> In Stock</div>
+
+        <div class="roko-pd-info">
+          <div class="roko-pd-brand">${escapeHtml(p.brand||"BazarBD Product")}</div>
+          <h1 class="roko-pd-title">${escapeHtml(p.name||"Product")}</h1>
+
+          <div class="roko-pd-rating-row">
+            <span class="roko-pd-stars">${starsHtml(rating)}</span>
+            <span class="roko-pd-rating-value">${rating.toFixed(1)}/5</span>
+            <span class="roko-pd-review-count">${reviewCount?`${reviewCount} customer review${reviewCount===1?'':'s'}`:"No reviews yet"}</span>
+          </div>
+
+          <div class="roko-pd-divider"></div>
+
+          <div class="roko-pd-price-row">
+            <span class="roko-pd-price">${money(price)}</span>
+            ${old>price?`<span class="roko-pd-old">${money(old)}</span><span class="roko-pd-off">${discount}% OFF</span>`:""}
+          </div>
+          <div class="roko-pd-stock ${inStock?'':'out'}">${inStock?'✓ In Stock — Ready to order':'✕ Out of Stock'}</div>
+
+          <div class="roko-pd-option">
+            <div class="roko-pd-option-label">Quantity</div>
+            <div class="roko-pd-qty">
+              <button type="button" onclick="window.rokoPdChangeQty(-1)">−</button>
+              <span id="rokoPdQty">1</span>
+              <button type="button" onclick="window.rokoPdChangeQty(1)">+</button>
+            </div>
+          </div>
+
+          <div class="roko-pd-buy-row">
+            <button type="button" class="roko-pd-cart" id="homeDetailCartBtn" ${inStock?'':'disabled'}>🛒 Add to Cart</button>
+            <button type="button" class="roko-pd-buy" id="homeDetailBuyBtn" ${inStock?'':'disabled'}>⚡ Buy Now</button>
+          </div>
+
+          <div class="roko-pd-meta">
+            <div class="roko-pd-meta-item"><b>🚚 Delivery</b><span>Fast & reliable delivery</span></div>
+            <div class="roko-pd-meta-item"><b>↩ Easy Return</b><span>Simple return policy</span></div>
+          </div>
+          <div class="roko-pd-services">
+            <div class="roko-pd-service"><b>🔒 Secure</b><span>Safe checkout</span></div>
+            <div class="roko-pd-service"><b>✓ Verified</b><span>Quality checked</span></div>
+            <div class="roko-pd-service"><b>💬 Support</b><span>Customer care</span></div>
+          </div>
         </div>
-        ${p.details ? `<div class="home-detail-description">${escapeHtml(p.details)}</div>` : ''}
-        <div class="review-feature"><div class="review-feature-head"><div><h3>Customer Reviews</h3><small id="productReviewMeta">Loading reviews...</small></div></div><div id="productReviewSummary" class="review-summary"></div><div id="productReviewList" class="review-list"><div class="review-empty">Loading...</div></div><button type="button" class="write-review-btn" onclick="openReviewModal('${id}')">&#11088; Write a Review</button></div>
+      </div>
+
+      <div class="roko-pd-section">
+        <div class="roko-pd-section-title"><h3>Product Details</h3><span>Product information</span></div>
+        <div class="roko-pd-specs">
+          ${specs.map(x=>`<div class="roko-pd-spec"><b>${escapeHtml(x[0])}</b><span>${escapeHtml(String(x[1]))}</span></div>`).join("")}
+        </div>
+        ${p.details?`<div class="roko-pd-description" style="margin-top:14px">${escapeHtml(p.details)}</div>`:""}
+      </div>
+
+      <div class="roko-pd-section roko-pd-review-wrap">
+        <div class="roko-pd-section-title"><h3>Customer Reviews</h3><span>Verified buyer reviews</span></div>
+        <div class="review-feature">
+          <div class="review-feature-head"><div><small id="productReviewMeta">Loading reviews...</small></div></div>
+          <div id="productReviewSummary" class="review-summary"></div>
+          <div id="productReviewList" class="review-list"><div class="review-empty">Loading...</div></div>
+          <button type="button" class="write-review-btn" onclick="openReviewModal('${safeId}')">⭐ Write a Review</button>
+        </div>
+      </div>
+
+      <div class="roko-pd-similar">
         <div class="similar-products-section">
           <div class="similar-products-head"><h3>Similar Products</h3><span>More you may like</span></div>
           <div id="similarProductsGrid" class="similar-products-grid"></div>
         </div>
       </div>
-    `;
+    </div>`;
  }
- const cartBtn = document.getElementById("homeDetailCartBtn");
- const buyBtn = document.getElementById("homeDetailBuyBtn");
- if(cartBtn) cartBtn.onclick = () => { addCart(p.id); closeHomeProductDetails(); };
- if(buyBtn) buyBtn.onclick = () => { addCart(p.id); closeHomeProductDetails(); openCart(); };
- 
- const modal = document.getElementById("homeProductDetailsModal");
+
+ let rokoPdQty=1;
+ window.rokoPdChangeQty=function(delta){
+   rokoPdQty=Math.max(1,Math.min(99,rokoPdQty+delta));
+   const q=document.getElementById("rokoPdQty");if(q)q.textContent=rokoPdQty;
+ };
+ window.rokoPdSelectImage=function(url,btn){
+   const main=document.getElementById("rokoPdMainImage");
+   if(main)main.innerHTML=`<img src="${escapeHtml(url)}" alt="${escapeHtml(p.name||"Product")}" onerror="this.style.display='none'">`;
+   document.querySelectorAll(".roko-pd-thumb").forEach(x=>x.classList.remove("active"));
+   if(btn)btn.classList.add("active");
+ };
+
+  // Both the product-view Buy Now button and the sticky mobile Buy Now
+  // button use the same action. The two buttons intentionally share the
+  // legacy IDs, so bind all matching elements instead of only the first one.
+  document.querySelectorAll("#homeDetailCartBtn").forEach(cartBtn=>{
+    cartBtn.onclick=()=>{
+      if(!inStock)return;
+      for(let i=0;i<rokoPdQty;i++) addCart(p.id);
+      closeHomeProductDetails();
+    };
+  });
+  document.querySelectorAll("#homeDetailBuyBtn").forEach(buyBtn=>{
+    buyBtn.onclick=()=>{
+      if(!inStock)return;
+      for(let i=0;i<rokoPdQty;i++) addCart(p.id);
+      closeHomeProductDetails();
+      openCart();
+    };
+  });
+
+ const modal=document.getElementById("homeProductDetailsModal");
  if(modal) modal.classList.add("open");
  renderSimilarProducts(p);
  loadProductReviewsForDetails(p);
 };
-
 window.closeHomeProductDetails = function(){
  const modal = document.getElementById("homeProductDetailsModal");
  if(modal) modal.classList.remove("open");
@@ -2270,6 +2805,32 @@ window.removeFromCart = function(index) {
   updateCartBadge();
 };
 
+function getCheckoutDelivery(){
+  const r=document.querySelector('input[name="deliveryMethod"]:checked');
+  const type=r?.value||"home";
+  const charge=Number(r?.dataset?.charge||0);
+  const name=type==="point"?"Point Delivery":"Home Delivery";
+  return {type,charge,name};
+}
+function getEstimatedDeliveryDate(){
+  const d=new Date(); d.setDate(d.getDate()+5);
+  return d.toLocaleDateString(undefined,{day:"2-digit",month:"short",year:"numeric"});
+}
+window.refreshCheckoutSummary=function(){
+  const summary=document.getElementById("checkoutSummary"), review=document.getElementById("checkoutReviewInfo");
+  if(!summary)return;
+  const subtotal=cart.reduce((acc,item)=>acc+(Number(item.price)||0)*(Number(item.qty)||1),0);
+  const delivery=getCheckoutDelivery();
+  const grand=subtotal+delivery.charge;
+  const name=document.getElementById("customerName")?.value.trim()||"Not provided";
+  const phone=document.getElementById("customerPhone")?.value.trim()||"Not provided";
+  const address=(window.getBDAddressData?window.getBDAddressData().text:"Not provided")||"Not provided";
+  const payment=document.querySelector('input[name="payment"]:checked')?.value==="online"?"Online Payment":"Cash on Delivery";
+  const eta=getEstimatedDeliveryDate();
+  summary.innerHTML=cart.map(item=>{ const img=item.image||item.icon||""; return `<div class="roko-order-item"><img class="roko-order-img" src="${escapeHtml(img)}" onerror="this.style.display='none'"><div class="roko-order-info"><b>${escapeHtml(item.name||"Product")}</b><small>Qty: ${item.qty||1} × ${money(Number(item.price)||0)}</small></div><div class="roko-order-price">${money((Number(item.price)||0)*(item.qty||1))}</div></div>`; }).join("") + `<div class="roko-total-box"><div class="roko-total-row"><span>Subtotal</span><b>${money(subtotal)}</b></div><div class="roko-total-row delivery-charge"><span>Delivery Charge · ${escapeHtml(delivery.name)}</span><b>${money(delivery.charge)}</b></div><div class="roko-total-row grand"><span>Grand Total</span><b>${money(grand)}</b></div><div class="roko-order-note">Delivery charge is calculated according to your selected delivery method.</div></div>`;
+  if(review){review.innerHTML=`<div class="roko-summary-section"><div class="roko-summary-label">Shipping Address</div><div class="roko-summary-value">${escapeHtml(name)} · ${escapeHtml(phone)}<br>${escapeHtml(address)}</div></div><div class="roko-summary-section"><div class="roko-summary-label">Delivery Method</div><div class="roko-summary-value">${escapeHtml(delivery.name)} · ${money(delivery.charge)}</div></div><div class="roko-summary-section"><div class="roko-summary-label">Payment</div><div class="roko-summary-value">${escapeHtml(payment)}</div></div><div class="roko-summary-section"><div class="roko-summary-label">Estimated Delivery</div><div class="roko-summary-value"><span class="roko-estimated-date">${escapeHtml(eta)}</span> · within 5 days</div></div>`;}
+  const etaEl=document.getElementById("checkoutEstimatedDelivery");if(etaEl)etaEl.textContent=eta+" (within 5 days)";
+};
 window.openCheckout = async function() {
   if(cart.length === 0) { toast("Your cart is empty"); return; }
   if(!currentUser) {
@@ -2277,10 +2838,11 @@ window.openCheckout = async function() {
     document.getElementById("userLoginModal")?.classList.add("open");
     return;
   }
+  await initBDAddressSelectors();
   await loadShippingProfile();
-  const summary = document.getElementById("checkoutSummary");
-  const total = cart.reduce((acc, item) => acc + (item.price * (item.qty || 1)), 0);
-  if(summary) summary.innerHTML = `<div class="summary-row"><b>Total Amount:</b> <b>${money(total)}</b></div>`;
+  const home=document.querySelector('input[name="deliveryMethod"][value="home"]');if(home)home.checked=true;
+  const cod=document.querySelector('input[name="payment"][value="cod"]');if(cod)cod.checked=true;
+  refreshCheckoutSummary();
   document.getElementById("checkoutModal")?.classList.add("open");
 };
 
@@ -2294,18 +2856,23 @@ window.placeOrder = async function(e) {
   if(!currentUser) { closeCheckout(); window.pendingCheckout=true; document.getElementById("userLoginModal")?.classList.add("open"); return; }
   const name = document.getElementById("customerName").value.trim();
   const phone = document.getElementById("customerPhone").value.trim();
-  const address = document.getElementById("customerAddress").value.trim();
+  const addressData = window.getBDAddressData ? window.getBDAddressData() : {text:document.getElementById("customerAddress")?.value.trim()||""};
+  const address = addressData.text.trim();
+  if(!addressData.division || !addressData.district || !addressData.upazila || !addressData.village || !addressData.road){ toast("Please complete the shipping address"); return; }
   const paymentRadio = document.querySelector('input[name="payment"]:checked');
   const paymentMethod = paymentRadio?.value === "online" ? "Online Payment" : "Cash on Delivery";
-  const total = cart.reduce((acc, item) => acc + (item.price * (item.qty || 1)), 0);
+  const delivery=getCheckoutDelivery();
+  const subtotal = cart.reduce((acc, item) => acc + (Number(item.price)||0) * (Number(item.qty)||1), 0);
+  const deliveryCharge=delivery.charge;
+  const total = subtotal + deliveryCharge;
+  const estimatedDelivery=getEstimatedDeliveryDate();
   const orderId = "ORD" + Date.now().toString().slice(-8);
-  const orderData = { orderId, customerName:name, customerPhone:phone, customerAddress:address, items:cart, total, paymentMethod, status:"Confirmed", createdAt:new Date().toISOString(), userId:currentUser.uid };
+  const orderData = { orderId, customerName:name, customerPhone:phone, customerAddress:address, shippingAddress:{...addressData, name, phone, text:address}, shippingAddressText:address, items:cart, subtotal, deliveryMethod:delivery.name, deliveryCharge, estimatedDelivery, total, paymentMethod, status:"Pending", createdAt:new Date().toISOString(), userId:currentUser.uid };
   try {
     await addDoc(collection(db,"orders"),orderData);
-    await setDoc(doc(db,"users",currentUser.uid),{name,email:currentUser.email,phone,shippingAddress:address,updatedAt:new Date().toISOString()},{merge:true});
-    // Open WhatsApp with the confirmed order details after the order is saved.
+    await setDoc(doc(db,"users",currentUser.uid),{name,email:currentUser.email,phone,shippingAddress:{...addressData,name,phone,text:address},shippingAddressText:address,updatedAt:new Date().toISOString()},{merge:true});
     const waItems = cart.map(item => `• ${item.name || "Product"} x${item.qty || 1} — ${money((Number(item.price)||0) * (item.qty||1))}`).join("\n");
-    const waText = `🛒 *NEW ORDER - BazarBD*\n\nOrder ID: ${orderId}\nCustomer: ${name}\nPhone: ${phone}\nAddress: ${address}\n\nItems:\n${waItems}\n\nTotal: ${money(total)}\nPayment: ${paymentMethod}\nStatus: Confirmed`;
+    const waText = `🛒 *NEW ORDER - BazarBD*\n\nOrder ID: ${orderId}\nCustomer: ${name}\nPhone: ${phone}\nShipping Address: ${address}\nDelivery: ${delivery.name} (${money(deliveryCharge)})\nEstimated Delivery: ${estimatedDelivery}\n\nItems:\n${waItems}\n\nSubtotal: ${money(subtotal)}\nDelivery Charge: ${money(deliveryCharge)}\nGrand Total: ${money(total)}\nPayment: ${paymentMethod}\nStatus: Pending - waiting for admin confirmation`;
     window.open("https://wa.me/60165251783?text=" + encodeURIComponent(waText), "_blank", "noopener,noreferrer");
 
   } catch(err) { console.error("Firestore order save error:",err); toast("Could not save order to Firebase"); return; }
@@ -2314,7 +2881,10 @@ window.placeOrder = async function(e) {
   document.getElementById("confirmPhone").textContent=phone;
   document.getElementById("confirmTotal").textContent=money(total);
   document.getElementById("confirmPayment").textContent=paymentMethod;
-  lastConfirmedOrder = { orderId, customerName:name, customerPhone:phone, customerAddress:address, items:JSON.parse(JSON.stringify(cart)), total, paymentMethod, status:"Confirmed", createdAt:new Date().toISOString() };
+  const ca=document.getElementById("confirmAddress");if(ca)ca.textContent=address;
+  const cd=document.getElementById("confirmDelivery");if(cd)cd.textContent=delivery.name+" · "+money(deliveryCharge);
+  const ce=document.getElementById("confirmEstimated");if(ce)ce.textContent=estimatedDelivery+" · within 5 days";
+  lastConfirmedOrder = { orderId, customerName:name, customerPhone:phone, customerAddress:address, shippingAddress:{...addressData,name,phone,text:address}, shippingAddressText:address, items:JSON.parse(JSON.stringify(cart)), subtotal, deliveryMethod:delivery.name, deliveryCharge, estimatedDelivery, total, paymentMethod, status:"Pending", createdAt:new Date().toISOString() };
   cart=[]; localStorage.setItem("boighor_cart",JSON.stringify(cart)); updateCartBadge();
   closeCheckout(); document.getElementById("confirmationModal")?.classList.add("open");
 };
@@ -2340,7 +2910,7 @@ function makeOrderJPGBlob(orderOverride){
     const W=1200, pad=70, lineH=42;
     const items=Array.isArray(o.items)?o.items:[];
     const itemLines=Math.max(1,items.length);
-    canvas.width=W; canvas.height=520 + itemLines*62 + (o.customerAddress?70:0);
+    canvas.width=W; canvas.height=620 + itemLines*62 + (o.customerAddress?70:0);
     ctx.fillStyle="#f6faf7";ctx.fillRect(0,0,W,canvas.height);
     ctx.fillStyle="#198754";ctx.fillRect(0,0,W,135);
     ctx.fillStyle="#fff";ctx.font="800 42px Arial";ctx.fillText("BazarBD",pad,58);
@@ -2349,7 +2919,7 @@ function makeOrderJPGBlob(orderOverride){
     ctx.font="18px Arial";ctx.fillText(new Date(o.createdAt||Date.now()).toLocaleString(),W-pad-340,105);
     let y=190;
     const field=(label,val)=>{ctx.fillStyle="#6b7280";ctx.font="600 18px Arial";ctx.fillText(label,pad,y);ctx.fillStyle="#111827";ctx.font="700 22px Arial";ctx.fillText(String(val||"—"),pad+190,y);y+=42;};
-    field("Customer",o.customerName);field("Phone",o.customerPhone);field("Payment",o.paymentMethod);field("Status",o.status||"Confirmed");
+    field("Customer",o.customerName);field("Phone",o.customerPhone);field("Payment",o.paymentMethod);field("Delivery",o.deliveryMethod ? o.deliveryMethod+" ("+money(o.deliveryCharge||0)+")" : "—");field("ETA",o.estimatedDelivery ? o.estimatedDelivery+" (5 days)" : "Within 5 days");field("Status",o.status||"Confirmed");
     if(o.customerAddress) field("Address",o.customerAddress);
     y+=12;ctx.fillStyle="#dfe8e2";ctx.fillRect(pad,y,W-pad*2,2);y+=45;
     ctx.fillStyle="#198754";ctx.font="800 22px Arial";ctx.fillText("ITEMS",pad,y);y+=35;
@@ -2359,9 +2929,13 @@ function makeOrderJPGBlob(orderOverride){
       ctx.fillStyle="#6b7280";ctx.font="18px Arial";ctx.fillText("x"+qty,W-360,y);
       ctx.fillStyle="#111827";ctx.font="700 20px Arial";ctx.fillText(money(price),W-pad-190,y);y+=62;
     });
-    ctx.fillStyle="#eaf7ef";ctx.fillRect(pad,y,W-pad*2,70);
-    ctx.fillStyle="#198754";ctx.font="800 26px Arial";ctx.fillText("TOTAL",pad+20,y+44);
-    ctx.fillStyle="#111827";ctx.font="800 30px Arial";ctx.fillText(money(o.total||0),W-pad-230,y+44);
+    ctx.fillStyle="#f3f7f4";ctx.fillRect(pad,y,W-pad*2,105);
+    ctx.fillStyle="#6b7280";ctx.font="600 18px Arial";ctx.fillText("Subtotal",pad+20,y+30);
+    ctx.fillStyle="#111827";ctx.font="700 20px Arial";ctx.fillText(money(o.subtotal ?? o.total ?? 0),W-pad-220,y+30);
+    ctx.fillStyle="#6b7280";ctx.font="600 18px Arial";ctx.fillText("Delivery Charge",pad+20,y+60);
+    ctx.fillStyle="#111827";ctx.font="700 20px Arial";ctx.fillText(money(o.deliveryCharge||0),W-pad-220,y+60);
+    ctx.fillStyle="#198754";ctx.font="800 26px Arial";ctx.fillText("GRAND TOTAL",pad+20,y+92);
+    ctx.fillStyle="#111827";ctx.font="800 30px Arial";ctx.fillText(money(o.total||0),W-pad-230,y+92);
     canvas.toBlob(blob=>blob?resolve(blob):reject(new Error("Could not create JPG")),"image/jpeg",0.94);
   });
 }
@@ -2537,6 +3111,15 @@ onAuthStateChanged(auth, async (user) => {
 
   if(user){
 
+    // Update the header immediately when Firebase reports a signed-in user.
+    // This must happen before loading the Firestore profile so a slow/failed
+    // profile read can never leave the header stuck on "Sign in".
+    if(label){
+      label.innerHTML=`<span class="signin-icon" aria-hidden="true">&#128100;</span><span class="signin-text">Account</span>`;
+      label.title=user.displayName||user.email||"My Account";
+      label.setAttribute("aria-label","My Account");
+    }
+
     // Check the same users/{uid} profile used by Admin Login.
     // role:"admin" => automatically open the Admin Panel after normal login.
     const data=await getUserProfile(user.uid);
@@ -2556,11 +3139,12 @@ onAuthStateChanged(auth, async (user) => {
     }
 
     const displayName=data?.name || user.displayName || "My Account";
+    if(label) { label.innerHTML=`<span class="signin-icon" aria-hidden="true">&#128100;</span><span class="signin-text">Account</span>`; label.title=displayName; label.setAttribute("aria-label","My Account"); }
     const pn=document.getElementById("profileName"); if(pn) pn.textContent=displayName;
     const pe=document.getElementById("profileEmail"); if(pe) pe.textContent=user.email||"";
     const pan=document.getElementById("profileAccountName"); if(pan) pan.textContent=displayName;
     const pae=document.getElementById("profileAccountEmail"); if(pae) pae.textContent=user.email||"";
-    fillProfileForm(data);
+    await fillProfileForm(data);
     if(window.pendingCheckout){ window.pendingCheckout=false; setTimeout(()=>openCheckout(),150); }
   } else {
     currentAdminUser=null; window.currentAdminUser=null;
@@ -2575,23 +3159,139 @@ async function getUserProfile(uid){
   catch(e){ console.warn("User profile load error",e); return null; }
 }
 
-function fillProfileForm(data){
+async function fillProfileForm(data){
   const name=document.getElementById("profileEditName"); const phone=document.getElementById("profileEditPhone"); const address=document.getElementById("profileEditAddress");
   if(name) name.value=data?.name||currentUser?.displayName||"";
   if(phone) phone.value=data?.phone||"";
-  if(address) address.value=data?.shippingAddress||data?.customerAddress||"";
+  const saved=data?.shippingAddress||data?.customerAddress||"";
+  const a=typeof saved==="object"&&saved?saved:(typeof saved==="string"?parseLegacyBDAddress(saved):null);
+  if(a){
+    await initProfileBDAddressSelectors();
+    setProfileBDAddressValue(a);
+  }else if(address){address.value=typeof saved==="string"?saved:"";profileBDAddressChanged();}
 }
 
+const BD_LOCATION_URL="https://iqbalhasandev.github.io/bangladesh-geo-json/bangladesh-geo.json";
+let bdLocationTree=[];
+let bdLocationPromise=null;
+async function initBDAddressSelectors(){
+  const div=document.getElementById("bdDivision"); if(!div)return;
+  if(!bdLocationPromise){
+    bdLocationPromise=fetch(BD_LOCATION_URL,{cache:"force-cache"}).then(r=>{if(!r.ok)throw new Error("Location data unavailable");return r.json();}).then(data=>{bdLocationTree=Array.isArray(data)?data:[];return bdLocationTree;}).catch(err=>{console.warn("Bangladesh location data load failed",err);bdLocationTree=[];return [];});
+  }
+  const data=await bdLocationPromise;
+  if(!data.length){toast("বাংলাদেশের ঠিকানা ডাটা লোড হয়নি");return;}
+  const current=div.value;
+  div.innerHTML='<option value="">বিভাগ নির্বাচন করুন</option>'+data.map((x,i)=>`<option value="${i}">${escapeHtml(x.bn_name||x.name)}</option>`).join("");
+  if(current)div.value=current;
+  if(div.dataset.ready!=="1"){div.dataset.ready="1";bdDivisionChanged();}
+}
+function resetBDSelect(id,placeholder){const el=document.getElementById(id);if(!el)return;el.innerHTML=`<option value="">${placeholder}</option>`;el.value="";el.disabled=true;}
+window.bdDivisionChanged=function(){
+  const div=document.getElementById("bdDivision"),dist=document.getElementById("bdDistrict"),upa=document.getElementById("bdUpazila");
+  const d=bdLocationTree[Number(div?.value)]; resetBDSelect("bdUpazila","আগে জেলা নির্বাচন করুন");
+  if(dist){dist.innerHTML='<option value="">জেলা নির্বাচন করুন</option>';dist.disabled=!d; (d?.districts||[]).forEach((x,i)=>dist.insertAdjacentHTML("beforeend",`<option value="${i}">${escapeHtml(x.bn_name||x.name)}</option>`));}
+  bdAddressChanged();
+};
+window.bdDistrictChanged=function(){
+  const di=document.getElementById("bdDivision"),ds=document.getElementById("bdDistrict"),up=document.getElementById("bdUpazila");
+  const d=bdLocationTree[Number(di?.value)], district=d?.districts?.[Number(ds?.value)];
+  if(up){up.innerHTML='<option value="">থানা / উপজেলা নির্বাচন করুন</option>';up.disabled=!district;(district?.upazilas||[]).forEach((x,i)=>up.insertAdjacentHTML("beforeend",`<option value="${i}">${escapeHtml(x.bn_name||x.name)}</option>`));}
+  bdAddressChanged();
+};
+window.bdAddressChanged=function(){
+  const a=window.getBDAddressData?window.getBDAddressData():null; const preview=document.getElementById("bdAddressPreview"), hidden=document.getElementById("customerAddress");
+  if(hidden)hidden.value=a?.text||"";
+  if(preview)preview.innerHTML=a?.text?`<strong>সম্পূর্ণ ঠিকানা:</strong> ${escapeHtml(a.text)}`:'ঠিকানা নির্বাচন ও লিখুন — এখানে সম্পূর্ণ ঠিকানা দেখা যাবে।';
+  if(typeof window.refreshCheckoutSummary==="function")window.refreshCheckoutSummary();
+};
+window.getBDAddressData=function(){
+  const di=document.getElementById("bdDivision"),ds=document.getElementById("bdDistrict"),up=document.getElementById("bdUpazila"),v=document.getElementById("bdVillage"),r=document.getElementById("bdRoad");
+  const d=bdLocationTree[Number(di?.value)], district=d?.districts?.[Number(ds?.value)], u=district?.upazilas?.[Number(up?.value)];
+  const division=d?.bn_name||d?.name||"", districtName=district?.bn_name||district?.name||"", upazila=u?.bn_name||u?.name||"", village=v?.value.trim()||"", road=r?.value.trim()||"";
+  const text=[road,village,upazila,districtName,division].filter(Boolean).join(", ");
+  return {division,district:districtName,upazila,village,road,text};
+};
+function setBDAddressValue(a){
+  if(!a)return; const div=document.getElementById("bdDivision"),ds=document.getElementById("bdDistrict"),up=document.getElementById("bdUpazila");
+  const di=bdLocationTree.findIndex(x=>(x.bn_name||x.name)===a.division); if(di>=0){div.value=String(di);bdDivisionChanged();}
+  const d=bdLocationTree[di], dj=d?.districts?.findIndex(x=>(x.bn_name||x.name)===a.district); if(dj>=0){ds.value=String(dj);bdDistrictChanged();}
+  const district=d?.districts?.[dj], uj=district?.upazilas?.findIndex(x=>(x.bn_name||x.name)===a.upazila); if(uj>=0){up.value=String(uj);}
+  const v=document.getElementById("bdVillage"),r=document.getElementById("bdRoad");if(v)v.value=a.village||"";if(r)r.value=a.road||a.address||"";bdAddressChanged();
+}
+function parseLegacyBDAddress(text){
+  const parts=String(text||"").split(",").map(x=>x.trim()).filter(Boolean);
+  if(parts.length<5)return null;
+  const division=parts[0],district=parts[1],upazila=parts[2],village=parts[3],road=parts.slice(4).join(", ");
+  return {division,district,upazila,village,road,text:[road,village,upazila,district,division].filter(Boolean).join(", ")};
+}
+
+async function initProfileBDAddressSelectors(){
+  const div=document.getElementById("profileBDDivision"); if(!div)return;
+  if(!bdLocationPromise){
+    bdLocationPromise=fetch(BD_LOCATION_URL,{cache:"force-cache"}).then(r=>{if(!r.ok)throw new Error("Location data unavailable");return r.json();}).then(data=>{bdLocationTree=Array.isArray(data)?data:[];return bdLocationTree;}).catch(err=>{console.warn("Bangladesh location data load failed",err);bdLocationTree=[];return [];});
+  }
+  const data=bdLocationTree.length?bdLocationTree:await bdLocationPromise;
+  if(!data||!data.length){toast("বাংলাদেশের ঠিকানা ডাটা লোড হয়নি");return;}
+  const current=div.value;
+  div.innerHTML='<option value="">বিভাগ নির্বাচন করুন</option>'+data.map((x,i)=>`<option value="${i}">${escapeHtml(x.bn_name||x.name)}</option>`).join("");
+  if(current)div.value=current;
+}
+function resetProfileBDSelect(id,placeholder){const el=document.getElementById(id);if(!el)return;el.innerHTML=`<option value="">${placeholder}</option>`;el.value="";el.disabled=true;}
+window.profileBDDivisionChanged=function(){
+  const div=document.getElementById("profileBDDivision"),dist=document.getElementById("profileBDDistrict"),up=document.getElementById("profileBDUpazila");
+  const d=bdLocationTree[Number(div?.value)]; resetProfileBDSelect("profileBDUpazila","আগে জেলা নির্বাচন করুন");
+  if(dist){dist.innerHTML='<option value="">জেলা নির্বাচন করুন</option>';dist.disabled=!d;(d?.districts||[]).forEach((x,i)=>dist.insertAdjacentHTML("beforeend",`<option value="${i}">${escapeHtml(x.bn_name||x.name)}</option>`));}
+  profileBDAddressChanged();
+};
+window.profileBDDistrictChanged=function(){
+  const di=document.getElementById("profileBDDivision"),ds=document.getElementById("profileBDDistrict"),up=document.getElementById("profileBDUpazila");
+  const d=bdLocationTree[Number(di?.value)],district=d?.districts?.[Number(ds?.value)];
+  if(up){up.innerHTML='<option value="">থানা / উপজেলা নির্বাচন করুন</option>';up.disabled=!district;(district?.upazilas||[]).forEach((x,i)=>up.insertAdjacentHTML("beforeend",`<option value="${i}">${escapeHtml(x.bn_name||x.name)}</option>`));}
+  profileBDAddressChanged();
+};
+window.profileBDAddressChanged=function(){
+  const di=document.getElementById("profileBDDivision"),ds=document.getElementById("profileBDDistrict"),up=document.getElementById("profileBDUpazila"),v=document.getElementById("profileBDVillage"),r=document.getElementById("profileBDRoad");
+  const d=bdLocationTree[Number(di?.value)],district=d?.districts?.[Number(ds?.value)],u=district?.upazilas?.[Number(up?.value)];
+  const division=d?.bn_name||d?.name||"",districtName=district?.bn_name||district?.name||"",upazila=u?.bn_name||u?.name||"",village=v?.value.trim()||"",road=r?.value.trim()||"";
+  const text=[road,village,upazila,districtName,division].filter(Boolean).join(", ");
+  const hidden=document.getElementById("profileEditAddress"),preview=document.getElementById("profileBDAddressPreview");
+  if(hidden)hidden.value=text;
+  if(preview)preview.innerHTML=text?`<strong>সম্পূর্ণ ঠিকানা:</strong> ${escapeHtml(text)}`:'সম্পূর্ণ ঠিকানা এখানে দেখা যাবে।';
+};
+async function setProfileBDAddressValue(a){
+  if(!a)return; await initProfileBDAddressSelectors();
+  const div=document.getElementById("profileBDDivision"),ds=document.getElementById("profileBDDistrict"),up=document.getElementById("profileBDUpazila");
+  const di=bdLocationTree.findIndex(x=>(x.bn_name||x.name)===a.division);
+  if(di>=0&&div){div.value=String(di);profileBDDivisionChanged();}
+  const d=bdLocationTree[di],dj=d?.districts?.findIndex(x=>(x.bn_name||x.name)===a.district);
+  if(dj>=0&&ds){ds.value=String(dj);profileBDDistrictChanged();}
+  const district=d?.districts?.[dj],uj=district?.upazilas?.findIndex(x=>(x.bn_name||x.name)===a.upazila);
+  if(uj>=0&&up)up.value=String(uj);
+  const v=document.getElementById("profileBDVillage"),r=document.getElementById("profileBDRoad");if(v)v.value=a.village||"";if(r)r.value=a.road||a.address||"";profileBDAddressChanged();
+}
 async function loadShippingProfile(){
   if(!currentUser) return;
   const data=await getUserProfile(currentUser.uid);
-  const name=data?.name||currentUser.displayName||""; const phone=data?.phone||""; const address=data?.shippingAddress||data?.customerAddress||"";
+  const name=data?.name||currentUser.displayName||""; const phone=data?.phone||"";
+  const saved=data?.shippingAddress||data?.customerAddress||"";
   document.getElementById("customerName").value=name;
   document.getElementById("customerPhone").value=phone;
-  document.getElementById("customerAddress").value=address;
+  const a=typeof saved==="object"&&saved?saved:null;
+  if(a){
+    await initBDAddressSelectors();
+    setBDAddressValue(a);
+  }else if(typeof saved==="string"&&saved){
+    const parsed=parseLegacyBDAddress(saved);
+    if(parsed) { await initBDAddressSelectors(); setBDAddressValue(parsed); }
+    else { const ca=document.getElementById("customerAddress"); if(ca) ca.value=saved; }
+  }
   const label=document.getElementById("savedAddressLabel");
-  if(label) label.textContent=address?"(loaded from your account)":"(not saved yet)";
+  const has=a?.text||saved;
+  if(label) label.textContent=has?"(loaded from your account)":"(select your location)";
+  bdAddressChanged();
 }
+
 
 window.saveProfile=async function(e){
   e.preventDefault(); if(!currentUser) return;
@@ -2599,8 +3299,18 @@ window.saveProfile=async function(e){
   const name=document.getElementById("profileEditName").value.trim();
   const phone=document.getElementById("profileEditPhone").value.trim();
   const shippingAddress=document.getElementById("profileEditAddress").value.trim();
+  const division=document.getElementById("profileBDDivision")?.value;
+  const district=document.getElementById("profileBDDistrict")?.value;
+  const upazila=document.getElementById("profileBDUpazila")?.value;
+  const village=document.getElementById("profileBDVillage")?.value.trim();
+  const road=document.getElementById("profileBDRoad")?.value.trim();
+  if(!division||!district||!upazila||!village||!road){if(err){err.textContent="Please complete the shipping address.";err.classList.add("show");}else toast("Please complete the shipping address");return;}
+  const divisionName=bdLocationTree[Number(division)]?.bn_name||bdLocationTree[Number(division)]?.name||"";
+  const districtObj=bdLocationTree[Number(division)]?.districts?.[Number(district)];
+  const upObj=districtObj?.upazilas?.[Number(upazila)];
+  const addressData={division:divisionName,district:districtObj?.bn_name||districtObj?.name||"",upazila:upObj?.bn_name||upObj?.name||"",village,road,text:shippingAddress};
   try{
-    await setDoc(doc(db,"users",currentUser.uid),{name,email:currentUser.email,phone,shippingAddress,updatedAt:new Date().toISOString()},{merge:true});
+    await setDoc(doc(db,"users",currentUser.uid),{name,email:currentUser.email,phone,shippingAddress:addressData,shippingAddressText:shippingAddress,customerAddress:shippingAddress,updatedAt:new Date().toISOString()},{merge:true});
     await updateProfile(currentUser,{displayName:name});
     const pn=document.getElementById("profileName"); if(pn) pn.textContent=name;
     const pan=document.getElementById("profileAccountName"); if(pan) pan.textContent=name;
@@ -2681,9 +3391,11 @@ window.contactWhatsAppForOrder = function() {
   const name = document.getElementById("customerName")?.value.trim() || "";
   const phone = document.getElementById("customerPhone")?.value.trim() || "";
   const address = document.getElementById("customerAddress")?.value.trim() || "";
-  const total = cart.reduce((acc,item)=>acc + (Number(item.price)||0) * (item.qty||1),0);
+  const delivery=getCheckoutDelivery();
+  const subtotal = cart.reduce((acc,item)=>acc + (Number(item.price)||0) * (Number(item.qty)||1),0);
+  const total=subtotal+delivery.charge;
   const items = cart.map(item => `${item.name || "Product"} x${item.qty||1}`).join(", ");
-  const text = `Hello BazarBD, I want to contact you about my order.\n\nCustomer: ${name}\nPhone: ${phone}\nAddress: ${address}\nItems: ${items}\nTotal: ${money(total)}`;
+  const text = `Hello BazarBD, I want to contact you about my order.\n\nCustomer: ${name}\nPhone: ${phone}\nShipping Address: ${address}\nDelivery: ${delivery.name} (${money(delivery.charge)})\nEstimated Delivery: ${getEstimatedDeliveryDate()} (within 5 days)\nItems: ${items}\nSubtotal: ${money(subtotal)}\nDelivery Charge: ${money(delivery.charge)}\nGrand Total: ${money(total)}`;
   window.open("https://wa.me/60165251783?text=" + encodeURIComponent(text), "_blank", "noopener,noreferrer");
 };
 
@@ -2757,7 +3469,19 @@ window.showProfileTab = function(tab, btn) {
 async function loadShippingProfileIntoProfile(){
   if(!currentUser) return;
   const data=await getUserProfile(currentUser.uid);
-  fillProfileForm(data);
+  await fillProfileForm(data);
+}
+
+function formatShippingAddress(shipping, fallbackText=""){
+  // Supports both the new structured address object and older string addresses.
+  if(typeof shipping === "string") return shipping.trim() || String(fallbackText||"").trim();
+  if(shipping && typeof shipping === "object"){
+    const parts=[shipping.road,shipping.village,shipping.upazila,shipping.thana,shipping.district,shipping.division]
+      .map(v=>String(v||"").trim()).filter(Boolean);
+    if(parts.length) return [...new Set(parts)].join(", ");
+    if(shipping.text) return String(shipping.text).trim();
+  }
+  return String(fallbackText||"").trim();
 }
 
 async function loadUserOrders() {
@@ -2770,11 +3494,27 @@ async function loadUserOrders() {
     const orders=[];snap.forEach(d=>orders.push({id:d.id,...d.data()})); orders.sort((a,b)=>String(b.createdAt||"").localeCompare(String(a.createdAt||""))); window.userOrdersCache=orders;
     container.innerHTML=`<div class="pro-orders-wrap"><div class="pro-orders-header"><div class="pro-orders-heading"><h3>My Orders</h3><p>Tap an order to view full details</p></div><span class="pro-orders-count">${orders.length} Order${orders.length===1?"":"s"}</span></div><div>${orders.map(o=>{
       const items=Array.isArray(o.items)?o.items:[],count=items.reduce((n,i)=>n+Number(i.qty||1),0),status=o.status||"Confirmed",date=o.createdAt?new Date(o.createdAt).toLocaleDateString(undefined,{day:"2-digit",month:"short",year:"numeric"}):"—",safe=escapeJsArg(o.id),preview=items.slice(0,2).map(i=>`${escapeHtml(i.name||"Product")} × ${i.qty||1}`).join(" • ")+(items.length>2?` • +${items.length-2} more`:"");
-      const shipping=o.shippingAddress||o.address||o.customerAddress||{},address=typeof shipping==="string"?shipping:[shipping.name,shipping.phone,shipping.address,shipping.city,shipping.postcode].filter(Boolean).join(", ");
+      const shipping=o.shippingAddress||o.address||o.customerAddress||{},address=formatShippingAddress(shipping,o.customerAddress);
       return `<article class="pro-order-card" id="proOrderCard_${safe}"><div class="pro-order-main" onclick="window.openMyOrderDetail('${safe}')"><div class="pro-order-icon">📦</div><div class="pro-order-content"><div class="pro-order-top"><span class="pro-order-id">${escapeHtml(o.orderId||o.id)}</span><span class="pro-order-status">${escapeHtml(status)}</span></div><div class="pro-order-meta"><span>📅 ${escapeHtml(date)}</span><span>📦 ${count} item${count===1?"":"s"}</span></div><div class="pro-order-preview">${preview||"Product details"}</div></div><div class="pro-order-total"><small>Total</small><b>${money(o.total||0)}</b></div><div class="pro-order-chevron">›</div></div><div class="pro-order-details"><div class="pro-detail-grid"><div class="pro-detail-box"><label>ORDER DATE</label><b>${escapeHtml(date)}</b></div><div class="pro-detail-box"><label>PAYMENT</label><b>${escapeHtml(o.paymentMethod||o.payment||"—")}</b></div><div class="pro-detail-box"><label>CUSTOMER</label><b>${escapeHtml(o.customerName||o.name||currentUser?.displayName||"Customer")}</b></div><div class="pro-detail-box"><label>PHONE</label><b>${escapeHtml(o.phone||o.customerPhone||shipping.phone||"—")}</b></div><div class="pro-detail-box full" style="grid-column:1/-1"><label>DELIVERY ADDRESS</label><b>${escapeHtml(address||"—")}</b></div></div><div class="pro-items">${items.length?items.map(i=>{const qty=Number(i.qty||1),unit=Number(i.price||i.unitPrice||0),image=i.image?`<img src="${escapeHtml(i.image)}" alt="">`:`<span style="font-size:22px">${escapeHtml(i.icon||"📦")}</span>`;return `<div class="pro-item"><div class="pro-item-img">${image}</div><div class="pro-item-main"><div class="pro-item-name">${escapeHtml(i.name||"Product")}</div><div class="pro-item-sub">${i.brand?escapeHtml(i.brand)+" • ":""}Qty ${qty} • Unit ${money(unit)}</div></div><div class="pro-item-price">${money(unit*qty)}</div></div>`}).join(""):'<div style="padding:10px;font-size:9px;color:#888">No product details available.</div>'}</div><div class="pro-detail-bottom"><div class="pro-total"><span>ORDER TOTAL</span><strong>${money(o.total||0)}</strong></div><div class="pro-actions">${o.trackingLink?`<a class="pro-track" href="${escapeHtml(o.trackingLink)}" target="_blank" rel="noopener noreferrer">🔗 Track</a>`:""}<button class="pro-view-jpg" type="button" onclick="event.stopPropagation();window.downloadOrderJPGForOrder('${safe}')">📷 Download JPG</button></div></div></div></article>`;
     }).join("")}</div></div>`;
   }catch(e){console.error(e);container.innerHTML='<div class="pro-empty">Could not load orders: '+escapeHtml(e.message)+'</div>';}
 }
+window.cancelMyOrder = async function(orderId){
+  if(!currentUser){toast("Please login first");return;}
+  const list=Array.isArray(window.userOrdersCache)?window.userOrdersCache:[];
+  const o=list.find(x=>String(x.id)===String(orderId)||String(x.orderId)===String(orderId));
+  if(!o){toast("Order not found");return;}
+  const status=String(o.status||"Pending").trim().toLowerCase();
+  if(status!=="pending"){toast("This order can no longer be cancelled");return;}
+  if(String(o.userId)!==String(currentUser.uid)){toast("You can only cancel your own order");return;}
+  if(!confirm("Cancel this order?\n\nYou can cancel only before admin confirmation.")) return;
+  try{
+    await updateDoc(doc(db,"orders",o.id),{status:"Cancelled",cancelledBy:"customer",cancelledAt:new Date().toISOString(),updatedAt:new Date().toISOString()});
+    toast("Order cancelled successfully");
+    await loadUserOrders();
+    const modal=document.getElementById("myOrderDetailModal");if(modal)modal.classList.remove("open");
+  }catch(e){console.error("Customer order cancellation error:",e);toast("Could not cancel order");}
+};
 window.openMyOrderDetail = function(orderId){
   const list=Array.isArray(window.userOrdersCache)?window.userOrdersCache:[];
   const o=list.find(x=>String(x.id)===String(orderId)||String(x.orderId)===String(orderId));
@@ -2783,10 +3523,10 @@ window.openMyOrderDetail = function(orderId){
   if(!modal||!body){toast("Order details unavailable");return;}
   const items=Array.isArray(o.items)?o.items:[];
   const shipping=o.shippingAddress||o.address||o.customerAddress||{};
-  const address=typeof shipping==='string'?shipping:[shipping.name,shipping.phone,shipping.address,shipping.city,shipping.postcode].filter(Boolean).join(', ');
+  const address=formatShippingAddress(shipping,o.customerAddress);
   const date=o.createdAt?new Date(o.createdAt).toLocaleString(undefined,{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}):'—';
   const safe=escapeJsArg(o.id);
-  body.innerHTML=`<div class="myorder-detail-top"><div><h3>Order Details</h3><small>${escapeHtml(o.orderId||o.id)}</small></div><div class="myorder-status-pill">${escapeHtml(o.status||'Confirmed')}</div></div><div class="myorder-detail-scroll"><div class="myorder-info-grid"><div class="myorder-info-box"><label>ORDER DATE</label><b>${escapeHtml(date)}</b></div><div class="myorder-info-box"><label>PAYMENT</label><b>${escapeHtml(o.paymentMethod||o.payment||'—')}</b></div><div class="myorder-info-box"><label>CUSTOMER</label><b>${escapeHtml(o.customerName||o.name||currentUser?.displayName||'Customer')}</b></div><div class="myorder-info-box"><label>PHONE</label><b>${escapeHtml(o.phone||o.customerPhone||shipping.phone||'—')}</b></div><div class="myorder-info-box" style="grid-column:1/-1"><label>DELIVERY ADDRESS</label><b>${escapeHtml(address||'—')}</b></div></div><div class="myorder-detail-items">${items.length?items.map(i=>{const qty=Number(i.qty||1),unit=Number(i.price||i.unitPrice||0);const img=i.image?`<img src="${escapeHtml(i.image)}" alt="">`:`<span style="font-size:25px">${escapeHtml(i.icon||'📦')}</span>`;return `<div class="myorder-detail-item"><div class="myorder-detail-item-img">${img}</div><div class="myorder-detail-item-main"><div class="myorder-detail-item-name">${escapeHtml(i.name||'Product')}</div><div class="myorder-detail-item-meta">${i.brand?escapeHtml(i.brand)+' • ':''}Qty: ${qty} • Unit: ${money(unit)}</div></div><div class="myorder-detail-item-price">${money(unit*qty)}</div></div>`}).join(''):'<div style="padding:12px;font-size:10px;color:#777">No product details available.</div>'}</div><div class="myorder-total-box"><span>ORDER TOTAL</span><b>${money(o.total||0)}</b></div><div class="myorder-detail-actions">${o.trackingLink?`<a class="myorder-close" href="${escapeHtml(o.trackingLink)}" target="_blank" rel="noopener noreferrer">🔗 Track Order</a>`:''}<button class="myorder-download" type="button" onclick="window.downloadOrderJPGForOrder('${safe}')">📷 Download JPG</button><button class="myorder-close" type="button" onclick="closeMyOrderDetail()">Close</button></div></div>`;
+  body.innerHTML=`<div class="myorder-detail-top"><div><h3>Order Details</h3><small>${escapeHtml(o.orderId||o.id)}</small></div><div class="myorder-status-pill">${escapeHtml(o.status||'Confirmed')}</div></div><div class="myorder-detail-scroll"><div class="myorder-info-grid"><div class="myorder-info-box"><label>ORDER DATE</label><b>${escapeHtml(date)}</b></div><div class="myorder-info-box"><label>PAYMENT</label><b>${escapeHtml(o.paymentMethod||o.payment||'—')}</b></div><div class="myorder-info-box"><label>CUSTOMER</label><b>${escapeHtml(o.customerName||o.name||currentUser?.displayName||'Customer')}</b></div><div class="myorder-info-box"><label>PHONE</label><b>${escapeHtml(o.phone||o.customerPhone||shipping.phone||'—')}</b></div><div class="myorder-info-box" style="grid-column:1/-1"><label>DELIVERY ADDRESS</label><b>${escapeHtml(address||'—')}</b></div></div><div class="myorder-detail-items">${items.length?items.map(i=>{const qty=Number(i.qty||1),unit=Number(i.price||i.unitPrice||0);const img=i.image?`<img src="${escapeHtml(i.image)}" alt="">`:`<span style="font-size:25px">${escapeHtml(i.icon||'📦')}</span>`;return `<div class="myorder-detail-item"><div class="myorder-detail-item-img">${img}</div><div class="myorder-detail-item-main"><div class="myorder-detail-item-name">${escapeHtml(i.name||'Product')}</div><div class="myorder-detail-item-meta">${i.brand?escapeHtml(i.brand)+' • ':''}Qty: ${qty} • Unit: ${money(unit)}</div></div><div class="myorder-detail-item-price">${money(unit*qty)}</div></div>`}).join(''):'<div style="padding:12px;font-size:10px;color:#777">No product details available.</div>'}</div><div class="myorder-total-box"><span>ORDER TOTAL</span><b>${money(o.total||0)}</b></div><div class="myorder-detail-actions">${String(o.status||"Pending").toLowerCase()==="pending"?`<button class="myorder-cancel" type="button" onclick="event.stopPropagation();window.cancelMyOrder('${safe}')">✕ Cancel Order</button>`:""}${o.trackingLink?`<a class="myorder-close" href="${escapeHtml(o.trackingLink)}" target="_blank" rel="noopener noreferrer">🔗 Track Order</a>`:''}<button class="myorder-download" type="button" onclick="window.downloadOrderJPGForOrder('${safe}')">📷 Download JPG</button><button class="myorder-close" type="button" onclick="closeMyOrderDetail()">Close</button></div></div>`;
   modal.classList.add('open');
 }
 window.closeMyOrderDetail = function(){const modal=document.getElementById('myOrderDetailModal');if(modal)modal.classList.remove('open');}
